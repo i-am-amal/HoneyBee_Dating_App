@@ -8,28 +8,40 @@ class CustomText extends StatelessWidget {
   final FontStyle? fontstyle;
   final Color? textColor;
   final TextDecoration? textDecoration;
+  final double? width;
+  final double? height;
+  final double? letterspacing;
 
-  const CustomText(
-      {super.key,
-      this.text,
-      this.fontWeight,
-      this.fontsize,
-      this.fontFamily,
-      this.textColor,
-      this.fontstyle,
-      this.textDecoration});
+  const CustomText({
+    super.key,
+    this.text,
+    this.height,
+    this.width,
+    this.fontWeight,
+    this.fontsize,
+    this.fontFamily,
+    this.textColor,
+    this.fontstyle,
+    this.textDecoration,
+    this.letterspacing,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text ?? '',
-      style: TextStyle(
-        fontWeight: fontWeight,
-        fontSize: fontsize,
-        fontFamily: fontFamily,
-        fontStyle: fontstyle,
-        color: textColor,
-        decoration: textDecoration,
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Text(
+        text ?? '',
+        style: TextStyle(
+          letterSpacing: letterspacing,
+          fontWeight: fontWeight,
+          fontSize: fontsize,
+          fontFamily: fontFamily,
+          fontStyle: fontstyle,
+          color: textColor,
+          decoration: textDecoration,
+        ),
       ),
     );
   }

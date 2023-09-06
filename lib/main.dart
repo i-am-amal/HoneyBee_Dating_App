@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/core/config.dart';
+import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/phone_authentication_page.dart';
+import 'package:honeybee/presentation/screens/sign_in/sign_in_homepage/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/onboarding_widgets/image_widget.dart';
 
 void main() {
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const PhoneAuthenticationPage(),
     );
   }
 }
@@ -44,34 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ]),
       body: const Center(
-        // child: CustomText(
-        //   text: 'testing the widget',
-        //   fontWeight: FontWeight.w600,
-        //   fontsize: 20,
-        //   textColor: Colors.red,
-        // ),
-        child:
-            // MainCustomButton(customtext: "Testing", txtcolor: kWhiteTextColor),
-            //     InterestPageCustomButton(
-            //   customtext: "interest",
-            //   icon: Icons.home_filled,
-            //   txtcolor: kWhiteTextColor,
-            //   iconcolor: kwhiteIconColor,
-            // ),
-
-            //         ProfileCustomButton(
-            //   customtext: "custom text",
-            //   icon: Icons.done,
-            //   txtcolor: kWhiteTextColor,
-            // ),
-
-            //     ProfileCustomDropDownButton(
-            //   customtext: "dropdown",
-            //   icon: Icons.arrow_forward_ios,
-            //   txtcolor: kWhiteTextColor,
-            // ),
-
-            ImageWidget(imagepath: Config.dummyImageUrl),
+        child: ImageWidget(imagepath: Config.dummyImageUrl),
       ),
     );
   }
