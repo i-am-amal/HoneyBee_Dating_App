@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/core/config.dart';
+import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/otp_authentication_page.dart';
 import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/phone_authentication_page.dart';
-import 'package:honeybee/presentation/screens/sign_in/sign_in_homepage/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/onboarding_widgets/image_widget.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PhoneAuthenticationPage(),
+      home: const OtpAuthenticationPage(),
     );
   }
 }

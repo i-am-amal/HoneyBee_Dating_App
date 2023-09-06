@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:honeybee/presentation/screens/sign_in/sign_in_homepage/privacy_policy_widget.dart';
-import 'package:honeybee/presentation/screens/sign_in/sign_in_homepage/sign_up_drawer_widget.dart';
-import 'package:honeybee/presentation/screens/sign_in/sign_in_homepage/sign_up_widget.dart';
+import 'package:honeybee/presentation/screens/sign_in/sign_in_page/privacy_policy_widget.dart';
+import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_up_drawer_widget.dart';
+import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_up_widget.dart';
 import 'package:honeybee/presentation/widgets/logo_widget/logo_widget.dart';
 import 'google_sign_in_widget.dart';
 
