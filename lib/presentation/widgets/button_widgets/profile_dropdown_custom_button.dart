@@ -46,13 +46,9 @@ class ProfileCustomDropDownButton extends StatelessWidget {
       height: 70,
       child: DropdownButtonFormField<String>(
         decoration: InputDecoration(
-          // Use InputDecoration for styling
           labelText: 'Select an option',
-          // Customize label text
           labelStyle: const TextStyle(color: Colors.red),
-          // Customize label text color
           border: OutlineInputBorder(
-            // Customize border
             borderRadius: BorderRadius.circular(15.0),
           ),
           contentPadding: const EdgeInsets.symmetric(
@@ -67,31 +63,5 @@ class ProfileCustomDropDownButton extends StatelessWidget {
         items: items,
       ),
     );
-
-
-    //  List<DropdownMenuEntry<String>>?  items = [
-    //     const DropdownMenuEntry<String>(
-    //       value: 'Option 1',
-    //       label: 'item 1',
-    //     ),
-    //     const DropdownMenuEntry<String>(
-    //       value: 'Option 2',
-    //       label: 'item 2',
-    //     ),
-    //     const DropdownMenuEntry<String>(
-    //       value: 'Option 3',
-    //       label: 'item 3',
-    //     ),
-    //   ];
-    // return DropdownMenu<String>(
-
-    //  onSelected: (String? value) {
-    //     // This is called when the user selects an item.
-    //     print(value);
-    //   },
-    //   dropdownMenuEntries: items,
-    // );
-
-    
   }
 }

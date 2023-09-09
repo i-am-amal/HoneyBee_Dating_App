@@ -1,5 +1,4 @@
  import 'package:flutter/material.dart';
-
 import '../../../widgets/fonts/fonts.dart';
 import '../../../widgets/text_widgets/custom_text.dart';
 

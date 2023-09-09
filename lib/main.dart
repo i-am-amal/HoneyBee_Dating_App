@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/core/config.dart';
-import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/otp_authentication_page.dart';
-import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/phone_authentication_page.dart';
+import 'package:honeybee/presentation/screens/profile/profile_page.dart';
 import 'package:honeybee/presentation/widgets/onboarding_widgets/image_widget.dart';
 
 void main() {
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const OtpAuthenticationPage(),
+      home: const ProfilePage(),
     );
   }
 }
@@ -37,8 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("testing"),
-          backgroundColor: Colors.deepPurple,
+          title: const Text("Widget Testing"),
+          backgroundColor: const Color.fromARGB(255, 136, 95, 207),
           actions: [
             IconButton(
               onPressed: () {},
@@ -46,7 +45,12 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ]),
       body: const Center(
+
+        //space for thesting new widgets
+
         child: ImageWidget(imagepath: Config.dummyImageUrl),
+
+        ////
       ),
     );
   }

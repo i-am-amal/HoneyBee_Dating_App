@@ -14,7 +14,6 @@ GestureDetector googleSignInWidget(double height, double width) {
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: CustomColors.kRedButtonColor,
-            // Set the border color
             width: 2.0, // Set the border width
           ),
         ),

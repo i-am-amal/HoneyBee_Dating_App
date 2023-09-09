@@ -18,7 +18,6 @@ class OtpAuthenticationPage extends StatelessWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
               height: height * 0.15,

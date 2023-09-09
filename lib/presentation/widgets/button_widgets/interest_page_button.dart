@@ -12,6 +12,8 @@ class InterestPageCustomButton extends StatelessWidget {
     this.fontFamily,
     this.txtcolor,
     this.iconcolor,
+    this.horizontalPadding,
+    this.verticalPadding,
     required this.customtext,
     required this.icon,
   });
@@ -25,12 +27,15 @@ class InterestPageCustomButton extends StatelessWidget {
   final Color? txtcolor;
   final IconData? icon;
   final Color? iconcolor;
+  final double? horizontalPadding;
+  final double? verticalPadding;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(CustomColors.kRedButtonColor),
+        backgroundColor:
+            MaterialStateProperty.all<Color>(CustomColors.kRedButtonColor),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
@@ -38,7 +43,9 @@ class InterestPageCustomButton extends StatelessWidget {
         ),
         elevation: MaterialStateProperty.all<double>(5.0),
         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-          const EdgeInsets.symmetric(horizontal: 35.0, vertical: 8.0),
+          EdgeInsets.symmetric(
+              horizontal: horizontalPadding ?? 35,
+              vertical: verticalPadding ?? 8),
         ),
       ),
       onPressed: () {
