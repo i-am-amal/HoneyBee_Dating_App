@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/core/config.dart';
-import 'package:honeybee/presentation/screens/profile/profile_page.dart';
+import 'package:honeybee/presentation/screens/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/widgets/onboarding_widgets/image_widget.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const ProfilePage(),
+      home: const BasicInfoLastPage(),
     );
   }
 }
@@ -45,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ]),
       body: const Center(
-
         //space for thesting new widgets
 
         child: ImageWidget(imagepath: Config.dummyImageUrl),

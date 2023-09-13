@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_pin_code_fields: ^2.2.0
+  font_awesome_flutter: ^10.5.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
