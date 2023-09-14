@@ -10,6 +10,7 @@ environment:
 dependencies:
   country_code_picker: ^3.0.0
   cupertino_icons: ^1.0.2
+  curved_navigation_bar: ^1.0.3
   flutter:
     sdk: flutter
   flutter_pin_code_fields: ^2.2.0
