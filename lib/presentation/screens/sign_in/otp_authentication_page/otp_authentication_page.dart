@@ -61,6 +61,7 @@ class OtpAuthenticationPage extends StatelessWidget {
               keyboardType: TextInputType.number,
               onComplete: (value) {
                 otpNumber = int.parse(value);
+                print(otpNumber);
               },
             ),
             SizedBox(

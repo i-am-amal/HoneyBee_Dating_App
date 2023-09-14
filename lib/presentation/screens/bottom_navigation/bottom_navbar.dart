@@ -30,7 +30,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.white,
         color: CustomColors.kRedButtonColor,
-        height: 50,
+        height: 55,
         items: const [
           Icon(
             Icons.style,

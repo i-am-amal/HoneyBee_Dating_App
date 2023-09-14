@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/core/config.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
-import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
-import 'package:honeybee/presentation/screens/create_account/preview_account/preview_account.dart';
-import 'package:honeybee/presentation/screens/create_account/profile_images/profile_images.dart';
-import 'package:honeybee/presentation/screens/discover/swipe_card_widget.dart';
 import 'package:honeybee/presentation/widgets/onboarding_widgets/image_widget.dart';
 
 void main() {
@@ -23,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SwipeCardWidget(),
+      home: const BottomNavbar(),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:honeybee/presentation/widgets/button_widgets/interest_page_button.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';

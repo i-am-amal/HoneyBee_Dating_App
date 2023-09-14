@@ -19,6 +19,7 @@ class PhoneNumberInput extends StatelessWidget {
             CountryCodePicker(
               onChanged: (code) {
                 countryCode = code;
+                print(countryCode);
               },
               initialSelection: 'IN',
               showCountryOnly: false,
@@ -30,7 +31,8 @@ class PhoneNumberInput extends StatelessWidget {
               width: width * 0.65,
               child: TextFormField(
                 onChanged: (value) {
-                    phoneNumber = value;
+                  phoneNumber = value;
+                  print(phoneNumber);
                 },
                 controller: phoneNumberController,
                 keyboardType: TextInputType.phone,
