@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:honeybee/presentation/screens/create_account/preview_account/preview_account.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_preview.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
-class BasicInfoLastPage extends StatefulWidget {
-  const BasicInfoLastPage({super.key});
+class EditInfoLastPage extends StatefulWidget {
+  const EditInfoLastPage({super.key});
 
   @override
-  State<BasicInfoLastPage> createState() => _BasicInfoLastPageState();
+  State<EditInfoLastPage> createState() => _BasicInfoLastPageState();
 }
 
-class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
+class _BasicInfoLastPageState extends State<EditInfoLastPage> {
   String faith = '';
   String relationshipStatus = '';
   String smoking = '';
@@ -213,7 +213,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                        Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>const PreviewAccount()),
+                            builder: (context) =>const EditPreviewAccount()),
                       );
 
 

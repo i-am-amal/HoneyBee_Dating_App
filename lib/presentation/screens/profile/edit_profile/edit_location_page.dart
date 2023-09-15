@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:honeybee/presentation/screens/create_account/profile_images/profile_images.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile_images.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
-class LocationPage extends StatelessWidget {
-  const LocationPage({super.key});
+class EditLocationPage extends StatelessWidget {
+  const EditLocationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class LocationPage extends StatelessWidget {
                Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>const ProfileImages()),
+                            builder: (context) =>const EditProfileImages()),
                       );
 
 

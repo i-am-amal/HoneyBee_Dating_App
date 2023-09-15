@@ -21,36 +21,34 @@ class MatchesPage extends StatelessWidget {
             SizedBox(
               height: height * 0.05,
             ),
-            Flexible(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: width * 0.01,
-                  ),
-                  const CustomText(
-                    text: 'Matches',
-                    fontFamily: CustomFont.headTextFont,
-                    fontsize: 25,
-                    fontWeight: FontWeight.bold,
-                    letterspacing: 1,
-                  ),
-                  SizedBox(
-                    width: width * 0.35,
-                  ),
-                  BorderlineButton(
-                    icon: FontAwesomeIcons.solidHeart,
-                    color: Colors.red,
-                    onpressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>const LikedUsersPage()),
-                      );
-                    },
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: width * 0.01,
+                ),
+                const CustomText(
+                  text: 'Matches',
+                  fontFamily: CustomFont.headTextFont,
+                  fontsize: 25,
+                  fontWeight: FontWeight.bold,
+                  letterspacing: 1,
+                ),
+                SizedBox(
+                  width: width * 0.35,
+                ),
+                BorderlineButton(
+                  icon: FontAwesomeIcons.solidHeart,
+                  color: Colors.red,
+                  onpressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LikedUsersPage()),
+                    );
+                  },
+                ),
+              ],
             ),
             SizedBox(
               height: height * 0.02,
@@ -64,11 +62,8 @@ class MatchesPage extends StatelessWidget {
             SizedBox(
               height: height * 0.05,
             ),
-            Expanded(
-              child: Container(
-                color: Colors.amber,
-                child:const ProfileGrid(),
-              ),
+           const Expanded(
+              child:  ProfileGrid(),
             )
           ],
         ),
@@ -76,5 +71,3 @@ class MatchesPage extends StatelessWidget {
     );
   }
 }
-
-

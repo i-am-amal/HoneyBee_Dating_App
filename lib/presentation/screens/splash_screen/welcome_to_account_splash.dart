@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 
 class WelcomeAccountScreenSplash extends StatefulWidget {
@@ -29,6 +30,14 @@ class _WelcomeScreenCreateAnimationState
 
   @override
   Widget build(BuildContext context) {
+
+Future.delayed(const Duration(seconds: 5), () {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) =>const BasicInfoMainPage()));
+    });
+
+
+
     return Scaffold(
       body: Center(
         child: Column(

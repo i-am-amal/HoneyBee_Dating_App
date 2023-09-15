@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/core/config.dart';
-import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
+import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:honeybee/presentation/widgets/onboarding_widgets/image_widget.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const BottomNavbar(),
+      home: const SplashScreen(),
     );
   }
 }

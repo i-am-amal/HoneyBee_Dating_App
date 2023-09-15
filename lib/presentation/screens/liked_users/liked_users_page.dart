@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
@@ -20,32 +21,30 @@ class LikedUsersPage extends StatelessWidget {
             SizedBox(
               height: height * 0.05,
             ),
-            Flexible(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  BorderlineButton(
-                    icon: Icons.arrow_back_ios_new,
-                    color: Colors.black45,
-                    onpressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  SizedBox(
-                    width: width * 0.01,
-                  ),
-                  const CustomText(
-                    text: 'Liked Users',
-                    fontFamily: CustomFont.headTextFont,
-                    fontsize: 25,
-                    fontWeight: FontWeight.bold,
-                    letterspacing: 1,
-                  ),
-                  SizedBox(
-                    width: width * 0.35,
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                BorderlineButton(
+                  icon: Icons.arrow_back_ios_new,
+                  color: Colors.black45,
+                  onpressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                SizedBox(
+                  width: width * 0.01,
+                ),
+                const CustomText(
+                  text: 'Liked Users',
+                  fontFamily: CustomFont.headTextFont,
+                  fontsize: 25,
+                  fontWeight: FontWeight.bold,
+                  letterspacing: 1,
+                ),
+                SizedBox(
+                  width: width * 0.35,
+                ),
+              ],
             ),
             SizedBox(
               height: height * 0.02,
@@ -61,7 +60,7 @@ class LikedUsersPage extends StatelessWidget {
             Expanded(
               child: Container(
                 color: Colors.amber,
-                child:const LikedProfileGrid(),
+                child: const LikedProfileGrid(),
               ),
             )
           ],

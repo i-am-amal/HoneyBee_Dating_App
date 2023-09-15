@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_info_last_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
-class ProfileImages extends StatelessWidget {
-  const ProfileImages({super.key, this.image});
+class EditProfileImages extends StatelessWidget {
+  const EditProfileImages({super.key, this.image});
   final String? image;
 
   @override
@@ -120,7 +120,7 @@ class ProfileImages extends StatelessWidget {
                  Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>const BasicInfoLastPage()),
+                            builder: (context) =>const EditInfoLastPage()),
                       );
 
 

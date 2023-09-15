@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:honeybee/presentation/widgets/constants/colors.dart';
 
-class CutomTextFormFiled extends StatelessWidget {
-  const CutomTextFormFiled({
+class CustomTextFormFiled extends StatelessWidget {
+  const CustomTextFormFiled({
     this.text,
     this.initialValue,
     this.keyboardType,
@@ -35,10 +34,11 @@ class CutomTextFormFiled extends StatelessWidget {
         decoration: InputDecoration(
           prefixIcon: Icon(icon),
           labelText: text,
+          contentPadding: EdgeInsets.symmetric(vertical: 8.0),
           enabledBorder: OutlineInputBorder(
             borderSide:
-                const BorderSide(width: 1, color: CustomColors.kRedButtonColor),
-            borderRadius: BorderRadius.circular(10.0),
+                BorderSide(width: 1.5, color: Colors.red.withOpacity(0.5)),
+            borderRadius: BorderRadius.circular(15.0),
           ),
         ),
         onTap: () {

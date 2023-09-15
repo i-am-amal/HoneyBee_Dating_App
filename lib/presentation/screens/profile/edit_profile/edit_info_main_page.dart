@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:honeybee/presentation/screens/create_account/location/location_page.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_location_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/date_picker/date_picker.dart';
@@ -7,8 +7,8 @@ import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import '../../../widgets/textform_widgets/custom_textformfield.dart';
 
-class BasicInfoMainPage extends StatelessWidget {
-  const BasicInfoMainPage({super.key});
+class EditInfoMainPage extends StatelessWidget {
+  const EditInfoMainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class BasicInfoMainPage extends StatelessWidget {
                   child: SizedBox(
                     width: width * 0.33,
                     height: height * 0.25,
-                    child: Image.asset('assets/images/default profile.jpg'),
+                    child: Image.asset('assets/images/profile.jpg'),
                   ),
                 ),
                 Positioned(
@@ -115,15 +115,12 @@ class BasicInfoMainPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
               letterspacing: 1,
               fontsize: 15,
-              onpressed: (){
-
-                 Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>const LocationPage()),
-                      );
-
-
+              onpressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const EditLocationPage()),
+                );
               },
             )
           ],

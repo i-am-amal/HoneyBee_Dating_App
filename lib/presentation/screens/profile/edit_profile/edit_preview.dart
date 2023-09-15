@@ -6,8 +6,8 @@ import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
-class PreviewAccount extends StatelessWidget {
-  const PreviewAccount({super.key});
+class EditPreviewAccount extends StatelessWidget {
+  const EditPreviewAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +141,7 @@ class PreviewAccount extends StatelessWidget {
                     ),
                     SizedBox(height: height * 0.05),
                     MainCustomButton(
-                      customtext: 'Create Account',
+                      customtext: 'Update Details',
                       height: height * 0.015,
                       width: width * 0.2,
                       txtcolor: CustomColors.kWhiteTextColor,

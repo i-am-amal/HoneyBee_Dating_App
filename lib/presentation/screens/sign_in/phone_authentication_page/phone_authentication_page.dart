@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:honeybee/presentation/screens/sign_in/otp_authentication_page/otp_authentication_page.dart';
 import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/phone_number_input.dart.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
@@ -61,7 +62,12 @@ class PhoneAuthenticationPage extends StatelessWidget {
               height: height * 0.015,
               width: width * 0.25,
               onpressed: () {
-                print("continue button inside phone authentication page");
+                 Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>const OtpAuthenticationPage()),
+                      );
+
               },
             ),
           ],

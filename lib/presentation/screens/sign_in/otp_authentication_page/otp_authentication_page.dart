@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
+import 'package:honeybee/presentation/screens/splash_screen/welcome_to_account_splash.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -75,7 +76,15 @@ class OtpAuthenticationPage extends StatelessWidget {
               height: height * 0.018,
               width: width * 0.25,
               onpressed: () {
-                print("continue button inside otp authentication page");
+
+  Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>const WelcomeAccountScreenSplash()),
+                      );
+
+
+
               },
             ),
             SizedBox(
