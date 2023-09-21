@@ -1,9 +1,7 @@
 class Config {
   static const String dummyImageUrl =
       'https://cdn.statusqueen.com/mobilewallpaper/thumbnail/love_mobile_wallpaper-1606.jpg';
-}
 
-class ApiServices {
   static const apiBaseUrl = 'http://localhost:5000';
 
   static const phoneApi = '$apiBaseUrl/api/phone';

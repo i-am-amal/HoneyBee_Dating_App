@@ -34,7 +34,7 @@ class CustomTextFormFiled extends StatelessWidget {
         decoration: InputDecoration(
           prefixIcon: Icon(icon),
           labelText: text,
-          contentPadding: EdgeInsets.symmetric(vertical: 8.0),
+          contentPadding: const EdgeInsets.symmetric(vertical: 8.0),
           enabledBorder: OutlineInputBorder(
             borderSide:
                 BorderSide(width: 1.5, color: Colors.red.withOpacity(0.5)),
