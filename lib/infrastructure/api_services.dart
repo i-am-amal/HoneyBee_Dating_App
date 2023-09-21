@@ -1,19 +1,49 @@
 import 'dart:convert';
-
+import 'dart:io';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:honeybee/core/config.dart';
 import 'package:honeybee/domain/failures/api_failures.dart';
+import 'package:honeybee/domain/models/add_message_request_model/add_message_request_model.dart';
+import 'package:honeybee/domain/models/add_message_response_model/add_message_response_model.dart';
+import 'package:honeybee/domain/models/all_liked_users_response_model/all_liked_users_response_model.dart';
+import 'package:honeybee/domain/models/block_user_request_model/block_user_request_model.dart';
+import 'package:honeybee/domain/models/block_user_response_model/block_user_response_model.dart';
+import 'package:honeybee/domain/models/create_account_response_model/create_account_response_model.dart';
+import 'package:honeybee/domain/models/discover_response_model/discover_response_model.dart';
+import 'package:honeybee/domain/models/dislike_user_request_model/dislike_user_request_model.dart';
+import 'package:honeybee/domain/models/dislike_user_response_model/dislike_user_response_model.dart';
+import 'package:honeybee/domain/models/get_message_request_model/get_message_request_model.dart';
+import 'package:honeybee/domain/models/get_message_response_model/get_message_response_model.dart';
+import 'package:honeybee/domain/models/get_user_data_response_model/get_user_data_response_model.dart';
+import 'package:honeybee/domain/models/last_message_request_model/last_message_request_model.dart';
+import 'package:honeybee/domain/models/last_message_response_model/last_message_response_model.dart';
+import 'package:honeybee/domain/models/like_user_request_model/like_user_request_model.dart';
+import 'package:honeybee/domain/models/like_user_response_model/like_user_response_model.dart';
+import 'package:honeybee/domain/models/mark_read_response_model/mark_read_response_model.dart';
+import 'package:honeybee/domain/models/matches_response_model/matches_response_model.dart';
+import 'package:honeybee/domain/models/payment_platinum_request_model/payment_platinum_request_model.dart';
+import 'package:honeybee/domain/models/payment_platinum_response_model/payment_platinum_response_model.dart';
+import 'package:honeybee/domain/models/phone_number_request_model/phone_number_request_model.dart';
 import 'package:honeybee/domain/models/phone_number_response_model/phone_number_response_model.dart';
-import 'package:honeybee/domain/models/verify_otp_response_model/verify_otp_response_model.dart';
+import 'package:honeybee/domain/models/search_filter_request_model/search_filter_request_model.dart';
+import 'package:honeybee/domain/models/search_filter_response_model/search_filter_response_model.dart';
+import 'package:honeybee/domain/models/user_edit_response_model/user_edit_response_model.dart';
+import 'package:honeybee/domain/models/verify_otp_request_model/verify_otp_request_model.dart';
+import 'package:honeybee/domain/models/verify_payment_request_model/verify_payment_request_model.dart';
+import 'package:honeybee/domain/models/verify_payment_response_model/verify_payment_response_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
+import '../domain/models/verify_otp_response_model/verify_otp_response_model.dart';
+import 'package:http_parser/http_parser.dart';
 
 class ApiServices {
-  static Future<Either<ApiFailures, PhoneNumberResponseModel>>
-      phoneNumberLogin() async {
+
+  static Future<Either<ApiFailures, PhoneNumberResponseModel>> phoneNumberLogin(
+      PhoneNumberRequestModel request) async {
     try {
       final response = await http.post(
         Uri.parse(Config.phoneApi),
+        body: request.toJson(),
       );
 
       if (response.statusCode == 200) {
@@ -37,16 +67,764 @@ class ApiServices {
 
 ////////////////////---------VerifyOtplogin----------/////////////////////////////
 
-  static Future<Either<ApiFailures, VerifyOtpResponseModel>>
-      verifyOtpLogin() async {
+  static Future<Either<ApiFailures, VerifyOtpResponseModel>> verifyOtpLogin(
+      VerifyOtpRequestModel request) async {
     try {
-      final response = await http.post(Uri.parse(Config.verifyOtpApi));
+      final response = await http.post(
+        Uri.parse(Config.verifyOtpApi),
+        body: request.toJson(),
+      );
 
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
 
         VerifyOtpResponseModel result =
             VerifyOtpResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------GetUserData----------/////////////////////////////
+
+  static Future<Either<ApiFailures, GetUserDataResponseModel>>
+      getUserData() async {
+    try {
+      final response = await http.get(
+        Uri.parse(Config.getUserDataApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        GetUserDataResponseModel result =
+            GetUserDataResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------CreateAccount----------/////////////////////////////
+
+  static Future<Either<ApiFailures, CreateAccountResponseModel>> createAccount({
+    required File profilePic,
+    required File coverPic,
+    required String preference,
+    required String phone,
+    File? image0,
+    File? image1,
+    File? image2,
+    String? fullName,
+    String? birthday,
+    String? age,
+    String? gender,
+    String? location,
+    String? faith,
+    String? drinking,
+    String? smoking,
+    String? bio,
+    String? relationshipStatus,
+    String? email,
+  }) async {
+    try {
+      var request =
+          http.MultipartRequest('POST', Uri.parse(Config.createAccountApi));
+      request.headers.addAll({
+        "Content-Type": "multipart/form-data",
+        "Authorization": Config.token!,
+      });
+
+      request.fields['phone'] = phone;
+      request.fields['Preference'] = preference;
+      if (fullName != null) {
+        request.fields['fullName'] = fullName;
+      }
+      if (birthday != null) {
+        request.fields['birthday'] = birthday;
+      }
+      if (age != null) {
+        request.fields['age'] = age;
+      }
+
+      if (location != null) {
+        request.fields['location'] = location;
+      }
+      if (faith != null) {
+        request.fields['faith'] = faith;
+      }
+      if (drinking != null) {
+        request.fields['drinking'] = drinking;
+      }
+      if (smoking != null) {
+        request.fields['smoking'] = smoking;
+      }
+      if (bio != null) {
+        request.fields['bio'] = bio;
+      }
+      if (relationshipStatus != null) {
+        request.fields['realationshipStatus'] = relationshipStatus;
+      }
+      if (email != null) {
+        request.fields['email'] = email;
+      }
+
+      String filename = profilePic.path.split('/').last;
+      String fileExtension = filename.split(".").last;
+      request.files.add(http.MultipartFile(
+        'profilePic',
+        profilePic.readAsBytes().asStream(),
+        profilePic.lengthSync(),
+        filename: filename,
+        contentType: MediaType('image', fileExtension),
+      ));
+
+      String filename1 = coverPic.path.split('/').last;
+      String fileExtension1 = filename1.split(".").last;
+      request.files.add(http.MultipartFile(
+        'coverPic',
+        coverPic.readAsBytes().asStream(),
+        coverPic.lengthSync(),
+        filename: filename1,
+        contentType: MediaType('image', fileExtension1),
+      ));
+
+      if (image0 != null) {
+        print('image added');
+        String filename = image0.path.split('/').last;
+        String fileExtension = filename.split(".").last;
+        request.files.add(http.MultipartFile(
+          'image0',
+          image0.readAsBytes().asStream(),
+          image0.lengthSync(),
+          filename: filename,
+          contentType: MediaType('image', fileExtension),
+        ));
+      }
+      if (image1 != null) {
+        print('image added');
+        String filename = image1.path.split('/').last;
+        String fileExtension = filename.split(".").last;
+        request.files.add(http.MultipartFile(
+          'image1',
+          image1.readAsBytes().asStream(),
+          image1.lengthSync(),
+          filename: filename,
+          contentType: MediaType('image', fileExtension),
+        ));
+      }
+      if (image2 != null) {
+        print('image added');
+        String filename = image2.path.split('/').last;
+        String fileExtension = filename.split(".").last;
+        request.files.add(http.MultipartFile(
+          'image2',
+          image2.readAsBytes().asStream(),
+          image2.lengthSync(),
+          filename: filename,
+          contentType: MediaType('image', fileExtension),
+        ));
+      }
+
+      StreamedResponse streamedResponse = await request.send();
+      Response response = await http.Response.fromStream(streamedResponse);
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        CreateAccountResponseModel result =
+            CreateAccountResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------Discover----------/////////////////////////////
+
+  static Future<Either<ApiFailures, DiscoverResponseModel>> discover() async {
+    try {
+      final response = await http.get(
+        Uri.parse(Config.discoverApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        DiscoverResponseModel result = DiscoverResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+  ////////////////////---------LikeUser----------/////////////////////////////
+
+  static Future<Either<ApiFailures, LikeUserResponseModel>> likeUserData(
+      LikeUserRequestModel request) async {
+    try {
+      final response = await http.put(
+        Uri.parse(Config.likeUserApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+        body: request.toJson(),
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        LikeUserResponseModel result = LikeUserResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+  ////////////////////---------DislikeUser----------/////////////////////////////
+
+  static Future<Either<ApiFailures, DislikeUserResponseModel>> dislikeUserData(
+      DislikeUserRequestModel request) async {
+    try {
+      final response = await http.put(
+        Uri.parse(Config.dislikeUserApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+        body: request.toJson(),
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        DislikeUserResponseModel result =
+            DislikeUserResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+///////////////////---------Matches----------/////////////////////////////
+
+  static Future<Either<ApiFailures, MatchesResponseModel>>
+      getMatchesData() async {
+    try {
+      final response = await http.get(
+        Uri.parse(Config.matchesApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        MatchesResponseModel result = MatchesResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+///////////////////---------LikedUsers----------/////////////////////////////
+
+  static Future<Either<ApiFailures, AllLikedUsersResponseModel>>
+      allLikedUsersData() async {
+    try {
+      final response = await http.get(
+        Uri.parse(Config.likedUsersApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        AllLikedUsersResponseModel result =
+            AllLikedUsersResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------CreateAccount----------/////////////////////////////
+
+  static Future<Either<ApiFailures, UserEditResponseModel>> userEditData({
+    File? profilePic,
+    File? coverPic,
+    String? preference,
+    String? phone,
+    File? image0,
+    File? image1,
+    File? image2,
+    String? fullName,
+    String? birthday,
+    String? age,
+    String? gender,
+    String? location,
+    String? faith,
+    String? drinking,
+    String? smoking,
+    String? bio,
+    String? relationshipStatus,
+    String? email,
+  }) async {
+    try {
+      var request =
+          http.MultipartRequest('POST', Uri.parse(Config.userEditApi));
+      request.headers.addAll({
+        "Content-Type": "multipart/form-data",
+        "Authorization": Config.token!,
+      });
+
+      if (fullName != null) {
+        request.fields['fullName'] = fullName;
+      }
+      if (phone != null) {
+        request.fields['phone'] = phone;
+      }
+      if (preference != null) {
+        request.fields['Preference'] = preference;
+      }
+      if (birthday != null) {
+        request.fields['birthday'] = birthday;
+      }
+      if (age != null) {
+        request.fields['age'] = age;
+      }
+
+      if (location != null) {
+        request.fields['location'] = location;
+      }
+      if (faith != null) {
+        request.fields['faith'] = faith;
+      }
+      if (drinking != null) {
+        request.fields['drinking'] = drinking;
+      }
+      if (smoking != null) {
+        request.fields['smoking'] = smoking;
+      }
+      if (bio != null) {
+        request.fields['bio'] = bio;
+      }
+      if (relationshipStatus != null) {
+        request.fields['realationshipStatus'] = relationshipStatus;
+      }
+      if (email != null) {
+        request.fields['email'] = email;
+      }
+
+      if (profilePic != null) {
+        String filename = profilePic.path.split('/').last;
+        String fileExtension = filename.split(".").last;
+        request.files.add(http.MultipartFile(
+          'profilePic',
+          profilePic.readAsBytes().asStream(),
+          profilePic.lengthSync(),
+          filename: filename,
+          contentType: MediaType('image', fileExtension),
+        ));
+      }
+
+      if (coverPic != null) {
+        String filename = coverPic.path.split('/').last;
+        String fileExtension = filename.split(".").last;
+        request.files.add(http.MultipartFile(
+          'coverPic',
+          coverPic.readAsBytes().asStream(),
+          coverPic.lengthSync(),
+          filename: filename,
+          contentType: MediaType('image', fileExtension),
+        ));
+      }
+
+      if (image0 != null) {
+        print('image added');
+        String filename = image0.path.split('/').last;
+        String fileExtension = filename.split(".").last;
+        request.files.add(http.MultipartFile(
+          'image0',
+          image0.readAsBytes().asStream(),
+          image0.lengthSync(),
+          filename: filename,
+          contentType: MediaType('image', fileExtension),
+        ));
+      }
+      if (image1 != null) {
+        print('image added');
+        String filename = image1.path.split('/').last;
+        String fileExtension = filename.split(".").last;
+        request.files.add(http.MultipartFile(
+          'image1',
+          image1.readAsBytes().asStream(),
+          image1.lengthSync(),
+          filename: filename,
+          contentType: MediaType('image', fileExtension),
+        ));
+      }
+      if (image2 != null) {
+        print('image added');
+        String filename = image2.path.split('/').last;
+        String fileExtension = filename.split(".").last;
+        request.files.add(http.MultipartFile(
+          'image2',
+          image2.readAsBytes().asStream(),
+          image2.lengthSync(),
+          filename: filename,
+          contentType: MediaType('image', fileExtension),
+        ));
+      }
+
+      StreamedResponse streamedResponse = await request.send();
+      Response response = await http.Response.fromStream(streamedResponse);
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        UserEditResponseModel result = UserEditResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------BlockUser----------/////////////////////////////
+
+  static Future<Either<ApiFailures, BlockUserResponseModel>> blockUserData(
+      BlockUserRequestModel request) async {
+    try {
+      final response = await http.put(
+        Uri.parse(Config.blockUserApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+        body: request.toJson(),
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        BlockUserResponseModel result =
+            BlockUserResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------VerifyPayment----------/////////////////////////////
+
+  static Future<Either<ApiFailures, VerifyPaymentResponseModel>>
+      verifyPaymentData(VerifyPaymentRequestModel request) async {
+    try {
+      final response = await http.post(
+        Uri.parse(Config.verifyPaymentApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+        body: request.toJson(),
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        VerifyPaymentResponseModel result =
+            VerifyPaymentResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------SearchFilter----------/////////////////////////////
+
+  static Future<Either<ApiFailures, SearchFilterResponseModel>>
+      searchFilterData(SearchFilterRequestModel request) async {
+    try {
+      final response = await http.post(
+        Uri.parse(Config.searchFilterApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+        body: request.toJson(),
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        SearchFilterResponseModel result =
+            SearchFilterResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------PaymentPlatinum----------/////////////////////////////
+
+  static Future<Either<ApiFailures, PaymentPlatinumResponseModel>>
+      platinumPaymentData(PaymentPlatinumRequestModel request) async {
+    try {
+      final response = await http.post(
+        Uri.parse(Config.platinumPaymentApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+        body: request.toJson(),
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        PaymentPlatinumResponseModel result =
+            PaymentPlatinumResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------AddNewMessage----------/////////////////////////////
+
+  static Future<Either<ApiFailures, AddMessageResponseModel>> addNewMessageData(
+      AddMessageRequestModel request) async {
+    try {
+      final response = await http.post(
+        Uri.parse(Config.addMessageApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+        body: request.toJson(),
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        AddMessageResponseModel result =
+            AddMessageResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------getAllMessage----------/////////////////////////////
+
+  static Future<Either<ApiFailures, GetMessageResponseModel>> getAllMessageData(
+      GetMessageRequestModel request) async {
+    try {
+      final response = await http.post(
+        Uri.parse(Config.getAllMessageApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+        body: request.toJson(),
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        GetMessageResponseModel result =
+            GetMessageResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------lastMessage----------/////////////////////////////
+
+  static Future<Either<ApiFailures, LastMessageResponseModel>> lastMessageData(
+      LastMessageRequestModel request) async {
+    try {
+      final response = await http.post(
+        Uri.parse(Config.lastMessageApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+        body: request.toJson(),
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        LastMessageResponseModel result =
+            LastMessageResponseModel.fromJson(jsonMap);
+
+        print(jsonMap);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure());
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure());
+    }
+  }
+
+////////////////////---------MessageRead----------/////////////////////////////
+
+  static Future<Either<ApiFailures, MarkReadResponseModel>>
+      markReadMessageData() async {
+    try {
+      final response = await http.post(
+        Uri.parse(Config.markReadMessageApi),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': Config.token!,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        MarkReadResponseModel result = MarkReadResponseModel.fromJson(jsonMap);
 
         print(jsonMap);
 
