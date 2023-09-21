@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/phone_authentication_page.dart';
 import '../../../widgets/button_widgets/main_custom_button.dart';
@@ -37,14 +36,12 @@ class SignUpWidget extends StatelessWidget {
           letterspacing: 1,
           height: height * 0.02,
           width: width * 0.12,
-          onpressed: (){
- Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>const PhoneAuthenticationPage()),
-                      );
-
-
+          onpressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PhoneAuthenticationPage()),
+            );
           },
         ),
         SizedBox(

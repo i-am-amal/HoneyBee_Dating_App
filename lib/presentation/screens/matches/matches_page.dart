@@ -62,8 +62,8 @@ class MatchesPage extends StatelessWidget {
             SizedBox(
               height: height * 0.05,
             ),
-           const Expanded(
-              child:  ProfileGrid(),
+            const Expanded(
+              child: ProfileGrid(),
             )
           ],
         ),

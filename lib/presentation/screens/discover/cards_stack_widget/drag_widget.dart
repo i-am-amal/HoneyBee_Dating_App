@@ -4,7 +4,6 @@ import 'profile_card.dart';
 import 'profile_model.dart';
 import 'tag_widget.dart';
 
-
 enum Swipe { left, right, none }
 
 class DragWidget extends StatefulWidget {

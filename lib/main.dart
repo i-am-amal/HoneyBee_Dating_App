@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ]),
       body: const Center(
-        //space for thesting new widgets
+        //space for testing new widgets
 
         child: ImageWidget(imagepath: Config.dummyImageUrl),
 

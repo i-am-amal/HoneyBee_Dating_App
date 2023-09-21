@@ -30,7 +30,8 @@ class ProfileCustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(CustomColors.kRedButtonColor),
+        backgroundColor:
+            MaterialStateProperty.all<Color>(CustomColors.kRedButtonColor),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),

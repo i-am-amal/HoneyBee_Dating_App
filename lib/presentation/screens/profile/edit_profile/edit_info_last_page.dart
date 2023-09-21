@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:honeybee/presentation/widgets/constants/lists.dart';
 import 'package:honeybee/presentation/screens/profile/edit_profile/edit_preview.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
@@ -19,73 +20,11 @@ class _BasicInfoLastPageState extends State<EditInfoLastPage> {
   String smoking = '';
   String drinking = '';
 
-  List<String> faithOptions = [
-    'Hindu',
-    'Christian',
-    'Spiritual',
-    'Agnostic',
-    'Muslim',
-    'Sikh',
-    'Atheist',
-    'Jain',
-    'Buddhist',
-    'Bahai',
-    'Jewish',
-    'Parsi',
-    'Other',
-    'None',
-  ];
-  List<String> relationShipOptions = [
-    'Single',
-    'Single with kid(s)',
-    'Married',
-    'Widowed',
-    'Widowed with kid(s)',
-    'Divorced',
-    'Divorced with kid(s)',
-    'Seperated',
-    'Seperated with kid(s)',
-  ];
-  List<String> smokingOptions = [
-    'Yes',
-    'No',
-    'Planning to quit',
-  ];
-  List<String> drinkingOptions = [
-    'Regular',
-    'Socially',
-    'Occasionally',
-    'Planning to quit',
-    'Teetotaler',
-  ];
-
-  List<String> genderOptions = [
-    'Agender',
-    'Genderqueer',
-    'Bigender',
-    'Non-binary',
-    'Genderfluid',
-    'Two-spirit',
-    'Androgynous',
-    'Neutrois',
-    'Demigender',
-    'Gender nonconforming',
-    'Pangender',
-    'Third gender',
-    'Transgender',
-    'Transmasculine',
-    'Transfeminine',
-    'Two-spirit',
-    'Gender questioning',
-    'Genderqueer',
-    'Gender variant',
-    'Intergender',
-    'Genderflux',
-    'Polygender',
-    'Multigender',
-    'Cisgender',
-    'Other'
-  ];
+  List<String> faithOptions = CommonLists().faithOptions;
+  List<String> relationShipOptions = CommonLists().relationShipOptions;
+  List<String> smokingOptions = CommonLists().smokingOptions;
+  List<String> drinkingOptions = CommonLists().drinkingOptions;
+  List<String> genderOptions = CommonLists().genderOptions;
 
   @override
   Widget build(BuildContext context) {
@@ -177,7 +116,6 @@ class _BasicInfoLastPageState extends State<EditInfoLastPage> {
                 height: height * 0.07,
               ),
               Column(
-                
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -208,15 +146,12 @@ class _BasicInfoLastPageState extends State<EditInfoLastPage> {
                     txtcolor: CustomColors.kWhiteTextColor,
                     width: width * 0.14,
                     height: height * 0.015,
-                    onpressed: (){
-
-                       Navigator.push(
+                    onpressed: () {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>const EditPreviewAccount()),
+                            builder: (context) => const EditPreviewAccount()),
                       );
-
-
                     },
                   )
                 ],

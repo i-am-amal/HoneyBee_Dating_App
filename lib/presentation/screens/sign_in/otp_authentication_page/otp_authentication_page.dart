@@ -76,15 +76,11 @@ class OtpAuthenticationPage extends StatelessWidget {
               height: height * 0.018,
               width: width * 0.25,
               onpressed: () {
-
-  Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>const WelcomeAccountScreenSplash()),
-                      );
-
-
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const WelcomeAccountScreenSplash()),
+                );
               },
             ),
             SizedBox(

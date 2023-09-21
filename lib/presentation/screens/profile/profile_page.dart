@@ -34,7 +34,7 @@ class ProfilePage extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.edit),
-            title: CustomText(
+            title: const CustomText(
               text: 'Edit Profile',
             ),
             onTap: () {

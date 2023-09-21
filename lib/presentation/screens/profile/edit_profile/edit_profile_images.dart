@@ -115,15 +115,12 @@ class EditProfileImages extends StatelessWidget {
               customtext: 'Continue',
               width: width * 0.2,
               txtcolor: CustomColors.kWhiteTextColor,
-              onpressed: (){
-
-                 Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>const EditInfoLastPage()),
-                      );
-
-
+              onpressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const EditInfoLastPage()),
+                );
               },
             )
           ],

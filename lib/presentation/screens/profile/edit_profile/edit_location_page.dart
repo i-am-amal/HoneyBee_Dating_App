@@ -42,14 +42,12 @@ class EditLocationPage extends StatelessWidget {
             fontWeight: FontWeight.bold,
             letterspacing: 1,
             fontsize: 15,
-            onpressed: (){
-               Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>const EditProfileImages()),
-                      );
-
-
+            onpressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const EditProfileImages()),
+              );
             },
           )
         ],

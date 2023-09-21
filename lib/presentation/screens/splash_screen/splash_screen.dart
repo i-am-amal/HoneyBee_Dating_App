@@ -1,24 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
-import '../../widgets/logo_widget/logo_widget.dart';
+import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
+import 'package:honeybee/presentation/widgets/logo_widget/logo_widget.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
+  State<SplashScreen> createState() => _SplashScreenCreateAnimationState();
+}
+
+class _SplashScreenCreateAnimationState extends State<SplashScreen> {
+  double _opacity = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(
+      const Duration(seconds: 1),
+      () {
+        setState(() {
+          _opacity = 1.0;
+        });
+      },
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 5), () {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => SignInPage()));
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => const SignInPage()));
     });
 
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.white,
-        child: const Center(
-          child: LogoWidget(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AnimatedOpacity(
+              curve: Curves.easeInQuad,
+              opacity: _opacity,
+              duration: const Duration(seconds: 1),
+              child: const LogoWidget(),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            AnimatedOpacity(
+              opacity: _opacity,
+              duration: const Duration(seconds: 1),
+              child: const Text(
+                'Connecting Hearts, Creating Memories',
+                style: TextStyle(
+                  fontFamily: CustomFont.logoFont,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
+                  letterSpacing: 2,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

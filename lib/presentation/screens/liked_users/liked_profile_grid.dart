@@ -5,17 +5,17 @@ class LikedProfileGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(18.0),
         child: GridView.builder(
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, // Number of columns
-              crossAxisSpacing: 20, // Spacing between columns
-              mainAxisSpacing: 10, // Spacing between rows
-              childAspectRatio: 300 / 400),
+            crossAxisCount: 2, // Number of columns
+            crossAxisSpacing: 20, // Spacing between columns
+            mainAxisSpacing: 10, // Spacing between rows
+            childAspectRatio: 300 / 400,
+          ),
           itemCount: 10, // Number of items in the grid
 
           itemBuilder: (BuildContext context, int index) {
@@ -47,7 +47,7 @@ class LikedProfileGrid extends StatelessWidget {
                         height: 35,
                         color: Colors.black.withOpacity(0.4),
                         child: TextButton(
-                          child:const Text(
+                          child: const Text(
                             'Dislike ',
                             style: TextStyle(
                                 color: Colors.red, fontWeight: FontWeight.bold),
@@ -64,7 +64,7 @@ class LikedProfileGrid extends StatelessWidget {
                         height: 35,
                         color: Colors.black.withOpacity(0.5),
                         child: TextButton(
-                          child:const Text(
+                          child: const Text(
                             'Block User',
                             style: TextStyle(
                                 color: Colors.red, fontWeight: FontWeight.bold),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:honeybee/presentation/widgets/constants/lists.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
@@ -15,80 +16,7 @@ class ChatPage extends StatelessWidget {
     // double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    List<Message> messages = [
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-      Message(
-        senderName: 'John Doe',
-        lastMessage: 'Hello!',
-        profilePicUrl: 'assets/images/profile.jpg',
-        lastSeenTime: '2 hrs',
-      ),
-    ];
+    List<Message> messages = CommonLists().messages;
 
     return Scaffold(
       body: Column(

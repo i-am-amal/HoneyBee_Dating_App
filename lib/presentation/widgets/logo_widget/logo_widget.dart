@@ -13,7 +13,7 @@ class LogoWidget extends StatelessWidget {
       text: 'HoneyBee',
       textColor: Colors.black,
       fontsize: 60,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w600,
       fontFamily: CustomFont.logoFont,
       letterspacing: 4,
     );

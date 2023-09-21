@@ -45,7 +45,7 @@ class ProfileImages extends StatelessWidget {
                   width: width * 0.35,
                   color: Colors.grey,
                   child: image != null
-                      ? Image.asset(image!)
+                      ? Image.asset('assets/images/profile.jpg')
                       : const Center(
                           child: Text(
                             'No Image Available',
@@ -115,15 +115,12 @@ class ProfileImages extends StatelessWidget {
               customtext: 'Continue',
               width: width * 0.2,
               txtcolor: CustomColors.kWhiteTextColor,
-              onpressed: (){
-
-                 Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>const BasicInfoLastPage()),
-                      );
-
-
+              onpressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BasicInfoLastPage()),
+                );
               },
             )
           ],

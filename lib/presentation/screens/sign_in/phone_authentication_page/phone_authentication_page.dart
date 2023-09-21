@@ -62,12 +62,11 @@ class PhoneAuthenticationPage extends StatelessWidget {
               height: height * 0.015,
               width: width * 0.25,
               onpressed: () {
-                 Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>const OtpAuthenticationPage()),
-                      );
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const OtpAuthenticationPage()),
+                );
               },
             ),
           ],

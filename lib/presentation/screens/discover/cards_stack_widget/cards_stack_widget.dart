@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:honeybee/presentation/widgets/constants/lists.dart';
 
 import 'action_button_widget.dart';
 import 'drag_widget.dart';
@@ -13,69 +14,9 @@ class CardsStackWidget extends StatefulWidget {
 
 class _CardsStackWidgetState extends State<CardsStackWidget>
     with SingleTickerProviderStateMixin {
-  List<Profile> draggableItems = [
-    const Profile(
-        name: 'Alina',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_1.png'),
-    const Profile(
-        name: 'Sandra',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_2.png'),
-    const Profile(
-        name: 'Alice',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_3.png'),
-    const Profile(
-        name: 'Teresa',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_4.png'),
-    const Profile(
-        name: 'Christeena',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_5.png'),
-    const Profile(
-        name: 'Alina',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_1.png'),
-    const Profile(
-        name: 'Sandra',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_2.png'),
-    const Profile(
-        name: 'Alice',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_3.png'),
-    const Profile(
-        name: 'Teresa',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_4.png'),
-    const Profile(
-        name: 'Christeena',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_5.png'),
-    const Profile(
-        name: 'Alina',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_1.png'),
-    const Profile(
-        name: 'Sandra',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_2.png'),
-    const Profile(
-        name: 'Alice',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_3.png'),
-    const Profile(
-        name: 'Teresa',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_4.png'),
-    const Profile(
-        name: 'Christeena',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_5.png'),
-  ];
   ValueNotifier<Swipe> swipeNotifier = ValueNotifier(Swipe.none);
+
+  List<Profile> draggableItems = CommonLists().draggableItems;
 
   late final AnimationController _animationController;
 

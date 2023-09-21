@@ -30,13 +30,10 @@ class _WelcomeScreenCreateAnimationState
 
   @override
   Widget build(BuildContext context) {
-
-Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 5), () {
       Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) =>const BasicInfoMainPage()));
+          MaterialPageRoute(builder: (context) => const BasicInfoMainPage()));
     });
-
-
 
     return Scaffold(
       body: Center(
@@ -79,5 +76,3 @@ Future.delayed(const Duration(seconds: 5), () {
     );
   }
 }
-
-
