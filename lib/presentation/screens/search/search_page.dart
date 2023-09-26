@@ -4,6 +4,8 @@ import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
 
+import '../../widgets/customModalBottomSheet/custom_modal_bottom_sheet.dart';
+
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
 
@@ -30,7 +32,12 @@ class SearchPage extends StatelessWidget {
                 BorderlineButton(
                     icon: Icons.tune,
                     onpressed: () {
-                      // Navigator.pop(context);
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const CustomModalBottomSheet();
+                        },
+                      );
                     }),
               ],
             ),

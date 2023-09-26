@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/widgets/constants/lists.dart';
 import 'package:honeybee/presentation/screens/create_account/preview_account/preview_account.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -40,7 +41,15 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: height * 0.1,
+                height: height * 0.02,
+              ),
+              BorderlineButton(
+                  icon: Icons.arrow_back_ios_new,
+                  onpressed: () {
+                    Navigator.pop(context);
+                  }),
+              SizedBox(
+                height: height * 0.02,
               ),
               CustomText(
                 text: 'Gender',

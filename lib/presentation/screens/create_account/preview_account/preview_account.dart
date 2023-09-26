@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
+import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -24,6 +25,14 @@ class PreviewAccount extends StatelessWidget {
               ),
               Row(
                 children: [
+                  SizedBox(
+                    width: width * 0.02,
+                  ),
+                  BorderlineButton(
+                      icon: Icons.arrow_back_ios_new,
+                      onpressed: () {
+                        Navigator.pop(context);
+                      }),
                   SizedBox(
                     width: width * 0.09,
                   ),
@@ -153,7 +162,7 @@ class PreviewAccount extends StatelessWidget {
                         );
                       },
                     ),
-                    SizedBox(height: height * 0.1),
+                    SizedBox(height: height * 0.05),
                   ],
                 ),
               )

@@ -12,10 +12,10 @@ class BasicInfoMainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController dateController = TextEditingController();
     TextEditingController nameController = TextEditingController();
     TextEditingController emailController = TextEditingController();
     TextEditingController phoneNumberController = TextEditingController();
+    TextEditingController dateController = TextEditingController();
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -34,7 +34,7 @@ class BasicInfoMainPage extends StatelessWidget {
             Row(
               children: [
                 SizedBox(
-                  width: width * 0.1,
+                  width: width * 0.08,
                 ),
                 const CustomText(
                   text: 'Basic Info',
@@ -75,11 +75,17 @@ class BasicInfoMainPage extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: height * 0.02,
+            ),
             CustomTextFormFiled(
               text: 'Full Name',
               editController: nameController,
               keyboardType: TextInputType.name,
               icon: Icons.badge_outlined,
+            ),
+            SizedBox(
+              height: height * 0.02,
             ),
             CustomTextFormFiled(
               text: 'Email',
@@ -87,12 +93,18 @@ class BasicInfoMainPage extends StatelessWidget {
               keyboardType: TextInputType.emailAddress,
               icon: Icons.email_outlined,
             ),
+            SizedBox(
+              height: height * 0.02,
+            ),
             CustomTextFormFiled(
               text: 'Phone Number',
               editController: phoneNumberController,
               keyboardType: TextInputType.phone,
               icon: Icons.phone_sharp,
               // enable: false,
+            ),
+            SizedBox(
+              height: height * 0.02,
             ),
             CustomTextFormFiled(
               icon: Icons.calendar_month_outlined,

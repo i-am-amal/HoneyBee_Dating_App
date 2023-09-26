@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
+import 'package:honeybee/presentation/screens/discover/discover_page.dart';
+import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 
 class WelcomeAccountScreenSplash extends StatefulWidget {
@@ -26,15 +28,11 @@ class _WelcomeScreenCreateAnimationState
         });
       },
     );
+    welcomeSplashFunction();
   }
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 5), () {
-      Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const BasicInfoMainPage()));
-    });
-
     return Scaffold(
       body: Center(
         child: Column(
@@ -74,5 +72,15 @@ class _WelcomeScreenCreateAnimationState
         ),
       ),
     );
+  }
+
+  welcomeSplashFunction() {
+    Future.delayed(const Duration(seconds: 5)).then((value) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const BasicInfoMainPage(),
+        ),
+      );
+    });
   }
 }

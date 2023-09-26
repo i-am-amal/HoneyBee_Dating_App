@@ -16,39 +16,41 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: height * 0.05,
           ),
           Row(
             children: [
-              const SizedBox(
-                width: 20,
+              SizedBox(
+                width: width * 0.02,
               ),
               BorderlineButton(
                   icon: Icons.arrow_back_ios_new,
                   onpressed: () {
                     Navigator.pop(context);
                   }),
-              const SizedBox(
-                width: 20,
+              SizedBox(
+                width: width * 0.1,
               ),
               const CircleAvatar(
                 radius: 20,
                 backgroundImage: AssetImage('assets/images/profile.jpg'),
               ),
-              const SizedBox(
-                width: 20,
+              SizedBox(
+                width: width * 0.03,
               ),
               const CustomText(
                 text: 'John Doe',
                 fontFamily: CustomFont.textFont,
                 fontsize: 20,
               ),
-              const SizedBox(
-                width: 80,
+              SizedBox(
+                width: width * 0.2,
               ),
               BorderlineButton(icon: Icons.video_call_rounded, onpressed: () {})
             ],

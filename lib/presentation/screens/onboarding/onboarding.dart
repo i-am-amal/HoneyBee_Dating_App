@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -55,7 +56,15 @@ class Onboarding extends StatelessWidget {
               fontsize: 15,
               letterspacing: 1.5,
               fontFamily: CustomFont.headTextFont,
-              onpressed: () {},
+              onpressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SignInPage(),
+                  ),
+                );
+
+                print('---------------to signin page ..pushing');
+              },
             ),
             const SizedBox(
               height: 35,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:honeybee/presentation/screens/onboarding/onboarding.dart';
 import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/logo_widget/logo_widget.dart';
@@ -25,15 +26,11 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
         });
       },
     );
+    splashScreenFunctions();
   }
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 5), () {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => const SignInPage()));
-    });
-
     return Scaffold(
       body: Center(
         child: Column(
@@ -65,5 +62,15 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
         ),
       ),
     );
+  }
+
+  splashScreenFunctions() {
+    Future.delayed(const Duration(seconds: 5)).then((value) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const Onboarding(),
+        ),
+      );
+    });
   }
 }

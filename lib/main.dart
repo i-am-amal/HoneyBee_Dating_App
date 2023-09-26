@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:honeybee/core/config.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
+import 'package:honeybee/presentation/screens/profile/menu_page.dart';
+import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/phone_authentication_page.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:honeybee/presentation/widgets/onboarding_widgets/image_widget.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
   runApp(const MyApp());
 }
 
@@ -44,13 +52,16 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: const Icon(Icons.check),
             )
           ]),
-      body: const Center(
-        //space for testing new widgets
+      body: Center(
+          //space for testing new widgets
 
-        child: ImageWidget(imagepath: Config.dummyImageUrl),
+          child: ElevatedButton(
+        onPressed: () {},
+        child: Text('testing'),
+      )
 
-        ////
-      ),
+          ////
+          ),
     );
   }
 }

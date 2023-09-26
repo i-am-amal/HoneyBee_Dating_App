@@ -86,7 +86,7 @@ class BorderlineButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-          border: Border.all(width: 1, color: Colors.grey.withOpacity(0.5)),
+          border: Border.all(width: 1, color: Colors.grey.withOpacity(0.2)),
           borderRadius: BorderRadius.circular(10),
         ),
         child: IconButton(

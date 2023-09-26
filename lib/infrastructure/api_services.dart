@@ -158,9 +158,14 @@ class ApiServices {
 
       request.fields['phone'] = phone;
       request.fields['Preference'] = preference;
+
+
+
       if (fullName != null) {
         request.fields['fullName'] = fullName;
       }
+
+      
       if (birthday != null) {
         request.fields['birthday'] = birthday;
       }

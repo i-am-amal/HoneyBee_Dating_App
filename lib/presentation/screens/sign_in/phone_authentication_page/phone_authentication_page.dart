@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/screens/sign_in/otp_authentication_page/otp_authentication_page.dart';
 import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/phone_number_input.dart.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -20,10 +21,18 @@ class PhoneAuthenticationPage extends StatelessWidget {
         body: Column(
           children: [
             SizedBox(
-              height: height * 0.15,
+              height: height * 0.07,
             ),
             Row(
               children: [
+                SizedBox(
+                  width: width * .02,
+                ),
+                BorderlineButton(
+                    icon: Icons.arrow_back_ios_new,
+                    onpressed: () {
+                      Navigator.pop(context);
+                    }),
                 SizedBox(
                   width: width * .05,
                 ),
@@ -37,7 +46,7 @@ class PhoneAuthenticationPage extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: height * 0.03,
+              height: height * 0.04,
             ),
             CustomText(
               width: width * 0.9,
@@ -48,11 +57,11 @@ class PhoneAuthenticationPage extends StatelessWidget {
               letterspacing: 1,
             ),
             SizedBox(
-              height: height * 0.03,
+              height: height * 0.06,
             ),
             const PhoneNumberInput(),
             SizedBox(
-              height: height * 0.05,
+              height: height * 0.06,
             ),
             MainCustomButton(
               customtext: "Continue",

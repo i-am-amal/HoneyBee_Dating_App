@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/presentation/screens/chatting/chat_page.dart';
 import 'package:honeybee/presentation/screens/discover/discover_page.dart';
 import 'package:honeybee/presentation/screens/matches/matches_page.dart';
-import 'package:honeybee/presentation/screens/profile/profile_page.dart';
+import 'package:honeybee/presentation/screens/profile/menu_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 
 class BottomNavbar extends StatefulWidget {
@@ -21,7 +21,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
     const DiscoverPage(),
     const MatchesPage(),
     const ChatPage(),
-    const ProfilePage(),
+    const MenuPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.white,
         color: CustomColors.kRedButtonColor,
-        height: 55,
+        height: 60,
         items: const [
           Icon(
             Icons.style,
@@ -48,7 +48,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
             color: Colors.white,
           ),
           Icon(
-            FontAwesomeIcons.solidUser,
+            FontAwesomeIcons.bars,
             size: 25,
             color: Colors.white,
           ),

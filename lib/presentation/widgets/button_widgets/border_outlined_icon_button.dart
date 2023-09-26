@@ -15,14 +15,15 @@ class BorderlineButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-          border: Border.all(width: 1, color: Colors.grey.withOpacity(0.2)),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: IconButton(
-          onPressed: onpressed,
-          icon: Icon(icon),
-          color: color ?? Colors.black,
-        ));
+      decoration: BoxDecoration(
+        border: Border.all(width: 1, color: Colors.grey.withOpacity(0.1)),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: IconButton(
+        onPressed: onpressed,
+        icon: Icon(icon),
+        color: color ?? Colors.black,
+      ),
+    );
   }
 }

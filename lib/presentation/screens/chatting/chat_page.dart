@@ -13,7 +13,7 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // double width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
     List<Message> messages = CommonLists().messages;
@@ -25,13 +25,10 @@ class ChatPage extends StatelessWidget {
             height: height * 0.05,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              BorderlineButton(
-                  icon: Icons.arrow_back_ios_new,
-                  onpressed: () {
-                    Navigator.pop(context);
-                  }),
+              SizedBox(
+                width: width * 0.07,
+              ),
               const CustomText(
                 text: 'Messages',
                 fontFamily: CustomFont.headTextFont,
@@ -39,7 +36,6 @@ class ChatPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 letterspacing: 1,
               ),
-              BorderlineButton(icon: Icons.tune_outlined, onpressed: () {})
             ],
           ),
           SizedBox(

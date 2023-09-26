@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/widgets/constants/lists.dart';
-
 import 'action_button_widget.dart';
 import 'drag_widget.dart';
 import 'profile_model.dart';
@@ -57,8 +56,8 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                         return PositionedTransition(
                           rect: RelativeRectTween(
                             begin: RelativeRect.fromSize(
-                                const Rect.fromLTWH(0, 0, 580, 340),
-                                const Size(580, 340)),
+                                const Rect.fromLTWH(0, 0, 600, 360),
+                                const Size(600, 360)),
                             end: RelativeRect.fromSize(
                                 Rect.fromLTWH(
                                     swipe != Swipe.none
@@ -67,9 +66,9 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                                             : 300
                                         : 0,
                                     0,
-                                    580,
-                                    340),
-                                const Size(580, 340)),
+                                    600,
+                                    360),
+                                const Size(600, 360)),
                           ).animate(CurvedAnimation(
                             parent: _animationController,
                             curve: Curves.easeInOut,
@@ -108,41 +107,6 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                   ),
                 ),
               ),
-              // Positioned(
-              //   bottom: 0,
-              //   left: 0,
-              //   right: 0,
-              //   child: Padding(
-              //     padding: const EdgeInsets.only(bottom: 0),
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         const SizedBox(height: 20),
-              //         ActionButtonWidget(
-              //           onPressed: () {
-              //             swipeNotifier.value = Swipe.left;
-              //             _animationController.forward();
-              //           },
-              //           icon: const Icon(
-              //             Icons.close,
-              //             color: Colors.grey,
-              //           ),
-              //         ),
-              //         const SizedBox(width: 60),
-              //         ActionButtonWidget(
-              //           onPressed: () {
-              //             swipeNotifier.value = Swipe.right;
-              //             _animationController.forward();
-              //           },
-              //           icon: const Icon(
-              //             Icons.favorite,
-              //             color: Colors.red,
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
               Positioned(
                 left: 0,
                 child: DragTarget<int>(
