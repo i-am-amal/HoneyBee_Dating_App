@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:honeybee/core/config.dart';
@@ -37,14 +38,20 @@ import '../domain/models/verify_otp_response_model/verify_otp_response_model.dar
 import 'package:http_parser/http_parser.dart';
 
 class ApiServices {
-
   static Future<Either<ApiFailures, PhoneNumberResponseModel>> phoneNumberLogin(
       PhoneNumberRequestModel request) async {
     try {
+      log('login');
+
       final response = await http.post(
         Uri.parse(Config.phoneApi),
-        body: request.toJson(),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(request.toJson()),
       );
+
+      log('statuscode  ${response.statusCode} ');
 
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
@@ -52,16 +59,18 @@ class ApiServices {
         PhoneNumberResponseModel result =
             PhoneNumberResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        print(result);
 
         return right(result);
       } else {
-        return left(const ApiFailures.serverFailure());
+        return left(const ApiFailures.serverFailure(
+            errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
       print("client side error");
 
-      return left(const ApiFailures.clientFailure());
+      return left(const ApiFailures.clientFailure(
+          errorMessage: 'OOPS.. Something went wrong..'));
     }
   }
 
@@ -72,7 +81,10 @@ class ApiServices {
     try {
       final response = await http.post(
         Uri.parse(Config.verifyOtpApi),
-        body: request.toJson(),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(request.toJson()),
       );
 
       if (response.statusCode == 200) {
@@ -85,12 +97,14 @@ class ApiServices {
 
         return right(result);
       } else {
-        return left(const ApiFailures.serverFailure());
+        return left(const ApiFailures.serverFailure(
+            errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
       print("client side error");
 
-      return left(const ApiFailures.clientFailure());
+      return left(const ApiFailures.clientFailure(
+          errorMessage: 'OOPS.. Something went wrong..'));
     }
   }
 
@@ -117,12 +131,14 @@ class ApiServices {
 
         return right(result);
       } else {
-        return left(const ApiFailures.serverFailure());
+        return left(const ApiFailures.serverFailure(
+            errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
       print("client side error");
 
-      return left(const ApiFailures.clientFailure());
+      return left(const ApiFailures.clientFailure(
+          errorMessage: 'OOPS.. Something went wrong..'));
     }
   }
 
@@ -159,13 +175,10 @@ class ApiServices {
       request.fields['phone'] = phone;
       request.fields['Preference'] = preference;
 
-
-
       if (fullName != null) {
         request.fields['fullName'] = fullName;
       }
 
-      
       if (birthday != null) {
         request.fields['birthday'] = birthday;
       }
@@ -265,12 +278,14 @@ class ApiServices {
 
         return right(result);
       } else {
-        return left(const ApiFailures.serverFailure());
+        return left(const ApiFailures.serverFailure(
+            errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
       print("client side error");
 
-      return left(const ApiFailures.clientFailure());
+      return left(const ApiFailures.clientFailure(
+          errorMessage: 'OOPS.. Something went wrong..'));
     }
   }
 

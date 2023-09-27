@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:honeybee/core/config.dart';
-import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
-import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
-import 'package:honeybee/presentation/screens/profile/menu_page.dart';
-import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/phone_authentication_page.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
-import 'package:honeybee/presentation/widgets/onboarding_widgets/image_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'application/bloc/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -20,14 +17,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => PhoneNumberAuthPageBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const SplashScreen(),
       ),
-      home: const SplashScreen(),
     );
   }
 }

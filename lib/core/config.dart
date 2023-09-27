@@ -1,6 +1,6 @@
 class Config {
   static String? token;
-  static const apiBaseUrl = 'http://localhost:5000';
+  // static const apiBaseUrl = 'http://localhost:5000';
   static const phoneApi = '$apiBaseUrl/api/phone';
   static const verifyOtpApi = '$apiBaseUrl/api/verifyOtp';
   static const getUserDataApi = '$apiBaseUrl/api/userData';
@@ -22,7 +22,8 @@ class Config {
   static const String dummyImageUrl =
       'https://cdn.statusqueen.com/mobilewallpaper/thumbnail/love_mobile_wallpaper-1606.jpg';
 
-  // static const String apiBaseUrl ="http://10.0.2.2:5000"; // <- emulator local host
+  static const String apiBaseUrl =
+      "http://10.0.2.2:5000"; // <- emulator local host
   // static const String apiBaseUrl = "http://127.0.0.1:5000"; // <- windows local host
   // static const String apiBaseUrl = "http://localhost:5000"; // <- default local host
 }

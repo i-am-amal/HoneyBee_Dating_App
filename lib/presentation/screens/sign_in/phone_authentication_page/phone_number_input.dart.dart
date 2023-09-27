@@ -1,5 +1,8 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/bloc/phone_number_auth_page/phone_number_auth_page_bloc.dart';
+import 'package:honeybee/domain/validation/form_validation_services.dart';
 
 class PhoneNumberInput extends StatelessWidget {
   const PhoneNumberInput({super.key});
@@ -8,7 +11,7 @@ class PhoneNumberInput extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    String phoneNumber = '';
+    // String phoneNumber = '';
     CountryCode? countryCode;
     TextEditingController phoneNumberController = TextEditingController();
 
@@ -27,19 +30,22 @@ class PhoneNumberInput extends StatelessWidget {
               alignLeft: false,
             ),
             SizedBox(
-              height: height * 0.05,
+              height: height * 0.06,
               width: width * 0.65,
               child: TextFormField(
                 onChanged: (value) {
-                  phoneNumber = value;
-                  print(phoneNumber);
+                  BlocProvider.of<PhoneNumberAuthPageBloc>(context).add(
+                      PhoneNumberAuthPageEvent.setPhoneNumber(
+                          phoneNumber: value));
                 },
                 controller: phoneNumberController,
                 keyboardType: TextInputType.phone,
                 decoration: const InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
                   labelText: 'Phone Number',
-                  hintText: 'Enter your phone number',
+                  // helperText: 'Enter your phone number',
                 ),
               ),
             ),
