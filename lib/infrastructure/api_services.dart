@@ -87,13 +87,15 @@ class ApiServices {
         body: jsonEncode(request.toJson()),
       );
 
+      log(response.statusCode.toString());
+
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
 
         VerifyOtpResponseModel result =
             VerifyOtpResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        print(result.redirect);
 
         return right(result);
       } else {

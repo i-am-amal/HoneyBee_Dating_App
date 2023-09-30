@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
-import 'package:honeybee/presentation/screens/discover/discover_page.dart';
-import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 
 class WelcomeAccountScreenSplash extends StatefulWidget {

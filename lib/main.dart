@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:honeybee/application/bloc/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,6 +22,8 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => PhoneNumberAuthPageBloc(),
+        ),BlocProvider(
+          create: (context) => OtpNumberAuthPageBloc(),
         ),
       ],
       child: MaterialApp(

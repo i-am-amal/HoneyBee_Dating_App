@@ -24,7 +24,7 @@ class ImageWidget extends StatelessWidget {
                   'assets/images/onboarding2.jpg',
                 ),
               ),
-        color: Colors.red,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(15),
       ),
     );

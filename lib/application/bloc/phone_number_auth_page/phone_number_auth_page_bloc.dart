@@ -1,29 +1,33 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import '../../../domain/models/phone_number_request_model/phone_number_request_model.dart';
 import '../../../domain/validation/form_validation_services.dart';
 import '../../../infrastructure/api_services.dart';
-
 part 'phone_number_auth_page_event.dart';
 part 'phone_number_auth_page_state.dart';
 part 'phone_number_auth_page_bloc.freezed.dart';
 
 class PhoneNumberAuthPageBloc
     extends Bloc<PhoneNumberAuthPageEvent, PhoneNumberAuthPageState> {
-  PhoneNumberAuthPageBloc() : super(_Initial()) {
+  PhoneNumberAuthPageBloc() : super(const _Initial()) {
     on<_PhoneNumberLogin>((event, emit) async {
-      String? phoneNumber = state.phoneNumber;
+      String? phoneNumber = event.phoneNumber;
+      String? countryCode = event.countryCode;
+      print({'$countryCode $phoneNumber'});
 
       bool? isValidated =
           FormValidationServices.phoneNumberValidation(phoneNumber);
 
       if (isValidated) {
+        print('--------validation -------working');
+        String formattedPhoneNumber =
+            '$countryCode ${phoneNumber!.substring(0, 5)} ${phoneNumber.substring(5)}';
+        print(formattedPhoneNumber);
+
         PhoneNumberRequestModel request =
-            PhoneNumberRequestModel(phone: phoneNumber);
+            PhoneNumberRequestModel(phone: formattedPhoneNumber);
 
         final result = await ApiServices.phoneNumberLogin(request);
-
         result.fold((failure) {
 // failure message from Api Services
 
@@ -33,6 +37,7 @@ class PhoneNumberAuthPageBloc
           if (success.success == true) {
             // Success from backend
             emit(state.copyWith(isPhoneNumberVerified: true));
+            emit(state.copyWith(isPhoneNumberVerified: null));
           } else {
             // failure from backend
             emit(state.copyWith(
@@ -44,8 +49,7 @@ class PhoneNumberAuthPageBloc
       } else {
         // form validation failed
 
-
-        
+        print('------------------error');
       }
     });
 

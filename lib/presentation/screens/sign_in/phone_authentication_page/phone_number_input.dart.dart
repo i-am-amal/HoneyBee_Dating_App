@@ -2,17 +2,17 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/bloc/phone_number_auth_page/phone_number_auth_page_bloc.dart';
-import 'package:honeybee/domain/validation/form_validation_services.dart';
 
 class PhoneNumberInput extends StatelessWidget {
-  const PhoneNumberInput({super.key});
+  PhoneNumberInput({super.key});
+
+  CountryCode? countryCode;
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     // String phoneNumber = '';
-    CountryCode? countryCode;
     TextEditingController phoneNumberController = TextEditingController();
 
     return Column(
@@ -22,6 +22,7 @@ class PhoneNumberInput extends StatelessWidget {
             CountryCodePicker(
               onChanged: (code) {
                 countryCode = code;
+
                 print(countryCode);
               },
               initialSelection: 'IN',
@@ -34,9 +35,11 @@ class PhoneNumberInput extends StatelessWidget {
               width: width * 0.65,
               child: TextFormField(
                 onChanged: (value) {
-                  BlocProvider.of<PhoneNumberAuthPageBloc>(context).add(
-                      PhoneNumberAuthPageEvent.setPhoneNumber(
-                          phoneNumber: value));
+                  print(countryCode);
+                  BlocProvider.of<PhoneNumberAuthPageBloc>(context)
+                      .add(PhoneNumberAuthPageEvent.setPhoneNumber(
+                    phoneNumber: value,
+                  ));
                 },
                 controller: phoneNumberController,
                 keyboardType: TextInputType.phone,

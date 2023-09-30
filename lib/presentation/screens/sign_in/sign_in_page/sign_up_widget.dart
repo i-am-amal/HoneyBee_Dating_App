@@ -40,7 +40,7 @@ class SignUpWidget extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => const PhoneAuthenticationPage()),
+                  builder: (context) =>  PhoneAuthenticationPage()),
             );
           },
         ),

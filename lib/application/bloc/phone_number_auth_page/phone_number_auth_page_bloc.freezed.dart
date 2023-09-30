@@ -19,19 +19,22 @@ mixin _$PhoneNumberAuthPageEvent {
   String? get phoneNumber => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? phoneNumber) phoneNumberLogin,
+    required TResult Function(String? phoneNumber, String? countryCode)
+        phoneNumberLogin,
     required TResult Function(String? phoneNumber) setPhoneNumber,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? phoneNumber)? phoneNumberLogin,
+    TResult? Function(String? phoneNumber, String? countryCode)?
+        phoneNumberLogin,
     TResult? Function(String? phoneNumber)? setPhoneNumber,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? phoneNumber)? phoneNumberLogin,
+    TResult Function(String? phoneNumber, String? countryCode)?
+        phoneNumberLogin,
     TResult Function(String? phoneNumber)? setPhoneNumber,
     required TResult orElse(),
   }) =>
@@ -103,7 +106,7 @@ abstract class _$$_PhoneNumberLoginCopyWith<$Res>
       __$$_PhoneNumberLoginCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? phoneNumber});
+  $Res call({String? phoneNumber, String? countryCode});
 }
 
 /// @nodoc
@@ -118,11 +121,16 @@ class __$$_PhoneNumberLoginCopyWithImpl<$Res>
   @override
   $Res call({
     Object? phoneNumber = freezed,
+    Object? countryCode = freezed,
   }) {
     return _then(_$_PhoneNumberLogin(
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      countryCode: freezed == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -131,14 +139,16 @@ class __$$_PhoneNumberLoginCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PhoneNumberLogin implements _PhoneNumberLogin {
-  const _$_PhoneNumberLogin({this.phoneNumber});
+  const _$_PhoneNumberLogin({this.phoneNumber, this.countryCode});
 
   @override
   final String? phoneNumber;
+  @override
+  final String? countryCode;
 
   @override
   String toString() {
-    return 'PhoneNumberAuthPageEvent.phoneNumberLogin(phoneNumber: $phoneNumber)';
+    return 'PhoneNumberAuthPageEvent.phoneNumberLogin(phoneNumber: $phoneNumber, countryCode: $countryCode)';
   }
 
   @override
@@ -147,11 +157,13 @@ class _$_PhoneNumberLogin implements _PhoneNumberLogin {
         (other.runtimeType == runtimeType &&
             other is _$_PhoneNumberLogin &&
             (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber));
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.countryCode, countryCode) ||
+                other.countryCode == countryCode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, phoneNumber);
+  int get hashCode => Object.hash(runtimeType, phoneNumber, countryCode);
 
   @JsonKey(ignore: true)
   @override
@@ -162,30 +174,33 @@ class _$_PhoneNumberLogin implements _PhoneNumberLogin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? phoneNumber) phoneNumberLogin,
+    required TResult Function(String? phoneNumber, String? countryCode)
+        phoneNumberLogin,
     required TResult Function(String? phoneNumber) setPhoneNumber,
   }) {
-    return phoneNumberLogin(phoneNumber);
+    return phoneNumberLogin(phoneNumber, countryCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? phoneNumber)? phoneNumberLogin,
+    TResult? Function(String? phoneNumber, String? countryCode)?
+        phoneNumberLogin,
     TResult? Function(String? phoneNumber)? setPhoneNumber,
   }) {
-    return phoneNumberLogin?.call(phoneNumber);
+    return phoneNumberLogin?.call(phoneNumber, countryCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? phoneNumber)? phoneNumberLogin,
+    TResult Function(String? phoneNumber, String? countryCode)?
+        phoneNumberLogin,
     TResult Function(String? phoneNumber)? setPhoneNumber,
     required TResult orElse(),
   }) {
     if (phoneNumberLogin != null) {
-      return phoneNumberLogin(phoneNumber);
+      return phoneNumberLogin(phoneNumber, countryCode);
     }
     return orElse();
   }
@@ -223,11 +238,13 @@ class _$_PhoneNumberLogin implements _PhoneNumberLogin {
 }
 
 abstract class _PhoneNumberLogin implements PhoneNumberAuthPageEvent {
-  const factory _PhoneNumberLogin({final String? phoneNumber}) =
-      _$_PhoneNumberLogin;
+  const factory _PhoneNumberLogin(
+      {final String? phoneNumber,
+      final String? countryCode}) = _$_PhoneNumberLogin;
 
   @override
   String? get phoneNumber;
+  String? get countryCode;
   @override
   @JsonKey(ignore: true)
   _$$_PhoneNumberLoginCopyWith<_$_PhoneNumberLogin> get copyWith =>
@@ -301,7 +318,8 @@ class _$_SetPhoneNumber implements _SetPhoneNumber {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? phoneNumber) phoneNumberLogin,
+    required TResult Function(String? phoneNumber, String? countryCode)
+        phoneNumberLogin,
     required TResult Function(String? phoneNumber) setPhoneNumber,
   }) {
     return setPhoneNumber(phoneNumber);
@@ -310,7 +328,8 @@ class _$_SetPhoneNumber implements _SetPhoneNumber {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? phoneNumber)? phoneNumberLogin,
+    TResult? Function(String? phoneNumber, String? countryCode)?
+        phoneNumberLogin,
     TResult? Function(String? phoneNumber)? setPhoneNumber,
   }) {
     return setPhoneNumber?.call(phoneNumber);
@@ -319,7 +338,8 @@ class _$_SetPhoneNumber implements _SetPhoneNumber {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? phoneNumber)? phoneNumberLogin,
+    TResult Function(String? phoneNumber, String? countryCode)?
+        phoneNumberLogin,
     TResult Function(String? phoneNumber)? setPhoneNumber,
     required TResult orElse(),
   }) {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/onboarding/onboarding.dart';
-import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/logo_widget/logo_widget.dart';
 

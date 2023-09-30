@@ -6,5 +6,6 @@ class PhoneNumberAuthPageState with _$PhoneNumberAuthPageState {
      String? errorMessage,
     bool? isPhoneNumberVerified,
     String? phoneNumber,
+
   }) = _Initial;
 }
