@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/bloc/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 
+// ignore: must_be_immutable
 class PhoneNumberInput extends StatelessWidget {
   PhoneNumberInput({super.key});
 

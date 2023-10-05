@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../domain/models/phone_number_request_model/phone_number_request_model.dart';
@@ -13,21 +15,25 @@ class PhoneNumberAuthPageBloc
     on<_PhoneNumberLogin>((event, emit) async {
       String? phoneNumber = event.phoneNumber;
       String? countryCode = event.countryCode;
-      print({'$countryCode $phoneNumber'});
+
+      log('$countryCode $phoneNumber');
 
       bool? isValidated =
           FormValidationServices.phoneNumberValidation(phoneNumber);
 
       if (isValidated) {
-        print('--------validation -------working');
+        log('--------validation -------working');
+
         String formattedPhoneNumber =
             '$countryCode ${phoneNumber!.substring(0, 5)} ${phoneNumber.substring(5)}';
-        print(formattedPhoneNumber);
+
+        log(formattedPhoneNumber);
 
         PhoneNumberRequestModel request =
             PhoneNumberRequestModel(phone: formattedPhoneNumber);
 
         final result = await ApiServices.phoneNumberLogin(request);
+
         result.fold((failure) {
 // failure message from Api Services
 
@@ -49,7 +55,7 @@ class PhoneNumberAuthPageBloc
       } else {
         // form validation failed
 
-        print('------------------error');
+        log('------------------error');
       }
     });
 

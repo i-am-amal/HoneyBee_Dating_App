@@ -25,8 +25,7 @@ class OtpNumberAuthPageBloc
       String formattedPhoneNumber =
           '$countryCode ${phoneNumber.substring(0, 5)} ${phoneNumber.substring(5)}';
 
-      print(
-          'formatted phone nmuber : $formattedPhoneNumber , otpnumber : $otpNumber');
+      log('formatted phone nmuber : $formattedPhoneNumber , otpnumber : $otpNumber');
 
       VerifyOtpRequestModel request =
           VerifyOtpRequestModel(otp: otpNumber, phone: formattedPhoneNumber);
@@ -63,27 +62,14 @@ class OtpNumberAuthPageBloc
     });
 
     on<_StartTimer>((event, emit) async {
-      print('event called');
+      log('event called');
       for (int i = 30; i >= 0; i--) {
         if (state.isOtpVerified != true) {
-          print('timer : $i');
+          log('timer : $i');
           emit(state.copyWith(timer: i));
           await Future.delayed(const Duration(seconds: 1));
         }
       }
-
-      // int timeRemaining = 30;
-
-      // Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-      //   if (timeRemaining > 0) {
-      //     print('Time remaining: $timeRemaining seconds');
-      //     timeRemaining--;
-      //   } else {
-      //     timer.cancel();
-      //     print('OTP expired!');
-      //   }
-      //   emit(state.copyWith(timer: timeRemaining));
-      // });
     });
   }
 }

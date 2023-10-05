@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
 import 'package:honeybee/application/bloc/otp_number_auth_page/otp_number_auth_page_bloc.dart';
+import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
-import 'package:honeybee/presentation/screens/discover/discover_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -31,15 +31,16 @@ class OtpAuthenticationPage extends StatelessWidget {
           if (state.redirectPage == '/Discover') {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const DiscoverPage()),
+              MaterialPageRoute(builder: (context) => const BottomNavbar()),
             );
           }
 
-          if (state.redirectPage == '/CreateAccount') {
+          if (state.redirectPage == '/createAccount') {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => const BasicInfoMainPage()),
+                builder: (context) => const BasicInfoMainPage(),
+              ),
             );
           }
 
