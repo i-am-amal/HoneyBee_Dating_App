@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 class FormValidationServices {
@@ -51,16 +52,18 @@ class FormValidationServices {
 }
 
 class ImageValidationService {
+
   double getImageSize(File selectedImage) {
     final bytes = selectedImage.readAsBytesSync().lengthInBytes;
     final kb = bytes / 1024;
-    final mb = kb / 1024;
+    // final mb = kb / 1024;
 
     if (kb < 2000.0) {
-      print("Image is Less than 5MB");
+      log("Image is Less than 5MB");
     } else {
-      print("Image is More than 5MB...!!!");
+      log("Image is More than 5MB...!!!");
     }
     return kb;
   }
+  
 }
