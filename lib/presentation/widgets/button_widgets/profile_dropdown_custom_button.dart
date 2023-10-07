@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class ProfileCustomDropDownButton extends StatelessWidget {
@@ -58,7 +60,7 @@ class ProfileCustomDropDownButton extends StatelessWidget {
         ),
         value: null,
         onChanged: (String? value) {
-          print(value);
+          log(value.toString());
         },
         items: items,
       ),

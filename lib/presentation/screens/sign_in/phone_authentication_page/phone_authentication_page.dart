@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,10 +14,12 @@ import '../../../../application/bloc/phone_number_auth_page/phone_number_auth_pa
 class PhoneAuthenticationPage extends StatelessWidget {
   PhoneAuthenticationPage({super.key});
 
-   CountryCode? countryCode;
+  CountryCode? countryCode;
+
   @override
   Widget build(BuildContext context) {
     TextEditingController phoneNumberController = TextEditingController();
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -26,9 +29,11 @@ class PhoneAuthenticationPage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>  OtpAuthenticationPage(phoneNumber: phoneNumberController.text,countryCode: countryCode.toString(),)), 
+                builder: (context) => OtpAuthenticationPage(
+                      phoneNumber: phoneNumberController.text,
+                      countryCode: countryCode.toString(),
+                    )),
           );
-
           // CustomNavigator().push(context, const OtpAuthenticationPage());
         }
       },
@@ -74,7 +79,9 @@ class PhoneAuthenticationPage extends StatelessWidget {
             SizedBox(
               height: height * 0.06,
             ),
-            // PhoneNumberInput(),
+
+            //-----------------phone number text field section-------------------------//
+
             Column(
               children: [
                 Row(
@@ -82,8 +89,7 @@ class PhoneAuthenticationPage extends StatelessWidget {
                     CountryCodePicker(
                       onChanged: (code) {
                         countryCode = code;
-
-                        print(countryCode);
+                        log(countryCode.toString());
                       },
                       initialSelection: 'IN',
                       onInit: (value) {
@@ -98,11 +104,14 @@ class PhoneAuthenticationPage extends StatelessWidget {
                       width: width * 0.65,
                       child: TextFormField(
                         onChanged: (value) {
-                          print(countryCode);
-                          BlocProvider.of<PhoneNumberAuthPageBloc>(context)
-                              .add(PhoneNumberAuthPageEvent.setPhoneNumber(
-                            phoneNumber: value,
-                          ));
+                          log(countryCode.toString());
+
+                          BlocProvider.of<PhoneNumberAuthPageBloc>(context).add(
+                            PhoneNumberAuthPageEvent.setPhoneNumber(
+                              phoneNumber: value,
+                            ),
+                          );
+                          
                         },
                         controller: phoneNumberController,
                         keyboardType: TextInputType.phone,
@@ -137,7 +146,7 @@ class PhoneAuthenticationPage extends StatelessWidget {
                     countryCode: countryCode.toString(),
                   ),
                 );
-                print(countryCode);
+                log(countryCode.toString());
               },
             ),
           ],

@@ -1,14 +1,15 @@
+import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomDatePicker {
   static DateTime? selectedDate;
   static Future showDatePickerDialog(context) async {
-    print("inside cupertino datepicker");
+    log("inside cupertino datepicker");
     return showDialog(
       context: context,
       builder: (BuildContext context) {
-        print("inside alertbox datepicker");
+        log("inside alertbox datepicker");
         return AlertDialog(
           backgroundColor: Colors.white,
           actions: [
@@ -38,7 +39,7 @@ class CustomDatePicker {
               child: const Text("OK"),
               onPressed: () {
                 if (selectedDate != null) {
-                  print(selectedDate);
+                  log(selectedDate.toString());
                 }
                 Navigator.of(context).pop();
               },

@@ -13,11 +13,12 @@ class ImageWidget extends StatelessWidget {
     return Container(
       width: 200,
       height: 330,
-      // color: Colors.red,
       decoration: BoxDecoration(
         image: imagepath != null
             ? DecorationImage(
-                fit: BoxFit.cover, image: NetworkImage(imagepath!))
+                fit: BoxFit.cover,
+                image: NetworkImage(imagepath!),
+              )
             : const DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(

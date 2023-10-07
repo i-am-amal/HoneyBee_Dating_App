@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 
-
-
-
-
 class CustomModalBottomSheet extends StatefulWidget {
   const CustomModalBottomSheet({super.key});
 
   @override
-    State<CustomModalBottomSheet> createState() => _CustomModalBottomSheetState();
-
+  State<CustomModalBottomSheet> createState() => _CustomModalBottomSheetState();
 }
 
 class _CustomModalBottomSheetState extends State<CustomModalBottomSheet> {

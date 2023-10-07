@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:honeybee/application/bloc/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'application/bloc/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 
 void main() {
@@ -22,7 +21,8 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => PhoneNumberAuthPageBloc(),
-        ),BlocProvider(
+        ),
+        BlocProvider(
           create: (context) => OtpNumberAuthPageBloc(),
         ),
       ],
@@ -38,6 +38,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+///////////////////////////testing widget/////////////////////////////////////
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -64,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
           child: ElevatedButton(
         onPressed: () {},
-        child: Text('testing'),
+        child: const Text('testing'),
       )
 
           ////
@@ -72,3 +74,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+////////////////////////////////////////////////////////////////////////////////
