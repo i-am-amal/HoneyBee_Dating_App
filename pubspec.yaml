@@ -22,6 +22,8 @@ dependencies:
   font_awesome_flutter: ^10.5.0
   freezed: ^2.4.2
   freezed_annotation: ^2.4.1
+  geocoding: ^2.1.1
+  geolocator: ^10.1.0
   http: ^1.1.0
   http_parser: ^4.0.2
   image_picker: ^1.0.4

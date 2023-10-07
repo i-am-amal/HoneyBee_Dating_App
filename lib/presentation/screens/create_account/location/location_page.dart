@@ -46,9 +46,10 @@ class LocationPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ProfileImages(
-                          image: 'assets/images/profile.jpg',
-                        )),
+                  builder: (context) => const ProfileImages(
+                    image: 'assets/images/profile.jpg',
+                  ),
+                ),
               );
             },
           )
