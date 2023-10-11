@@ -10,10 +10,16 @@ class ProfileImages extends StatelessWidget {
   const ProfileImages({super.key, this.image});
   final String? image;
 
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    String instructions = '''Add atleast two picture to continue. 
+Avoid Blurry Photos. 
+Try to upload image within 2 MB size. 
+Stay clear of inappropriate content''';
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -82,29 +88,10 @@ class ProfileImages extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const CustomText(
-                        text: ' Add atleast two picture to continue',
-                        fontFamily: CustomFont.textFont,
-                      ),
-                      SizedBox(
-                        height: height * 0.02,
-                      ),
-                      const CustomText(
-                        text: 'Avoid Blurry Photos',
-                        fontFamily: CustomFont.textFont,
-                      ),
-                      SizedBox(
-                        height: height * 0.02,
-                      ),
-                      const CustomText(
-                        text: 'Try to upload image within 2 MB size',
-                        fontFamily: CustomFont.textFont,
-                      ),
-                      SizedBox(
-                        height: height * 0.02,
-                      ),
-                      const CustomText(
-                        text: 'Stay clear of inappropriate content',
+                      CustomText(
+                        width: width * 0.5,
+                        text: instructions,
+                        textalign: TextAlign.start,
                         fontFamily: CustomFont.textFont,
                       ),
                     ],

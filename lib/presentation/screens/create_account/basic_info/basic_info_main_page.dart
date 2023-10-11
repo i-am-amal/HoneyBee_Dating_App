@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/create_account/location/location_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -52,14 +54,18 @@ class BasicInfoMainPage extends StatelessWidget {
                   child: SizedBox(
                     width: width * 0.33,
                     height: height * 0.25,
-                    child: Image.asset('assets/images/default profile.jpg'),
+                    child: GestureDetector(
+                      child: Image.asset('assets/images/default profile.jpg'),
+                      onTap: () {
+                        log('-----------------tapped on the profile pic-------------');
+                      },
+                    ),
                   ),
                 ),
                 Positioned(
                   bottom: 25,
                   right: -5,
                   child: GestureDetector(
-                    onTap: () {},
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: const BoxDecoration(
