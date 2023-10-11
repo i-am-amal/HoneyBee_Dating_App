@@ -1,5 +1,7 @@
+import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
+
 class Config {
-  static String? token;
+  static String? token= saveTokenToPrefs(token!).toString();
   // static const apiBaseUrl = 'http://localhost:5000';
   static const phoneApi = '$apiBaseUrl/api/phone';
   static const verifyOtpApi = '$apiBaseUrl/api/verifyOtp';

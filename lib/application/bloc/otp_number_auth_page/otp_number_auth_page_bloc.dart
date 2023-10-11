@@ -25,7 +25,7 @@ class OtpNumberAuthPageBloc
       String formattedPhoneNumber =
           '$countryCode ${phoneNumber.substring(0, 5)} ${phoneNumber.substring(5)}';
 
-      log('formatted phone nmuber : $formattedPhoneNumber , otpnumber : $otpNumber');
+      log('formatted phone nmuber : $formattedPhoneNumber , otpnumber : $otpNumber'); 
 
       VerifyOtpRequestModel request =
           VerifyOtpRequestModel(otp: otpNumber, phone: formattedPhoneNumber);
@@ -42,7 +42,7 @@ class OtpNumberAuthPageBloc
         if (success.success == true) {
           // Success from backend
           emit(state.copyWith(
-              isOtpVerified: true, redirectPage: success.redirect));
+              isOtpVerified: true, redirectPage: success.redirect,));
         } else {
           // failure from backend
           emit(state.copyWith(
