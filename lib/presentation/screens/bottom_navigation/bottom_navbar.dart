@@ -8,7 +8,9 @@ import 'package:honeybee/presentation/screens/profile/menu_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 
 class BottomNavbar extends StatefulWidget {
-  const BottomNavbar({super.key});
+  const BottomNavbar({super.key,this.token});
+
+  final String? token;
 
   @override
   State<BottomNavbar> createState() => _BottomNavbarState();

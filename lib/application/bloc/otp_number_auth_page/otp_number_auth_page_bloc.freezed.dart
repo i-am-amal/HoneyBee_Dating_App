@@ -689,21 +689,25 @@ abstract class _InitializePage implements OtpNumberAuthPageEvent {
 mixin _$OtpNumberAuthPageState {
   String? get errorMessage => throw _privateConstructorUsedError;
   bool? get isOtpVerified => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
   String? get redirectPage => throw _privateConstructorUsedError;
   int? get timer => throw _privateConstructorUsedError;
   String? get otp => throw _privateConstructorUsedError;
   String? get phoneNumber => throw _privateConstructorUsedError;
   String? get countryCode => throw _privateConstructorUsedError;
+  String? get formattedPhoneNumber => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
             String? errorMessage,
             bool? isOtpVerified,
+            String? token,
             String? redirectPage,
             int? timer,
             String? otp,
             String? phoneNumber,
-            String? countryCode)
+            String? countryCode,
+            String? formattedPhoneNumber)
         initial,
   }) =>
       throw _privateConstructorUsedError;
@@ -712,11 +716,13 @@ mixin _$OtpNumberAuthPageState {
     TResult? Function(
             String? errorMessage,
             bool? isOtpVerified,
+            String? token,
             String? redirectPage,
             int? timer,
             String? otp,
             String? phoneNumber,
-            String? countryCode)?
+            String? countryCode,
+            String? formattedPhoneNumber)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
@@ -725,11 +731,13 @@ mixin _$OtpNumberAuthPageState {
     TResult Function(
             String? errorMessage,
             bool? isOtpVerified,
+            String? token,
             String? redirectPage,
             int? timer,
             String? otp,
             String? phoneNumber,
-            String? countryCode)?
+            String? countryCode,
+            String? formattedPhoneNumber)?
         initial,
     required TResult orElse(),
   }) =>
@@ -765,11 +773,13 @@ abstract class $OtpNumberAuthPageStateCopyWith<$Res> {
   $Res call(
       {String? errorMessage,
       bool? isOtpVerified,
+      String? token,
       String? redirectPage,
       int? timer,
       String? otp,
       String? phoneNumber,
-      String? countryCode});
+      String? countryCode,
+      String? formattedPhoneNumber});
 }
 
 /// @nodoc
@@ -788,11 +798,13 @@ class _$OtpNumberAuthPageStateCopyWithImpl<$Res,
   $Res call({
     Object? errorMessage = freezed,
     Object? isOtpVerified = freezed,
+    Object? token = freezed,
     Object? redirectPage = freezed,
     Object? timer = freezed,
     Object? otp = freezed,
     Object? phoneNumber = freezed,
     Object? countryCode = freezed,
+    Object? formattedPhoneNumber = freezed,
   }) {
     return _then(_value.copyWith(
       errorMessage: freezed == errorMessage
@@ -803,6 +815,10 @@ class _$OtpNumberAuthPageStateCopyWithImpl<$Res,
           ? _value.isOtpVerified
           : isOtpVerified // ignore: cast_nullable_to_non_nullable
               as bool?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
       redirectPage: freezed == redirectPage
           ? _value.redirectPage
           : redirectPage // ignore: cast_nullable_to_non_nullable
@@ -822,6 +838,10 @@ class _$OtpNumberAuthPageStateCopyWithImpl<$Res,
       countryCode: freezed == countryCode
           ? _value.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      formattedPhoneNumber: freezed == formattedPhoneNumber
+          ? _value.formattedPhoneNumber
+          : formattedPhoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -838,11 +858,13 @@ abstract class _$$_InitialCopyWith<$Res>
   $Res call(
       {String? errorMessage,
       bool? isOtpVerified,
+      String? token,
       String? redirectPage,
       int? timer,
       String? otp,
       String? phoneNumber,
-      String? countryCode});
+      String? countryCode,
+      String? formattedPhoneNumber});
 }
 
 /// @nodoc
@@ -857,11 +879,13 @@ class __$$_InitialCopyWithImpl<$Res>
   $Res call({
     Object? errorMessage = freezed,
     Object? isOtpVerified = freezed,
+    Object? token = freezed,
     Object? redirectPage = freezed,
     Object? timer = freezed,
     Object? otp = freezed,
     Object? phoneNumber = freezed,
     Object? countryCode = freezed,
+    Object? formattedPhoneNumber = freezed,
   }) {
     return _then(_$_Initial(
       errorMessage: freezed == errorMessage
@@ -872,6 +896,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.isOtpVerified
           : isOtpVerified // ignore: cast_nullable_to_non_nullable
               as bool?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
       redirectPage: freezed == redirectPage
           ? _value.redirectPage
           : redirectPage // ignore: cast_nullable_to_non_nullable
@@ -892,6 +920,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
               as String?,
+      formattedPhoneNumber: freezed == formattedPhoneNumber
+          ? _value.formattedPhoneNumber
+          : formattedPhoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -902,16 +934,20 @@ class _$_Initial implements _Initial {
   const _$_Initial(
       {this.errorMessage,
       this.isOtpVerified,
+      this.token,
       this.redirectPage,
       this.timer,
       this.otp,
       this.phoneNumber,
-      this.countryCode});
+      this.countryCode,
+      this.formattedPhoneNumber});
 
   @override
   final String? errorMessage;
   @override
   final bool? isOtpVerified;
+  @override
+  final String? token;
   @override
   final String? redirectPage;
   @override
@@ -922,10 +958,12 @@ class _$_Initial implements _Initial {
   final String? phoneNumber;
   @override
   final String? countryCode;
+  @override
+  final String? formattedPhoneNumber;
 
   @override
   String toString() {
-    return 'OtpNumberAuthPageState.initial(errorMessage: $errorMessage, isOtpVerified: $isOtpVerified, redirectPage: $redirectPage, timer: $timer, otp: $otp, phoneNumber: $phoneNumber, countryCode: $countryCode)';
+    return 'OtpNumberAuthPageState.initial(errorMessage: $errorMessage, isOtpVerified: $isOtpVerified, token: $token, redirectPage: $redirectPage, timer: $timer, otp: $otp, phoneNumber: $phoneNumber, countryCode: $countryCode, formattedPhoneNumber: $formattedPhoneNumber)';
   }
 
   @override
@@ -937,6 +975,7 @@ class _$_Initial implements _Initial {
                 other.errorMessage == errorMessage) &&
             (identical(other.isOtpVerified, isOtpVerified) ||
                 other.isOtpVerified == isOtpVerified) &&
+            (identical(other.token, token) || other.token == token) &&
             (identical(other.redirectPage, redirectPage) ||
                 other.redirectPage == redirectPage) &&
             (identical(other.timer, timer) || other.timer == timer) &&
@@ -944,12 +983,23 @@ class _$_Initial implements _Initial {
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
             (identical(other.countryCode, countryCode) ||
-                other.countryCode == countryCode));
+                other.countryCode == countryCode) &&
+            (identical(other.formattedPhoneNumber, formattedPhoneNumber) ||
+                other.formattedPhoneNumber == formattedPhoneNumber));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorMessage, isOtpVerified,
-      redirectPage, timer, otp, phoneNumber, countryCode);
+  int get hashCode => Object.hash(
+      runtimeType,
+      errorMessage,
+      isOtpVerified,
+      token,
+      redirectPage,
+      timer,
+      otp,
+      phoneNumber,
+      countryCode,
+      formattedPhoneNumber);
 
   @JsonKey(ignore: true)
   @override
@@ -963,15 +1013,17 @@ class _$_Initial implements _Initial {
     required TResult Function(
             String? errorMessage,
             bool? isOtpVerified,
+            String? token,
             String? redirectPage,
             int? timer,
             String? otp,
             String? phoneNumber,
-            String? countryCode)
+            String? countryCode,
+            String? formattedPhoneNumber)
         initial,
   }) {
-    return initial(errorMessage, isOtpVerified, redirectPage, timer, otp,
-        phoneNumber, countryCode);
+    return initial(errorMessage, isOtpVerified, token, redirectPage, timer, otp,
+        phoneNumber, countryCode, formattedPhoneNumber);
   }
 
   @override
@@ -980,15 +1032,17 @@ class _$_Initial implements _Initial {
     TResult? Function(
             String? errorMessage,
             bool? isOtpVerified,
+            String? token,
             String? redirectPage,
             int? timer,
             String? otp,
             String? phoneNumber,
-            String? countryCode)?
+            String? countryCode,
+            String? formattedPhoneNumber)?
         initial,
   }) {
-    return initial?.call(errorMessage, isOtpVerified, redirectPage, timer, otp,
-        phoneNumber, countryCode);
+    return initial?.call(errorMessage, isOtpVerified, token, redirectPage,
+        timer, otp, phoneNumber, countryCode, formattedPhoneNumber);
   }
 
   @override
@@ -997,17 +1051,19 @@ class _$_Initial implements _Initial {
     TResult Function(
             String? errorMessage,
             bool? isOtpVerified,
+            String? token,
             String? redirectPage,
             int? timer,
             String? otp,
             String? phoneNumber,
-            String? countryCode)?
+            String? countryCode,
+            String? formattedPhoneNumber)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(errorMessage, isOtpVerified, redirectPage, timer, otp,
-          phoneNumber, countryCode);
+      return initial(errorMessage, isOtpVerified, token, redirectPage, timer,
+          otp, phoneNumber, countryCode, formattedPhoneNumber);
     }
     return orElse();
   }
@@ -1045,16 +1101,20 @@ abstract class _Initial implements OtpNumberAuthPageState {
   const factory _Initial(
       {final String? errorMessage,
       final bool? isOtpVerified,
+      final String? token,
       final String? redirectPage,
       final int? timer,
       final String? otp,
       final String? phoneNumber,
-      final String? countryCode}) = _$_Initial;
+      final String? countryCode,
+      final String? formattedPhoneNumber}) = _$_Initial;
 
   @override
   String? get errorMessage;
   @override
   bool? get isOtpVerified;
+  @override
+  String? get token;
   @override
   String? get redirectPage;
   @override
@@ -1065,6 +1125,8 @@ abstract class _Initial implements OtpNumberAuthPageState {
   String? get phoneNumber;
   @override
   String? get countryCode;
+  @override
+  String? get formattedPhoneNumber;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

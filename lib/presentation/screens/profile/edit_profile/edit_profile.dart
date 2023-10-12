@@ -42,7 +42,7 @@ class EditProfile extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const EditInfoMainPage()),
+                              builder: (context) =>  EditInfoMainPage()),
                         );
                       }),
                 ],

@@ -6,9 +6,10 @@ class CustomTextFormFiled extends StatelessWidget {
     this.initialValue,
     this.keyboardType,
     this.editController,
-    this.onTap,
+    this.onChanged,
     this.enable,
     this.icon,
+    this.onTap,
     this.readonly,
     super.key,
   });
@@ -16,7 +17,9 @@ class CustomTextFormFiled extends StatelessWidget {
   final String? text;
   final String? initialValue;
   final TextInputType? keyboardType;
-  final Function? onTap;
+  final Function? onChanged;
+    final Function? onTap;
+
   final TextEditingController? editController;
   final bool? enable;
   final IconData? icon;
@@ -41,6 +44,11 @@ class CustomTextFormFiled extends StatelessWidget {
             borderRadius: BorderRadius.circular(15.0),
           ),
         ),
+        onChanged: (value) {
+          if (onChanged != null) {
+            onChanged!(value);
+          }
+        },
         onTap: () {
           if (onTap != null) {
             onTap!();

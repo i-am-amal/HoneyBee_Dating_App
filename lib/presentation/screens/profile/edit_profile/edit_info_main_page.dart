@@ -19,6 +19,7 @@ class EditInfoMainPage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
+ 
     dateController.text = "";
     phoneNumberController.text = "123456";
     nameController.text = '';
@@ -99,7 +100,7 @@ class EditInfoMainPage extends StatelessWidget {
               text: 'Birthday',
               editController: dateController,
               readonly: true,
-              onTap: () async {
+              onChanged: () async {
                 CustomDatePicker.showDatePickerDialog(context);
                 dateController.text = CustomDatePicker.selectedDate.toString();
               },

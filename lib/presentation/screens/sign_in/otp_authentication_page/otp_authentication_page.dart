@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
@@ -8,6 +10,9 @@ import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+
+import '../../../../core/routes/navigation_functions.dart';
+import '../../../../infrastructure/data/local/shared_prefs.dart';
 
 class OtpAuthenticationPage extends StatelessWidget {
   const OtpAuthenticationPage(
@@ -26,26 +31,8 @@ class OtpAuthenticationPage extends StatelessWidget {
             phoneNumber: phoneNumber, countryCode: countryCode));
 
     return BlocListener<OtpNumberAuthPageBloc, OtpNumberAuthPageState>(
-      listener: (context, state) {
-        if (state.isOtpVerified ?? false) {
-          if (state.redirectPage == '/Discover') {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const BottomNavbar()),
-            );
-          }
-
-          if (state.redirectPage == '/createAccount') {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const BasicInfoMainPage(),
-              ),
-            );
-          }
-
-          // CustomNavigator().push(context, const OtpAuthenticationPage());
-        }
+      listener: (context, state) async {
+        handleState(state, context);
       },
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -133,5 +120,52 @@ class OtpAuthenticationPage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+void handleState(OtpNumberAuthPageState state, BuildContext context) async {
+  if (state.isOtpVerified ?? false) {
+    if (state.redirectPage == '/Discover') {
+      log("---------------Token is ${state.token.toString()}------------------------");
+      log("---------------Redirected to${state.redirectPage}------------------------");
+
+      await saveTokenToPrefs(state.token.toString());
+
+      Future.microtask(() {
+        CustomNavigator().push(context, BottomNavbar(token: state.token));
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //       builder: (context) => BottomNavbar(token: state.token)),
+        // );
+      });
+    }
+
+    if (state.redirectPage == '/createAccount') {
+      log("---------------Redirected to${state.redirectPage}------------------------");
+
+      Future.microtask(() {
+        CustomNavigator().push(
+            context,
+            BasicInfoMainPage(
+              formattedPhoneNumber: state.formattedPhoneNumber,
+            ));
+
+        //   Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //       builder: (context) => const BasicInfoMainPage(),
+        //     ),
+        //   );
+      });
+    }
+
+    // CustomNavigator().push(context, const OtpAuthenticationPage());
+  } else {
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   const SnackBar(
+    //     content: Text('Please enter a valid OTP'),
+    //   ),
+    // );
   }
 }

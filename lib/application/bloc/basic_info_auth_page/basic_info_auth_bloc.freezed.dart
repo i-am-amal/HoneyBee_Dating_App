@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'basic_info_auth_page_bloc.dart';
+part of 'basic_info_auth_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$BasicInfoAuthPageEvent {
+mixin _$BasicInfoAuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
@@ -51,17 +51,16 @@ mixin _$BasicInfoAuthPageEvent {
 }
 
 /// @nodoc
-abstract class $BasicInfoAuthPageEventCopyWith<$Res> {
-  factory $BasicInfoAuthPageEventCopyWith(BasicInfoAuthPageEvent value,
-          $Res Function(BasicInfoAuthPageEvent) then) =
-      _$BasicInfoAuthPageEventCopyWithImpl<$Res, BasicInfoAuthPageEvent>;
+abstract class $BasicInfoAuthEventCopyWith<$Res> {
+  factory $BasicInfoAuthEventCopyWith(
+          BasicInfoAuthEvent value, $Res Function(BasicInfoAuthEvent) then) =
+      _$BasicInfoAuthEventCopyWithImpl<$Res, BasicInfoAuthEvent>;
 }
 
 /// @nodoc
-class _$BasicInfoAuthPageEventCopyWithImpl<$Res,
-        $Val extends BasicInfoAuthPageEvent>
-    implements $BasicInfoAuthPageEventCopyWith<$Res> {
-  _$BasicInfoAuthPageEventCopyWithImpl(this._value, this._then);
+class _$BasicInfoAuthEventCopyWithImpl<$Res, $Val extends BasicInfoAuthEvent>
+    implements $BasicInfoAuthEventCopyWith<$Res> {
+  _$BasicInfoAuthEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -78,7 +77,7 @@ abstract class _$$_StartedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_StartedCopyWithImpl<$Res>
-    extends _$BasicInfoAuthPageEventCopyWithImpl<$Res, _$_Started>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_Started>
     implements _$$_StartedCopyWith<$Res> {
   __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
       : super(_value, _then);
@@ -91,7 +90,7 @@ class _$_Started implements _Started {
 
   @override
   String toString() {
-    return 'BasicInfoAuthPageEvent.started()';
+    return 'BasicInfoAuthEvent.started()';
   }
 
   @override
@@ -160,26 +159,25 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements BasicInfoAuthPageEvent {
+abstract class _Started implements BasicInfoAuthEvent {
   const factory _Started() = _$_Started;
 }
 
 /// @nodoc
-mixin _$BasicInfoAuthPageState {
-  XFile? get image => throw _privateConstructorUsedError;
+mixin _$BasicInfoAuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(XFile? image) initial,
+    required TResult Function() initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(XFile? image)? initial,
+    TResult? Function()? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(XFile? image)? initial,
+    TResult Function()? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -199,132 +197,84 @@ mixin _$BasicInfoAuthPageState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $BasicInfoAuthPageStateCopyWith<BasicInfoAuthPageState> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BasicInfoAuthPageStateCopyWith<$Res> {
-  factory $BasicInfoAuthPageStateCopyWith(BasicInfoAuthPageState value,
-          $Res Function(BasicInfoAuthPageState) then) =
-      _$BasicInfoAuthPageStateCopyWithImpl<$Res, BasicInfoAuthPageState>;
-  @useResult
-  $Res call({XFile? image});
+abstract class $BasicInfoAuthStateCopyWith<$Res> {
+  factory $BasicInfoAuthStateCopyWith(
+          BasicInfoAuthState value, $Res Function(BasicInfoAuthState) then) =
+      _$BasicInfoAuthStateCopyWithImpl<$Res, BasicInfoAuthState>;
 }
 
 /// @nodoc
-class _$BasicInfoAuthPageStateCopyWithImpl<$Res,
-        $Val extends BasicInfoAuthPageState>
-    implements $BasicInfoAuthPageStateCopyWith<$Res> {
-  _$BasicInfoAuthPageStateCopyWithImpl(this._value, this._then);
+class _$BasicInfoAuthStateCopyWithImpl<$Res, $Val extends BasicInfoAuthState>
+    implements $BasicInfoAuthStateCopyWith<$Res> {
+  _$BasicInfoAuthStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? image = freezed,
-  }) {
-    return _then(_value.copyWith(
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as XFile?,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
-    implements $BasicInfoAuthPageStateCopyWith<$Res> {
+abstract class _$$_InitialCopyWith<$Res> {
   factory _$$_InitialCopyWith(
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({XFile? image});
 }
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$BasicInfoAuthPageStateCopyWithImpl<$Res, _$_Initial>
+    extends _$BasicInfoAuthStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? image = freezed,
-  }) {
-    return _then(_$_Initial(
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as XFile?,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial({this.image});
-
-  @override
-  final XFile? image;
+  const _$_Initial();
 
   @override
   String toString() {
-    return 'BasicInfoAuthPageState.initial(image: $image)';
+    return 'BasicInfoAuthState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
-            (identical(other.image, image) || other.image == image));
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, image);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(XFile? image) initial,
+    required TResult Function() initial,
   }) {
-    return initial(image);
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(XFile? image)? initial,
+    TResult? Function()? initial,
   }) {
-    return initial?.call(image);
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(XFile? image)? initial,
+    TResult Function()? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(image);
+      return initial();
     }
     return orElse();
   }
@@ -358,13 +308,6 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements BasicInfoAuthPageState {
-  const factory _Initial({final XFile? image}) = _$_Initial;
-
-  @override
-  XFile? get image;
-  @override
-  @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _Initial implements BasicInfoAuthState {
+  const factory _Initial() = _$_Initial;
 }

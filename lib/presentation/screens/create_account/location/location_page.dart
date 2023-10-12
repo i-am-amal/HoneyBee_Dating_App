@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/create_account/profile_images/profile_images.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -7,11 +9,23 @@ import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
 
 class LocationPage extends StatelessWidget {
-  const LocationPage({super.key});
+  const LocationPage({
+    super.key,
+    required this.fullName,
+    required this.email,
+    required this.phoneNumber,
+    required this.birthday,
+  });
+
+  final String fullName;
+  final String email;
+  final String phoneNumber;
+  final String birthday;
 
   @override
   Widget build(BuildContext context) {
     TextEditingController locationTextController = TextEditingController();
+    log('$fullName, $email, $phoneNumber, $birthday');
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
@@ -43,7 +57,6 @@ class LocationPage extends StatelessWidget {
               icon: Icons.location_on,
               editController: locationTextController,
               keyboardType: TextInputType.streetAddress,
-              
             ),
             SizedBox(
               height: height * 0.04,

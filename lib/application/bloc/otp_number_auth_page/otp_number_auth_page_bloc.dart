@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/verify_otp_request_model/verify_otp_request_model.dart';
 import 'package:honeybee/infrastructure/api_services.dart';
+import '../../../domain/validation/form_validation_services.dart';
 
 part 'otp_number_auth_page_event.dart';
 part 'otp_number_auth_page_state.dart';
@@ -19,38 +20,45 @@ class OtpNumberAuthPageBloc
     on<_OtpLogin>((event, emit) async {
       String? otpNumber = state.otp;
 
+      bool? isOtpValidated = FormValidationServices.otpValidation(otpNumber);
+
       String countryCode = state.countryCode!;
       String phoneNumber = state.phoneNumber!;
 
-      String formattedPhoneNumber =
-          '$countryCode ${phoneNumber.substring(0, 5)} ${phoneNumber.substring(5)}';
+      if (isOtpValidated) {
+        String formattedPhoneNumber =
+            '$countryCode ${phoneNumber.substring(0, 5)} ${phoneNumber.substring(5)}';
 
-      log('formatted phone nmuber : $formattedPhoneNumber , otpnumber : $otpNumber'); 
+        log('formatted phone nmuber : $formattedPhoneNumber , otpnumber : $otpNumber');
 
-      VerifyOtpRequestModel request =
-          VerifyOtpRequestModel(otp: otpNumber, phone: formattedPhoneNumber);
+        VerifyOtpRequestModel request =
+            VerifyOtpRequestModel(otp: otpNumber, phone: formattedPhoneNumber);
 
-      final result = await ApiServices.verifyOtpLogin(request);
-      log(request.otp.toString());
+        final result = await ApiServices.verifyOtpLogin(request);
+        log(request.otp.toString());
 
-      result.fold((failure) {
+        result.fold((failure) {
 // failure message from Api Services
 
-        emit(state.copyWith(errorMessage: failure.errorMessage));
-        emit(state.copyWith(errorMessage: null));
-      }, (success) {
-        if (success.success == true) {
-          // Success from backend
-          emit(state.copyWith(
-              isOtpVerified: true, redirectPage: success.redirect,));
-        } else {
-          // failure from backend
-          emit(state.copyWith(
-              errorMessage:
-                  'OOPS.. Something went wrong.. Please try again later...'));
+          emit(state.copyWith(errorMessage: failure.errorMessage));
           emit(state.copyWith(errorMessage: null));
-        }
-      });
+        }, (success) {
+          if (success.success == true) {
+            // Success from backend
+            emit(state.copyWith(
+                isOtpVerified: true,
+                token: success.token,
+                redirectPage: success.redirect,
+                formattedPhoneNumber: formattedPhoneNumber));
+          } else {
+            // failure from backend
+            emit(state.copyWith(
+                errorMessage:
+                    'OOPS.. Something went wrong.. Please try again later...'));
+            emit(state.copyWith(errorMessage: null));
+          }
+        });
+      }
     });
 
     on<_InitializePage>((event, emit) {
