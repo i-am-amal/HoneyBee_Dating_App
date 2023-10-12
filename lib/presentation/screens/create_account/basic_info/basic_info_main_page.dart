@@ -13,6 +13,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../domain/validation/form_validation_services.dart';
 import '../../../widgets/textform_widgets/custom_textformfield.dart';
 
+// ignore: must_be_immutable
 class BasicInfoMainPage extends StatelessWidget {
   BasicInfoMainPage({super.key, this.formattedPhoneNumber});
 
@@ -28,7 +29,7 @@ class BasicInfoMainPage extends StatelessWidget {
     XFile? image = await imagePicker.pickImageFromCamera();
     if (image != null) {
       selectedImage = File(image.path);
-      print("---------pick from camera----------${image.path}");
+      debugPrint("---------pick from camera----------${image.path}");
     }
   }
 
@@ -36,7 +37,7 @@ class BasicInfoMainPage extends StatelessWidget {
     XFile? image = await imagePicker.pickImageFromGallery();
     if (image != null) {
       selectedImage = File(image.path);
-      print("---------pick from gallery----------${image.path}");
+      debugPrint("---------pick from gallery----------${image.path}");
     }
   }
 
@@ -78,7 +79,7 @@ class BasicInfoMainPage extends StatelessWidget {
                     child: GestureDetector(
                       child: selectedImage != null
                           ? Image.file(selectedImage!, fit: BoxFit.cover)
-                          : Image.asset('assets/images/default profile.jpg'),
+                          : Image.asset('assets/images/profile.jpg'),
                       onTap: () {
                         showCupertinoModalPopup(
                           context: context,
