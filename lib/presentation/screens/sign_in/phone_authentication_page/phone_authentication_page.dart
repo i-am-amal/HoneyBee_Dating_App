@@ -27,24 +27,29 @@ class PhoneAuthenticationPage extends StatelessWidget {
     return BlocListener<PhoneNumberAuthPageBloc, PhoneNumberAuthPageState>(
       listener: (context, state) {
         if (state.isPhoneNumberVerified ?? false) {
-          if (FormValidationServices.phoneNumberValidation(
-              phoneNumberController.text)) {
-            ScaffoldMessenger.maybeOf(context)?.showSnackBar(const SnackBar(
-              content: Text('Please enter a valid phone number '),
-            ));
-          } else {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => OtpAuthenticationPage(
-                  phoneNumber: phoneNumberController.text,
-                  countryCode: countryCode.toString(),
-                ),
+         
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => OtpAuthenticationPage(
+                phoneNumber: phoneNumberController.text,
+                countryCode: countryCode.toString(),
               ),
-            );
-          }
-          // CustomNavigator().push(context, const OtpAuthenticationPage());
-        }
+            ),
+          );
+        } 
+        // else {
+        //   if (FormValidationServices.phoneNumberValidation(
+        //       phoneNumberController.text)) {
+        //     ScaffoldMessenger.maybeOf(context)?.showSnackBar(const SnackBar(
+        //       content: Text('Please enter a valid phone number '),
+        //     ));
+        //   }
+        // }
+
+        
+        // CustomNavigator().push(context, const OtpAuthenticationPage());
+        // }
       },
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),

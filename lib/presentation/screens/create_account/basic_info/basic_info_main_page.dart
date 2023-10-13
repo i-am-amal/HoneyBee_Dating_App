@@ -2,6 +2,8 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/bloc/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'package:honeybee/infrastructure/camera_services.dart';
 import 'package:honeybee/presentation/screens/create_account/location/location_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -72,67 +74,70 @@ class BasicInfoMainPage extends StatelessWidget {
             Stack(
               alignment: Alignment.bottomRight,
               children: [
-                ClipOval(
-                  child: SizedBox(
-                    width: width * 0.33,
-                    height: height * 0.25,
-                    child: GestureDetector(
-                      child: selectedImage != null
-                          ? Image.file(selectedImage!, fit: BoxFit.cover)
-                          : Image.asset('assets/images/profile.jpg'),
-                      onTap: () {
-                        showCupertinoModalPopup(
-                          context: context,
-                          builder: (BuildContext context) =>
-                              CupertinoActionSheet(
-                            title: const Text('Choose an option'),
-                            actions: <Widget>[
-                              CupertinoActionSheetAction(
-                                child: const Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Icon(Icons.camera_alt),
-                                    SizedBox(width: 8),
-                                    Text('Camera'),
-                                  ],
+                BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
+                    builder: (context, state) {
+                  return ClipOval(
+                    child: SizedBox(
+                      width: width * 0.33,
+                      height: height * 0.25,
+                      child: GestureDetector(
+                        child: selectedImage != null
+                            ? Image.file(selectedImage!, fit: BoxFit.cover)
+                            : Image.asset('assets/images/profile.jpg'),
+                        onTap: () {
+                          showCupertinoModalPopup(
+                            context: context,
+                            builder: (BuildContext context) =>
+                                CupertinoActionSheet(
+                              title: const Text('Choose an option'),
+                              actions: <Widget>[
+                                CupertinoActionSheetAction(
+                                  child: const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Icon(Icons.camera_alt),
+                                      SizedBox(width: 8),
+                                      Text('Camera'),
+                                    ],
+                                  ),
+                                  onPressed: () {
+                                    pickImageFromCamera();
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                CupertinoActionSheetAction(
+                                  child: const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Icon(Icons.photo),
+                                      SizedBox(width: 8),
+                                      Text('Gallery'),
+                                    ],
+                                  ),
+                                  onPressed: () {
+                                    pickImageFromGallery();
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ],
+                              cancelButton: CupertinoActionSheetAction(
+                                child: const Text(
+                                  'Cancel',
+                                  style: TextStyle(
+                                    color: CupertinoColors.systemRed,
+                                  ),
                                 ),
                                 onPressed: () {
-                                  pickImageFromCamera();
                                   Navigator.pop(context);
                                 },
                               ),
-                              CupertinoActionSheetAction(
-                                child: const Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Icon(Icons.photo),
-                                    SizedBox(width: 8),
-                                    Text('Gallery'),
-                                  ],
-                                ),
-                                onPressed: () {
-                                  pickImageFromGallery();
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ],
-                            cancelButton: CupertinoActionSheetAction(
-                              child: const Text(
-                                'Cancel',
-                                style: TextStyle(
-                                  color: CupertinoColors.systemRed,
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ),
+                  );
+                }),
                 Positioned(
                   bottom: 25,
                   right: -5,
@@ -219,6 +224,7 @@ class BasicInfoMainPage extends StatelessWidget {
                         email: emailController.text,
                         phoneNumber: phoneNumberController.text,
                         birthday: dateController.text,
+                        profileImage: selectedImage!,
                       ),
                     ),
                   );

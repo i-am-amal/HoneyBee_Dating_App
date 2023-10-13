@@ -16,37 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BasicInfoAuthEvent {
+  XFile? get image => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(XFile? image) basicInfoProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(XFile? image)? basicInfoProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(XFile? image)? basicInfoProfileImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_BasicInfoProfileImage value)
+        basicInfoProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_BasicInfoProfileImage value)? basicInfoProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_BasicInfoProfileImage value)? basicInfoProfileImage,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $BasicInfoAuthEventCopyWith<BasicInfoAuthEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +61,8 @@ abstract class $BasicInfoAuthEventCopyWith<$Res> {
   factory $BasicInfoAuthEventCopyWith(
           BasicInfoAuthEvent value, $Res Function(BasicInfoAuthEvent) then) =
       _$BasicInfoAuthEventCopyWithImpl<$Res, BasicInfoAuthEvent>;
+  @useResult
+  $Res call({XFile? image});
 }
 
 /// @nodoc
@@ -66,66 +74,109 @@ class _$BasicInfoAuthEventCopyWithImpl<$Res, $Val extends BasicInfoAuthEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = freezed,
+  }) {
+    return _then(_value.copyWith(
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_BasicInfoProfileImageCopyWith<$Res>
+    implements $BasicInfoAuthEventCopyWith<$Res> {
+  factory _$$_BasicInfoProfileImageCopyWith(_$_BasicInfoProfileImage value,
+          $Res Function(_$_BasicInfoProfileImage) then) =
+      __$$_BasicInfoProfileImageCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({XFile? image});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_BasicInfoProfileImageCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_BasicInfoProfileImage>
+    implements _$$_BasicInfoProfileImageCopyWith<$Res> {
+  __$$_BasicInfoProfileImageCopyWithImpl(_$_BasicInfoProfileImage _value,
+      $Res Function(_$_BasicInfoProfileImage) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = freezed,
+  }) {
+    return _then(_$_BasicInfoProfileImage(
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_BasicInfoProfileImage implements _BasicInfoProfileImage {
+  const _$_BasicInfoProfileImage({this.image});
+
+  @override
+  final XFile? image;
 
   @override
   String toString() {
-    return 'BasicInfoAuthEvent.started()';
+    return 'BasicInfoAuthEvent.basicInfoProfileImage(image: $image)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType &&
+            other is _$_BasicInfoProfileImage &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_BasicInfoProfileImageCopyWith<_$_BasicInfoProfileImage> get copyWith =>
+      __$$_BasicInfoProfileImageCopyWithImpl<_$_BasicInfoProfileImage>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(XFile? image) basicInfoProfileImage,
   }) {
-    return started();
+    return basicInfoProfileImage(image);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(XFile? image)? basicInfoProfileImage,
   }) {
-    return started?.call();
+    return basicInfoProfileImage?.call(image);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(XFile? image)? basicInfoProfileImage,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (basicInfoProfileImage != null) {
+      return basicInfoProfileImage(image);
     }
     return orElse();
   }
@@ -133,51 +184,61 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_BasicInfoProfileImage value)
+        basicInfoProfileImage,
   }) {
-    return started(this);
+    return basicInfoProfileImage(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_BasicInfoProfileImage value)? basicInfoProfileImage,
   }) {
-    return started?.call(this);
+    return basicInfoProfileImage?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_BasicInfoProfileImage value)? basicInfoProfileImage,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (basicInfoProfileImage != null) {
+      return basicInfoProfileImage(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements BasicInfoAuthEvent {
-  const factory _Started() = _$_Started;
+abstract class _BasicInfoProfileImage implements BasicInfoAuthEvent {
+  const factory _BasicInfoProfileImage({final XFile? image}) =
+      _$_BasicInfoProfileImage;
+
+  @override
+  XFile? get image;
+  @override
+  @JsonKey(ignore: true)
+  _$$_BasicInfoProfileImageCopyWith<_$_BasicInfoProfileImage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$BasicInfoAuthState {
+  XFile? get image => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(XFile? image) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(XFile? image)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(XFile? image)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -197,6 +258,10 @@ mixin _$BasicInfoAuthState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $BasicInfoAuthStateCopyWith<BasicInfoAuthState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -204,6 +269,8 @@ abstract class $BasicInfoAuthStateCopyWith<$Res> {
   factory $BasicInfoAuthStateCopyWith(
           BasicInfoAuthState value, $Res Function(BasicInfoAuthState) then) =
       _$BasicInfoAuthStateCopyWithImpl<$Res, BasicInfoAuthState>;
+  @useResult
+  $Res call({XFile? image});
 }
 
 /// @nodoc
@@ -215,13 +282,30 @@ class _$BasicInfoAuthStateCopyWithImpl<$Res, $Val extends BasicInfoAuthState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = freezed,
+  }) {
+    return _then(_value.copyWith(
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
+abstract class _$$_InitialCopyWith<$Res>
+    implements $BasicInfoAuthStateCopyWith<$Res> {
   factory _$$_InitialCopyWith(
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({XFile? image});
 }
 
 /// @nodoc
@@ -230,51 +314,75 @@ class __$$_InitialCopyWithImpl<$Res>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = freezed,
+  }) {
+    return _then(_$_Initial(
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial();
+  const _$_Initial({this.image});
+
+  @override
+  final XFile? image;
 
   @override
   String toString() {
-    return 'BasicInfoAuthState.initial()';
+    return 'BasicInfoAuthState.initial(image: $image)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType &&
+            other is _$_Initial &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(XFile? image) initial,
   }) {
-    return initial();
+    return initial(image);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(XFile? image)? initial,
   }) {
-    return initial?.call();
+    return initial?.call(image);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(XFile? image)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial();
+      return initial(image);
     }
     return orElse();
   }
@@ -309,5 +417,12 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements BasicInfoAuthState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial({final XFile? image}) = _$_Initial;
+
+  @override
+  XFile? get image;
+  @override
+  @JsonKey(ignore: true)
+  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      throw _privateConstructorUsedError;
 }
