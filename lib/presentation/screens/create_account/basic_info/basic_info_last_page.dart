@@ -275,3 +275,113 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
     }
   }
 }
+
+
+//////////---------------------last page customization needed--------------------
+
+/////////////////////////////////----------------------
+// class MainCustomButton extends StatelessWidget {
+//   // ... existing code ...
+
+//   final bool isSelected;
+
+//   // ... existing code ...
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ElevatedButton(
+//       style: ButtonStyle(
+//         backgroundColor:
+//             MaterialStateProperty.all<Color>(isSelected ? Colors.white : CustomColors.kRedButtonColor),
+//         // ... other properties ...
+//       ),
+//       // ... existing code ...
+//     );
+//   }
+// }
+
+////////////////-------------------------------------
+///
+///
+// class ButtonRow extends StatefulWidget {
+//   @override
+//   _ButtonRowState createState() => _ButtonRowState();
+// }
+
+// class _ButtonRowState extends State<ButtonRow> {
+//   int selectedButtonIndex = -1; // Initialize to -1 to represent no selection
+
+//   @override
+//   Widget build(BuildContext context) {
+//     double width = MediaQuery.of(context).size.width;
+
+//     return Row(
+//       mainAxisAlignment: MainAxisAlignment.spaceAround,
+//       children: [
+//         MainCustomButton(
+//           customtext: 'Male',
+//           isSelected: selectedButtonIndex == 0,
+//           // ... other properties ...
+//           onpressed: () {
+//             setState(() {
+//               selectedButtonIndex = 0;
+//             });
+//           },
+//         ),
+//         MainCustomButton(
+//           customtext: 'Female',
+//           isSelected: selectedButtonIndex == 1,
+//           // ... other properties ...
+//           onpressed: () {
+//             setState(() {
+//               selectedButtonIndex = 1;
+//             });
+//           },
+//         ),
+//         MainCustomButton(
+//           customtext: 'Other',
+//           isSelected: selectedButtonIndex == 2,
+//           // ... other properties ...
+//           onpressed: () {
+//             showOptionsList(context);
+//           },
+//         )
+//       ],
+//     );
+//   }
+
+  // ... existing code ...
+// }
+//////////////////////----------------------------
+///
+
+// void showOptionsList(BuildContext context) async {
+//   String? selectedOption = await showModalBottomSheet(
+//     context: context,
+//     builder: (BuildContext context) {
+//       return ListView.builder(
+//         itemCount: genderOptions.length,
+//         itemBuilder: (BuildContext context, int index) {
+//           return ListTile(
+//             title: Text(genderOptions[index]),
+//             onTap: () {
+//               print('Selected option: ${genderOptions[index]}');
+//               Navigator.of(context).pop(genderOptions[index]);
+//             },
+//           );
+//         },
+//       );
+//     },
+//   );
+
+//   if (selectedOption != null) {
+//     setState(() {
+//       // Update the selected option and button state here
+//     });
+//   }
+// }
+
+
+/////////////////////------------------
+
+
