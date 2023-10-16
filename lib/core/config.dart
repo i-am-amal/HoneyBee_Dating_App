@@ -1,8 +1,12 @@
 import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
 
 class Config {
-  static String? token= saveTokenToPrefs(token!).toString();
+  static String? token = saveTokenToPrefs(token!).toString();
   // static const apiBaseUrl = 'http://localhost:5000';
+
+
+////////////////----------API from BackEnd----------/////////////////////
+
   static const phoneApi = '$apiBaseUrl/api/phone';
   static const verifyOtpApi = '$apiBaseUrl/api/verifyOtp';
   static const getUserDataApi = '$apiBaseUrl/api/userData';
@@ -21,11 +25,29 @@ class Config {
   static const getAllMessageApi = '$apiBaseUrl/api/chat/getmsg';
   static const lastMessageApi = '$apiBaseUrl/api/chat/lastmsg';
   static const markReadMessageApi = '$apiBaseUrl/api/chat/markRead';
+
+///////////////////////////////////////////////////////////////////////////
+
   static const String dummyImageUrl =
       'https://cdn.statusqueen.com/mobilewallpaper/thumbnail/love_mobile_wallpaper-1606.jpg';
 
   static const String apiBaseUrl =
       "http://10.0.2.2:5000"; // <- emulator local host
+      
   // static const String apiBaseUrl = "http://127.0.0.1:5000"; // <- windows local host
   // static const String apiBaseUrl = "http://localhost:5000"; // <- default local host
+
+
+
+/////////////---------------------Location Fetching API from openWeatherMap------------------////////////
+
+
+  static String? currentLatitude;
+  static String? currentLongitude;
+  static const String _apiKeyLocation = '6b4419fd8309edc0c177f8f93073510c';
+  static String get locationPathUrl =>
+      "https://api.openweathermap.org/data/2.5/weather?lat=$currentLatitude&lon=$currentLongitude&appid=$_apiKeyLocation&units=metric";
+
+//////////////////////////////////////////////////////////////////////////////////////
+
 }

@@ -31,58 +31,61 @@ class LocationPage extends StatelessWidget {
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: height * 0.1,
-            ),
-            SizedBox(
-              height: height * 0.5,
-              width: double.infinity,
-              child: Image.asset('assets/images/location1.jpg'),
-            ),
-            SizedBox(
-              height: height * 0.02,
-            ),
-            const CustomText(
-              text: 'Location',
-              letterspacing: 1.5,
-              fontFamily: CustomFont.headTextFont,
-              fontsize: 17,
-            ),
-            SizedBox(
-              height: height * 0.02,
-            ),
-            CustomTextFormFiled(
-              icon: Icons.location_on,
-              editController: locationTextController,
-              keyboardType: TextInputType.streetAddress,
-            ),
-            SizedBox(
-              height: height * 0.04,
-            ),
-            MainCustomButton(
-              customtext: "Continue",
-              height: height * 0.02,
-              width: width * 0.25,
-              txtcolor: CustomColors.kWhiteTextColor,
-              fontWeight: FontWeight.bold,
-              letterspacing: 1,
-              fontsize: 15,
-              onpressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ProfileImages(
-                      image: 'assets/images/profile.jpg',
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: height * 0.1,
+              ),
+              SizedBox(
+                height: height * 0.5,
+                width: double.infinity,
+                child: Image.asset('assets/images/location1.jpg'),
+              ),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              const CustomText(
+                text: 'Location',
+                letterspacing: 1.5,
+                fontFamily: CustomFont.headTextFont,
+                fontsize: 17,
+              ),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              CustomTextFormFiled(
+                icon: Icons.location_on,
+                editController: locationTextController,
+                keyboardType: TextInputType.streetAddress,
+              ),
+              SizedBox(
+                height: height * 0.04,
+              ),
+              MainCustomButton(
+                customtext: "Continue",
+                height: height * 0.02,
+                width: width * 0.25,
+                txtcolor: CustomColors.kWhiteTextColor,
+                fontWeight: FontWeight.bold,
+                letterspacing: 1,
+                fontsize: 15,
+                onpressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfileImages(
+                        image: 'assets/images/profile.jpg',
+                      ),
                     ),
-                  ),
-                );
-              },
-            )
-          ],
+                  );
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

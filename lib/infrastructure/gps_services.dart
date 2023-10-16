@@ -1,5 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:honeybee/core/config.dart';
+
 
 class GpsServices {
   static Future<Either<String, Position>> getLocation() async {
@@ -25,6 +28,14 @@ class GpsServices {
         desiredAccuracy: LocationAccuracy.high);
 
     return right(currentPosition);
+  }
+}
+class CoordinatesFromName {
+  static Future setCoordinates({required query}) async {
+    List<Location> locations = await locationFromAddress(query);
+    Config.currentLatitude = locations[0].latitude.toString();
+
+    Config.currentLongitude = locations[0].longitude.toString();
   }
 }
 

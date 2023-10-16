@@ -34,10 +34,40 @@ import 'package:honeybee/domain/models/verify_payment_request_model/verify_payme
 import 'package:honeybee/domain/models/verify_payment_response_model/verify_payment_response_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import '../domain/models/location_model/location_model/location_model.dart';
 import '../domain/models/verify_otp_response_model/verify_otp_response_model.dart';
 import 'package:http_parser/http_parser.dart';
 
 class ApiServices {
+  
+////////////////////////////-----------------Location Fetching-------------------/////////////////////////////////////////
+
+  static Future<Either<ApiFailures, LocationModel>> getLocationData() async {
+    try {
+      final response = await http.get(Uri.parse(Config.locationPathUrl));
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        LocationModel result = LocationModel.fromJson(jsonMap);
+
+        print(result);
+
+        return right(result);
+      } else {
+        return left(const ApiFailures.serverFailure(
+            errorMessage: 'Something went wrong... Please Try again later..'));
+      }
+    } catch (e) {
+      print("client side error");
+
+      return left(const ApiFailures.clientFailure(
+          errorMessage: 'OOPS.. Something went wrong..'));
+    }
+  }
+
+///////////////////////////////--------------------PhoneNumber Login--------------------//////////////////////////////////
+ 
   static Future<Either<ApiFailures, PhoneNumberResponseModel>> phoneNumberLogin(
       PhoneNumberRequestModel request) async {
     try {
