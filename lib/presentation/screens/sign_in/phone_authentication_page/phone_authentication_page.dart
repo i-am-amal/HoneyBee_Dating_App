@@ -9,7 +9,6 @@ import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import '../../../../application/bloc/phone_number_auth_page/phone_number_auth_page_bloc.dart';
-import '../../../../domain/validation/form_validation_services.dart';
 
 // ignore: must_be_immutable
 class PhoneAuthenticationPage extends StatelessWidget {
