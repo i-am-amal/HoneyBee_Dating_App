@@ -42,7 +42,7 @@ class BasicInfoMainPage extends StatelessWidget {
                 email: emailController.text,
                 phoneNumber: phoneNumberController.text,
                 birthday: dateController.text,
-                image: image,
+                profileImage: image,
               ),
             ),
           );

@@ -8,8 +8,6 @@ import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
-import 'package:image_picker/image_picker.dart';
-import '../../../../infrastructure/camera_services.dart';
 
 class ProfileImages extends StatelessWidget {
   ProfileImages(

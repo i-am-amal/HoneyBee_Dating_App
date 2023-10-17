@@ -47,7 +47,8 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: BasicInfoMainPage()
+          home: 
+          // BasicInfoMainPage()
 
           // ProfileImages(
           //   birthday: '',
@@ -58,13 +59,13 @@ class MyApp extends StatelessWidget {
           //   location: '',
           // )
 
-          // LocationPage(
-          //     birthday: '',
-          //     email: '',
-          //     fullName: '',
-          //     phoneNumber: '',
-          //     profileImage: File(''),
-          //     ),
+          LocationPage(
+              birthday: '',
+              email: '',
+              fullName: '',
+              phoneNumber: '',
+              profileImage: File(''),
+              ),
 
           ),
     );
