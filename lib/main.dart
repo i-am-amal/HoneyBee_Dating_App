@@ -2,12 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:honeybee/application/bloc/basic_info_auth_page/basic_info_auth_bloc.dart';
-import 'package:honeybee/application/bloc/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
 import 'package:honeybee/presentation/screens/create_account/location/location_page.dart';
-import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
-import 'application/bloc/phone_number_auth_page/phone_number_auth_page_bloc.dart';
+
+import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
+import 'application/location_auth_page/location_auth_page_bloc.dart';
+import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
+import 'application/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -32,21 +34,28 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => BasicInfoAuthBloc(),
         ),
+        BlocProvider(
+          create: (context) => LocationAuthPageBloc(),
+        ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: LocationPage(
-            birthday: '',
-            email: '',
-            fullName: '',
-            phoneNumber: '',
-            profileImage: File('')),
-      ),
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          home: BasicInfoMainPage()
+
+          // LocationPage(
+          //     birthday: '',
+          //     email: '',
+          //     fullName: '',
+          //     phoneNumber: '',
+          //     profileImage: File(''),
+          //     ),
+
+          ),
     );
   }
 }

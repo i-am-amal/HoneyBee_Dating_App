@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:honeybee/application/bloc/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'package:honeybee/infrastructure/camera_services.dart';
 import 'package:honeybee/presentation/screens/create_account/location/location_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -12,6 +11,7 @@ import 'package:honeybee/presentation/widgets/date_picker/date_picker.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../../application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import '../../../../domain/validation/form_validation_services.dart';
 import '../../../widgets/textform_widgets/custom_textformfield.dart';
 
@@ -24,6 +24,7 @@ class BasicInfoMainPage extends StatelessWidget {
   final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
   final ImagePickerServices imagePicker = ImagePickerServices();
+
   File? selectedImage;
   final String? formattedPhoneNumber;
 

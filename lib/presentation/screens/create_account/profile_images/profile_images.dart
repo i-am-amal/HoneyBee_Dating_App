@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
@@ -7,12 +9,26 @@ import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 class ProfileImages extends StatelessWidget {
-  const ProfileImages({super.key, this.image});
-  final String? image;
+  const ProfileImages(
+      {super.key,
+      required this.fullName,
+      required this.email,
+      required this.phoneNumber,
+      required this.birthday,
+      required this.profileImage,
+      required this.location});
 
+  final String fullName;
+  final String location;
+  final String email;
+  final String phoneNumber;
+  final String birthday;
+  final File profileImage;
 
   @override
   Widget build(BuildContext context) {
+
+    
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -73,17 +89,19 @@ Stay clear of inappropriate content''';
                         ),
                       ],
                     ),
-                    child: image != null
-                        ? Image.asset(
-                            image!,
-                            fit: BoxFit.cover,
-                          )
-                        : const Center(
-                            child: Text(
-                              'No Image Available',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
+
+                    // child: image != null
+                    //     ? Image.asset(
+                    //         image!,
+                    //         fit: BoxFit.cover,
+                    //       )
+                    //     :
+                    //     const Center(
+                    //         child: Text(
+                    //           'No Image Available',
+                    //           style: TextStyle(color: Colors.white),
+                    //         ),
+                    //       ),
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -116,17 +134,18 @@ Stay clear of inappropriate content''';
                     ),
                   ],
                 ),
-                child: image != null
-                    ? Image.asset(
-                        image!,
-                        fit: BoxFit.cover,
-                      )
-                    : const Center(
-                        child: Text(
-                          'No Image Available',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
+
+                // child: image != null
+                //     ? Image.asset(
+                //         image!,
+                //         fit: BoxFit.cover,
+                //       )
+                //     : const Center(
+                //         child: Text(
+                //           'No Image Available',
+                //           style: TextStyle(color: Colors.white),
+                //         ),
+                //       ),
               ),
               SizedBox(
                 height: height * 0.01,
@@ -134,9 +153,9 @@ Stay clear of inappropriate content''';
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomContainer(height: height, width: width, image: image),
-                  CustomContainer(height: height, width: width, image: image),
-                  CustomContainer(height: height, width: width, image: image),
+                  CustomContainer(height: height, width: width, image: profileImage),
+                  CustomContainer(height: height, width: width, image: profileImage),
+                  CustomContainer(height: height, width: width, image: profileImage),
                 ],
               ),
               SizedBox(
@@ -150,7 +169,14 @@ Stay clear of inappropriate content''';
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const BasicInfoLastPage(),
+                      builder: (context) => const BasicInfoLastPage(
+
+
+
+
+
+
+                      ),
                     ),
                   );
                 },
@@ -169,7 +195,7 @@ class CustomContainer extends StatelessWidget {
 
   final double height;
   final double width;
-  final String? image;
+  final File? image;
 
   @override
   Widget build(BuildContext context) {
@@ -190,17 +216,22 @@ class CustomContainer extends StatelessWidget {
             ),
           ],
         ),
+
+        // child: image != null
+        //     ? Image.asset(
+        //         image!,
+        //         fit: BoxFit.cover,
+        //       )
+        //     : const Center(
+        //         child: Text(
+        //           'No Image Available',
+        //           style: TextStyle(color: Colors.white),
+        //         ),
+        //       ),
+
         child: image != null
-            ? Image.asset(
-                image!,
-                fit: BoxFit.cover,
-              )
-            : const Center(
-                child: Text(
-                  'No Image Available',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
+            ? Image.file(image!, fit: BoxFit.cover)
+            : Image.asset('assets/images/profile.jpg'),
       ),
     );
   }

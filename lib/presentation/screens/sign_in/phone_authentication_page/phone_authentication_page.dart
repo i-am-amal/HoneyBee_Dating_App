@@ -8,7 +8,7 @@ import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
-import '../../../../application/bloc/phone_number_auth_page/phone_number_auth_page_bloc.dart';
+import '../../../../application/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 
 // ignore: must_be_immutable
 class PhoneAuthenticationPage extends StatelessWidget {

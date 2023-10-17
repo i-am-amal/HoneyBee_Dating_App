@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:honeybee/core/config.dart';
-
 import '../../../infrastructure/gps_services.dart';
 
 part 'location_auth_page_event.dart';
@@ -38,5 +37,7 @@ class LocationAuthPageBloc
       // emit(state.copyWith(searchVisibility: false));
       // add(const FetchHomeDataEvent());
     });
+
+    
   }
 }

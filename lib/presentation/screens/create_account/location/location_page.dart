@@ -1,13 +1,14 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/presentation/screens/create_account/profile_images/profile_images.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
+import '../../../../application/location_auth_page/location_auth_page_bloc.dart';
 
 class LocationPage extends StatelessWidget {
   const LocationPage(
@@ -26,11 +27,22 @@ class LocationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController locationTextController = TextEditingController();
+    BlocProvider.of<LocationAuthPageBloc>(context)
+        .add(const LocationAuthPageEvent.fetchlocationDataEvent());
+
+    String location = 'Trivandrum';
+
+    TextEditingController locationTextController =
+        TextEditingController(text: location);
+
     log('$fullName, $email, $phoneNumber, $birthday,$profileImage');
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    // BlocBuilder<LocationAuthPageBloc, LocationAuthPageState>(
+    //     builder: (context, state) {
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -48,8 +60,9 @@ class LocationPage extends StatelessWidget {
               SizedBox(
                 height: height * 0.02,
               ),
-              const CustomText(
-                text: 'Location',
+              CustomText(
+                // text: locationTextController.text,
+                text: location,
                 letterspacing: 1.5,
                 fontFamily: CustomFont.headTextFont,
                 fontsize: 17,
@@ -60,7 +73,16 @@ class LocationPage extends StatelessWidget {
               CustomTextFormFiled(
                 icon: Icons.location_on,
                 editController: locationTextController,
+
                 keyboardType: TextInputType.streetAddress,
+                //////////////////////////////////////////////////////////////////////
+                onTap: (value) {
+                  // BlocProvider.of<LocationAuthPageBloc>(context).add(
+                  //     LocationAuthPageEvent.searchLocation(
+                  //         locationName: value));
+                  log(value);
+                  /////////////////////////////////////////////////////////////////////////
+                },
               ),
               SizedBox(
                 height: height * 0.04,
@@ -77,8 +99,13 @@ class LocationPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ProfileImages(
-                        image: 'assets/images/profile.jpg',
+                      builder: (context) => ProfileImages(
+                        fullName: fullName,
+                        email: email,
+                        birthday: birthday,
+                        phoneNumber: phoneNumber,
+                        profileImage: profileImage,
+                        location: location,
                       ),
                     ),
                   );
@@ -89,5 +116,6 @@ class LocationPage extends StatelessWidget {
         ),
       ),
     );
+    // });
   }
 }
