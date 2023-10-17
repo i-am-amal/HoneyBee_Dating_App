@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
@@ -7,15 +8,16 @@ import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+import 'package:image_picker/image_picker.dart';
+import '../../../../infrastructure/camera_services.dart';
 
 class ProfileImages extends StatelessWidget {
-  const ProfileImages(
+  ProfileImages(
       {super.key,
       required this.fullName,
       required this.email,
       required this.phoneNumber,
       required this.birthday,
-      required this.profileImage,
       required this.location});
 
   final String fullName;
@@ -23,12 +25,19 @@ class ProfileImages extends StatelessWidget {
   final String email;
   final String phoneNumber;
   final String birthday;
-  final File profileImage;
+
+
+  File? coverImage;
+  File? image1;
+  File? image2;
+  File? image3;
+
+
+
+ 
 
   @override
   Widget build(BuildContext context) {
-
-    
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -75,34 +84,35 @@ Stay clear of inappropriate content''';
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    height: height * 0.25,
-                    width: width * 0.35,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                    ),
+                      height: height * 0.25,
+                      width: width * 0.35,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      // child: Image.file(profileImage, fit: BoxFit.cover)
 
-                    // child: image != null
-                    //     ? Image.asset(
-                    //         image!,
-                    //         fit: BoxFit.cover,
-                    //       )
-                    //     :
-                    //     const Center(
-                    //         child: Text(
-                    //           'No Image Available',
-                    //           style: TextStyle(color: Colors.white),
-                    //         ),
-                    //       ),
-                  ),
+                      // child: image != null
+                      //     ? Image.asset(
+                      //         image!,
+                      //         fit: BoxFit.cover,
+                      //       )
+                      //     :
+                      //     const Center(
+                      //         child: Text(
+                      //           'No Image Available',
+                      //           style: TextStyle(color: Colors.white),
+                      //         ),
+                      //       ),
+                      ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -135,6 +145,61 @@ Stay clear of inappropriate content''';
                   ],
                 ),
 
+                child: GestureDetector(
+                  child: coverImage != null
+                      ? Image.file(coverImage!, fit: BoxFit.cover)
+                      : Image.asset('assets/images/profile.jpg'),
+                  onTap: () {
+                    showCupertinoModalPopup(
+                      context: context,
+                      builder: (BuildContext context) => CupertinoActionSheet(
+                        title: const Text('Choose an option'),
+                        actions: <Widget>[
+                          CupertinoActionSheetAction(
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(Icons.camera_alt),
+                                SizedBox(width: 8),
+                                Text('Camera'),
+                              ],
+                            ),
+                            onPressed: () {
+                             
+                              Navigator.pop(context);
+                            },
+                          ),
+                          CupertinoActionSheetAction(
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(Icons.photo),
+                                SizedBox(width: 8),
+                                Text('Gallery'),
+                              ],
+                            ),
+                            onPressed: () {
+                           
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ],
+                        cancelButton: CupertinoActionSheetAction(
+                          child: const Text(
+                            'Cancel',
+                            style: TextStyle(
+                              color: CupertinoColors.systemRed,
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                ),
+
                 // child: image != null
                 //     ? Image.asset(
                 //         image!,
@@ -153,9 +218,9 @@ Stay clear of inappropriate content''';
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomContainer(height: height, width: width, image: profileImage),
-                  CustomContainer(height: height, width: width, image: profileImage),
-                  CustomContainer(height: height, width: width, image: profileImage),
+                  CustomContainer(height: height, width: width, image: image1),
+                  CustomContainer(height: height, width: width, image: image2),
+                  CustomContainer(height: height, width: width, image: image3),
                 ],
               ),
               SizedBox(
@@ -169,14 +234,7 @@ Stay clear of inappropriate content''';
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const BasicInfoLastPage(
-
-
-
-
-
-
-                      ),
+                      builder: (context) => const BasicInfoLastPage(),
                     ),
                   );
                 },
@@ -189,18 +247,26 @@ Stay clear of inappropriate content''';
   }
 }
 
+
 class CustomContainer extends StatelessWidget {
-  const CustomContainer(
+  CustomContainer(
       {super.key, required this.height, required this.width, this.image});
 
   final double height;
   final double width;
   final File? image;
+  
+
+
+  
+
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+       
+      },
       child: Container(
         height: height * 0.25,
         width: width * 0.3,

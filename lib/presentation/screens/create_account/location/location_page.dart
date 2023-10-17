@@ -8,22 +8,24 @@ import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../../../application/location_auth_page/location_auth_page_bloc.dart';
 
 class LocationPage extends StatelessWidget {
-  const LocationPage(
-      {super.key,
-      required this.fullName,
-      required this.email,
-      required this.phoneNumber,
-      required this.birthday,
-      required this.profileImage});
+  const LocationPage({
+    super.key,
+    required this.fullName,
+    required this.email,
+    required this.phoneNumber,
+    required this.birthday,
+    required this.image,
+  });
 
   final String fullName;
   final String email;
   final String phoneNumber;
   final String birthday;
-  final File profileImage;
+ final File? image;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class LocationPage extends StatelessWidget {
     TextEditingController locationTextController =
         TextEditingController(text: location);
 
-    log('$fullName, $email, $phoneNumber, $birthday,$profileImage');
+    log('$fullName, $email, $phoneNumber, $birthday,');
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
@@ -104,7 +106,6 @@ class LocationPage extends StatelessWidget {
                         email: email,
                         birthday: birthday,
                         phoneNumber: phoneNumber,
-                        profileImage: profileImage,
                         location: location,
                       ),
                     ),

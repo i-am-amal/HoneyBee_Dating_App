@@ -11,6 +11,7 @@ class CustomTextFormFiled extends StatelessWidget {
     this.icon,
     this.onTap,
     this.readonly,
+    this.errorMessage,
     super.key,
   });
 
@@ -18,42 +19,51 @@ class CustomTextFormFiled extends StatelessWidget {
   final String? initialValue;
   final TextInputType? keyboardType;
   final Function? onChanged;
-    final Function? onTap;
+  final Function? onTap;
 
   final TextEditingController? editController;
   final bool? enable;
   final IconData? icon;
   final bool? readonly;
+  final String? errorMessage;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        enabled: enable,
-        controller: editController,
-        keyboardType: keyboardType,
-        readOnly: readonly ?? false,
-        decoration: InputDecoration(
-          prefixIcon: Icon(icon),
-          labelText: text,
-          contentPadding: const EdgeInsets.symmetric(vertical: 8.0),
-          enabledBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(width: 1.5, color: Colors.red.withOpacity(0.5)),
-            borderRadius: BorderRadius.circular(15.0),
+      child: Column(
+        children: [
+          TextFormField(
+            enabled: enable,
+            controller: editController,
+            keyboardType: keyboardType,
+            readOnly: readonly ?? false,
+            decoration: InputDecoration(
+              prefixIcon: Icon(icon),
+              labelText: text,
+              contentPadding: const EdgeInsets.symmetric(vertical: 8.0),
+              enabledBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(width: 1.5, color: Colors.red.withOpacity(0.5)),
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+            ),
+            onChanged: (value) {
+              if (onChanged != null) {
+                onChanged!(value);
+              }
+            },
+            onTap: () {
+              if (onTap != null) {
+                onTap!();
+              }
+            },
           ),
-        ),
-        onChanged: (value) {
-          if (onChanged != null) {
-            onChanged!(value);
-          }
-        },
-        onTap: () {
-          if (onTap != null) {
-            onTap!();
-          }
-        },
+          Text(
+            errorMessage ?? '',
+            style:const TextStyle(color: Colors.red),
+          )
+        ],
       ),
     );
   }
