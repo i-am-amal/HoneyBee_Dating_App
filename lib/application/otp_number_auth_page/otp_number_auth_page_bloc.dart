@@ -71,7 +71,7 @@ class OtpNumberAuthPageBloc
 
     on<_StartTimer>((event, emit) async {
       log('event called');
-      for (int i = 30; i >= 0; i--) {
+      for (int i = 50; i >= 0; i--) {
         if (state.isOtpVerified != true) {
           log('timer : $i');
           emit(state.copyWith(timer: i));

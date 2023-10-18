@@ -3,15 +3,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
 import 'package:honeybee/presentation/screens/create_account/location/location_page.dart';
-import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
-
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
 import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import 'application/phone_number_auth_page/phone_number_auth_page_bloc.dart';
-import 'presentation/screens/create_account/profile_images/profile_images.dart';
+import 'presentation/screens/splash_screen/splash_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -47,25 +44,15 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: 
-          // BasicInfoMainPage()
-
-          // ProfileImages(
-          //   birthday: '',
-          //   email: '',
-          //   fullName: '',
-          //   phoneNumber: '',
-          //   profileImage: File('dummy path'),
-          //   location: '',
-          // )
-
-          LocationPage(
-              birthday: '',
-              email: '',
-              fullName: '',
-              phoneNumber: '',
-              profileImage: File(''),
-              ),
+          home: const SplashScreen()
+        
+          // LocationPage(
+          //     birthday: '',
+          //     email: '',
+          //     fullName: '',
+          //     phoneNumber: '',
+          //     profileImage: File(''),
+          //     ),
 
           ),
     );

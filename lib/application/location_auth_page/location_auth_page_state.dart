@@ -2,9 +2,14 @@ part of 'location_auth_page_bloc.dart';
 
 @freezed
 class LocationAuthPageState with _$LocationAuthPageState {
-  const factory LocationAuthPageState.initial({
-    double? currentLatitude,
-    double? currentLongitude,
+  const factory LocationAuthPageState({
     String? errorMessage,
-  }) = _Initial;
+    String? locationName,
+    bool? isLoading,
+  }) = _LocationAuthPageState;
+
+  factory LocationAuthPageState.initial() {
+    return const LocationAuthPageState(
+        errorMessage: '', isLoading: false, locationName: '');
+  }
 }

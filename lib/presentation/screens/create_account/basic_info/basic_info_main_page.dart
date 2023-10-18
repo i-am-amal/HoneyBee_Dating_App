@@ -55,7 +55,7 @@ class BasicInfoMainPage extends StatelessWidget {
               return Column(
                 children: [
                   SizedBox(
-                    height: height * 0.1,
+                    height: height * 0.08,
                   ),
                   Row(
                     children: [
@@ -108,7 +108,7 @@ class BasicInfoMainPage extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: height * 0.02,
+                    height: height * 0.01,
                   ),
                   CustomTextFormFiled(
                     text: 'Full Name',
@@ -118,7 +118,7 @@ class BasicInfoMainPage extends StatelessWidget {
                     errorMessage: state.fullNameErrorMsg,
                   ),
                   SizedBox(
-                    height: height * 0.02,
+                    height: height * 0.01,
                   ),
                   CustomTextFormFiled(
                     text: 'Email',
@@ -128,7 +128,7 @@ class BasicInfoMainPage extends StatelessWidget {
                     errorMessage: state.emailErrorMsg,
                   ),
                   SizedBox(
-                    height: height * 0.02,
+                    height: height * 0.01,
                   ),
                   CustomTextFormFiled(
                     text: 'Phone Number',
@@ -138,7 +138,7 @@ class BasicInfoMainPage extends StatelessWidget {
                     enable: false,
                   ),
                   SizedBox(
-                    height: height * 0.02,
+                    height: height * 0.01,
                   ),
                   CustomTextFormFiled(
                     icon: Icons.calendar_month_outlined,
@@ -158,7 +158,7 @@ class BasicInfoMainPage extends StatelessWidget {
                     },
                   ),
                   SizedBox(
-                    height: height * 0.05,
+                    height: height * 0.03,
                   ),
                   MainCustomButton(
                     customtext: "Continue",

@@ -38,16 +38,6 @@ class Config {
   // static const String apiBaseUrl = "http://localhost:5000"; // <- default local host
 
 
-
-/////////////---------------------Location Fetching API from openWeatherMap------------------////////////
-
-
-  static String? currentLatitude;
-  static String? currentLongitude;
-  static const String _apiKeyLocation = '6b4419fd8309edc0c177f8f93073510c';
-  static String get locationPathUrl =>
-      "https://api.openweathermap.org/data/2.5/weather?lat=$currentLatitude&lon=$currentLongitude&appid=$_apiKeyLocation&units=metric";
-
 //////////////////////////////////////////////////////////////////////////////////////
 
 }

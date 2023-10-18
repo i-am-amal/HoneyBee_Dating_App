@@ -18,40 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LocationAuthPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchlocationDataEvent,
-    required TResult Function(String locationName) searchLocation,
+    required TResult Function() fetchLocationName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchlocationDataEvent,
-    TResult? Function(String locationName)? searchLocation,
+    TResult? Function()? fetchLocationName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchlocationDataEvent,
-    TResult Function(String locationName)? searchLocation,
+    TResult Function()? fetchLocationName,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FetchlocationDataEvent value)
-        fetchlocationDataEvent,
-    required TResult Function(SearchLocation value) searchLocation,
+    required TResult Function(_FetchLocationName value) fetchLocationName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FetchlocationDataEvent value)? fetchlocationDataEvent,
-    TResult? Function(SearchLocation value)? searchLocation,
+    TResult? Function(_FetchLocationName value)? fetchLocationName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchlocationDataEvent value)? fetchlocationDataEvent,
-    TResult Function(SearchLocation value)? searchLocation,
+    TResult Function(_FetchLocationName value)? fetchLocationName,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,36 +70,35 @@ class _$LocationAuthPageEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FetchlocationDataEventCopyWith<$Res> {
-  factory _$$_FetchlocationDataEventCopyWith(_$_FetchlocationDataEvent value,
-          $Res Function(_$_FetchlocationDataEvent) then) =
-      __$$_FetchlocationDataEventCopyWithImpl<$Res>;
+abstract class _$$_FetchLocationNameCopyWith<$Res> {
+  factory _$$_FetchLocationNameCopyWith(_$_FetchLocationName value,
+          $Res Function(_$_FetchLocationName) then) =
+      __$$_FetchLocationNameCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchlocationDataEventCopyWithImpl<$Res>
-    extends _$LocationAuthPageEventCopyWithImpl<$Res, _$_FetchlocationDataEvent>
-    implements _$$_FetchlocationDataEventCopyWith<$Res> {
-  __$$_FetchlocationDataEventCopyWithImpl(_$_FetchlocationDataEvent _value,
-      $Res Function(_$_FetchlocationDataEvent) _then)
+class __$$_FetchLocationNameCopyWithImpl<$Res>
+    extends _$LocationAuthPageEventCopyWithImpl<$Res, _$_FetchLocationName>
+    implements _$$_FetchLocationNameCopyWith<$Res> {
+  __$$_FetchLocationNameCopyWithImpl(
+      _$_FetchLocationName _value, $Res Function(_$_FetchLocationName) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchlocationDataEvent implements _FetchlocationDataEvent {
-  const _$_FetchlocationDataEvent();
+class _$_FetchLocationName implements _FetchLocationName {
+  const _$_FetchLocationName();
 
   @override
   String toString() {
-    return 'LocationAuthPageEvent.fetchlocationDataEvent()';
+    return 'LocationAuthPageEvent.fetchLocationName()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_FetchlocationDataEvent);
+        (other.runtimeType == runtimeType && other is _$_FetchLocationName);
   }
 
   @override
@@ -115,30 +107,27 @@ class _$_FetchlocationDataEvent implements _FetchlocationDataEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchlocationDataEvent,
-    required TResult Function(String locationName) searchLocation,
+    required TResult Function() fetchLocationName,
   }) {
-    return fetchlocationDataEvent();
+    return fetchLocationName();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchlocationDataEvent,
-    TResult? Function(String locationName)? searchLocation,
+    TResult? Function()? fetchLocationName,
   }) {
-    return fetchlocationDataEvent?.call();
+    return fetchLocationName?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchlocationDataEvent,
-    TResult Function(String locationName)? searchLocation,
+    TResult Function()? fetchLocationName,
     required TResult orElse(),
   }) {
-    if (fetchlocationDataEvent != null) {
-      return fetchlocationDataEvent();
+    if (fetchLocationName != null) {
+      return fetchLocationName();
     }
     return orElse();
   }
@@ -146,219 +135,41 @@ class _$_FetchlocationDataEvent implements _FetchlocationDataEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FetchlocationDataEvent value)
-        fetchlocationDataEvent,
-    required TResult Function(SearchLocation value) searchLocation,
+    required TResult Function(_FetchLocationName value) fetchLocationName,
   }) {
-    return fetchlocationDataEvent(this);
+    return fetchLocationName(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FetchlocationDataEvent value)? fetchlocationDataEvent,
-    TResult? Function(SearchLocation value)? searchLocation,
+    TResult? Function(_FetchLocationName value)? fetchLocationName,
   }) {
-    return fetchlocationDataEvent?.call(this);
+    return fetchLocationName?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchlocationDataEvent value)? fetchlocationDataEvent,
-    TResult Function(SearchLocation value)? searchLocation,
+    TResult Function(_FetchLocationName value)? fetchLocationName,
     required TResult orElse(),
   }) {
-    if (fetchlocationDataEvent != null) {
-      return fetchlocationDataEvent(this);
+    if (fetchLocationName != null) {
+      return fetchLocationName(this);
     }
     return orElse();
   }
 }
 
-abstract class _FetchlocationDataEvent implements LocationAuthPageEvent {
-  const factory _FetchlocationDataEvent() = _$_FetchlocationDataEvent;
-}
-
-/// @nodoc
-abstract class _$$SearchLocationCopyWith<$Res> {
-  factory _$$SearchLocationCopyWith(
-          _$SearchLocation value, $Res Function(_$SearchLocation) then) =
-      __$$SearchLocationCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String locationName});
-}
-
-/// @nodoc
-class __$$SearchLocationCopyWithImpl<$Res>
-    extends _$LocationAuthPageEventCopyWithImpl<$Res, _$SearchLocation>
-    implements _$$SearchLocationCopyWith<$Res> {
-  __$$SearchLocationCopyWithImpl(
-      _$SearchLocation _value, $Res Function(_$SearchLocation) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? locationName = null,
-  }) {
-    return _then(_$SearchLocation(
-      locationName: null == locationName
-          ? _value.locationName
-          : locationName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SearchLocation implements SearchLocation {
-  const _$SearchLocation({required this.locationName});
-
-  @override
-  final String locationName;
-
-  @override
-  String toString() {
-    return 'LocationAuthPageEvent.searchLocation(locationName: $locationName)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SearchLocation &&
-            (identical(other.locationName, locationName) ||
-                other.locationName == locationName));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, locationName);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SearchLocationCopyWith<_$SearchLocation> get copyWith =>
-      __$$SearchLocationCopyWithImpl<_$SearchLocation>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchlocationDataEvent,
-    required TResult Function(String locationName) searchLocation,
-  }) {
-    return searchLocation(locationName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchlocationDataEvent,
-    TResult? Function(String locationName)? searchLocation,
-  }) {
-    return searchLocation?.call(locationName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchlocationDataEvent,
-    TResult Function(String locationName)? searchLocation,
-    required TResult orElse(),
-  }) {
-    if (searchLocation != null) {
-      return searchLocation(locationName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FetchlocationDataEvent value)
-        fetchlocationDataEvent,
-    required TResult Function(SearchLocation value) searchLocation,
-  }) {
-    return searchLocation(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FetchlocationDataEvent value)? fetchlocationDataEvent,
-    TResult? Function(SearchLocation value)? searchLocation,
-  }) {
-    return searchLocation?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FetchlocationDataEvent value)? fetchlocationDataEvent,
-    TResult Function(SearchLocation value)? searchLocation,
-    required TResult orElse(),
-  }) {
-    if (searchLocation != null) {
-      return searchLocation(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SearchLocation implements LocationAuthPageEvent {
-  const factory SearchLocation({required final String locationName}) =
-      _$SearchLocation;
-
-  String get locationName;
-  @JsonKey(ignore: true)
-  _$$SearchLocationCopyWith<_$SearchLocation> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _FetchLocationName implements LocationAuthPageEvent {
+  const factory _FetchLocationName() = _$_FetchLocationName;
 }
 
 /// @nodoc
 mixin _$LocationAuthPageState {
-  double? get currentLatitude => throw _privateConstructorUsedError;
-  double? get currentLongitude => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(double? currentLatitude, double? currentLongitude,
-            String? errorMessage)
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(double? currentLatitude, double? currentLongitude,
-            String? errorMessage)?
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(double? currentLatitude, double? currentLongitude,
-            String? errorMessage)?
-        initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  String? get locationName => throw _privateConstructorUsedError;
+  bool? get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LocationAuthPageStateCopyWith<LocationAuthPageState> get copyWith =>
@@ -371,10 +182,7 @@ abstract class $LocationAuthPageStateCopyWith<$Res> {
           $Res Function(LocationAuthPageState) then) =
       _$LocationAuthPageStateCopyWithImpl<$Res, LocationAuthPageState>;
   @useResult
-  $Res call(
-      {double? currentLatitude,
-      double? currentLongitude,
-      String? errorMessage});
+  $Res call({String? errorMessage, String? locationName, bool? isLoading});
 }
 
 /// @nodoc
@@ -391,190 +199,127 @@ class _$LocationAuthPageStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentLatitude = freezed,
-    Object? currentLongitude = freezed,
     Object? errorMessage = freezed,
+    Object? locationName = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_value.copyWith(
-      currentLatitude: freezed == currentLatitude
-          ? _value.currentLatitude
-          : currentLatitude // ignore: cast_nullable_to_non_nullable
-              as double?,
-      currentLongitude: freezed == currentLongitude
-          ? _value.currentLongitude
-          : currentLongitude // ignore: cast_nullable_to_non_nullable
-              as double?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      locationName: freezed == locationName
+          ? _value.locationName
+          : locationName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isLoading: freezed == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$_LocationAuthPageStateCopyWith<$Res>
     implements $LocationAuthPageStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$_LocationAuthPageStateCopyWith(_$_LocationAuthPageState value,
+          $Res Function(_$_LocationAuthPageState) then) =
+      __$$_LocationAuthPageStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {double? currentLatitude,
-      double? currentLongitude,
-      String? errorMessage});
+  $Res call({String? errorMessage, String? locationName, bool? isLoading});
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$LocationAuthPageStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$_LocationAuthPageStateCopyWithImpl<$Res>
+    extends _$LocationAuthPageStateCopyWithImpl<$Res, _$_LocationAuthPageState>
+    implements _$$_LocationAuthPageStateCopyWith<$Res> {
+  __$$_LocationAuthPageStateCopyWithImpl(_$_LocationAuthPageState _value,
+      $Res Function(_$_LocationAuthPageState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentLatitude = freezed,
-    Object? currentLongitude = freezed,
     Object? errorMessage = freezed,
+    Object? locationName = freezed,
+    Object? isLoading = freezed,
   }) {
-    return _then(_$_Initial(
-      currentLatitude: freezed == currentLatitude
-          ? _value.currentLatitude
-          : currentLatitude // ignore: cast_nullable_to_non_nullable
-              as double?,
-      currentLongitude: freezed == currentLongitude
-          ? _value.currentLongitude
-          : currentLongitude // ignore: cast_nullable_to_non_nullable
-              as double?,
+    return _then(_$_LocationAuthPageState(
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      locationName: freezed == locationName
+          ? _value.locationName
+          : locationName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isLoading: freezed == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial(
-      {this.currentLatitude, this.currentLongitude, this.errorMessage});
+class _$_LocationAuthPageState implements _LocationAuthPageState {
+  const _$_LocationAuthPageState(
+      {this.errorMessage, this.locationName, this.isLoading});
 
   @override
-  final double? currentLatitude;
-  @override
-  final double? currentLongitude;
-  @override
   final String? errorMessage;
+  @override
+  final String? locationName;
+  @override
+  final bool? isLoading;
 
   @override
   String toString() {
-    return 'LocationAuthPageState.initial(currentLatitude: $currentLatitude, currentLongitude: $currentLongitude, errorMessage: $errorMessage)';
+    return 'LocationAuthPageState(errorMessage: $errorMessage, locationName: $locationName, isLoading: $isLoading)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
-            (identical(other.currentLatitude, currentLatitude) ||
-                other.currentLatitude == currentLatitude) &&
-            (identical(other.currentLongitude, currentLongitude) ||
-                other.currentLongitude == currentLongitude) &&
+            other is _$_LocationAuthPageState &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.errorMessage == errorMessage) &&
+            (identical(other.locationName, locationName) ||
+                other.locationName == locationName) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, currentLatitude, currentLongitude, errorMessage);
+      Object.hash(runtimeType, errorMessage, locationName, isLoading);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(double? currentLatitude, double? currentLongitude,
-            String? errorMessage)
-        initial,
-  }) {
-    return initial(currentLatitude, currentLongitude, errorMessage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(double? currentLatitude, double? currentLongitude,
-            String? errorMessage)?
-        initial,
-  }) {
-    return initial?.call(currentLatitude, currentLongitude, errorMessage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(double? currentLatitude, double? currentLongitude,
-            String? errorMessage)?
-        initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(currentLatitude, currentLongitude, errorMessage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  _$$_LocationAuthPageStateCopyWith<_$_LocationAuthPageState> get copyWith =>
+      __$$_LocationAuthPageStateCopyWithImpl<_$_LocationAuthPageState>(
+          this, _$identity);
 }
 
-abstract class _Initial implements LocationAuthPageState {
-  const factory _Initial(
-      {final double? currentLatitude,
-      final double? currentLongitude,
-      final String? errorMessage}) = _$_Initial;
+abstract class _LocationAuthPageState implements LocationAuthPageState {
+  const factory _LocationAuthPageState(
+      {final String? errorMessage,
+      final String? locationName,
+      final bool? isLoading}) = _$_LocationAuthPageState;
 
-  @override
-  double? get currentLatitude;
-  @override
-  double? get currentLongitude;
   @override
   String? get errorMessage;
   @override
+  String? get locationName;
+  @override
+  bool? get isLoading;
+  @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$_LocationAuthPageStateCopyWith<_$_LocationAuthPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -16,23 +16,20 @@ class ProfileImages extends StatelessWidget {
       required this.email,
       required this.phoneNumber,
       required this.birthday,
-      required this.location});
+      required this.location,
+      required this.profileImage});
 
   final String fullName;
   final String location;
   final String email;
   final String phoneNumber;
   final String birthday;
-
+  final File profileImage;
 
   File? coverImage;
   File? image1;
   File? image2;
   File? image3;
-
-
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +93,7 @@ Stay clear of inappropriate content''';
                           ),
                         ],
                       ),
-                      // child: Image.file(profileImage, fit: BoxFit.cover)
+                      child: Image.file(profileImage, fit: BoxFit.cover)
 
                       // child: image != null
                       //     ? Image.asset(
@@ -163,7 +160,6 @@ Stay clear of inappropriate content''';
                               ],
                             ),
                             onPressed: () {
-                             
                               Navigator.pop(context);
                             },
                           ),
@@ -177,7 +173,6 @@ Stay clear of inappropriate content''';
                               ],
                             ),
                             onPressed: () {
-                           
                               Navigator.pop(context);
                             },
                           ),
@@ -245,7 +240,6 @@ Stay clear of inappropriate content''';
   }
 }
 
-
 class CustomContainer extends StatelessWidget {
   CustomContainer(
       {super.key, required this.height, required this.width, this.image});
@@ -253,18 +247,11 @@ class CustomContainer extends StatelessWidget {
   final double height;
   final double width;
   final File? image;
-  
-
-
-  
-
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-       
-      },
+      onTap: () {},
       child: Container(
         height: height * 0.25,
         width: width * 0.3,

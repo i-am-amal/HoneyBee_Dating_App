@@ -47,7 +47,7 @@ class OtpAuthenticationPage extends StatelessWidget {
               BlocBuilder<OtpNumberAuthPageBloc, OtpNumberAuthPageState>(
                 builder: (context, state) {
                   if (state.timer == 0) {
-                    return const Text('OTP expired!');
+                    return const Text('Resend Otp!');
                   } else {
                     return Text('Time remaining: ${state.timer} seconds');
                   }
@@ -96,15 +96,21 @@ class OtpAuthenticationPage extends StatelessWidget {
                 height: height * 0.018,
                 width: width * 0.25,
                 onpressed: () {
+
+
                   BlocProvider.of<OtpNumberAuthPageBloc>(context)
                       .add(const OtpNumberAuthPageEvent.otpLogin());
                 },
+
+                
               ),
               SizedBox(
                 height: height * 0.03,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 child: const CustomText(
                   text: 'Resend Otp',
                   fontFamily: CustomFont.headTextFont,
