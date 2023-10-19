@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'package:geocoding/geocoding.dart';
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -25,7 +24,7 @@ class LocationAuthPageBloc
         await results.fold((failure) async {
           log('--------- failure');
           emit(state.copyWith(errorMessage: failure));
-          // emit(state.copyWith(errorMessage: null));
+          emit(state.copyWith(errorMessage: null));
         }, (success) async {
           log('success-------');
 

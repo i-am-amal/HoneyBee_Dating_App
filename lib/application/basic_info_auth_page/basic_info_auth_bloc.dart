@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/infrastructure/camera_services.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../domain/validation/form_validation_services.dart';
 
 part 'basic_info_auth_event.dart';

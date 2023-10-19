@@ -10,6 +10,9 @@ class LocationAuthPageState with _$LocationAuthPageState {
 
   factory LocationAuthPageState.initial() {
     return const LocationAuthPageState(
-        errorMessage: '', isLoading: false, locationName: '');
+      errorMessage: '',
+      isLoading: false,
+      locationName: '',
+    );
   }
 }

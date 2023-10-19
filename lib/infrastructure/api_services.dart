@@ -38,9 +38,8 @@ import '../domain/models/verify_otp_response_model/verify_otp_response_model.dar
 import 'package:http_parser/http_parser.dart';
 
 class ApiServices {
-  
 ///////////////////////////////--------------------PhoneNumber Login--------------------//////////////////////////////////
- 
+
   static Future<Either<ApiFailures, PhoneNumberResponseModel>> phoneNumberLogin(
       PhoneNumberRequestModel request) async {
     try {
