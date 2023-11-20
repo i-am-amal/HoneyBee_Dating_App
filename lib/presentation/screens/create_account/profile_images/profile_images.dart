@@ -241,7 +241,7 @@ Stay clear of inappropriate content''';
 }
 
 class CustomContainer extends StatelessWidget {
-  CustomContainer(
+  const CustomContainer(
       {super.key, required this.height, required this.width, this.image});
 
   final double height;

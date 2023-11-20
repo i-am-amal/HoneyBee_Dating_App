@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -87,7 +89,7 @@ class SearchWidget extends StatelessWidget {
                 // Replace with actual user name
                 onTap: () {
                   // Handle tap on user
-                  print('Tapped on user $index');
+                  log('Tapped on user $index');
                 },
               ),
               const Divider(),

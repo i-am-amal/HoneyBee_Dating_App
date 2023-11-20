@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
@@ -231,7 +233,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
             return ListTile(
               title: Text(genderOptions[index]),
               onTap: () {
-                print('Selected option: ${genderOptions[index]}');
+                log('Selected option: ${genderOptions[index]}');
                 Navigator.of(context).pop();
               },
             );

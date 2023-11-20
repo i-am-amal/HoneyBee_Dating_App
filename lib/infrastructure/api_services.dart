@@ -61,7 +61,7 @@ class ApiServices {
         PhoneNumberResponseModel result =
             PhoneNumberResponseModel.fromJson(jsonMap);
 
-        print(result);
+        log(result.toString());
 
         return right(result);
       } else {
@@ -69,7 +69,7 @@ class ApiServices {
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
@@ -97,7 +97,7 @@ class ApiServices {
         VerifyOtpResponseModel result =
             VerifyOtpResponseModel.fromJson(jsonMap);
 
-        print(result.redirect);
+        log(result.redirect.toString());
 
         return right(result);
       } else {
@@ -105,7 +105,7 @@ class ApiServices {
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
@@ -131,7 +131,7 @@ class ApiServices {
         GetUserDataResponseModel result =
             GetUserDataResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
@@ -139,7 +139,7 @@ class ApiServices {
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
@@ -233,7 +233,7 @@ class ApiServices {
       ));
 
       if (image0 != null) {
-        print('image added');
+        log('image added');
         String filename = image0.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -245,7 +245,7 @@ class ApiServices {
         ));
       }
       if (image1 != null) {
-        print('image added');
+        log('image added');
         String filename = image1.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -257,7 +257,7 @@ class ApiServices {
         ));
       }
       if (image2 != null) {
-        print('image added');
+        log('image added');
         String filename = image2.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -278,7 +278,7 @@ class ApiServices {
         CreateAccountResponseModel result =
             CreateAccountResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
@@ -286,7 +286,7 @@ class ApiServices {
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
@@ -310,14 +310,14 @@ class ApiServices {
 
         DiscoverResponseModel result = DiscoverResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -342,14 +342,14 @@ class ApiServices {
 
         LikeUserResponseModel result = LikeUserResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -375,14 +375,14 @@ class ApiServices {
         DislikeUserResponseModel result =
             DislikeUserResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -406,14 +406,14 @@ class ApiServices {
 
         MatchesResponseModel result = MatchesResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -438,14 +438,14 @@ class ApiServices {
         AllLikedUsersResponseModel result =
             AllLikedUsersResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -544,7 +544,7 @@ class ApiServices {
       }
 
       if (image0 != null) {
-        print('image added');
+        log('image added');
         String filename = image0.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -556,7 +556,7 @@ class ApiServices {
         ));
       }
       if (image1 != null) {
-        print('image added');
+        log('image added');
         String filename = image1.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -568,7 +568,7 @@ class ApiServices {
         ));
       }
       if (image2 != null) {
-        print('image added');
+        log('image added');
         String filename = image2.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -588,14 +588,14 @@ class ApiServices {
 
         UserEditResponseModel result = UserEditResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -621,14 +621,14 @@ class ApiServices {
         BlockUserResponseModel result =
             BlockUserResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -654,14 +654,14 @@ class ApiServices {
         VerifyPaymentResponseModel result =
             VerifyPaymentResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -687,14 +687,14 @@ class ApiServices {
         SearchFilterResponseModel result =
             SearchFilterResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -720,14 +720,14 @@ class ApiServices {
         PaymentPlatinumResponseModel result =
             PaymentPlatinumResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -753,14 +753,14 @@ class ApiServices {
         AddMessageResponseModel result =
             AddMessageResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -786,14 +786,14 @@ class ApiServices {
         GetMessageResponseModel result =
             GetMessageResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -819,14 +819,14 @@ class ApiServices {
         LastMessageResponseModel result =
             LastMessageResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -850,14 +850,14 @@ class ApiServices {
 
         MarkReadResponseModel result = MarkReadResponseModel.fromJson(jsonMap);
 
-        print(jsonMap);
+        log(jsonMap.toString());
 
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      print("client side error");
+      log("client side error");
 
       return left(const ApiFailures.clientFailure());
     }

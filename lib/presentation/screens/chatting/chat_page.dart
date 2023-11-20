@@ -59,7 +59,7 @@ class ChatPage extends StatelessWidget {
                       },
                     );
 
-                    print('tapping');
+                    debugPrint('tapping');
                   },
                   child: Card(
                     // Adjust padding, margin, and decoration as needed

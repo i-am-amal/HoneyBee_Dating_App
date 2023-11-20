@@ -16,7 +16,7 @@ class _CustomModalBottomSheetState extends State<CustomModalBottomSheet> {
     return Column(
       children: [
         ListTile(
-          title: Text('Choose Option'),
+          title: const Text('Choose Option'),
           trailing: DropdownButton<String>(
             value: selectedOption,
             onChanged: (String? newValue) {
@@ -34,16 +34,16 @@ class _CustomModalBottomSheetState extends State<CustomModalBottomSheet> {
           ),
         ),
         ListTile(
-          title: Text('Search Location'),
+          title: const Text('Search Location'),
           trailing: IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {
               // Add location search logic here
             },
           ),
         ),
         ListTile(
-          title: Text('Age'),
+          title: const Text('Age'),
           trailing: Text('${selectedAge.toInt()}'),
         ),
         Slider(
@@ -61,7 +61,7 @@ class _CustomModalBottomSheetState extends State<CustomModalBottomSheet> {
             // Add logic to handle button press
             Navigator.of(context).pop();
           },
-          child: Text('Submit'),
+          child: const Text('Submit'),
         ),
       ],
     );

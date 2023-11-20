@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -63,7 +65,7 @@ class Onboarding extends StatelessWidget {
                   ),
                 );
 
-                print('---------------to signin page ..pushing');
+                log('---------------to signin page ..pushing');
               },
             ),
             const SizedBox(
