@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
 
-Future<dynamic> pickImageModalPopUp(BuildContext context) {
+Future<dynamic> pickImageModalPopUp(BuildContext context, VoidCallback eventCalling) {
+
+  
   return showCupertinoModalPopup(
     context: context,
     builder: (BuildContext context) => CupertinoActionSheet(
@@ -23,6 +25,7 @@ Future<dynamic> pickImageModalPopUp(BuildContext context) {
           },
         ),
         CupertinoActionSheetAction(
+          onPressed: eventCalling,
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -31,10 +34,16 @@ Future<dynamic> pickImageModalPopUp(BuildContext context) {
               Text('Gallery'),
             ],
           ),
-          onPressed: () {
-            BlocProvider.of<BasicInfoAuthBloc>(context).add(const BasicInfoAuthEvent.pickImage());
-            Navigator.pop(context);
-          },
+          // onPressed: () {
+
+
+          //   BlocProvider.of<BasicInfoAuthBloc>(context).add(const BasicInfoAuthEvent.pickProfileImage());
+
+
+
+
+          //   Navigator.pop(context);
+          // },
         ),
       ],
       cancelButton: CupertinoActionSheetAction(

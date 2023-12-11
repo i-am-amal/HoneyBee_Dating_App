@@ -18,21 +18,24 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BasicInfoAuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() pickImage,
+    required TResult Function() pickProfileImage,
+    required TResult Function() pickCoverImage,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickImage,
+    TResult? Function()? pickProfileImage,
+    TResult? Function()? pickCoverImage,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickImage,
+    TResult Function()? pickProfileImage,
+    TResult Function()? pickCoverImage,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -40,19 +43,22 @@ mixin _$BasicInfoAuthEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_PickProfileImage value) pickProfileImage,
+    required TResult Function(_PickCoverImage value) pickCoverImage,
     required TResult Function(_NextPage value) nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_PickProfileImage value)? pickProfileImage,
+    TResult? Function(_PickCoverImage value)? pickCoverImage,
     TResult? Function(_NextPage value)? nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_PickProfileImage value)? pickProfileImage,
+    TResult Function(_PickCoverImage value)? pickCoverImage,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) =>
@@ -78,35 +84,35 @@ class _$BasicInfoAuthEventCopyWithImpl<$Res, $Val extends BasicInfoAuthEvent>
 }
 
 /// @nodoc
-abstract class _$$_PickImageCopyWith<$Res> {
-  factory _$$_PickImageCopyWith(
-          _$_PickImage value, $Res Function(_$_PickImage) then) =
-      __$$_PickImageCopyWithImpl<$Res>;
+abstract class _$$_PickProfileImageCopyWith<$Res> {
+  factory _$$_PickProfileImageCopyWith(
+          _$_PickProfileImage value, $Res Function(_$_PickProfileImage) then) =
+      __$$_PickProfileImageCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PickImageCopyWithImpl<$Res>
-    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage>
-    implements _$$_PickImageCopyWith<$Res> {
-  __$$_PickImageCopyWithImpl(
-      _$_PickImage _value, $Res Function(_$_PickImage) _then)
+class __$$_PickProfileImageCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickProfileImage>
+    implements _$$_PickProfileImageCopyWith<$Res> {
+  __$$_PickProfileImageCopyWithImpl(
+      _$_PickProfileImage _value, $Res Function(_$_PickProfileImage) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PickImage implements _PickImage {
-  const _$_PickImage();
+class _$_PickProfileImage implements _PickProfileImage {
+  const _$_PickProfileImage();
 
   @override
   String toString() {
-    return 'BasicInfoAuthEvent.pickImage()';
+    return 'BasicInfoAuthEvent.pickProfileImage()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PickImage);
+        (other.runtimeType == runtimeType && other is _$_PickProfileImage);
   }
 
   @override
@@ -115,33 +121,36 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() pickImage,
+    required TResult Function() pickProfileImage,
+    required TResult Function() pickCoverImage,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
-    return pickImage();
+    return pickProfileImage();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickImage,
+    TResult? Function()? pickProfileImage,
+    TResult? Function()? pickCoverImage,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
-    return pickImage?.call();
+    return pickProfileImage?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickImage,
+    TResult Function()? pickProfileImage,
+    TResult Function()? pickCoverImage,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
   }) {
-    if (pickImage != null) {
-      return pickImage();
+    if (pickProfileImage != null) {
+      return pickProfileImage();
     }
     return orElse();
   }
@@ -149,37 +158,151 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_PickProfileImage value) pickProfileImage,
+    required TResult Function(_PickCoverImage value) pickCoverImage,
     required TResult Function(_NextPage value) nextPage,
   }) {
-    return pickImage(this);
+    return pickProfileImage(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_PickProfileImage value)? pickProfileImage,
+    TResult? Function(_PickCoverImage value)? pickCoverImage,
     TResult? Function(_NextPage value)? nextPage,
   }) {
-    return pickImage?.call(this);
+    return pickProfileImage?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_PickProfileImage value)? pickProfileImage,
+    TResult Function(_PickCoverImage value)? pickCoverImage,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
-    if (pickImage != null) {
-      return pickImage(this);
+    if (pickProfileImage != null) {
+      return pickProfileImage(this);
     }
     return orElse();
   }
 }
 
-abstract class _PickImage implements BasicInfoAuthEvent {
-  const factory _PickImage() = _$_PickImage;
+abstract class _PickProfileImage implements BasicInfoAuthEvent {
+  const factory _PickProfileImage() = _$_PickProfileImage;
+}
+
+/// @nodoc
+abstract class _$$_PickCoverImageCopyWith<$Res> {
+  factory _$$_PickCoverImageCopyWith(
+          _$_PickCoverImage value, $Res Function(_$_PickCoverImage) then) =
+      __$$_PickCoverImageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickCoverImageCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickCoverImage>
+    implements _$$_PickCoverImageCopyWith<$Res> {
+  __$$_PickCoverImageCopyWithImpl(
+      _$_PickCoverImage _value, $Res Function(_$_PickCoverImage) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickCoverImage implements _PickCoverImage {
+  const _$_PickCoverImage();
+
+  @override
+  String toString() {
+    return 'BasicInfoAuthEvent.pickCoverImage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PickCoverImage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickProfileImage,
+    required TResult Function() pickCoverImage,
+    required TResult Function(String? fullName, String? email, String? birthday)
+        nextPage,
+  }) {
+    return pickCoverImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickProfileImage,
+    TResult? Function()? pickCoverImage,
+    TResult? Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+  }) {
+    return pickCoverImage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickProfileImage,
+    TResult Function()? pickCoverImage,
+    TResult Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickCoverImage != null) {
+      return pickCoverImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickProfileImage value) pickProfileImage,
+    required TResult Function(_PickCoverImage value) pickCoverImage,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return pickCoverImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PickProfileImage value)? pickProfileImage,
+    TResult? Function(_PickCoverImage value)? pickCoverImage,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return pickCoverImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickProfileImage value)? pickProfileImage,
+    TResult Function(_PickCoverImage value)? pickCoverImage,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickCoverImage != null) {
+      return pickCoverImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickCoverImage implements BasicInfoAuthEvent {
+  const factory _PickCoverImage() = _$_PickCoverImage;
 }
 
 /// @nodoc
@@ -264,7 +387,8 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() pickImage,
+    required TResult Function() pickProfileImage,
+    required TResult Function() pickCoverImage,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -274,7 +398,8 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickImage,
+    TResult? Function()? pickProfileImage,
+    TResult? Function()? pickCoverImage,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -284,7 +409,8 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickImage,
+    TResult Function()? pickProfileImage,
+    TResult Function()? pickCoverImage,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -298,7 +424,8 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_PickProfileImage value) pickProfileImage,
+    required TResult Function(_PickCoverImage value) pickCoverImage,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return nextPage(this);
@@ -307,7 +434,8 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_PickProfileImage value)? pickProfileImage,
+    TResult? Function(_PickCoverImage value)? pickCoverImage,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return nextPage?.call(this);
@@ -316,7 +444,8 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_PickProfileImage value)? pickProfileImage,
+    TResult Function(_PickCoverImage value)? pickCoverImage,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
@@ -343,29 +472,57 @@ abstract class _NextPage implements BasicInfoAuthEvent {
 
 /// @nodoc
 mixin _$BasicInfoAuthState {
-  XFile? get pickedImage => throw _privateConstructorUsedError;
+  XFile? get pickedProfileImage => throw _privateConstructorUsedError;
+  XFile? get coverProfileImage => throw _privateConstructorUsedError;
+  XFile? get pic1 => throw _privateConstructorUsedError;
+  XFile? get pic2 => throw _privateConstructorUsedError;
+  XFile? get pic3 => throw _privateConstructorUsedError;
   String? get fullNameErrorMsg => throw _privateConstructorUsedError;
   String? get emailErrorMsg => throw _privateConstructorUsedError;
   String? get birthdayErrorMsg => throw _privateConstructorUsedError;
   bool? get isValidated => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(XFile? pickedImage, String? fullNameErrorMsg,
-            String? emailErrorMsg, String? birthdayErrorMsg, bool? isValidated)
+    required TResult Function(
+            XFile? pickedProfileImage,
+            XFile? coverProfileImage,
+            XFile? pic1,
+            XFile? pic2,
+            XFile? pic3,
+            String? fullNameErrorMsg,
+            String? emailErrorMsg,
+            String? birthdayErrorMsg,
+            bool? isValidated)
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(XFile? pickedImage, String? fullNameErrorMsg,
-            String? emailErrorMsg, String? birthdayErrorMsg, bool? isValidated)?
+    TResult? Function(
+            XFile? pickedProfileImage,
+            XFile? coverProfileImage,
+            XFile? pic1,
+            XFile? pic2,
+            XFile? pic3,
+            String? fullNameErrorMsg,
+            String? emailErrorMsg,
+            String? birthdayErrorMsg,
+            bool? isValidated)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(XFile? pickedImage, String? fullNameErrorMsg,
-            String? emailErrorMsg, String? birthdayErrorMsg, bool? isValidated)?
+    TResult Function(
+            XFile? pickedProfileImage,
+            XFile? coverProfileImage,
+            XFile? pic1,
+            XFile? pic2,
+            XFile? pic3,
+            String? fullNameErrorMsg,
+            String? emailErrorMsg,
+            String? birthdayErrorMsg,
+            bool? isValidated)?
         initial,
     required TResult orElse(),
   }) =>
@@ -399,7 +556,11 @@ abstract class $BasicInfoAuthStateCopyWith<$Res> {
       _$BasicInfoAuthStateCopyWithImpl<$Res, BasicInfoAuthState>;
   @useResult
   $Res call(
-      {XFile? pickedImage,
+      {XFile? pickedProfileImage,
+      XFile? coverProfileImage,
+      XFile? pic1,
+      XFile? pic2,
+      XFile? pic3,
       String? fullNameErrorMsg,
       String? emailErrorMsg,
       String? birthdayErrorMsg,
@@ -419,16 +580,36 @@ class _$BasicInfoAuthStateCopyWithImpl<$Res, $Val extends BasicInfoAuthState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pickedImage = freezed,
+    Object? pickedProfileImage = freezed,
+    Object? coverProfileImage = freezed,
+    Object? pic1 = freezed,
+    Object? pic2 = freezed,
+    Object? pic3 = freezed,
     Object? fullNameErrorMsg = freezed,
     Object? emailErrorMsg = freezed,
     Object? birthdayErrorMsg = freezed,
     Object? isValidated = freezed,
   }) {
     return _then(_value.copyWith(
-      pickedImage: freezed == pickedImage
-          ? _value.pickedImage
-          : pickedImage // ignore: cast_nullable_to_non_nullable
+      pickedProfileImage: freezed == pickedProfileImage
+          ? _value.pickedProfileImage
+          : pickedProfileImage // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+      coverProfileImage: freezed == coverProfileImage
+          ? _value.coverProfileImage
+          : coverProfileImage // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+      pic1: freezed == pic1
+          ? _value.pic1
+          : pic1 // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+      pic2: freezed == pic2
+          ? _value.pic2
+          : pic2 // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+      pic3: freezed == pic3
+          ? _value.pic3
+          : pic3 // ignore: cast_nullable_to_non_nullable
               as XFile?,
       fullNameErrorMsg: freezed == fullNameErrorMsg
           ? _value.fullNameErrorMsg
@@ -459,7 +640,11 @@ abstract class _$$_InitialCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {XFile? pickedImage,
+      {XFile? pickedProfileImage,
+      XFile? coverProfileImage,
+      XFile? pic1,
+      XFile? pic2,
+      XFile? pic3,
       String? fullNameErrorMsg,
       String? emailErrorMsg,
       String? birthdayErrorMsg,
@@ -476,16 +661,36 @@ class __$$_InitialCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pickedImage = freezed,
+    Object? pickedProfileImage = freezed,
+    Object? coverProfileImage = freezed,
+    Object? pic1 = freezed,
+    Object? pic2 = freezed,
+    Object? pic3 = freezed,
     Object? fullNameErrorMsg = freezed,
     Object? emailErrorMsg = freezed,
     Object? birthdayErrorMsg = freezed,
     Object? isValidated = freezed,
   }) {
     return _then(_$_Initial(
-      pickedImage: freezed == pickedImage
-          ? _value.pickedImage
-          : pickedImage // ignore: cast_nullable_to_non_nullable
+      pickedProfileImage: freezed == pickedProfileImage
+          ? _value.pickedProfileImage
+          : pickedProfileImage // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+      coverProfileImage: freezed == coverProfileImage
+          ? _value.coverProfileImage
+          : coverProfileImage // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+      pic1: freezed == pic1
+          ? _value.pic1
+          : pic1 // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+      pic2: freezed == pic2
+          ? _value.pic2
+          : pic2 // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+      pic3: freezed == pic3
+          ? _value.pic3
+          : pic3 // ignore: cast_nullable_to_non_nullable
               as XFile?,
       fullNameErrorMsg: freezed == fullNameErrorMsg
           ? _value.fullNameErrorMsg
@@ -511,14 +716,26 @@ class __$$_InitialCopyWithImpl<$Res>
 
 class _$_Initial implements _Initial {
   const _$_Initial(
-      {this.pickedImage,
+      {this.pickedProfileImage,
+      this.coverProfileImage,
+      this.pic1,
+      this.pic2,
+      this.pic3,
       this.fullNameErrorMsg,
       this.emailErrorMsg,
       this.birthdayErrorMsg,
       this.isValidated});
 
   @override
-  final XFile? pickedImage;
+  final XFile? pickedProfileImage;
+  @override
+  final XFile? coverProfileImage;
+  @override
+  final XFile? pic1;
+  @override
+  final XFile? pic2;
+  @override
+  final XFile? pic3;
   @override
   final String? fullNameErrorMsg;
   @override
@@ -530,7 +747,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'BasicInfoAuthState.initial(pickedImage: $pickedImage, fullNameErrorMsg: $fullNameErrorMsg, emailErrorMsg: $emailErrorMsg, birthdayErrorMsg: $birthdayErrorMsg, isValidated: $isValidated)';
+    return 'BasicInfoAuthState.initial(pickedProfileImage: $pickedProfileImage, coverProfileImage: $coverProfileImage, pic1: $pic1, pic2: $pic2, pic3: $pic3, fullNameErrorMsg: $fullNameErrorMsg, emailErrorMsg: $emailErrorMsg, birthdayErrorMsg: $birthdayErrorMsg, isValidated: $isValidated)';
   }
 
   @override
@@ -538,8 +755,13 @@ class _$_Initial implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
-            (identical(other.pickedImage, pickedImage) ||
-                other.pickedImage == pickedImage) &&
+            (identical(other.pickedProfileImage, pickedProfileImage) ||
+                other.pickedProfileImage == pickedProfileImage) &&
+            (identical(other.coverProfileImage, coverProfileImage) ||
+                other.coverProfileImage == coverProfileImage) &&
+            (identical(other.pic1, pic1) || other.pic1 == pic1) &&
+            (identical(other.pic2, pic2) || other.pic2 == pic2) &&
+            (identical(other.pic3, pic3) || other.pic3 == pic3) &&
             (identical(other.fullNameErrorMsg, fullNameErrorMsg) ||
                 other.fullNameErrorMsg == fullNameErrorMsg) &&
             (identical(other.emailErrorMsg, emailErrorMsg) ||
@@ -551,8 +773,17 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pickedImage, fullNameErrorMsg,
-      emailErrorMsg, birthdayErrorMsg, isValidated);
+  int get hashCode => Object.hash(
+      runtimeType,
+      pickedProfileImage,
+      coverProfileImage,
+      pic1,
+      pic2,
+      pic3,
+      fullNameErrorMsg,
+      emailErrorMsg,
+      birthdayErrorMsg,
+      isValidated);
 
   @JsonKey(ignore: true)
   @override
@@ -563,36 +794,60 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(XFile? pickedImage, String? fullNameErrorMsg,
-            String? emailErrorMsg, String? birthdayErrorMsg, bool? isValidated)
+    required TResult Function(
+            XFile? pickedProfileImage,
+            XFile? coverProfileImage,
+            XFile? pic1,
+            XFile? pic2,
+            XFile? pic3,
+            String? fullNameErrorMsg,
+            String? emailErrorMsg,
+            String? birthdayErrorMsg,
+            bool? isValidated)
         initial,
   }) {
-    return initial(pickedImage, fullNameErrorMsg, emailErrorMsg,
-        birthdayErrorMsg, isValidated);
+    return initial(pickedProfileImage, coverProfileImage, pic1, pic2, pic3,
+        fullNameErrorMsg, emailErrorMsg, birthdayErrorMsg, isValidated);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(XFile? pickedImage, String? fullNameErrorMsg,
-            String? emailErrorMsg, String? birthdayErrorMsg, bool? isValidated)?
+    TResult? Function(
+            XFile? pickedProfileImage,
+            XFile? coverProfileImage,
+            XFile? pic1,
+            XFile? pic2,
+            XFile? pic3,
+            String? fullNameErrorMsg,
+            String? emailErrorMsg,
+            String? birthdayErrorMsg,
+            bool? isValidated)?
         initial,
   }) {
-    return initial?.call(pickedImage, fullNameErrorMsg, emailErrorMsg,
-        birthdayErrorMsg, isValidated);
+    return initial?.call(pickedProfileImage, coverProfileImage, pic1, pic2,
+        pic3, fullNameErrorMsg, emailErrorMsg, birthdayErrorMsg, isValidated);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(XFile? pickedImage, String? fullNameErrorMsg,
-            String? emailErrorMsg, String? birthdayErrorMsg, bool? isValidated)?
+    TResult Function(
+            XFile? pickedProfileImage,
+            XFile? coverProfileImage,
+            XFile? pic1,
+            XFile? pic2,
+            XFile? pic3,
+            String? fullNameErrorMsg,
+            String? emailErrorMsg,
+            String? birthdayErrorMsg,
+            bool? isValidated)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(pickedImage, fullNameErrorMsg, emailErrorMsg,
-          birthdayErrorMsg, isValidated);
+      return initial(pickedProfileImage, coverProfileImage, pic1, pic2, pic3,
+          fullNameErrorMsg, emailErrorMsg, birthdayErrorMsg, isValidated);
     }
     return orElse();
   }
@@ -628,14 +883,26 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements BasicInfoAuthState {
   const factory _Initial(
-      {final XFile? pickedImage,
+      {final XFile? pickedProfileImage,
+      final XFile? coverProfileImage,
+      final XFile? pic1,
+      final XFile? pic2,
+      final XFile? pic3,
       final String? fullNameErrorMsg,
       final String? emailErrorMsg,
       final String? birthdayErrorMsg,
       final bool? isValidated}) = _$_Initial;
 
   @override
-  XFile? get pickedImage;
+  XFile? get pickedProfileImage;
+  @override
+  XFile? get coverProfileImage;
+  @override
+  XFile? get pic1;
+  @override
+  XFile? get pic2;
+  @override
+  XFile? get pic3;
   @override
   String? get fullNameErrorMsg;
   @override

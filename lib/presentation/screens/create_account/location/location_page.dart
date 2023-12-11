@@ -98,7 +98,7 @@ class LocationPage extends StatelessWidget {
                     fontsize: 15,
                     onpressed: () {
                       if (state.locationName != null) {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => ProfileImages(

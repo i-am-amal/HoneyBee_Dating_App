@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
+import 'package:honeybee/presentation/screens/create_account/profile_images/profile_images.dart';
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
 import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
@@ -35,17 +39,25 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-          title: 'Flutter Demo',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: const SplashScreen()),
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home:const  SplashScreen(),
+        // home: ProfileImages(
+        //   fullName: "Testing",
+        //   birthday: "1998/11/02",
+        //   email: "test@gmail.com",
+        //   location: "trivandrum",
+        //   phoneNumber: "+91 1234567890"
+        // ),
+        // home: BasicInfoMainPage(),
+      ),
     );
   }
 }
-
 
 ///////////////////////////testing widget/////////////////////////////////////
 

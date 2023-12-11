@@ -2,7 +2,9 @@ part of 'basic_info_auth_bloc.dart';
 
 @freezed
 class BasicInfoAuthEvent with _$BasicInfoAuthEvent {
-  const factory BasicInfoAuthEvent.pickImage() = _PickImage;
+  const factory BasicInfoAuthEvent.pickProfileImage() = _PickProfileImage;
+
+  const factory BasicInfoAuthEvent.pickCoverImage() = _PickCoverImage;
 
   const factory BasicInfoAuthEvent.nextPage({
     String? fullName,

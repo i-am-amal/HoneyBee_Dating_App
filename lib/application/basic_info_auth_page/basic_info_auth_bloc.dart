@@ -10,11 +10,23 @@ part 'basic_info_auth_bloc.freezed.dart';
 
 class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
   BasicInfoAuthBloc() : super(const _Initial()) {
-    on<_PickImage>((event, emit) async {
-      XFile? image = await CameraServices.pickImageFromGallery();
+    ///>>>>>>>>>>----------profile image picking-------------->>>>>>>>>>
 
-      emit(state.copyWith(pickedImage: image));
+    on<_PickProfileImage>((event, emit) async {
+      XFile? profileImage = await CameraServices.pickImageFromGallery();
+
+      emit(state.copyWith(pickedProfileImage: profileImage));
     });
+
+//>>>>>>>>>>>----------coverimage picking-------------->>>>>>>>>>>>
+
+    on<_PickCoverImage>((event, emit) async {
+      XFile? coverImage = await CameraServices.pickImageFromGallery();
+
+      emit(state.copyWith(coverProfileImage: coverImage));
+    });
+
+//>>>>>>>>>>>---------next page navigation on main page basic info----------->>>>>>>>>>>>
 
     on<_NextPage>((event, emit) {
       bool isValidationSuccess = true;

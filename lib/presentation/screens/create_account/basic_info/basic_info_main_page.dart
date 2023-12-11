@@ -12,7 +12,6 @@ import '../../../../application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import '../../../widgets/textform_widgets/custom_textformfield.dart';
 import 'pick_image_modal_popup.dart';
 
-// ignore: must_be_immutable
 class BasicInfoMainPage extends StatelessWidget {
   BasicInfoMainPage({super.key, this.formattedPhoneNumber});
 
@@ -30,28 +29,52 @@ class BasicInfoMainPage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
+//////////////////-----------------------------------
     return BlocListener<BasicInfoAuthBloc, BasicInfoAuthState>(
       listener: (context, state) {
-        if (state.isValidated == true) {
-          File image = File(state.pickedImage!.path);
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => LocationPage(
-                fullName: nameController.text,
-                email: emailController.text,
-                phoneNumber: phoneNumberController.text,
-                birthday: dateController.text,
-                profileImage: image,
-              ),
-            ),
-          );
-        }
+        // if (state.isValidated == true) {
+        //   File image = File(state.pickedProfileImage!.path);
+        //   Navigator.pushReplacement(
+        //     context,
+        //     MaterialPageRoute(
+        //       builder: (context) => LocationPage(
+        //         fullName: nameController.text,
+        //         email: emailController.text,
+        //         phoneNumber: phoneNumberController.text,
+        //         birthday: dateController.text,
+        //         profileImage: image,
+        //       ),
+        //     ),
+        //   );
+        // }
       },
+
+      ////////////////////////---------------------
       child: Scaffold(
         body: SingleChildScrollView(
           child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
             builder: (context, state) {
+              if (state.isValidated != null) {
+                if (state.isValidated == true) {
+                  File image = File(state.pickedProfileImage!.path);
+
+                  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LocationPage(
+                          fullName: nameController.text,
+                          email: emailController.text,
+                          phoneNumber: phoneNumberController.text,
+                          birthday: dateController.text,
+                          profileImage: image,
+                        ),
+                      ),
+                    );
+                  });
+                }
+              }
+
               return Column(
                 children: [
                   SizedBox(
@@ -76,17 +99,26 @@ class BasicInfoMainPage extends StatelessWidget {
                     children: [
                       ClipOval(
                         child: SizedBox(
-                            width: width * 0.33,
-                            height: height * 0.25,
-                            child: GestureDetector(
-                              child: state.pickedImage != null
-                                  ? Image.file(File(state.pickedImage!.path),
-                                      fit: BoxFit.cover)
-                                  : Image.asset('assets/images/profile.jpg'),
-                              onTap: () {
-                                pickImageModalPopUp(context);
-                              },
-                            )),
+                          width: width * 0.33,
+                          height: height * 0.25,
+                          child: GestureDetector(
+                            child: state.pickedProfileImage != null
+                                ? Image.file(
+                                    File(state.pickedProfileImage!.path),
+                                    fit: BoxFit.cover)
+                                : Image.asset('assets/images/profile.jpg'),
+                            onTap: () {
+                              pickImageModalPopUp(
+                                context,
+                                () {
+                                  BlocProvider.of<BasicInfoAuthBloc>(context)
+                                      .add(const BasicInfoAuthEvent
+                                          .pickProfileImage());
+                                },
+                              );
+                            },
+                          ),
+                        ),
                       ),
                       Positioned(
                         bottom: 25,
