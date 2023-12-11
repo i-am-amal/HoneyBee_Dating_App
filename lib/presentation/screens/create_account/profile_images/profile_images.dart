@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/pick_image_modal_popup.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
@@ -107,6 +108,7 @@ Stay clear of inappropriate content''';
                       //           style: TextStyle(color: Colors.white),
                       //         ),
                       //       ),
+
                       ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -145,51 +147,53 @@ Stay clear of inappropriate content''';
                       ? Image.file(coverImage!, fit: BoxFit.cover)
                       : Image.asset('assets/images/profile.jpg'),
                   onTap: () {
-                    showCupertinoModalPopup(
-                      context: context,
-                      builder: (BuildContext context) => CupertinoActionSheet(
-                        title: const Text('Choose an option'),
-                        actions: <Widget>[
-                          CupertinoActionSheetAction(
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(Icons.camera_alt),
-                                SizedBox(width: 8),
-                                Text('Camera'),
-                              ],
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                          ),
-                          CupertinoActionSheetAction(
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(Icons.photo),
-                                SizedBox(width: 8),
-                                Text('Gallery'),
-                              ],
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                          ),
-                        ],
-                        cancelButton: CupertinoActionSheetAction(
-                          child: const Text(
-                            'Cancel',
-                            style: TextStyle(
-                              color: CupertinoColors.systemRed,
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                    );
+                    pickImageModalPopUp(context);
+                    // showCupertinoModalPopup(
+                    //   context: context,
+                    //   builder: (BuildContext context) => CupertinoActionSheet(
+                    //     title: const Text('Choose an option'),
+                    //     actions: <Widget>[
+                    //       CupertinoActionSheetAction(
+                    //         child: const Row(
+                    //           mainAxisAlignment: MainAxisAlignment.center,
+                    //           children: <Widget>[
+                    //             Icon(Icons.camera_alt),
+                    //             SizedBox(width: 8),
+                    //             Text('Camera'),
+                    //           ],
+                    //         ),
+                    //         onPressed: () {
+                    //           Navigator.pop(context);
+                    //         },
+                    //       ),
+                    //       CupertinoActionSheetAction(
+                    //         child: const Row(
+                    //           mainAxisAlignment: MainAxisAlignment.center,
+                    //           children: <Widget>[
+                    //             Icon(Icons.photo),
+                    //             SizedBox(width: 8),
+                    //             Text('Gallery'),
+                    //           ],
+                    //         ),
+                    //         onPressed: () {
+
+                    //           Navigator.pop(context);
+                    //         },
+                    //       ),
+                    //     ],
+                    //     cancelButton: CupertinoActionSheetAction(
+                    //       child: const Text(
+                    //         'Cancel',
+                    //         style: TextStyle(
+                    //           color: CupertinoColors.systemRed,
+                    //         ),
+                    //       ),
+                    //       onPressed: () {
+                    //         Navigator.pop(context);
+                    //       },
+                    //     ),
+                    //   ),
+                    // );
                   },
                 ),
 
@@ -251,7 +255,9 @@ class CustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        pickImageModalPopUp(context);
+      },
       child: Container(
         height: height * 0.25,
         width: width * 0.3,

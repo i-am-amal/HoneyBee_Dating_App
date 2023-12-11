@@ -33,7 +33,6 @@ Future<dynamic> pickImageModalPopUp(BuildContext context) {
           ),
           onPressed: () {
             BlocProvider.of<BasicInfoAuthBloc>(context).add(const BasicInfoAuthEvent.pickImage());
-
             Navigator.pop(context);
           },
         ),
