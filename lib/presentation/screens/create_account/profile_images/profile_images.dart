@@ -51,16 +51,34 @@ Stay clear of inappropriate content''';
           padding: const EdgeInsets.all(10.0),
           child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
             builder: (context, state) {
-
               //>>>>>>>>>>>>>>------------cover pic storing on a file ------>>>>>>>>>>
 
               if (state.coverProfileImage != null) {
                 File coverImage = File(state.coverProfileImage!.path);
                 log("-----cover image -----$coverImage--------------");
               }
+              //------->>>>>>>>>>>>>>------------image1 section ------>>>>>>>>>>
 
-              //>>>>>>>>>>>>------------------------->>>>>>>>>>>>>>>>>>>>
-              
+              if (state.pic1 != null) {
+                image1 = File(state.pic1!.path);
+                log("-----image 1-----$image1--------------");
+              }
+              //------->>>>>>>>>>>>>>------------image 2 section ------>>>>>>>>>>
+
+              if (state.pic2 != null) {
+                image2 = File(state.pic2!.path);
+                log("-----image 2-----$image2--------------");
+              }
+
+              //------->>>>>>>>>>>>>>------------image 3 section ------>>>>>>>>>>
+
+              if (state.pic3 != null) {
+                image3 = File(state.pic3!.path);
+                log("-----image 3-----$image3--------------");
+              }
+
+              //------>>>>>>>>>>>>------------------------->>>>>>>>>>>>>>>>>>>>
+
               return Column(
                 children: [
                   SizedBox(
@@ -202,12 +220,32 @@ Stay clear of inappropriate content''';
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      CustomContainer(
-                          height: height, width: width, image: image1),
-                      CustomContainer(
-                          height: height, width: width, image: image2),
-                      CustomContainer(
-                          height: height, width: width, image: image3),
+                      GestureDetector(
+                        onTap: () {
+                          pickImageModalPopUp(context, () {
+                            BlocProvider.of<BasicInfoAuthBloc>(context)
+                                .add(const BasicInfoAuthEvent.pickImage1());
+                          });
+                        },
+                        child: CustomContainer(
+                            height: height, width: width, image: image1),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          BlocProvider.of<BasicInfoAuthBloc>(context)
+                              .add(const BasicInfoAuthEvent.pickImage2());
+                        },
+                        child: CustomContainer(
+                            height: height, width: width, image: image2),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          BlocProvider.of<BasicInfoAuthBloc>(context)
+                              .add(const BasicInfoAuthEvent.pickImage3());
+                        },
+                        child: CustomContainer(
+                            height: height, width: width, image: image3),
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -218,7 +256,7 @@ Stay clear of inappropriate content''';
                     width: width * 0.2,
                     txtcolor: CustomColors.kWhiteTextColor,
                     onpressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const BasicInfoLastPage(),
@@ -248,7 +286,7 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // pickImageModalPopUp(context);
+        // pickImageModalPopUp(context, () {});
       },
       child: Container(
         height: height * 0.25,
