@@ -30,188 +30,167 @@ class BasicInfoMainPage extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
 //////////////////-----------------------------------
-    return BlocListener<BasicInfoAuthBloc, BasicInfoAuthState>(
-      listener: (context, state) {
-        // if (state.isValidated == true) {
-        //   File image = File(state.pickedProfileImage!.path);
-        //   Navigator.pushReplacement(
-        //     context,
-        //     MaterialPageRoute(
-        //       builder: (context) => LocationPage(
-        //         fullName: nameController.text,
-        //         email: emailController.text,
-        //         phoneNumber: phoneNumberController.text,
-        //         birthday: dateController.text,
-        //         profileImage: image,
-        //       ),
-        //     ),
-        //   );
-        // }
-      },
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
+          builder: (context, state) {
+            if (state.isValidated != null) {
+              if (state.isValidated == true) {
+                File image = File(state.pickedProfileImage!.path);
 
-      ////////////////////////---------------------
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
-            builder: (context, state) {
-              if (state.isValidated != null) {
-                if (state.isValidated == true) {
-                  File image = File(state.pickedProfileImage!.path);
-
-                  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LocationPage(
-                          fullName: nameController.text,
-                          email: emailController.text,
-                          phoneNumber: phoneNumberController.text,
-                          birthday: dateController.text,
-                          profileImage: image,
-                        ),
+                WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LocationPage(
+                        fullName: nameController.text,
+                        email: emailController.text,
+                        phoneNumber: phoneNumberController.text,
+                        birthday: dateController.text,
+                        profileImage: image,
                       ),
-                    );
-                  });
-                }
+                    ),
+                  );
+                });
               }
+            }
 
-              return Column(
-                children: [
-                  SizedBox(
-                    height: height * 0.08,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: width * 0.08,
-                      ),
-                      const CustomText(
-                        text: 'Basic Info',
-                        letterspacing: 1,
-                        fontFamily: CustomFont.headTextFont,
-                        fontWeight: FontWeight.bold,
-                        fontsize: 25,
-                      ),
-                    ],
-                  ),
-                  Stack(
-                    alignment: Alignment.bottomRight,
-                    children: [
-                      ClipOval(
-                        child: SizedBox(
-                          width: width * 0.33,
-                          height: height * 0.25,
-                          child: GestureDetector(
-                            child: state.pickedProfileImage != null
-                                ? Image.file(
-                                    File(state.pickedProfileImage!.path),
-                                    fit: BoxFit.cover)
-                                : Image.asset('assets/images/profile.jpg'),
-                            onTap: () {
-                              pickImageModalPopUp(
-                                context,
-                                () {
-                                  BlocProvider.of<BasicInfoAuthBloc>(context)
-                                      .add(const BasicInfoAuthEvent
-                                          .pickProfileImage());
-                                },
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 25,
-                        right: -5,
+            return Column(
+              children: [
+                SizedBox(
+                  height: height * 0.08,
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: width * 0.08,
+                    ),
+                    const CustomText(
+                      text: 'Basic Info',
+                      letterspacing: 1,
+                      fontFamily: CustomFont.headTextFont,
+                      fontWeight: FontWeight.bold,
+                      fontsize: 25,
+                    ),
+                  ],
+                ),
+                Stack(
+                  alignment: Alignment.bottomRight,
+                  children: [
+                    ClipOval(
+                      child: SizedBox(
+                        width: width * 0.33,
+                        height: height * 0.25,
                         child: GestureDetector(
-                          child: Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
-                            ),
-                            child: Icon(
-                              Icons.camera,
-                              color: Colors.red[800],
-                            ),
+                          child: state.pickedProfileImage != null
+                              ? Image.file(
+                                  File(state.pickedProfileImage!.path),
+                                  fit: BoxFit.cover)
+                              : Image.asset('assets/images/profile.jpg'),
+                          onTap: () {
+                            pickImageModalPopUp(
+                              context,
+                              () {
+                                BlocProvider.of<BasicInfoAuthBloc>(context)
+                                    .add(const BasicInfoAuthEvent
+                                        .pickProfileImage());
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 25,
+                      right: -5,
+                      child: GestureDetector(
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          child: Icon(
+                            Icons.camera,
+                            color: Colors.red[800],
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: height * 0.01,
-                  ),
-                  CustomTextFormFiled(
-                    text: 'Full Name',
-                    editController: nameController,
-                    keyboardType: TextInputType.name,
-                    icon: Icons.badge_outlined,
-                    errorMessage: state.fullNameErrorMsg,
-                  ),
-                  SizedBox(
-                    height: height * 0.01,
-                  ),
-                  CustomTextFormFiled(
-                    text: 'Email',
-                    editController: emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    icon: Icons.email_outlined,
-                    errorMessage: state.emailErrorMsg,
-                  ),
-                  SizedBox(
-                    height: height * 0.01,
-                  ),
-                  CustomTextFormFiled(
-                    text: 'Phone Number',
-                    editController: phoneNumberController,
-                    keyboardType: TextInputType.phone,
-                    icon: Icons.phone_sharp,
-                    enable: false,
-                  ),
-                  SizedBox(
-                    height: height * 0.01,
-                  ),
-                  CustomTextFormFiled(
-                    icon: Icons.calendar_month_outlined,
-                    text: 'Birthday',
-                    editController: dateController,
-                    errorMessage: state.birthdayErrorMsg,
-                    readonly: true,
-                    onTap: () async {
-                      await CustomDatePicker.showDatePickerDialog(context);
-                      if (CustomDatePicker.selectedDate != null) {
-                        String formattedDate = CustomDatePicker.selectedDate!
-                            .toString()
-                            .split(' ')[0];
-                        dateController.text = formattedDate;
-                        log(formattedDate);
-                      }
-                    },
-                  ),
-                  SizedBox(
-                    height: height * 0.03,
-                  ),
-                  MainCustomButton(
-                    customtext: "Continue",
-                    height: height * 0.02,
-                    width: width * 0.25,
-                    txtcolor: CustomColors.kWhiteTextColor,
-                    fontWeight: FontWeight.bold,
-                    letterspacing: 1,
-                    fontsize: 15,
-                    onpressed: () {
-                      BlocProvider.of<BasicInfoAuthBloc>(context).add(
-                          BasicInfoAuthEvent.nextPage(
-                              fullName: nameController.text,
-                              email: emailController.text,
-                              birthday: dateController.text));
-                    },
-                  )
-                ],
-              );
-            },
-          ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+                CustomTextFormFiled(
+                  text: 'Full Name',
+                  editController: nameController,
+                  keyboardType: TextInputType.name,
+                  icon: Icons.badge_outlined,
+                  errorMessage: state.fullNameErrorMsg,
+                ),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+                CustomTextFormFiled(
+                  text: 'Email',
+                  editController: emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  icon: Icons.email_outlined,
+                  errorMessage: state.emailErrorMsg,
+                ),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+                CustomTextFormFiled(
+                  text: 'Phone Number',
+                  editController: phoneNumberController,
+                  keyboardType: TextInputType.phone,
+                  icon: Icons.phone_sharp,
+                  enable: false,
+                ),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+                CustomTextFormFiled(
+                  icon: Icons.calendar_month_outlined,
+                  text: 'Birthday',
+                  editController: dateController,
+                  errorMessage: state.birthdayErrorMsg,
+                  readonly: true,
+                  onTap: () async {
+                    await CustomDatePicker.showDatePickerDialog(context);
+                    if (CustomDatePicker.selectedDate != null) {
+                      String formattedDate = CustomDatePicker.selectedDate!
+                          .toString()
+                          .split(' ')[0];
+                      dateController.text = formattedDate;
+                      log(formattedDate);
+                    }
+                  },
+                ),
+                SizedBox(
+                  height: height * 0.03,
+                ),
+                MainCustomButton(
+                  customtext: "Continue",
+                  height: height * 0.02,
+                  width: width * 0.25,
+                  txtcolor: CustomColors.kWhiteTextColor,
+                  fontWeight: FontWeight.bold,
+                  letterspacing: 1,
+                  fontsize: 15,
+                  onpressed: () {
+                    BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                        BasicInfoAuthEvent.nextPage(
+                            fullName: nameController.text,
+                            email: emailController.text,
+                            birthday: dateController.text));
+                  },
+                )
+              ],
+            );
+          },
         ),
       ),
     );
