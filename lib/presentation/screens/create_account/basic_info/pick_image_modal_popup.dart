@@ -23,7 +23,7 @@ Future<dynamic> pickImageModalPopUp(
         ),
         CupertinoActionSheetAction(
           onPressed: () {
-            eventCalling;
+            eventCalling();
             Navigator.pop(context);
           },
           child: const Row(

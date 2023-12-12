@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,8 +11,32 @@ import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
+// ignore: must_be_immutable
 class BasicInfoLastPage extends StatefulWidget {
-  const BasicInfoLastPage({super.key});
+  BasicInfoLastPage(
+      {super.key,
+      required this.fullName,
+      required this.email,
+      required this.location,
+      required this.phoneNumber,
+      required this.birthday,
+      required this.profileImage,
+      required this.coverImage,
+      this.image1,
+      this.image2,
+      this.image3});
+
+  final String fullName;
+
+  final String location;
+  final String email;
+  final String phoneNumber;
+  final String birthday;
+  final File profileImage;
+  final File? coverImage;
+  File? image1;
+  File? image2;
+  File? image3;
 
   @override
   State<BasicInfoLastPage> createState() => _BasicInfoLastPageState();
@@ -35,6 +60,9 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    log("${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3}");
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -66,6 +94,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                     customtext: 'Male',
                     txtcolor: CustomColors.kWhiteTextColor,
                     width: width * 0.07,
+                    onpressed: () {},
                   ),
                   MainCustomButton(
                     customtext: 'Female',

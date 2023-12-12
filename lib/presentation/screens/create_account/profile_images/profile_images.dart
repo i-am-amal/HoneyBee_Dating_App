@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
@@ -12,6 +11,7 @@ import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
+// ignore: must_be_immutable
 class ProfileImages extends StatelessWidget {
   ProfileImages({
     super.key,
@@ -30,7 +30,7 @@ class ProfileImages extends StatelessWidget {
   final String phoneNumber;
   final String birthday;
   final File profileImage;
-
+  File? coverImage;
   File? image1;
   File? image2;
   File? image3;
@@ -51,34 +51,18 @@ Stay clear of inappropriate content''';
           padding: const EdgeInsets.all(10.0),
           child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
             builder: (context, state) {
-              //>>>>>>>>>>>>>>------------cover pic storing on a file ------>>>>>>>>>>
-
               if (state.coverProfileImage != null) {
-                File coverImage = File(state.coverProfileImage!.path);
-                log("-----cover image -----$coverImage--------------");
+                coverImage = File(state.coverProfileImage!.path);
               }
-              //------->>>>>>>>>>>>>>------------image1 section ------>>>>>>>>>>
-
               if (state.pic1 != null) {
                 image1 = File(state.pic1!.path);
-                log("-----image 1-----$image1--------------");
               }
-              //------->>>>>>>>>>>>>>------------image 2 section ------>>>>>>>>>>
-
               if (state.pic2 != null) {
                 image2 = File(state.pic2!.path);
-                log("-----image 2-----$image2--------------");
               }
-
-              //------->>>>>>>>>>>>>>------------image 3 section ------>>>>>>>>>>
-
               if (state.pic3 != null) {
                 image3 = File(state.pic3!.path);
-                log("-----image 3-----$image3--------------");
               }
-
-              //------>>>>>>>>>>>>------------------------->>>>>>>>>>>>>>>>>>>>
-
               return Column(
                 children: [
                   SizedBox(
@@ -127,30 +111,7 @@ Stay clear of inappropriate content''';
                               ),
                             ],
                           ),
-                          //////////////////////////////------------ for testing purpose -----------////////////////////////////////////////
-                          // child: profileImage == null
-                          //     ? const Text('No profile image provided.')
-                          //     : Image.file(
-                          //         profileImage!,
-                          //         fit: BoxFit.cover,
-                          //       ),
-
-                          child: Image.file(profileImage, fit: BoxFit.cover)
-
-                          ////////////////////////////////////////////////////////////////////////////////////
-                          // child: image != null
-                          //     ? Image.asset(
-                          //         image!,
-                          //         fit: BoxFit.cover,
-                          //       )
-                          //     :
-                          //     const Center(
-                          //         child: Text(
-                          //           'No Image Available',
-                          //           style: TextStyle(color: Colors.white),
-                          //         ),
-                          //       ),
-                          ),
+                          child: Image.file(profileImage, fit: BoxFit.cover)),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -191,18 +152,6 @@ Stay clear of inappropriate content''';
                               fit: BoxFit.cover)
                           : const Center(
                               child: Text('No cover image available')),
-
-                      // child: image != null
-                      //     ? Image.asset(
-                      //         image!,
-                      //         fit: BoxFit.cover,
-                      //       )
-                      //     : const Center(
-                      //         child: Text(
-                      //           'No Image Available',
-                      //           style: TextStyle(color: Colors.white),
-                      //         ),
-                      //       ),
                     ),
                     onTap: () {
                       pickImageModalPopUp(
@@ -220,32 +169,36 @@ Stay clear of inappropriate content''';
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          pickImageModalPopUp(context, () {
-                            BlocProvider.of<BasicInfoAuthBloc>(context)
-                                .add(const BasicInfoAuthEvent.pickImage1());
-                          });
-                        },
-                        child: CustomContainer(
-                            height: height, width: width, image: image1),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          BlocProvider.of<BasicInfoAuthBloc>(context)
-                              .add(const BasicInfoAuthEvent.pickImage2());
-                        },
-                        child: CustomContainer(
-                            height: height, width: width, image: image2),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          BlocProvider.of<BasicInfoAuthBloc>(context)
-                              .add(const BasicInfoAuthEvent.pickImage3());
-                        },
-                        child: CustomContainer(
-                            height: height, width: width, image: image3),
-                      ),
+                      CustomContainer(
+                          height: height,
+                          width: width,
+                          image: image1,
+                          onTapFunction: () {
+                            pickImageModalPopUp(context, () {
+                              BlocProvider.of<BasicInfoAuthBloc>(context)
+                                  .add(const BasicInfoAuthEvent.pickImage1());
+                            });
+                          }),
+                      CustomContainer(
+                          height: height,
+                          width: width,
+                          image: image2,
+                          onTapFunction: () {
+                            pickImageModalPopUp(context, () {
+                              BlocProvider.of<BasicInfoAuthBloc>(context)
+                                  .add(const BasicInfoAuthEvent.pickImage2());
+                            });
+                          }),
+                      CustomContainer(
+                          height: height,
+                          width: width,
+                          image: image3,
+                          onTapFunction: () {
+                            pickImageModalPopUp(context, () {
+                              BlocProvider.of<BasicInfoAuthBloc>(context)
+                                  .add(const BasicInfoAuthEvent.pickImage3());
+                            });
+                          }),
                     ],
                   ),
                   SizedBox(
@@ -256,10 +209,23 @@ Stay clear of inappropriate content''';
                     width: width * 0.2,
                     txtcolor: CustomColors.kWhiteTextColor,
                     onpressed: () {
+                      log("$fullName,$birthday,$coverImage,$email,$location,$phoneNumber,$profileImage,$image1,$image2,$image3");
+
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const BasicInfoLastPage(),
+                          builder: (context) => BasicInfoLastPage(
+                            fullName: fullName,
+                            email: email,
+                            location: location,
+                            birthday: birthday,
+                            phoneNumber: phoneNumber,
+                            profileImage: profileImage,
+                            coverImage: coverImage,
+                            image1: image1,
+                            image2: image2,
+                            image3: image3,
+                          ),
                         ),
                       );
                     },
@@ -276,17 +242,26 @@ Stay clear of inappropriate content''';
 
 class CustomContainer extends StatelessWidget {
   const CustomContainer(
-      {super.key, required this.height, required this.width, this.image});
+      {super.key,
+      required this.height,
+      required this.width,
+      this.image,
+      this.onTapFunction});
 
   final double height;
   final double width;
   final File? image;
+  final Function? onTapFunction;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         // pickImageModalPopUp(context, () {});
+
+        if (onTapFunction != null) {
+          onTapFunction!();
+        }
       },
       child: Container(
         height: height * 0.25,

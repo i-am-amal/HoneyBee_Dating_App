@@ -34,9 +34,8 @@ class BasicInfoMainPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
           builder: (context, state) {
-
             //>>>>>>>>>>>>>>>>>>>-------profile image storing and navigation--------->>>>>>>>>>>>>
-            
+
             if (state.isValidated != null) {
               if (state.isValidated == true) {
                 File image = File(state.pickedProfileImage!.path);
@@ -56,7 +55,6 @@ class BasicInfoMainPage extends StatelessWidget {
                   );
                 });
                 //>>>>>>>>>>>>>>------------------->>>>>>>>>>>>>>>>>>>>>>
-
               }
             }
 
@@ -88,17 +86,18 @@ class BasicInfoMainPage extends StatelessWidget {
                         height: height * 0.25,
                         child: GestureDetector(
                           child: state.pickedProfileImage != null
-                              ? Image.file(
-                                  File(state.pickedProfileImage!.path),
+                              ? Image.file(File(state.pickedProfileImage!.path),
                                   fit: BoxFit.cover)
                               : Image.asset('assets/images/profile.jpg'),
                           onTap: () {
+                            log("on tap on pop up main page");
                             pickImageModalPopUp(
                               context,
                               () {
-                                BlocProvider.of<BasicInfoAuthBloc>(context)
-                                    .add(const BasicInfoAuthEvent
+                                BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                                    const BasicInfoAuthEvent
                                         .pickProfileImage());
+                                log("bloc provider worked");
                               },
                             );
                           },
