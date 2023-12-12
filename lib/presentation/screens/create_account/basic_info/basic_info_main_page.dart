@@ -34,6 +34,9 @@ class BasicInfoMainPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
           builder: (context, state) {
+
+            //>>>>>>>>>>>>>>>>>>>-------profile image storing and navigation--------->>>>>>>>>>>>>
+            
             if (state.isValidated != null) {
               if (state.isValidated == true) {
                 File image = File(state.pickedProfileImage!.path);
@@ -52,6 +55,8 @@ class BasicInfoMainPage extends StatelessWidget {
                     ),
                   );
                 });
+                //>>>>>>>>>>>>>>------------------->>>>>>>>>>>>>>>>>>>>>>
+
               }
             }
 

@@ -20,6 +20,9 @@ mixin _$BasicInfoAuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() pickProfileImage,
     required TResult Function() pickCoverImage,
+    required TResult Function() pickImage1,
+    required TResult Function() pickImage2,
+    required TResult Function() pickImage3,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) =>
@@ -28,6 +31,9 @@ mixin _$BasicInfoAuthEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pickProfileImage,
     TResult? Function()? pickCoverImage,
+    TResult? Function()? pickImage1,
+    TResult? Function()? pickImage2,
+    TResult? Function()? pickImage3,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) =>
@@ -36,6 +42,9 @@ mixin _$BasicInfoAuthEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pickProfileImage,
     TResult Function()? pickCoverImage,
+    TResult Function()? pickImage1,
+    TResult Function()? pickImage2,
+    TResult Function()? pickImage3,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -45,6 +54,9 @@ mixin _$BasicInfoAuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_PickProfileImage value) pickProfileImage,
     required TResult Function(_PickCoverImage value) pickCoverImage,
+    required TResult Function(_PickImage1 value) pickImage1,
+    required TResult Function(_PickImage2 value) pickImage2,
+    required TResult Function(_PickImage3 value) pickImage3,
     required TResult Function(_NextPage value) nextPage,
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +64,9 @@ mixin _$BasicInfoAuthEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_PickProfileImage value)? pickProfileImage,
     TResult? Function(_PickCoverImage value)? pickCoverImage,
+    TResult? Function(_PickImage1 value)? pickImage1,
+    TResult? Function(_PickImage2 value)? pickImage2,
+    TResult? Function(_PickImage3 value)? pickImage3,
     TResult? Function(_NextPage value)? nextPage,
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +74,9 @@ mixin _$BasicInfoAuthEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PickProfileImage value)? pickProfileImage,
     TResult Function(_PickCoverImage value)? pickCoverImage,
+    TResult Function(_PickImage1 value)? pickImage1,
+    TResult Function(_PickImage2 value)? pickImage2,
+    TResult Function(_PickImage3 value)? pickImage3,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) =>
@@ -123,6 +141,9 @@ class _$_PickProfileImage implements _PickProfileImage {
   TResult when<TResult extends Object?>({
     required TResult Function() pickProfileImage,
     required TResult Function() pickCoverImage,
+    required TResult Function() pickImage1,
+    required TResult Function() pickImage2,
+    required TResult Function() pickImage3,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -134,6 +155,9 @@ class _$_PickProfileImage implements _PickProfileImage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pickProfileImage,
     TResult? Function()? pickCoverImage,
+    TResult? Function()? pickImage1,
+    TResult? Function()? pickImage2,
+    TResult? Function()? pickImage3,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -145,6 +169,9 @@ class _$_PickProfileImage implements _PickProfileImage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pickProfileImage,
     TResult Function()? pickCoverImage,
+    TResult Function()? pickImage1,
+    TResult Function()? pickImage2,
+    TResult Function()? pickImage3,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -160,6 +187,9 @@ class _$_PickProfileImage implements _PickProfileImage {
   TResult map<TResult extends Object?>({
     required TResult Function(_PickProfileImage value) pickProfileImage,
     required TResult Function(_PickCoverImage value) pickCoverImage,
+    required TResult Function(_PickImage1 value) pickImage1,
+    required TResult Function(_PickImage2 value) pickImage2,
+    required TResult Function(_PickImage3 value) pickImage3,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return pickProfileImage(this);
@@ -170,6 +200,9 @@ class _$_PickProfileImage implements _PickProfileImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_PickProfileImage value)? pickProfileImage,
     TResult? Function(_PickCoverImage value)? pickCoverImage,
+    TResult? Function(_PickImage1 value)? pickImage1,
+    TResult? Function(_PickImage2 value)? pickImage2,
+    TResult? Function(_PickImage3 value)? pickImage3,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return pickProfileImage?.call(this);
@@ -180,6 +213,9 @@ class _$_PickProfileImage implements _PickProfileImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PickProfileImage value)? pickProfileImage,
     TResult Function(_PickCoverImage value)? pickCoverImage,
+    TResult Function(_PickImage1 value)? pickImage1,
+    TResult Function(_PickImage2 value)? pickImage2,
+    TResult Function(_PickImage3 value)? pickImage3,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
@@ -234,6 +270,9 @@ class _$_PickCoverImage implements _PickCoverImage {
   TResult when<TResult extends Object?>({
     required TResult Function() pickProfileImage,
     required TResult Function() pickCoverImage,
+    required TResult Function() pickImage1,
+    required TResult Function() pickImage2,
+    required TResult Function() pickImage3,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -245,6 +284,9 @@ class _$_PickCoverImage implements _PickCoverImage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pickProfileImage,
     TResult? Function()? pickCoverImage,
+    TResult? Function()? pickImage1,
+    TResult? Function()? pickImage2,
+    TResult? Function()? pickImage3,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -256,6 +298,9 @@ class _$_PickCoverImage implements _PickCoverImage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pickProfileImage,
     TResult Function()? pickCoverImage,
+    TResult Function()? pickImage1,
+    TResult Function()? pickImage2,
+    TResult Function()? pickImage3,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -271,6 +316,9 @@ class _$_PickCoverImage implements _PickCoverImage {
   TResult map<TResult extends Object?>({
     required TResult Function(_PickProfileImage value) pickProfileImage,
     required TResult Function(_PickCoverImage value) pickCoverImage,
+    required TResult Function(_PickImage1 value) pickImage1,
+    required TResult Function(_PickImage2 value) pickImage2,
+    required TResult Function(_PickImage3 value) pickImage3,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return pickCoverImage(this);
@@ -281,6 +329,9 @@ class _$_PickCoverImage implements _PickCoverImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_PickProfileImage value)? pickProfileImage,
     TResult? Function(_PickCoverImage value)? pickCoverImage,
+    TResult? Function(_PickImage1 value)? pickImage1,
+    TResult? Function(_PickImage2 value)? pickImage2,
+    TResult? Function(_PickImage3 value)? pickImage3,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return pickCoverImage?.call(this);
@@ -291,6 +342,9 @@ class _$_PickCoverImage implements _PickCoverImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PickProfileImage value)? pickProfileImage,
     TResult Function(_PickCoverImage value)? pickCoverImage,
+    TResult Function(_PickImage1 value)? pickImage1,
+    TResult Function(_PickImage2 value)? pickImage2,
+    TResult Function(_PickImage3 value)? pickImage3,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
@@ -303,6 +357,393 @@ class _$_PickCoverImage implements _PickCoverImage {
 
 abstract class _PickCoverImage implements BasicInfoAuthEvent {
   const factory _PickCoverImage() = _$_PickCoverImage;
+}
+
+/// @nodoc
+abstract class _$$_PickImage1CopyWith<$Res> {
+  factory _$$_PickImage1CopyWith(
+          _$_PickImage1 value, $Res Function(_$_PickImage1) then) =
+      __$$_PickImage1CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickImage1CopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage1>
+    implements _$$_PickImage1CopyWith<$Res> {
+  __$$_PickImage1CopyWithImpl(
+      _$_PickImage1 _value, $Res Function(_$_PickImage1) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickImage1 implements _PickImage1 {
+  const _$_PickImage1();
+
+  @override
+  String toString() {
+    return 'BasicInfoAuthEvent.pickImage1()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PickImage1);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickProfileImage,
+    required TResult Function() pickCoverImage,
+    required TResult Function() pickImage1,
+    required TResult Function() pickImage2,
+    required TResult Function() pickImage3,
+    required TResult Function(String? fullName, String? email, String? birthday)
+        nextPage,
+  }) {
+    return pickImage1();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickProfileImage,
+    TResult? Function()? pickCoverImage,
+    TResult? Function()? pickImage1,
+    TResult? Function()? pickImage2,
+    TResult? Function()? pickImage3,
+    TResult? Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+  }) {
+    return pickImage1?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickProfileImage,
+    TResult Function()? pickCoverImage,
+    TResult Function()? pickImage1,
+    TResult Function()? pickImage2,
+    TResult Function()? pickImage3,
+    TResult Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage1 != null) {
+      return pickImage1();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickProfileImage value) pickProfileImage,
+    required TResult Function(_PickCoverImage value) pickCoverImage,
+    required TResult Function(_PickImage1 value) pickImage1,
+    required TResult Function(_PickImage2 value) pickImage2,
+    required TResult Function(_PickImage3 value) pickImage3,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return pickImage1(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PickProfileImage value)? pickProfileImage,
+    TResult? Function(_PickCoverImage value)? pickCoverImage,
+    TResult? Function(_PickImage1 value)? pickImage1,
+    TResult? Function(_PickImage2 value)? pickImage2,
+    TResult? Function(_PickImage3 value)? pickImage3,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return pickImage1?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickProfileImage value)? pickProfileImage,
+    TResult Function(_PickCoverImage value)? pickCoverImage,
+    TResult Function(_PickImage1 value)? pickImage1,
+    TResult Function(_PickImage2 value)? pickImage2,
+    TResult Function(_PickImage3 value)? pickImage3,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage1 != null) {
+      return pickImage1(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickImage1 implements BasicInfoAuthEvent {
+  const factory _PickImage1() = _$_PickImage1;
+}
+
+/// @nodoc
+abstract class _$$_PickImage2CopyWith<$Res> {
+  factory _$$_PickImage2CopyWith(
+          _$_PickImage2 value, $Res Function(_$_PickImage2) then) =
+      __$$_PickImage2CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickImage2CopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage2>
+    implements _$$_PickImage2CopyWith<$Res> {
+  __$$_PickImage2CopyWithImpl(
+      _$_PickImage2 _value, $Res Function(_$_PickImage2) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickImage2 implements _PickImage2 {
+  const _$_PickImage2();
+
+  @override
+  String toString() {
+    return 'BasicInfoAuthEvent.pickImage2()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PickImage2);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickProfileImage,
+    required TResult Function() pickCoverImage,
+    required TResult Function() pickImage1,
+    required TResult Function() pickImage2,
+    required TResult Function() pickImage3,
+    required TResult Function(String? fullName, String? email, String? birthday)
+        nextPage,
+  }) {
+    return pickImage2();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickProfileImage,
+    TResult? Function()? pickCoverImage,
+    TResult? Function()? pickImage1,
+    TResult? Function()? pickImage2,
+    TResult? Function()? pickImage3,
+    TResult? Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+  }) {
+    return pickImage2?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickProfileImage,
+    TResult Function()? pickCoverImage,
+    TResult Function()? pickImage1,
+    TResult Function()? pickImage2,
+    TResult Function()? pickImage3,
+    TResult Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage2 != null) {
+      return pickImage2();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickProfileImage value) pickProfileImage,
+    required TResult Function(_PickCoverImage value) pickCoverImage,
+    required TResult Function(_PickImage1 value) pickImage1,
+    required TResult Function(_PickImage2 value) pickImage2,
+    required TResult Function(_PickImage3 value) pickImage3,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return pickImage2(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PickProfileImage value)? pickProfileImage,
+    TResult? Function(_PickCoverImage value)? pickCoverImage,
+    TResult? Function(_PickImage1 value)? pickImage1,
+    TResult? Function(_PickImage2 value)? pickImage2,
+    TResult? Function(_PickImage3 value)? pickImage3,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return pickImage2?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickProfileImage value)? pickProfileImage,
+    TResult Function(_PickCoverImage value)? pickCoverImage,
+    TResult Function(_PickImage1 value)? pickImage1,
+    TResult Function(_PickImage2 value)? pickImage2,
+    TResult Function(_PickImage3 value)? pickImage3,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage2 != null) {
+      return pickImage2(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickImage2 implements BasicInfoAuthEvent {
+  const factory _PickImage2() = _$_PickImage2;
+}
+
+/// @nodoc
+abstract class _$$_PickImage3CopyWith<$Res> {
+  factory _$$_PickImage3CopyWith(
+          _$_PickImage3 value, $Res Function(_$_PickImage3) then) =
+      __$$_PickImage3CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickImage3CopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage3>
+    implements _$$_PickImage3CopyWith<$Res> {
+  __$$_PickImage3CopyWithImpl(
+      _$_PickImage3 _value, $Res Function(_$_PickImage3) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickImage3 implements _PickImage3 {
+  const _$_PickImage3();
+
+  @override
+  String toString() {
+    return 'BasicInfoAuthEvent.pickImage3()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PickImage3);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickProfileImage,
+    required TResult Function() pickCoverImage,
+    required TResult Function() pickImage1,
+    required TResult Function() pickImage2,
+    required TResult Function() pickImage3,
+    required TResult Function(String? fullName, String? email, String? birthday)
+        nextPage,
+  }) {
+    return pickImage3();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickProfileImage,
+    TResult? Function()? pickCoverImage,
+    TResult? Function()? pickImage1,
+    TResult? Function()? pickImage2,
+    TResult? Function()? pickImage3,
+    TResult? Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+  }) {
+    return pickImage3?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickProfileImage,
+    TResult Function()? pickCoverImage,
+    TResult Function()? pickImage1,
+    TResult Function()? pickImage2,
+    TResult Function()? pickImage3,
+    TResult Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage3 != null) {
+      return pickImage3();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickProfileImage value) pickProfileImage,
+    required TResult Function(_PickCoverImage value) pickCoverImage,
+    required TResult Function(_PickImage1 value) pickImage1,
+    required TResult Function(_PickImage2 value) pickImage2,
+    required TResult Function(_PickImage3 value) pickImage3,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return pickImage3(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PickProfileImage value)? pickProfileImage,
+    TResult? Function(_PickCoverImage value)? pickCoverImage,
+    TResult? Function(_PickImage1 value)? pickImage1,
+    TResult? Function(_PickImage2 value)? pickImage2,
+    TResult? Function(_PickImage3 value)? pickImage3,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return pickImage3?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickProfileImage value)? pickProfileImage,
+    TResult Function(_PickCoverImage value)? pickCoverImage,
+    TResult Function(_PickImage1 value)? pickImage1,
+    TResult Function(_PickImage2 value)? pickImage2,
+    TResult Function(_PickImage3 value)? pickImage3,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage3 != null) {
+      return pickImage3(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickImage3 implements BasicInfoAuthEvent {
+  const factory _PickImage3() = _$_PickImage3;
 }
 
 /// @nodoc
@@ -389,6 +830,9 @@ class _$_NextPage implements _NextPage {
   TResult when<TResult extends Object?>({
     required TResult Function() pickProfileImage,
     required TResult Function() pickCoverImage,
+    required TResult Function() pickImage1,
+    required TResult Function() pickImage2,
+    required TResult Function() pickImage3,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -400,6 +844,9 @@ class _$_NextPage implements _NextPage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pickProfileImage,
     TResult? Function()? pickCoverImage,
+    TResult? Function()? pickImage1,
+    TResult? Function()? pickImage2,
+    TResult? Function()? pickImage3,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -411,6 +858,9 @@ class _$_NextPage implements _NextPage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pickProfileImage,
     TResult Function()? pickCoverImage,
+    TResult Function()? pickImage1,
+    TResult Function()? pickImage2,
+    TResult Function()? pickImage3,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -426,6 +876,9 @@ class _$_NextPage implements _NextPage {
   TResult map<TResult extends Object?>({
     required TResult Function(_PickProfileImage value) pickProfileImage,
     required TResult Function(_PickCoverImage value) pickCoverImage,
+    required TResult Function(_PickImage1 value) pickImage1,
+    required TResult Function(_PickImage2 value) pickImage2,
+    required TResult Function(_PickImage3 value) pickImage3,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return nextPage(this);
@@ -436,6 +889,9 @@ class _$_NextPage implements _NextPage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_PickProfileImage value)? pickProfileImage,
     TResult? Function(_PickCoverImage value)? pickCoverImage,
+    TResult? Function(_PickImage1 value)? pickImage1,
+    TResult? Function(_PickImage2 value)? pickImage2,
+    TResult? Function(_PickImage3 value)? pickImage3,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return nextPage?.call(this);
@@ -446,6 +902,9 @@ class _$_NextPage implements _NextPage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PickProfileImage value)? pickProfileImage,
     TResult Function(_PickCoverImage value)? pickCoverImage,
+    TResult Function(_PickImage1 value)? pickImage1,
+    TResult Function(_PickImage2 value)? pickImage2,
+    TResult Function(_PickImage3 value)? pickImage3,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {

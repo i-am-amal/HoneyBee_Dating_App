@@ -22,7 +22,10 @@ Future<dynamic> pickImageModalPopUp(
           },
         ),
         CupertinoActionSheetAction(
-          onPressed: eventCalling,
+          onPressed: () {
+            eventCalling;
+            Navigator.pop(context);
+          },
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

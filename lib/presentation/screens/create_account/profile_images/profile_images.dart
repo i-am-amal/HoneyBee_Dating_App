@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,6 @@ import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
-// ignore: must_be_immutable
 class ProfileImages extends StatelessWidget {
   ProfileImages({
     super.key,
@@ -31,7 +31,6 @@ class ProfileImages extends StatelessWidget {
   final String birthday;
   final File profileImage;
 
-  File? coverImage;
   File? image1;
   File? image2;
   File? image3;
@@ -52,6 +51,16 @@ Stay clear of inappropriate content''';
           padding: const EdgeInsets.all(10.0),
           child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
             builder: (context, state) {
+
+              //>>>>>>>>>>>>>>------------cover pic storing on a file ------>>>>>>>>>>
+
+              if (state.coverProfileImage != null) {
+                File coverImage = File(state.coverProfileImage!.path);
+                log("-----cover image -----$coverImage--------------");
+              }
+
+              //>>>>>>>>>>>>------------------------->>>>>>>>>>>>>>>>>>>>
+              
               return Column(
                 children: [
                   SizedBox(
