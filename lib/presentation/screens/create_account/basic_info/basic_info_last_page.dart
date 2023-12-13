@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
@@ -27,7 +26,6 @@ class BasicInfoLastPage extends StatefulWidget {
       this.image3});
 
   final String fullName;
-
   final String location;
   final String email;
   final String phoneNumber;

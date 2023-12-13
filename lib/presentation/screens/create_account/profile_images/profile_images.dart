@@ -1,15 +1,16 @@
-import 'dart:developer';
 import 'dart:io';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
+import 'package:honeybee/presentation/widgets/constants/colors.dart';
+import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
+import 'package:honeybee/presentation/widgets/custom_container/custom_container.dart';
+import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/pick_image_modal_popup.dart';
-import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
-import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
-import 'package:honeybee/presentation/widgets/constants/colors.dart';
-import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
-import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 // ignore: must_be_immutable
 class ProfileImages extends StatelessWidget {
@@ -21,7 +22,6 @@ class ProfileImages extends StatelessWidget {
     required this.birthday,
     required this.location,
     required this.profileImage,
-    // this.profileImage,
   });
 
   final String fullName;
@@ -65,34 +65,22 @@ Stay clear of inappropriate content''';
               }
               return Column(
                 children: [
-                  SizedBox(
-                    height: height * 0.03,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: width * 0.02,
-                      ),
-                      BorderlineButton(
+                  SizedBox(height: height * 0.03),
+                  Row(children: [
+                    SizedBox(width: width * 0.02),
+                    BorderlineButton(
                         icon: Icons.arrow_back_ios_new,
                         onpressed: () {
                           Navigator.pop(context);
-                        },
-                      ),
-                      SizedBox(
-                        width: width * 0.05,
-                      ),
-                      const CustomText(
+                        }),
+                    SizedBox(width: width * 0.05),
+                    const CustomText(
                         text: 'Its all about presentation',
                         fontFamily: CustomFont.headTextFont,
                         fontsize: 20,
-                        textColor: Colors.black,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: height * 0.03,
-                  ),
+                        textColor: Colors.black)
+                  ]),
+                  SizedBox(height: height * 0.03),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -100,17 +88,15 @@ Stay clear of inappropriate content''';
                           height: height * 0.25,
                           width: width * 0.35,
                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(0, 3),
-                              ),
-                            ],
-                          ),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: const Offset(0, 3)),
+                              ]),
                           child: Image.file(profileImage, fit: BoxFit.cover)),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -125,25 +111,21 @@ Stay clear of inappropriate content''';
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: height * 0.01,
-                  ),
+                  SizedBox(height: height * 0.01),
                   GestureDetector(
                     child: Container(
                       height: height * 0.25,
                       width: width * 0.99,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: const Offset(0, 3)),
+                          ]),
 
                       ///--------------->>>>>>>>>>----------------cover image --------->>>>>>>>>>>---------
 
@@ -163,54 +145,50 @@ Stay clear of inappropriate content''';
                       );
                     },
                   ),
-                  SizedBox(
-                    height: height * 0.01,
-                  ),
+                  SizedBox(height: height * 0.01),
+
+                  //---------->>>>>>>>>>-----------Custom images ------------>>>>>>>>>>>>>-------
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CustomContainer(
-                          height: height,
-                          width: width,
-                          image: image1,
-                          onTapFunction: () {
-                            pickImageModalPopUp(context, () {
-                              BlocProvider.of<BasicInfoAuthBloc>(context)
-                                  .add(const BasicInfoAuthEvent.pickImage1());
-                            });
-                          }),
-                      CustomContainer(
-                          height: height,
-                          width: width,
-                          image: image2,
-                          onTapFunction: () {
-                            pickImageModalPopUp(context, () {
-                              BlocProvider.of<BasicInfoAuthBloc>(context)
-                                  .add(const BasicInfoAuthEvent.pickImage2());
-                            });
-                          }),
-                      CustomContainer(
-                          height: height,
-                          width: width,
-                          image: image3,
-                          onTapFunction: () {
-                            pickImageModalPopUp(context, () {
-                              BlocProvider.of<BasicInfoAuthBloc>(context)
-                                  .add(const BasicInfoAuthEvent.pickImage3());
-                            });
-                          }),
-                    ],
-                  ),
-                  SizedBox(
-                    height: height * 0.02,
-                  ),
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CustomContainer(
+                            height: height,
+                            width: width,
+                            image: image1,
+                            onTapFunction: () {
+                              pickImageModalPopUp(context, () {
+                                BlocProvider.of<BasicInfoAuthBloc>(context)
+                                    .add(const BasicInfoAuthEvent.pickImage1());
+                              });
+                            }),
+                        CustomContainer(
+                            height: height,
+                            width: width,
+                            image: image2,
+                            onTapFunction: () {
+                              pickImageModalPopUp(context, () {
+                                BlocProvider.of<BasicInfoAuthBloc>(context)
+                                    .add(const BasicInfoAuthEvent.pickImage2());
+                              });
+                            }),
+                        CustomContainer(
+                            height: height,
+                            width: width,
+                            image: image3,
+                            onTapFunction: () {
+                              pickImageModalPopUp(context, () {
+                                BlocProvider.of<BasicInfoAuthBloc>(context)
+                                    .add(const BasicInfoAuthEvent.pickImage3());
+                              });
+                            }),
+                      ]),
+                  SizedBox(height: height * 0.02),
                   MainCustomButton(
                     customtext: 'Continue',
                     width: width * 0.2,
                     txtcolor: CustomColors.kWhiteTextColor,
                     onpressed: () {
                       log("$fullName,$birthday,$coverImage,$email,$location,$phoneNumber,$profileImage,$image1,$image2,$image3");
-
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
@@ -235,64 +213,6 @@ Stay clear of inappropriate content''';
             },
           ),
         ),
-      ),
-    );
-  }
-}
-
-class CustomContainer extends StatelessWidget {
-  const CustomContainer(
-      {super.key,
-      required this.height,
-      required this.width,
-      this.image,
-      this.onTapFunction});
-
-  final double height;
-  final double width;
-  final File? image;
-  final Function? onTapFunction;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        // pickImageModalPopUp(context, () {});
-
-        if (onTapFunction != null) {
-          onTapFunction!();
-        }
-      },
-      child: Container(
-        height: height * 0.25,
-        width: width * 0.3,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
-
-        child: image != null
-            ? Image.file(
-                image!,
-                fit: BoxFit.cover,
-              )
-            : const Center(
-                child: Text(
-                  'No Image Available',
-                ),
-              ),
-
-        // child: image != null
-        //     ? Image.file(image!, fit: BoxFit.cover)
-        //     : Image.asset('assets/images/profile.jpg'),
       ),
     );
   }
