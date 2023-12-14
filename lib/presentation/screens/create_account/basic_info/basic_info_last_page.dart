@@ -214,7 +214,15 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const PreviewAccount()),
+                            builder: (context) => PreviewAccount(
+                                fullName: widget.fullName,
+                                email: widget.email,
+                                phoneNumber: widget.phoneNumber,
+                                birthday: widget.birthday,
+                                coverImage: widget.coverImage,
+                                location: widget.location,
+                                profileImage: widget.profileImage,
+                                selectedOptions: selectedOptions)),
                       );
                     },
                   )

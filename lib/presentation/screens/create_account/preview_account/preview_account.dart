@@ -1,14 +1,42 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
+// ignore: must_be_immutable
 class PreviewAccount extends StatelessWidget {
-  const PreviewAccount({super.key});
+  PreviewAccount(
+      {super.key,
+      required this.fullName,
+      required this.email,
+      required this.phoneNumber,
+      required this.birthday,
+      required this.coverImage,
+      required this.location,
+      required this.profileImage,
+      required this.selectedOptions,
+      this.image1,
+      this.image2,
+      this.image3});
+
+  final String fullName;
+  final String location;
+  final String email;
+  final String phoneNumber;
+  final String birthday;
+  final File profileImage;
+  final File? coverImage;
+  final SelectedOptions selectedOptions;
+  File? image1;
+  File? image2;
+  File? image3;
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +90,12 @@ class PreviewAccount extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: Image.asset(
-                  'assets/images/profile.jpg',
-                  fit: BoxFit.cover,
-                ),
+
+                // child: Image.asset(
+                //   'assets/images/profile.jpg',
+                //   fit: BoxFit.cover,
+                // ),
+                child: Image.file(profileImage),
               ),
               SizedBox(
                 width: width * 0.99,
@@ -78,8 +108,8 @@ class PreviewAccount extends StatelessWidget {
                         SizedBox(
                           width: width * 0.1,
                         ),
-                        const CustomText(
-                          text: 'Full Name , age',
+                         CustomText(
+                          text: '$fullName, age',
                           fontFamily: CustomFont.headTextFont,
                           fontsize: 20,
                           fontWeight: FontWeight.bold,
@@ -94,8 +124,8 @@ class PreviewAccount extends StatelessWidget {
                         SizedBox(
                           width: width * 0.1,
                         ),
-                        const CustomText(
-                          text: 'Location',
+                         CustomText(
+                          text: location,
                           fontFamily: CustomFont.headTextFont,
                           fontsize: 15,
                           fontWeight: FontWeight.bold,

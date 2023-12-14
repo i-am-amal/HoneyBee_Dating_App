@@ -7,7 +7,6 @@ import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
 import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import 'application/phone_number_auth_page/phone_number_auth_page_bloc.dart';
-import 'presentation/screens/splash_screen/splash_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
