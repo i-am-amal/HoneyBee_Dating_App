@@ -22,6 +22,8 @@ class PreviewAccount extends StatelessWidget {
       required this.location,
       required this.profileImage,
       required this.selectedOptions,
+      required this.bio,
+      required this.gender,
       this.image1,
       this.image2,
       this.image3});
@@ -31,6 +33,8 @@ class PreviewAccount extends StatelessWidget {
   final String email;
   final String phoneNumber;
   final String birthday;
+  final String bio;
+  final String gender;
   final File profileImage;
   final File? coverImage;
   final SelectedOptions selectedOptions;
@@ -42,6 +46,8 @@ class PreviewAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    int age = calculateAge(birthday);
+
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -90,12 +96,10 @@ class PreviewAccount extends StatelessWidget {
                     ),
                   ],
                 ),
-
-                // child: Image.asset(
-                //   'assets/images/profile.jpg',
-                //   fit: BoxFit.cover,
-                // ),
-                child: Image.file(profileImage),
+                child: Image.file(
+                  profileImage,
+                  fit: BoxFit.cover,
+                ),
               ),
               SizedBox(
                 width: width * 0.99,
@@ -108,74 +112,65 @@ class PreviewAccount extends StatelessWidget {
                         SizedBox(
                           width: width * 0.1,
                         ),
-                         CustomText(
-                          text: '$fullName, age',
+                        CustomText(
+                          text: '$fullName, $age',
                           fontFamily: CustomFont.headTextFont,
                           fontsize: 20,
                           fontWeight: FontWeight.bold,
+                          letterspacing: 1,
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: height * 0.03,
-                    ),
+                    SizedBox(height: height * 0.025),
                     Row(
                       children: [
-                        SizedBox(
-                          width: width * 0.1,
-                        ),
-                         CustomText(
+                        SizedBox(width: width * 0.1),
+                        CustomText(
                           text: location,
                           fontFamily: CustomFont.headTextFont,
-                          fontsize: 15,
+                          fontsize: 17,
                           fontWeight: FontWeight.bold,
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
+                    SizedBox(height: height * 0.02),
                     Row(
                       children: [
-                        SizedBox(
-                          width: width * 0.1,
-                        ),
-                        const Flexible(
+                        SizedBox(width: width * 0.1),
+                        Flexible(
                           child: CustomText(
-                            text:
-                                'This is a dummy text that showing the bio of the user',
+                            text: bio,
                             fontFamily: CustomFont.headTextFont,
                             fontsize: 15,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: height * 0.03,
-                    ),
-                    const Row(
+                    SizedBox(height: height * 0.03),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         ChoiceButton(
-                            icon: FontAwesomeIcons.person, label: 'Gender'),
+                            icon: FontAwesomeIcons.person, label: gender),
                         ChoiceButton(
                             icon: FontAwesomeIcons.personPraying,
-                            label: 'Faith'),
+                            label: selectedOptions.faith),
                       ],
                     ),
                     SizedBox(height: height * 0.03),
-                    const ChoiceButton(
+                    ChoiceButton(
                         icon: FontAwesomeIcons.heart,
-                        label: 'Relationship status'),
+                        label: selectedOptions.relationshipStatus),
                     SizedBox(height: height * 0.03),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         ChoiceButton(
-                            icon: FontAwesomeIcons.smoking, label: 'Smoking'),
+                            icon: FontAwesomeIcons.smoking,
+                            label: selectedOptions.smoking),
                         ChoiceButton(
                             icon: FontAwesomeIcons.wineGlass,
-                            label: 'Drinking'),
+                            label: selectedOptions.drinking),
                       ],
                     ),
                     SizedBox(height: height * 0.05),
@@ -201,6 +196,18 @@ class PreviewAccount extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  int calculateAge(String birthday) {
+    DateTime birthDate = DateTime.parse(birthday);
+    DateTime currentDate = DateTime.now();
+    int age = currentDate.year - birthDate.year;
+    if (currentDate.month < birthDate.month ||
+        (currentDate.month == birthDate.month &&
+            currentDate.day < birthDate.day)) {
+      age--;
+    }
+    return age;
   }
 }
 

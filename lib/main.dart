@@ -1,8 +1,7 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
+import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
 import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
@@ -42,54 +41,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        // home:const  SplashScreen(),
-        home: BasicInfoLastPage(
-            fullName: 'name',
-            email: 'mail',
-            location: 'location',
-            phoneNumber: 'number',
-            birthday: 'date',
-            profileImage: File('pro pic'),
-            coverImage: File('cover pic')),
+        home: const SplashScreen(),
       ),
     );
   }
 }
-
-///////////////////////////testing widget/////////////////////////////////////
-
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({super.key});
-
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<MyHomePage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//           title: const Text("Widget Testing"),
-//           backgroundColor: const Color.fromARGB(255, 136, 95, 207),
-//           actions: [
-//             IconButton(
-//               onPressed: () {},
-//               icon: const Icon(Icons.check),
-//             )
-//           ]),
-//       body: Center(
-//           //space for testing new widgets
-
-//           child: ElevatedButton(
-//         onPressed: () {},
-//         child: const Text('testing'),
-//       )
-
-//           ////
-//           ),
-//     );
-//   }
-// }
-
-////////////////////////////////////////////////////////////////////////////////

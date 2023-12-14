@@ -48,10 +48,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
     smoking: '',
   );
 
-  // String faith = '';
-  // String relationshipStatus = '';
-  // String smoking = '';
-  // String drinking = '';
   List<String> faithOptions = CommonLists().faithOptions;
   List<String> relationShipOptions = CommonLists().relationShipOptions;
   List<String> genderOptions = CommonLists().genderOptions;
@@ -61,6 +57,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
 
   String selectedGenderButton = 'Male';
   String selectedPreferenceButton = 'Male';
+  String selectedGenderOtherOption = 'Other';
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +85,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                   fontsize: 17,
                   fontFamily: CustomFont.headTextFont,
                   height: height * 0.06),
-              /////-------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -122,7 +118,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                   )
                 ],
               ),
-              //------------------------->>>>>>>>>>>>>>>>>>>>>>
               SizedBox(height: height * 0.05),
               CustomText(
                   text: 'Show Me',
@@ -209,20 +204,23 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                     height: height * 0.015,
                     onpressed: () {
                       log("${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking}");
-                      log("${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking}");
-
+                      log("${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bioTextController.text},${selectedGenderButton},${selectedGenderOtherOption}");
+                      log(selectedGenderButton);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => PreviewAccount(
-                                fullName: widget.fullName,
-                                email: widget.email,
-                                phoneNumber: widget.phoneNumber,
-                                birthday: widget.birthday,
-                                coverImage: widget.coverImage,
-                                location: widget.location,
-                                profileImage: widget.profileImage,
-                                selectedOptions: selectedOptions)),
+                                  fullName: widget.fullName,
+                                  email: widget.email,
+                                  phoneNumber: widget.phoneNumber,
+                                  birthday: widget.birthday,
+                                  coverImage: widget.coverImage,
+                                  location: widget.location,
+                                  profileImage: widget.profileImage,
+                                  selectedOptions: selectedOptions,
+                                  gender: selectedGenderButton,
+                                  bio: bioTextController.text,
+                                )),
                       );
                     },
                   )
@@ -310,12 +308,10 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
               title: Text(genderOptions[index]),
               onTap: () {
                 log('Selected option: ${genderOptions[index]}');
-
-                selectedOptions.faith = genderOptions[index];
-                selectedOptions.drinking = genderOptions[index];
-                selectedOptions.relationshipStatus = genderOptions[index];
-                selectedOptions.smoking = genderOptions[index];
-
+                selectedGenderOtherOption = genderOptions[index];
+                if (selectedGenderButton == 'Other') {
+                  selectedGenderButton = selectedGenderOtherOption;
+                }
                 Navigator.of(context).pop();
               },
             );
