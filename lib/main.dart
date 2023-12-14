@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
 import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
@@ -41,8 +44,16 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:const  SplashScreen(),
-             ),
+        // home:const  SplashScreen(),
+        home: BasicInfoLastPage(
+            fullName: 'name',
+            email: 'mail',
+            location: 'location',
+            phoneNumber: 'number',
+            birthday: 'date',
+            profileImage: File('pro pic'),
+            coverImage: File('cover pic')),
+      ),
     );
   }
 }

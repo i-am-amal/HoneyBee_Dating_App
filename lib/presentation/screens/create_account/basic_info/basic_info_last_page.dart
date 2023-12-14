@@ -85,6 +85,10 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                 fontFamily: CustomFont.headTextFont,
                 height: height * 0.06,
               ),
+
+
+              /////-------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -109,6 +113,9 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                   )
                 ],
               ),
+
+              //------------------------->>>>>>>>>>>>>>>>>>>>>>
+
               SizedBox(
                 height: height * 0.05,
               ),

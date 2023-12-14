@@ -19,7 +19,6 @@ class BasicInfoMainPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
-
   final String? formattedPhoneNumber;
 
   @override
@@ -29,7 +28,6 @@ class BasicInfoMainPage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-//////////////////-----------------------------------
     return Scaffold(
       body: SingleChildScrollView(
         child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
@@ -200,32 +198,4 @@ class BasicInfoMainPage extends StatelessWidget {
     );
   }
 
-  ///////////////////////////////////////////////////////////////////////////////////
-
-//   bool submitForm(BuildContext context) {
-//     if (!FormValidationServices.fullNameValidation(nameController.text)) {
-//       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-//         content: Text('Please enter a valid full name (at least 3 characters)'),
-//       ));
-//       return false;
-//     }
-
-//     if (!FormValidationServices.emailValidation(emailController.text)) {
-//       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-//         content: Text('Please enter a valid email address'),
-//       ));
-//       return false;
-//     }
-
-//     if (!FormValidationServices.validateBirthday(dateController.text)) {
-//       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-//         content: Text('Please enter a valid birthday date'),
-//       ));
-//       return false;
-//     }
-
-//     return true;
-//   }
-
-//   ///////////////////////////////////////////////////////////////////////////////////
 }
