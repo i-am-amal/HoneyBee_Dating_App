@@ -41,21 +41,29 @@ class BasicInfoLastPage extends StatefulWidget {
 }
 
 class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
-  String faith = '';
-  String relationshipStatus = '';
-  String smoking = '';
-  String drinking = '';
+  SelectedOptions selectedOptions = SelectedOptions(
+    faith: '',
+    drinking: '',
+    relationshipStatus: '',
+    smoking: '',
+  );
 
+  // String faith = '';
+  // String relationshipStatus = '';
+  // String smoking = '';
+  // String drinking = '';
   List<String> faithOptions = CommonLists().faithOptions;
   List<String> relationShipOptions = CommonLists().relationShipOptions;
   List<String> genderOptions = CommonLists().genderOptions;
   List<String> drinkingOptions = CommonLists().drinkingOptions;
   List<String> smokingOptions = CommonLists().smokingOptions;
+  TextEditingController bioTextController = TextEditingController();
+
+  String selectedGenderButton = 'Male';
+  String selectedPreferenceButton = 'Male';
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController bioTextController = TextEditingController();
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -68,27 +76,19 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: height * 0.02,
-              ),
+              SizedBox(height: height * 0.02),
               BorderlineButton(
                   icon: Icons.arrow_back_ios_new,
                   onpressed: () {
                     Navigator.pop(context);
                   }),
-              SizedBox(
-                height: height * 0.02,
-              ),
+              SizedBox(height: height * 0.02),
               CustomText(
-                text: 'Gender',
-                fontsize: 17,
-                fontFamily: CustomFont.headTextFont,
-                height: height * 0.06,
-              ),
-
-
+                  text: 'Gender',
+                  fontsize: 17,
+                  fontFamily: CustomFont.headTextFont,
+                  height: height * 0.06),
               /////-------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -96,35 +96,39 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                     customtext: 'Male',
                     txtcolor: CustomColors.kWhiteTextColor,
                     width: width * 0.07,
-                    onpressed: () {},
+                    onpressed: () {
+                      buttonSelection('Male');
+                    },
+                    isSelected: selectedGenderButton == 'Male',
                   ),
                   MainCustomButton(
                     customtext: 'Female',
                     width: width * 0.07,
                     txtcolor: CustomColors.kWhiteTextColor,
+                    onpressed: () {
+                      buttonSelection('Female');
+                    },
+                    isSelected: selectedGenderButton == 'Female',
                   ),
                   MainCustomButton(
                     width: width * 0.07,
                     customtext: 'Other',
                     txtcolor: CustomColors.kWhiteTextColor,
                     onpressed: () {
+                      buttonSelection('Other');
                       showOptionsList(context);
                     },
+                    isSelected: selectedGenderButton == 'Other',
                   )
                 ],
               ),
-
               //------------------------->>>>>>>>>>>>>>>>>>>>>>
-
-              SizedBox(
-                height: height * 0.05,
-              ),
+              SizedBox(height: height * 0.05),
               CustomText(
-                text: 'Show Me',
-                fontFamily: CustomFont.headTextFont,
-                fontsize: 17,
-                height: height * 0.06,
-              ),
+                  text: 'Show Me',
+                  fontFamily: CustomFont.headTextFont,
+                  fontsize: 17,
+                  height: height * 0.06),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -132,66 +136,81 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                     customtext: 'Male',
                     txtcolor: CustomColors.kWhiteTextColor,
                     width: width * 0.07,
+                    onpressed: () {
+                      preferenceSelection('Male');
+                    },
+                    isSelected: selectedPreferenceButton == 'Male',
                   ),
                   MainCustomButton(
                     customtext: 'Female',
                     width: width * 0.07,
                     txtcolor: CustomColors.kWhiteTextColor,
+                    onpressed: () {
+                      preferenceSelection('Female');
+                    },
+                    isSelected: selectedPreferenceButton == 'Female',
                   ),
                   MainCustomButton(
                     width: width * 0.07,
                     customtext: 'Everyone',
                     txtcolor: CustomColors.kWhiteTextColor,
+                    onpressed: () {
+                      preferenceSelection('Everyone');
+                    },
+                    isSelected: selectedPreferenceButton == 'Everyone',
                   )
                 ],
               ),
-              SizedBox(
-                height: height * 0.05,
-              ),
+
+              SizedBox(height: height * 0.05),
               TextField(
                 controller: bioTextController,
+                onChanged: (value) {
+                  log(bioTextController.text);
+                },
                 maxLines: 4,
+                maxLength: 100,
                 decoration: const InputDecoration(
                   labelText: ' Your Bio',
                   hintText: 'Write a short bio...',
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(
-                height: height * 0.07,
-              ),
+
+              SizedBox(height: height * 0.07),
               Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      buildOptionButton('Faith', selectedOptions.faith,
+                          FontAwesomeIcons.personPraying),
                       buildOptionButton(
-                          'Faith', faith, FontAwesomeIcons.personPraying),
-                      buildOptionButton('Relationship Status',
-                          relationshipStatus, FontAwesomeIcons.heart),
+                          'Relationship Status',
+                          selectedOptions.relationshipStatus,
+                          FontAwesomeIcons.heart),
                     ],
                   ),
-                  SizedBox(
-                    height: height * 0.05,
-                  ),
+                  SizedBox(height: height * 0.05),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      buildOptionButton(
-                          'Smoking', smoking, FontAwesomeIcons.smoking),
-                      buildOptionButton(
-                          'Drinking', drinking, FontAwesomeIcons.wineGlass),
+                      buildOptionButton('Smoking', selectedOptions.smoking,
+                          FontAwesomeIcons.smoking),
+                      buildOptionButton('Drinking', selectedOptions.drinking,
+                          FontAwesomeIcons.wineGlass),
                     ],
                   ),
-                  SizedBox(
-                    height: height * 0.03,
-                  ),
+                  SizedBox(height: height * 0.03),
                   MainCustomButton(
                     customtext: 'Continue',
                     txtcolor: CustomColors.kWhiteTextColor,
                     width: width * 0.14,
                     height: height * 0.015,
                     onpressed: () {
+                      log("${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking}");
+                      log("${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking}");
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -206,6 +225,20 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
         ),
       ),
     );
+  }
+
+  void buttonSelection(String buttonName) {
+    setState(() {
+      selectedGenderButton = buttonName;
+      log(selectedGenderButton);
+    });
+  }
+
+  void preferenceSelection(String prefName) {
+    setState(() {
+      selectedPreferenceButton = prefName;
+      log(selectedPreferenceButton);
+    });
   }
 
   void showOptionsDialog(String category, List<String> options) {
@@ -224,18 +257,19 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                 return TextButton(
                   onPressed: () {
                     setState(() {
+                      log('----------------------------faith');
                       switch (category) {
                         case 'Faith':
-                          faith = option;
+                          selectedOptions.faith = option;
                           break;
                         case 'Relationship Status':
-                          relationshipStatus = option;
+                          selectedOptions.relationshipStatus = option;
                           break;
                         case 'Smoking':
-                          smoking = option;
+                          selectedOptions.smoking = option;
                           break;
                         case 'Drinking':
-                          drinking = option;
+                          selectedOptions.drinking = option;
                           break;
                       }
                     });
@@ -268,6 +302,12 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
               title: Text(genderOptions[index]),
               onTap: () {
                 log('Selected option: ${genderOptions[index]}');
+
+                selectedOptions.faith = genderOptions[index];
+                selectedOptions.drinking = genderOptions[index];
+                selectedOptions.relationshipStatus = genderOptions[index];
+                selectedOptions.smoking = genderOptions[index];
+
                 Navigator.of(context).pop();
               },
             );
@@ -279,10 +319,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
 
   Widget buildOptionButton(String label, String selectedValue, IconData icon) {
     return ElevatedButton.icon(
-      icon: Icon(
-        icon,
-        color: Colors.black,
-      ),
+      icon: Icon(icon, color: Colors.black),
       onPressed: () {
         showOptionsDialog(label, getOptions(label));
       },
@@ -312,112 +349,16 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
   }
 }
 
+class SelectedOptions {
+  String faith;
+  String relationshipStatus;
+  String smoking;
+  String drinking;
 
-//////////---------------------last page customization needed--------------------
-
-/////////////////////////////////----------------------
-// class MainCustomButton extends StatelessWidget {
-//   // ... existing code ...
-
-//   final bool isSelected;
-
-//   // ... existing code ...
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ElevatedButton(
-//       style: ButtonStyle(
-//         backgroundColor:
-//             MaterialStateProperty.all<Color>(isSelected ? Colors.white : CustomColors.kRedButtonColor),
-//         // ... other properties ...
-//       ),
-//       // ... existing code ...
-//     );
-//   }
-// }
-
-////////////////-------------------------------------
-///
-///
-// class ButtonRow extends StatefulWidget {
-//   @override
-//   _ButtonRowState createState() => _ButtonRowState();
-// }
-
-// class _ButtonRowState extends State<ButtonRow> {
-//   int selectedButtonIndex = -1; // Initialize to -1 to represent no selection
-
-//   @override
-//   Widget build(BuildContext context) {
-//     double width = MediaQuery.of(context).size.width;
-
-//     return Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceAround,
-//       children: [
-//         MainCustomButton(
-//           customtext: 'Male',
-//           isSelected: selectedButtonIndex == 0,
-//           // ... other properties ...
-//           onpressed: () {
-//             setState(() {
-//               selectedButtonIndex = 0;
-//             });
-//           },
-//         ),
-//         MainCustomButton(
-//           customtext: 'Female',
-//           isSelected: selectedButtonIndex == 1,
-//           // ... other properties ...
-//           onpressed: () {
-//             setState(() {
-//               selectedButtonIndex = 1;
-//             });
-//           },
-//         ),
-//         MainCustomButton(
-//           customtext: 'Other',
-//           isSelected: selectedButtonIndex == 2,
-//           // ... other properties ...
-//           onpressed: () {
-//             showOptionsList(context);
-//           },
-//         )
-//       ],
-//     );
-//   }
-
-  // ... existing code ...
-// }
-//////////////////////----------------------------
-///
-
-// void showOptionsList(BuildContext context) async {
-//   String? selectedOption = await showModalBottomSheet(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return ListView.builder(
-//         itemCount: genderOptions.length,
-//         itemBuilder: (BuildContext context, int index) {
-//           return ListTile(
-//             title: Text(genderOptions[index]),
-//             onTap: () {
-//               print('Selected option: ${genderOptions[index]}');
-//               Navigator.of(context).pop(genderOptions[index]);
-//             },
-//           );
-//         },
-//       );
-//     },
-//   );
-
-//   if (selectedOption != null) {
-//     setState(() {
-//       // Update the selected option and button state here
-//     });
-//   }
-// }
-
-
-/////////////////////------------------
-
-
+  SelectedOptions({
+    required this.faith,
+    required this.drinking,
+    required this.relationshipStatus,
+    required this.smoking,
+  });
+}

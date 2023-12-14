@@ -7,6 +7,7 @@ class MainCustomButton extends StatelessWidget {
       {super.key,
       this.onpressed,
       required this.customtext,
+      this.isSelected = false,
       this.padding,
       this.fontWeight,
       this.fontsize,
@@ -26,13 +27,14 @@ class MainCustomButton extends StatelessWidget {
   final double? letterspacing;
   final double? width;
   final double? height;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        backgroundColor:
-            MaterialStateProperty.all<Color>(CustomColors.kRedButtonColor),
+        backgroundColor: MaterialStateProperty.all<Color>(
+            isSelected ? Colors.blue : CustomColors.kRedButtonColor),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),

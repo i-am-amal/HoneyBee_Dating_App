@@ -15,18 +15,16 @@ class PhoneAuthenticationPage extends StatelessWidget {
   PhoneAuthenticationPage({super.key});
 
   CountryCode? countryCode;
+  TextEditingController phoneNumberController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController phoneNumberController = TextEditingController();
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
     return BlocListener<PhoneNumberAuthPageBloc, PhoneNumberAuthPageState>(
       listener: (context, state) {
         if (state.isPhoneNumberVerified ?? false) {
-         
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -36,7 +34,7 @@ class PhoneAuthenticationPage extends StatelessWidget {
               ),
             ),
           );
-        } 
+        }
         // else {
         //   if (FormValidationServices.phoneNumberValidation(
         //       phoneNumberController.text)) {
@@ -46,7 +44,6 @@ class PhoneAuthenticationPage extends StatelessWidget {
         //   }
         // }
 
-        
         // CustomNavigator().push(context, const OtpAuthenticationPage());
         // }
       },
