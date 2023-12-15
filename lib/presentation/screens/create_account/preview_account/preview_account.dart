@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -203,6 +204,9 @@ class PreviewAccount extends StatelessWidget {
                                     image1: image1,
                                     image2: image2,
                                     image3: image3));
+
+                            log("on create function $image1,$image2,$image3");
+                            log("${fullName}, ${birthday}, ${coverImage}, ${email}, ${location}, ${phoneNumber}, ${profileImage}, ${image1}, ${image2}, ${image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bio},$gender,$preference");
 
                             if (state.navigationState == true) {
                               ScaffoldMessenger.of(context).showSnackBar(

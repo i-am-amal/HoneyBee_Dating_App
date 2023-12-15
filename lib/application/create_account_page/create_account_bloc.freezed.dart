@@ -671,6 +671,7 @@ abstract class _CreateAccount implements CreateAccountEvent {
 /// @nodoc
 mixin _$CreateAccountState {
   String? get errorMessage => throw _privateConstructorUsedError;
+  bool? get isLoading => throw _privateConstructorUsedError;
   String? get fullName => throw _privateConstructorUsedError;
   String? get location => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
@@ -691,6 +692,7 @@ mixin _$CreateAccountState {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String? errorMessage,
+            bool? isLoading,
             String? fullName,
             String? location,
             String? email,
@@ -714,6 +716,7 @@ mixin _$CreateAccountState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String? errorMessage,
+            bool? isLoading,
             String? fullName,
             String? location,
             String? email,
@@ -737,6 +740,7 @@ mixin _$CreateAccountState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String? errorMessage,
+            bool? isLoading,
             String? fullName,
             String? location,
             String? email,
@@ -787,6 +791,7 @@ abstract class $CreateAccountStateCopyWith<$Res> {
   @useResult
   $Res call(
       {String? errorMessage,
+      bool? isLoading,
       String? fullName,
       String? location,
       String? email,
@@ -819,6 +824,7 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
   @override
   $Res call({
     Object? errorMessage = freezed,
+    Object? isLoading = freezed,
     Object? fullName = freezed,
     Object? location = freezed,
     Object? email = freezed,
@@ -841,6 +847,10 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      isLoading: freezed == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
       fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -919,6 +929,7 @@ abstract class _$$_InitialCopyWith<$Res>
   @useResult
   $Res call(
       {String? errorMessage,
+      bool? isLoading,
       String? fullName,
       String? location,
       String? email,
@@ -948,6 +959,7 @@ class __$$_InitialCopyWithImpl<$Res>
   @override
   $Res call({
     Object? errorMessage = freezed,
+    Object? isLoading = freezed,
     Object? fullName = freezed,
     Object? location = freezed,
     Object? email = freezed,
@@ -970,6 +982,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      isLoading: freezed == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
       fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -1043,6 +1059,7 @@ class __$$_InitialCopyWithImpl<$Res>
 class _$_Initial implements _Initial {
   const _$_Initial(
       {this.errorMessage,
+      this.isLoading,
       this.fullName,
       this.location,
       this.email,
@@ -1062,6 +1079,8 @@ class _$_Initial implements _Initial {
 
   @override
   final String? errorMessage;
+  @override
+  final bool? isLoading;
   @override
   final String? fullName;
   @override
@@ -1097,7 +1116,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'CreateAccountState.initial(errorMessage: $errorMessage, fullName: $fullName, location: $location, email: $email, phoneNumber: $phoneNumber, birthday: $birthday, bio: $bio, gender: $gender, age: $age, preference: $preference, profileImage: $profileImage, coverImage: $coverImage, selectedOptions: $selectedOptions, image1: $image1, image2: $image2, image3: $image3, navigationState: $navigationState)';
+    return 'CreateAccountState.initial(errorMessage: $errorMessage, isLoading: $isLoading, fullName: $fullName, location: $location, email: $email, phoneNumber: $phoneNumber, birthday: $birthday, bio: $bio, gender: $gender, age: $age, preference: $preference, profileImage: $profileImage, coverImage: $coverImage, selectedOptions: $selectedOptions, image1: $image1, image2: $image2, image3: $image3, navigationState: $navigationState)';
   }
 
   @override
@@ -1107,6 +1126,8 @@ class _$_Initial implements _Initial {
             other is _$_Initial &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
             (identical(other.location, location) ||
@@ -1138,6 +1159,7 @@ class _$_Initial implements _Initial {
   int get hashCode => Object.hash(
       runtimeType,
       errorMessage,
+      isLoading,
       fullName,
       location,
       email,
@@ -1166,6 +1188,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String? errorMessage,
+            bool? isLoading,
             String? fullName,
             String? location,
             String? email,
@@ -1186,6 +1209,7 @@ class _$_Initial implements _Initial {
   }) {
     return initial(
         errorMessage,
+        isLoading,
         fullName,
         location,
         email,
@@ -1209,6 +1233,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String? errorMessage,
+            bool? isLoading,
             String? fullName,
             String? location,
             String? email,
@@ -1229,6 +1254,7 @@ class _$_Initial implements _Initial {
   }) {
     return initial?.call(
         errorMessage,
+        isLoading,
         fullName,
         location,
         email,
@@ -1252,6 +1278,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String? errorMessage,
+            bool? isLoading,
             String? fullName,
             String? location,
             String? email,
@@ -1274,6 +1301,7 @@ class _$_Initial implements _Initial {
     if (initial != null) {
       return initial(
           errorMessage,
+          isLoading,
           fullName,
           location,
           email,
@@ -1326,6 +1354,7 @@ class _$_Initial implements _Initial {
 abstract class _Initial implements CreateAccountState {
   const factory _Initial(
       {final String? errorMessage,
+      final bool? isLoading,
       final String? fullName,
       final String? location,
       final String? email,
@@ -1345,6 +1374,8 @@ abstract class _Initial implements CreateAccountState {
 
   @override
   String? get errorMessage;
+  @override
+  bool? get isLoading;
   @override
   String? get fullName;
   @override

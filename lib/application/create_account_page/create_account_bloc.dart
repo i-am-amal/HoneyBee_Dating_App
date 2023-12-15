@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -26,6 +27,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       File? image1 = event.image1;
       File? image2 = event.image2;
       File? image3 = event.image3;
+     
 
       final result = await ApiServices.createAccount(
         profilePic: profileImage,
@@ -48,7 +50,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         smoking: selectedOptions.smoking,
       );
 
-
+      log('bloc called');
       result.fold((failure) {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
@@ -57,8 +59,6 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
           // Success from backend
 
           emit(state.copyWith(navigationState: true));
-
-
         } else {
           // failure from backend
           emit(state.copyWith(

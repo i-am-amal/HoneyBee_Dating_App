@@ -4,6 +4,7 @@ part of 'create_account_bloc.dart';
 class CreateAccountState with _$CreateAccountState {
   const factory CreateAccountState.initial({
     String? errorMessage,
+    bool? isLoading  ,
     String? fullName,
     String? location,
     String? email,
@@ -21,4 +22,7 @@ class CreateAccountState with _$CreateAccountState {
     File? image3,
     bool? navigationState,
   }) = _Initial;
+
+
+   
 }

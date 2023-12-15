@@ -219,6 +219,9 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                                   gender: selectedGenderButton,
                                   bio: bioTextController.text,
                                   preference: selectedPreferenceButton,
+                                  image1: widget.image1,
+                                  image2: widget.image2,
+                                  image3: widget.image3,
                                 )),
                       );
                     },

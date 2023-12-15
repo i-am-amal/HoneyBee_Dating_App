@@ -169,12 +169,16 @@ class ApiServices {
     String? email,
   }) async {
     try {
+      log('entered in try');
+      log(image0.toString());
+      log(image1.toString());
+      log(image2.toString());
       var request =
           http.MultipartRequest('POST', Uri.parse(Config.createAccountApi));
-      request.headers.addAll({
-        "Content-Type": "multipart/form-data",
-        "Authorization": Config.token!,
-      });
+      // request.headers.addAll({
+      //   "Content-Type": "multipart/form-data",
+        // "Authorization": Config.token!,
+      // });
 
       request.fields['phone'] = phone;
       request.fields['Preference'] = preference;
@@ -272,7 +276,10 @@ class ApiServices {
       StreamedResponse streamedResponse = await request.send();
       Response response = await http.Response.fromStream(streamedResponse);
 
+      log(response.body);
+
       if (response.statusCode == 200) {
+        log('---api responce success-----------------');
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
 
         CreateAccountResponseModel result =
