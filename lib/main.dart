@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/create_account_page/create_account_bloc.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LocationAuthPageBloc(),
+        ),
+         BlocProvider(
+          create: (context) => CreateAccountBloc(),
         ),
       ],
       child: MaterialApp(

@@ -30,7 +30,7 @@ class ProfileImages extends StatelessWidget {
   final String phoneNumber;
   final String birthday;
   final File profileImage;
-  File? coverImage;
+  late File coverImage;
   File? image1;
   File? image2;
   File? image3;

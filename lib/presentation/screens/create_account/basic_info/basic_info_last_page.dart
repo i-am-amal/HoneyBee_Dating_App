@@ -31,7 +31,7 @@ class BasicInfoLastPage extends StatefulWidget {
   final String phoneNumber;
   final String birthday;
   final File profileImage;
-  final File? coverImage;
+  final File coverImage;
   File? image1;
   File? image2;
   File? image3;
@@ -156,7 +156,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                   )
                 ],
               ),
-
               SizedBox(height: height * 0.05),
               TextField(
                 controller: bioTextController,
@@ -171,7 +170,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                   border: OutlineInputBorder(),
                 ),
               ),
-
               SizedBox(height: height * 0.07),
               Column(
                 children: [
@@ -204,7 +202,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                     height: height * 0.015,
                     onpressed: () {
                       log("${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking}");
-                      log("${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bioTextController.text},${selectedGenderButton},${selectedGenderOtherOption}");
+                      log("${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bioTextController.text},$selectedGenderButton,$selectedGenderOtherOption,$selectedPreferenceButton");
                       log(selectedGenderButton);
                       Navigator.push(
                         context,
@@ -220,6 +218,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                                   selectedOptions: selectedOptions,
                                   gender: selectedGenderButton,
                                   bio: bioTextController.text,
+                                  preference: selectedPreferenceButton,
                                 )),
                       );
                     },

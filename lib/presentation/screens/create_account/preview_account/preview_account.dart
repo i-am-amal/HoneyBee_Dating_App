@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
+import 'package:honeybee/application/create_account_page/create_account_bloc.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
+import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -24,6 +26,7 @@ class PreviewAccount extends StatelessWidget {
       required this.selectedOptions,
       required this.bio,
       required this.gender,
+      required this.preference,
       this.image1,
       this.image2,
       this.image3});
@@ -35,8 +38,9 @@ class PreviewAccount extends StatelessWidget {
   final String birthday;
   final String bio;
   final String gender;
+  final String preference;
   final File profileImage;
-  final File? coverImage;
+  final File coverImage;
   final SelectedOptions selectedOptions;
   File? image1;
   File? image2;
@@ -46,7 +50,7 @@ class PreviewAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    int age = calculateAge(birthday);
+    String age = calculateAge(birthday).toString();
 
     return Scaffold(
       body: Center(
@@ -174,16 +178,47 @@ class PreviewAccount extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: height * 0.05),
-                    MainCustomButton(
-                      customtext: 'Create Account',
-                      height: height * 0.015,
-                      width: width * 0.2,
-                      txtcolor: CustomColors.kWhiteTextColor,
-                      onpressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const BottomNavbar()),
+                    BlocBuilder<CreateAccountBloc, CreateAccountState>(
+                      builder: (context, state) {
+                        return MainCustomButton(
+                          customtext: 'Create Account',
+                          height: height * 0.015,
+                          width: width * 0.2,
+                          txtcolor: CustomColors.kWhiteTextColor,
+                          onpressed: () {
+                            BlocProvider.of<CreateAccountBloc>(context).add(
+                                CreateAccountEvent.createAccount(
+                                    fullName: fullName,
+                                    location: location,
+                                    email: email,
+                                    phoneNumber: phoneNumber,
+                                    birthday: birthday,
+                                    bio: bio,
+                                    gender: gender,
+                                    age: age,
+                                    profileImage: profileImage,
+                                    coverImage: coverImage,
+                                    selectedOptions: selectedOptions,
+                                    preference: preference,
+                                    image1: image1,
+                                    image2: image2,
+                                    image3: image3));
+
+                            if (state.navigationState == true) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                      'Account created. Redirecting to Sign In page...'),
+                                  duration: Duration(seconds: 5),
+                                ),
+                              );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SignInPage()),
+                              );
+                            }
+                          },
                         );
                       },
                     ),
