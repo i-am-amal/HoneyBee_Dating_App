@@ -688,95 +688,6 @@ mixin _$CreateAccountState {
   File? get image2 => throw _privateConstructorUsedError;
   File? get image3 => throw _privateConstructorUsedError;
   bool? get navigationState => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            String? errorMessage,
-            bool? isLoading,
-            String? fullName,
-            String? location,
-            String? email,
-            String? phoneNumber,
-            String? birthday,
-            String? bio,
-            String? gender,
-            String? age,
-            String? preference,
-            File? profileImage,
-            File? coverImage,
-            SelectedOptions? selectedOptions,
-            File? image1,
-            File? image2,
-            File? image3,
-            bool? navigationState)
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String? errorMessage,
-            bool? isLoading,
-            String? fullName,
-            String? location,
-            String? email,
-            String? phoneNumber,
-            String? birthday,
-            String? bio,
-            String? gender,
-            String? age,
-            String? preference,
-            File? profileImage,
-            File? coverImage,
-            SelectedOptions? selectedOptions,
-            File? image1,
-            File? image2,
-            File? image3,
-            bool? navigationState)?
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String? errorMessage,
-            bool? isLoading,
-            String? fullName,
-            String? location,
-            String? email,
-            String? phoneNumber,
-            String? birthday,
-            String? bio,
-            String? gender,
-            String? age,
-            String? preference,
-            File? profileImage,
-            File? coverImage,
-            SelectedOptions? selectedOptions,
-            File? image1,
-            File? image2,
-            File? image3,
-            bool? navigationState)?
-        initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreateAccountStateCopyWith<CreateAccountState> get copyWith =>
@@ -920,11 +831,11 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$_CreateAccountStateCopyWith<$Res>
     implements $CreateAccountStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$_CreateAccountStateCopyWith(_$_CreateAccountState value,
+          $Res Function(_$_CreateAccountState) then) =
+      __$$_CreateAccountStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -949,10 +860,11 @@ abstract class _$$_InitialCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$CreateAccountStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$_CreateAccountStateCopyWithImpl<$Res>
+    extends _$CreateAccountStateCopyWithImpl<$Res, _$_CreateAccountState>
+    implements _$$_CreateAccountStateCopyWith<$Res> {
+  __$$_CreateAccountStateCopyWithImpl(
+      _$_CreateAccountState _value, $Res Function(_$_CreateAccountState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -977,7 +889,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? image3 = freezed,
     Object? navigationState = freezed,
   }) {
-    return _then(_$_Initial(
+    return _then(_$_CreateAccountState(
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1056,8 +968,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial(
+class _$_CreateAccountState implements _CreateAccountState {
+  const _$_CreateAccountState(
       {this.errorMessage,
       this.isLoading,
       this.fullName,
@@ -1116,14 +1028,14 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'CreateAccountState.initial(errorMessage: $errorMessage, isLoading: $isLoading, fullName: $fullName, location: $location, email: $email, phoneNumber: $phoneNumber, birthday: $birthday, bio: $bio, gender: $gender, age: $age, preference: $preference, profileImage: $profileImage, coverImage: $coverImage, selectedOptions: $selectedOptions, image1: $image1, image2: $image2, image3: $image3, navigationState: $navigationState)';
+    return 'CreateAccountState(errorMessage: $errorMessage, isLoading: $isLoading, fullName: $fullName, location: $location, email: $email, phoneNumber: $phoneNumber, birthday: $birthday, bio: $bio, gender: $gender, age: $age, preference: $preference, profileImage: $profileImage, coverImage: $coverImage, selectedOptions: $selectedOptions, image1: $image1, image2: $image2, image3: $image3, navigationState: $navigationState)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$_CreateAccountState &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.isLoading, isLoading) ||
@@ -1180,179 +1092,13 @@ class _$_Initial implements _Initial {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            String? errorMessage,
-            bool? isLoading,
-            String? fullName,
-            String? location,
-            String? email,
-            String? phoneNumber,
-            String? birthday,
-            String? bio,
-            String? gender,
-            String? age,
-            String? preference,
-            File? profileImage,
-            File? coverImage,
-            SelectedOptions? selectedOptions,
-            File? image1,
-            File? image2,
-            File? image3,
-            bool? navigationState)
-        initial,
-  }) {
-    return initial(
-        errorMessage,
-        isLoading,
-        fullName,
-        location,
-        email,
-        phoneNumber,
-        birthday,
-        bio,
-        gender,
-        age,
-        preference,
-        profileImage,
-        coverImage,
-        selectedOptions,
-        image1,
-        image2,
-        image3,
-        navigationState);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String? errorMessage,
-            bool? isLoading,
-            String? fullName,
-            String? location,
-            String? email,
-            String? phoneNumber,
-            String? birthday,
-            String? bio,
-            String? gender,
-            String? age,
-            String? preference,
-            File? profileImage,
-            File? coverImage,
-            SelectedOptions? selectedOptions,
-            File? image1,
-            File? image2,
-            File? image3,
-            bool? navigationState)?
-        initial,
-  }) {
-    return initial?.call(
-        errorMessage,
-        isLoading,
-        fullName,
-        location,
-        email,
-        phoneNumber,
-        birthday,
-        bio,
-        gender,
-        age,
-        preference,
-        profileImage,
-        coverImage,
-        selectedOptions,
-        image1,
-        image2,
-        image3,
-        navigationState);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String? errorMessage,
-            bool? isLoading,
-            String? fullName,
-            String? location,
-            String? email,
-            String? phoneNumber,
-            String? birthday,
-            String? bio,
-            String? gender,
-            String? age,
-            String? preference,
-            File? profileImage,
-            File? coverImage,
-            SelectedOptions? selectedOptions,
-            File? image1,
-            File? image2,
-            File? image3,
-            bool? navigationState)?
-        initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(
-          errorMessage,
-          isLoading,
-          fullName,
-          location,
-          email,
-          phoneNumber,
-          birthday,
-          bio,
-          gender,
-          age,
-          preference,
-          profileImage,
-          coverImage,
-          selectedOptions,
-          image1,
-          image2,
-          image3,
-          navigationState);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  _$$_CreateAccountStateCopyWith<_$_CreateAccountState> get copyWith =>
+      __$$_CreateAccountStateCopyWithImpl<_$_CreateAccountState>(
+          this, _$identity);
 }
 
-abstract class _Initial implements CreateAccountState {
-  const factory _Initial(
+abstract class _CreateAccountState implements CreateAccountState {
+  const factory _CreateAccountState(
       {final String? errorMessage,
       final bool? isLoading,
       final String? fullName,
@@ -1370,7 +1116,7 @@ abstract class _Initial implements CreateAccountState {
       final File? image1,
       final File? image2,
       final File? image3,
-      final bool? navigationState}) = _$_Initial;
+      final bool? navigationState}) = _$_CreateAccountState;
 
   @override
   String? get errorMessage;
@@ -1410,6 +1156,6 @@ abstract class _Initial implements CreateAccountState {
   bool? get navigationState;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$_CreateAccountStateCopyWith<_$_CreateAccountState> get copyWith =>
       throw _privateConstructorUsedError;
 }

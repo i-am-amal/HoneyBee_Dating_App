@@ -84,8 +84,9 @@ class BasicInfoMainPage extends StatelessWidget {
                         height: height * 0.25,
                         child: GestureDetector(
                           child: state.pickedProfileImage != null
-                              ? Image.file(File(state.pickedProfileImage!.path),
-                                  fit: BoxFit.cover)
+                              ? Image.file(
+                                  File(state.pickedProfileImage!.path),
+                                )
                               : Image.asset('assets/images/profile.jpg'),
                           onTap: () {
                             log("on tap on pop up main page");
@@ -197,5 +198,4 @@ class BasicInfoMainPage extends StatelessWidget {
       ),
     );
   }
-
 }

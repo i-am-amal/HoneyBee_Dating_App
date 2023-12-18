@@ -12,6 +12,7 @@ import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 // ignore: must_be_immutable
 class PreviewAccount extends StatelessWidget {
@@ -180,7 +181,26 @@ class PreviewAccount extends StatelessWidget {
                     ),
                     SizedBox(height: height * 0.05),
                     BlocBuilder<CreateAccountBloc, CreateAccountState>(
-                      builder: (context, state) {
+                        builder: (context, state) {
+                      if (state.isLoading!) {
+                        return LoadingAnimationWidget.dotsTriangle(
+                          color: CustomColors.kRedButtonColor,
+                          size: 60,
+                        );
+                      } else if (state.navigationState == true) {
+                       
+
+
+
+                        WidgetsBinding.instance
+                            .addPostFrameCallback((timeStamp) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignInPage()),
+                          );
+                        });
+                      } else {
                         return MainCustomButton(
                           customtext: 'Create Account',
                           height: height * 0.015,
@@ -206,26 +226,30 @@ class PreviewAccount extends StatelessWidget {
                                     image3: image3));
 
                             log("on create function $image1,$image2,$image3");
-                            log("${fullName}, ${birthday}, ${coverImage}, ${email}, ${location}, ${phoneNumber}, ${profileImage}, ${image1}, ${image2}, ${image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bio},$gender,$preference");
+                            log("$fullName, $birthday, $coverImage, $email, $location, $phoneNumber, $profileImage, $image1, $image2, $image3,${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},$bio,$gender,$preference");
 
-                            if (state.navigationState == true) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text(
-                                      'Account created. Redirecting to Sign In page...'),
-                                  duration: Duration(seconds: 5),
-                                ),
-                              );
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignInPage()),
-                              );
-                            }
+                            // if (state.navigationState == true) {
+
+                            //   ScaffoldMessenger.of(context).showSnackBar(
+                            //     const SnackBar(
+                            //       content: Text(
+                            //           'Account created. Redirecting to Sign In page...'),
+                            //       duration: Duration(seconds: 5),
+                            //     ),
+                            //   );
+
+                            //   Navigator.pushReplacement(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => const SignInPage()),
+                            //   );
+                            // }
                           },
                         );
-                      },
-                    ),
+                      }
+
+                      return const SizedBox();
+                    }),
                     SizedBox(height: height * 0.05),
                   ],
                 ),
@@ -263,7 +287,9 @@ class ChoiceButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
-      onPressed: () {},
+      onPressed: () {
+        return;
+      },
       icon: Icon(
         icon,
         color: Colors.black,

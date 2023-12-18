@@ -65,7 +65,7 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
 
   splashScreenFunctions() {
     Future.delayed(const Duration(seconds: 5)).then((value) {
-      Navigator.of(context).push(
+      Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => const Onboarding(),
         ),

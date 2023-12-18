@@ -10,8 +10,11 @@ part 'create_account_state.dart';
 part 'create_account_bloc.freezed.dart';
 
 class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
-  CreateAccountBloc() : super(const _Initial()) {
+  CreateAccountBloc() : super(CreateAccountState.initial()) {
     on<CreateAccountEvent>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+      log('loading the state to true');
+
       String fullName = event.fullName;
       String location = event.location;
       String email = event.email;
@@ -27,7 +30,6 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       File? image1 = event.image1;
       File? image2 = event.image2;
       File? image3 = event.image3;
-     
 
       final result = await ApiServices.createAccount(
         profilePic: profileImage,
@@ -58,7 +60,10 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         if (success.success == true) {
           // Success from backend
 
-          emit(state.copyWith(navigationState: true));
+          emit(state.copyWith(navigationState: true, isLoading: false));
+          log('loading set to false');
+
+          log('navigation state is loading');
         } else {
           // failure from backend
           emit(state.copyWith(

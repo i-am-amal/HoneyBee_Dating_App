@@ -7,6 +7,7 @@ import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import '../../../../application/location_auth_page/location_auth_page_bloc.dart';
 
 class LocationPage extends StatelessWidget {
@@ -49,11 +50,17 @@ class LocationPage extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: height * 0.5,
+                      height: height * 0.4,
                     ),
-                    const CircularProgressIndicator(),
+                    // const CircularProgressIndicator(),
+
+                    LoadingAnimationWidget.halfTriangleDot(
+                      color: CustomColors.kRedButtonColor,
+                      size: 100,
+                    ),
+
                     SizedBox(
-                      height: height * 0.02,
+                      height: height * 0.03,
                     ),
                     const CustomText(
                       text: 'Fetching location..please wait...',

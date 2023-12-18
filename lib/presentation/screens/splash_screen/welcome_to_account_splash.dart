@@ -74,7 +74,7 @@ class _WelcomeScreenCreateAnimationState
 
   welcomeSplashFunction() {
     Future.delayed(const Duration(seconds: 5)).then((value) {
-      Navigator.of(context).push(
+      Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => BasicInfoMainPage(),
         ),

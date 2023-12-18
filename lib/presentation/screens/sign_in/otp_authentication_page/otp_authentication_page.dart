@@ -95,13 +95,9 @@ class OtpAuthenticationPage extends StatelessWidget {
                 height: height * 0.018,
                 width: width * 0.25,
                 onpressed: () {
-
-
                   BlocProvider.of<OtpNumberAuthPageBloc>(context)
                       .add(const OtpNumberAuthPageEvent.otpLogin());
                 },
-
-                
               ),
               SizedBox(
                 height: height * 0.03,
@@ -109,6 +105,7 @@ class OtpAuthenticationPage extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
+                  log('Re-send button');
                 },
                 child: const CustomText(
                   text: 'Resend Otp',
@@ -137,11 +134,6 @@ void handleState(OtpNumberAuthPageState state, BuildContext context) async {
 
       Future.microtask(() {
         CustomNavigator().push(context, BottomNavbar(token: state.token));
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //       builder: (context) => BottomNavbar(token: state.token)),
-        // );
       });
     }
 
@@ -154,17 +146,8 @@ void handleState(OtpNumberAuthPageState state, BuildContext context) async {
             BasicInfoMainPage(
               formattedPhoneNumber: state.formattedPhoneNumber,
             ));
-
-        //   Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //       builder: (context) => const BasicInfoMainPage(),
-        //     ),
-        //   );
       });
     }
-
-    // CustomNavigator().push(context, const OtpAuthenticationPage());
   } else {
     // ScaffoldMessenger.of(context).showSnackBar(
     //   const SnackBar(

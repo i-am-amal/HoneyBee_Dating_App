@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/create_account_page/create_account_bloc.dart';
-import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
 import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => LocationAuthPageBloc(),
         ),
-         BlocProvider(
+        BlocProvider(
           create: (context) => CreateAccountBloc(),
         ),
       ],
@@ -45,7 +45,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const SplashScreen(),
+        // home: const SplashScreen(),
+        home: BasicInfoMainPage(formattedPhoneNumber: '+91 86065 09838'),
       ),
     );
   }

@@ -25,7 +25,7 @@ class PhoneAuthenticationPage extends StatelessWidget {
     return BlocListener<PhoneNumberAuthPageBloc, PhoneNumberAuthPageState>(
       listener: (context, state) {
         if (state.isPhoneNumberVerified ?? false) {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => OtpAuthenticationPage(

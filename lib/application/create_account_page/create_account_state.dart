@@ -2,9 +2,9 @@ part of 'create_account_bloc.dart';
 
 @freezed
 class CreateAccountState with _$CreateAccountState {
-  const factory CreateAccountState.initial({
+  const factory CreateAccountState({
     String? errorMessage,
-    bool? isLoading  ,
+    bool? isLoading,
     String? fullName,
     String? location,
     String? email,
@@ -21,8 +21,9 @@ class CreateAccountState with _$CreateAccountState {
     File? image2,
     File? image3,
     bool? navigationState,
-  }) = _Initial;
+  }) = _CreateAccountState;
 
-
-   
+  factory CreateAccountState.initial() {
+    return const CreateAccountState(isLoading: false, navigationState: false);
+  }
 }
