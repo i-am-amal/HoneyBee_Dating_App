@@ -30,7 +30,6 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
       if (status == AnimationStatus.completed) {
         draggableItems.removeLast();
         _animationController.reset();
-
         swipeNotifier.value = Swipe.none;
       }
     });
