@@ -2,6 +2,7 @@ import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
 
 class Config {
   static String? token = saveTokenToPrefs(token!).toString();
+  
   // static const apiBaseUrl = 'http://localhost:5000';
 
 

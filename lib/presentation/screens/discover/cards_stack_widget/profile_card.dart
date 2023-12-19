@@ -21,7 +21,7 @@ class ProfileCard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.asset(
-                profile.imageAsset,
+                profile.profileImage,
                 fit: BoxFit.cover,
               ),
             ),
@@ -58,7 +58,7 @@ class ProfileCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      profile.distance,
+                      profile.age,
                       style: const TextStyle(
                         fontFamily: CustomFont.headTextFont,
                         fontWeight: FontWeight.w400,

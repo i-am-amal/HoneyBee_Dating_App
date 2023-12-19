@@ -1,10 +1,10 @@
 class Profile {
   const Profile({
     required this.name,
-    required this.distance,
-    required this.imageAsset,
+    required this.age,
+    required this.profileImage,
   });
   final String name;
-  final String distance;
-  final String imageAsset;
+  final String age;
+  final String profileImage;
 }

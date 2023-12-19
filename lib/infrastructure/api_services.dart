@@ -177,7 +177,7 @@ class ApiServices {
           http.MultipartRequest('POST', Uri.parse(Config.createAccountApi));
       // request.headers.addAll({
       //   "Content-Type": "multipart/form-data",
-        // "Authorization": Config.token!,
+      // "Authorization": Config.token!,
       // });
 
       request.fields['phone'] = phone;
@@ -316,6 +316,7 @@ class ApiServices {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
 
         DiscoverResponseModel result = DiscoverResponseModel.fromJson(jsonMap);
+        log('log on api services $result');
 
         log(jsonMap.toString());
 

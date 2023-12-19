@@ -148,63 +148,63 @@ class CommonLists {
   List<Profile> draggableItems = [
     const Profile(
         name: 'Alina',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_1.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_1.png'),
     const Profile(
         name: 'Sandra',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_2.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_2.png'),
     const Profile(
         name: 'Alice',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_3.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_3.png'),
     const Profile(
         name: 'Teresa',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_4.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_4.png'),
     const Profile(
         name: 'Christeena',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_5.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_5.png'),
     const Profile(
         name: 'Alina',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_1.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_1.png'),
     const Profile(
         name: 'Sandra',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_2.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_2.png'),
     const Profile(
         name: 'Alice',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_3.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_3.png'),
     const Profile(
         name: 'Teresa',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_4.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_4.png'),
     const Profile(
         name: 'Christeena',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_5.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_5.png'),
     const Profile(
         name: 'Alina',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_1.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_1.png'),
     const Profile(
         name: 'Sandra',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_2.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_2.png'),
     const Profile(
         name: 'Alice',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_3.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_3.png'),
     const Profile(
         name: 'Teresa',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_4.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_4.png'),
     const Profile(
         name: 'Christeena',
-        distance: '10 miles away',
-        imageAsset: 'assets/images/avatar_5.png'),
+        age: '10 miles away',
+        profileImage: 'assets/images/avatar_5.png'),
   ];
 }
