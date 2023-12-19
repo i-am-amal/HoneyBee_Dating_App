@@ -328,11 +328,11 @@ class ApiServices {
 
         return right(result);
       } else {
-        log('server out compleeetly');
+        log('server out compleeetly ');
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error ");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }

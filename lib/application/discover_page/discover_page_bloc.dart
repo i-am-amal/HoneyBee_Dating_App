@@ -11,15 +11,18 @@ part 'discover_page_bloc.freezed.dart';
 class DiscoverPageBloc extends Bloc<DiscoverPageEvent, DiscoverPageState> {
   DiscoverPageBloc() : super(DiscoverPageState.initial()) {
     on<_FetchDiscoverData>((event, emit) async {
+      log('entered in event ...before calling api service');
       final result = await ApiServices.discover();
 
+      log(result.toString());
+      log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
       result.fold((failure) {
         log('no response from api call');
 
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
-        log('success ...enetered..');
+        log('success ...entered..');
         if (success.id != null) {
           log('id not null........');
           emit(state.copyWith(
