@@ -12,7 +12,6 @@ part 'phone_number_auth_page_bloc.freezed.dart';
 class PhoneNumberAuthPageBloc
     extends Bloc<PhoneNumberAuthPageEvent, PhoneNumberAuthPageState> {
   PhoneNumberAuthPageBloc() : super(const _Initial()) {
-
     on<_PhoneNumberLogin>((event, emit) async {
       String? phoneNumber = event.phoneNumber;
       String? countryCode = event.countryCode;
@@ -23,7 +22,6 @@ class PhoneNumberAuthPageBloc
           FormValidationServices.phoneNumberValidation(phoneNumber);
 
       if (isValidated) {
-
         log('--------validation -------working');
 
         String formattedPhoneNumber =
@@ -54,9 +52,7 @@ class PhoneNumberAuthPageBloc
             emit(state.copyWith(errorMessage: null));
           }
         });
-      } 
-      
-      else {
+      } else {
         // form validation failed
 
         log('------------------error');

@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -20,7 +19,6 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-
         if (onTapFunction != null) {
           onTapFunction!();
         }
@@ -40,7 +38,6 @@ class CustomContainer extends StatelessWidget {
             ),
           ],
         ),
-
         child: image != null
             ? Image.file(
                 image!,
@@ -51,8 +48,6 @@ class CustomContainer extends StatelessWidget {
                   'No Image Available',
                 ),
               ),
-
-      
       ),
     );
   }

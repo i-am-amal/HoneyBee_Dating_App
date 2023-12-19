@@ -10,7 +10,6 @@ part 'basic_info_auth_bloc.freezed.dart';
 
 class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
   BasicInfoAuthBloc() : super(const _Initial()) {
-
 //-->>>>>>>>>>----------profile image picking-------------->>>>>>>>>>
 
     on<_PickProfileImage>((event, emit) async {
@@ -50,7 +49,7 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
 
       emit(state.copyWith(pic3: image3));
     });
-    
+
 //-->>>>>>>>>>>---------next page navigation on main page basic info----------->>>>>>>>>>>>
 
     on<_NextPage>((event, emit) {

@@ -188,10 +188,6 @@ class PreviewAccount extends StatelessWidget {
                           size: 60,
                         );
                       } else if (state.navigationState == true) {
-                       
-
-
-
                         WidgetsBinding.instance
                             .addPostFrameCallback((timeStamp) {
                           Navigator.pushReplacement(

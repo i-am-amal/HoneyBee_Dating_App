@@ -14,4 +14,3 @@ class BasicInfoAuthState with _$BasicInfoAuthState {
     bool? isValidated,
   }) = _Initial;
 }
-

@@ -149,7 +149,7 @@ class EditPreviewAccount extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>  BottomNavbar()),
+                              builder: (context) => BottomNavbar()),
                         );
                       },
                     ),

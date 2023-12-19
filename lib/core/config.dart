@@ -2,9 +2,10 @@ import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
 
 class Config {
   static String? token = saveTokenToPrefs(token!).toString();
-  
-  // static const apiBaseUrl = 'http://localhost:5000';
+  // static String token =
+  //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmU0NTk1NTZkZDQxYzI5MWFiNzE5MiIsImlhdCI6MTcwMjk4NTcwOX0._pRAwVLgk0fSteZ3pRVBOGO2rFjy2Jpcvk1OOxjA8BY';
 
+  // static const apiBaseUrl = 'http://localhost:5000';
 
 ////////////////----------API from BackEnd----------/////////////////////
 
@@ -34,11 +35,9 @@ class Config {
 
   static const String apiBaseUrl =
       "http://10.0.2.2:5000"; // <- emulator local host
-      
+
   // static const String apiBaseUrl = "http://127.0.0.1:5000"; // <- windows local host
   // static const String apiBaseUrl = "http://localhost:5000"; // <- default local host
 
-
 //////////////////////////////////////////////////////////////////////////////////////
-
 }

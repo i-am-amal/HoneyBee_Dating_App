@@ -14,6 +14,8 @@ class DiscoverPageBloc extends Bloc<DiscoverPageEvent, DiscoverPageState> {
       final result = await ApiServices.discover();
 
       result.fold((failure) {
+        log('no response from api call');
+
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {

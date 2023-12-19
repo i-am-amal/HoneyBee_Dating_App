@@ -303,14 +303,20 @@ class ApiServices {
 ////////////////////---------Discover----------/////////////////////////////
 
   static Future<Either<ApiFailures, DiscoverResponseModel>> discover() async {
+    log('discover api call');
+
     try {
+      log('checkinggg...try');
       final response = await http.get(
         Uri.parse(Config.discoverApi),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token':
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmU0NTk1NTZkZDQxYzI5MWFiNzE5MiIsImlhdCI6MTcwMjk4NTcwOX0._pRAwVLgk0fSteZ3pRVBOGO2rFjy2Jpcvk1OOxjA8BY'
         },
       );
+      log('--------------');
+      log(response.body.toString());
+      log(response.statusCode.toString());
 
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
@@ -322,10 +328,11 @@ class ApiServices {
 
         return right(result);
       } else {
+        log('server out compleeetly');
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error ");
 
       return left(const ApiFailures.clientFailure());
     }

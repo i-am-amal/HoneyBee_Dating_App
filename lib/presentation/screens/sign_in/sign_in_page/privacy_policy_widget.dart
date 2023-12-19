@@ -17,7 +17,7 @@ class PrivacyPolicyWidget extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () => TermsAndConditions().termsandcondition(context),
-          child:const CustomText(
+          child: const CustomText(
             text: 'Terms of use',
             textColor: CustomColors.kHeadTextOnboardingColor,
             fontWeight: FontWeight.bold,
@@ -27,7 +27,7 @@ class PrivacyPolicyWidget extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () => Privacy().privacy(context),
-          child:const CustomText(
+          child: const CustomText(
             text: 'Privacy Policy',
             textColor: CustomColors.kHeadTextOnboardingColor,
             fontWeight: FontWeight.bold,

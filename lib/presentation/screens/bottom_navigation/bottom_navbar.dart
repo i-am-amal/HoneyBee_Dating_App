@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/application/bottom_navigation/bottom_navigation_bloc.dart';
+import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
 import 'package:honeybee/presentation/screens/chatting/chat_page.dart';
 import 'package:honeybee/presentation/screens/discover/discover_page.dart';
 import 'package:honeybee/presentation/screens/matches/matches_page.dart';
@@ -27,6 +28,9 @@ class BottomNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavigationBloc, BottomNavigationState>(
       builder: (context, state) {
+        BlocProvider.of<DiscoverPageBloc>(context)
+            .add(const DiscoverPageEvent.fetchDiscoverData());
+
         log('$token..........from bottomnav');
         return Scaffold(
           body: bottomNavOptions[state.selectedIndex],

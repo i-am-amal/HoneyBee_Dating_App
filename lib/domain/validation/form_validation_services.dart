@@ -52,7 +52,6 @@ class FormValidationServices {
 }
 
 class ImageValidationService {
-
   double getImageSize(File selectedImage) {
     final bytes = selectedImage.readAsBytesSync().lengthInBytes;
     final kb = bytes / 1024;
@@ -65,5 +64,4 @@ class ImageValidationService {
     }
     return kb;
   }
-  
 }
