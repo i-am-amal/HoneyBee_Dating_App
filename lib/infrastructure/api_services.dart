@@ -302,7 +302,8 @@ class ApiServices {
 
 ////////////////////---------Discover----------/////////////////////////////
 
-  static Future<Either<ApiFailures, DiscoverResponseModel>> discover() async {
+  static Future<Either<ApiFailures, DiscoverListResponseModel>>
+      discover() async {
     log('discover api call');
 
     try {
@@ -319,12 +320,14 @@ class ApiServices {
       log(response.statusCode.toString());
 
       if (response.statusCode == 200) {
-        Map<String, dynamic> jsonMap = jsonDecode(response.body);
 
-        DiscoverResponseModel result = DiscoverResponseModel.fromJson(jsonMap);
+        
+        DiscoverListResponseModel result =
+            DiscoverListResponseModel.fromJson(jsonDecode(response.body));
+
         log('log on api services $result');
 
-        log(jsonMap.toString());
+        log(result.toString());
 
         return right(result);
       } else {

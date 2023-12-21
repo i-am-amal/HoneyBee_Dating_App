@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'profile_model.dart';
 
 class ProfileCard extends StatelessWidget {
@@ -20,9 +22,22 @@ class ProfileCard extends StatelessWidget {
           Positioned.fill(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
+              child: Image.network(
                 profile.profileImage,
                 fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.asset('assets/images/default profile.jpg');
+                },
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) {
+                    return child;
+                  }
+
+                  return LoadingAnimationWidget.halfTriangleDot(
+                    color: CustomColors.kRedButtonColor,
+                    size: 50,
+                  );
+                },
               ),
             ),
           ),

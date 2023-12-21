@@ -46,7 +46,7 @@ class DiscoverPage extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: height * 0.04,
+              height: height * 0.03,
             ),
             const CardsStackWidget(),
           ],

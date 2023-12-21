@@ -168,10 +168,7 @@ abstract class _FetchDiscoverData implements DiscoverPageEvent {
 mixin _$DiscoverPageState {
   String? get errorMessage => throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
-  String? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  int? get age => throw _privateConstructorUsedError;
-  String? get profileImage => throw _privateConstructorUsedError;
+  DiscoverListResponseModel? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DiscoverPageStateCopyWith<DiscoverPageState> get copyWith =>
@@ -187,10 +184,7 @@ abstract class $DiscoverPageStateCopyWith<$Res> {
   $Res call(
       {String? errorMessage,
       bool? isLoading,
-      String? id,
-      String? name,
-      int? age,
-      String? profileImage});
+      DiscoverListResponseModel? profile});
 }
 
 /// @nodoc
@@ -208,10 +202,7 @@ class _$DiscoverPageStateCopyWithImpl<$Res, $Val extends DiscoverPageState>
   $Res call({
     Object? errorMessage = freezed,
     Object? isLoading = freezed,
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? age = freezed,
-    Object? profileImage = freezed,
+    Object? profile = freezed,
   }) {
     return _then(_value.copyWith(
       errorMessage: freezed == errorMessage
@@ -222,22 +213,10 @@ class _$DiscoverPageStateCopyWithImpl<$Res, $Val extends DiscoverPageState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      age: freezed == age
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
-              as int?,
-      profileImage: freezed == profileImage
-          ? _value.profileImage
-          : profileImage // ignore: cast_nullable_to_non_nullable
-              as String?,
+      profile: freezed == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as DiscoverListResponseModel?,
     ) as $Val);
   }
 }
@@ -253,10 +232,7 @@ abstract class _$$_DiscoverPageStateCopyWith<$Res>
   $Res call(
       {String? errorMessage,
       bool? isLoading,
-      String? id,
-      String? name,
-      int? age,
-      String? profileImage});
+      DiscoverListResponseModel? profile});
 }
 
 /// @nodoc
@@ -272,10 +248,7 @@ class __$$_DiscoverPageStateCopyWithImpl<$Res>
   $Res call({
     Object? errorMessage = freezed,
     Object? isLoading = freezed,
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? age = freezed,
-    Object? profileImage = freezed,
+    Object? profile = freezed,
   }) {
     return _then(_$_DiscoverPageState(
       errorMessage: freezed == errorMessage
@@ -286,22 +259,10 @@ class __$$_DiscoverPageStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      age: freezed == age
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
-              as int?,
-      profileImage: freezed == profileImage
-          ? _value.profileImage
-          : profileImage // ignore: cast_nullable_to_non_nullable
-              as String?,
+      profile: freezed == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as DiscoverListResponseModel?,
     ));
   }
 }
@@ -309,30 +270,18 @@ class __$$_DiscoverPageStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DiscoverPageState implements _DiscoverPageState {
-  const _$_DiscoverPageState(
-      {this.errorMessage,
-      this.isLoading,
-      this.id,
-      this.name,
-      this.age,
-      this.profileImage});
+  const _$_DiscoverPageState({this.errorMessage, this.isLoading, this.profile});
 
   @override
   final String? errorMessage;
   @override
   final bool? isLoading;
   @override
-  final String? id;
-  @override
-  final String? name;
-  @override
-  final int? age;
-  @override
-  final String? profileImage;
+  final DiscoverListResponseModel? profile;
 
   @override
   String toString() {
-    return 'DiscoverPageState(errorMessage: $errorMessage, isLoading: $isLoading, id: $id, name: $name, age: $age, profileImage: $profileImage)';
+    return 'DiscoverPageState(errorMessage: $errorMessage, isLoading: $isLoading, profile: $profile)';
   }
 
   @override
@@ -344,16 +293,12 @@ class _$_DiscoverPageState implements _DiscoverPageState {
                 other.errorMessage == errorMessage) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.age, age) || other.age == age) &&
-            (identical(other.profileImage, profileImage) ||
-                other.profileImage == profileImage));
+            (identical(other.profile, profile) || other.profile == profile));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, errorMessage, isLoading, id, name, age, profileImage);
+  int get hashCode =>
+      Object.hash(runtimeType, errorMessage, isLoading, profile);
 
   @JsonKey(ignore: true)
   @override
@@ -367,23 +312,14 @@ abstract class _DiscoverPageState implements DiscoverPageState {
   const factory _DiscoverPageState(
       {final String? errorMessage,
       final bool? isLoading,
-      final String? id,
-      final String? name,
-      final int? age,
-      final String? profileImage}) = _$_DiscoverPageState;
+      final DiscoverListResponseModel? profile}) = _$_DiscoverPageState;
 
   @override
   String? get errorMessage;
   @override
   bool? get isLoading;
   @override
-  String? get id;
-  @override
-  String? get name;
-  @override
-  int? get age;
-  @override
-  String? get profileImage;
+  DiscoverListResponseModel? get profile;
   @override
   @JsonKey(ignore: true)
   _$$_DiscoverPageStateCopyWith<_$_DiscoverPageState> get copyWith =>

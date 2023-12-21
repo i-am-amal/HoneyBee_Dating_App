@@ -68,3 +68,22 @@ class DiscoverResponseModel {
 
   Map<String, dynamic> toJson() => _$DiscoverResponseModelToJson(this);
 }
+
+
+class DiscoverListResponseModel {
+  List<DiscoverResponseModel>? profiles;
+
+  DiscoverListResponseModel({this.profiles});
+
+  factory DiscoverListResponseModel.fromJson(List<dynamic> json) {
+    return DiscoverListResponseModel(
+      profiles: json.map((item) => DiscoverResponseModel.fromJson(item)).toList(),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'profiles': profiles?.map((profile) => profile.toJson()).toList(),
+    };
+  }
+}

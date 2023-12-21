@@ -5,10 +5,8 @@ class DiscoverPageState with _$DiscoverPageState {
   const factory DiscoverPageState({
     String? errorMessage,
     bool? isLoading,
-    String? id,
-    String? name,
-    int? age,
-    String? profileImage,
+   DiscoverListResponseModel? profile,
+    
   }) = _DiscoverPageState;
 
   factory DiscoverPageState.initial() {

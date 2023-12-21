@@ -1,5 +1,4 @@
 import '../../screens/chatting/chat_page.dart';
-import '../../screens/discover/cards_stack_widget/profile_model.dart';
 
 class CommonLists {
   List<Message> messages = [
@@ -145,66 +144,5 @@ class CommonLists {
     'Other'
   ];
 
-  List<Profile> draggableItems = [
-    const Profile(
-        name: 'Alina',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_1.png'),
-    const Profile(
-        name: 'Sandra',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_2.png'),
-    const Profile(
-        name: 'Alice',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_3.png'),
-    const Profile(
-        name: 'Teresa',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_4.png'),
-    const Profile(
-        name: 'Christeena',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_5.png'),
-    const Profile(
-        name: 'Alina',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_1.png'),
-    const Profile(
-        name: 'Sandra',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_2.png'),
-    const Profile(
-        name: 'Alice',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_3.png'),
-    const Profile(
-        name: 'Teresa',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_4.png'),
-    const Profile(
-        name: 'Christeena',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_5.png'),
-    const Profile(
-        name: 'Alina',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_1.png'),
-    const Profile(
-        name: 'Sandra',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_2.png'),
-    const Profile(
-        name: 'Alice',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_3.png'),
-    const Profile(
-        name: 'Teresa',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_4.png'),
-    const Profile(
-        name: 'Christeena',
-        age: '10 miles away',
-        profileImage: 'assets/images/avatar_5.png'),
-  ];
+  
 }
