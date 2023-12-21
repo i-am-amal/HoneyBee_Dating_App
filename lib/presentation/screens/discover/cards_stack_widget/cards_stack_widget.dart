@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
 import 'package:honeybee/domain/models/discover_response_model/discover_response_model.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
-import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
-import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'action_button_widget.dart';
 import 'drag_widget.dart';
@@ -21,8 +19,6 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
     with SingleTickerProviderStateMixin {
   ValueNotifier<Swipe> swipeNotifier = ValueNotifier(Swipe.none);
 
-  // List<Profile> draggableItems = CommonLists().draggableItems;
-
   late final AnimationController _animationController;
 
   @override
@@ -38,7 +34,6 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
       if (status == AnimationStatus.completed) {
         BlocProvider.of<DiscoverPageBloc>(context)
             .add(const DiscoverPageEvent.fetchDiscoverData());
-
         // draggableItems.removeLast();
         _animationController.reset();
         swipeNotifier.value = Swipe.none;
@@ -58,21 +53,9 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                   const SizedBox(
                     height: 300,
                   ),
-                  // const CircularProgressIndicator(),
-
                   LoadingAnimationWidget.halfTriangleDot(
                     color: CustomColors.kRedButtonColor,
                     size: 100,
-                  ),
-
-                  SizedBox(
-                    height: 30,
-                  ),
-                  const CustomText(
-                    text: 'Loading..please wait...',
-                    letterspacing: 1.5,
-                    fontFamily: CustomFont.headTextFont,
-                    fontsize: 17,
                   ),
                 ],
               ),
@@ -235,34 +218,6 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                     ],
                   ),
                 ),
-
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     const SizedBox(height: 20),
-                //     ActionButtonWidget(
-                //       onPressed: () {
-                //         swipeNotifier.value = Swipe.left;
-                //         _animationController.forward();
-                //       },
-                //       icon: const Icon(
-                //         Icons.close,
-                //         color: Colors.grey,
-                //       ),
-                //     ),
-                //     const SizedBox(width: 60),
-                //     ActionButtonWidget(
-                //       onPressed: () {
-                //         swipeNotifier.value = Swipe.right;
-                //         _animationController.forward();
-                //       },
-                //       icon: const Icon(
-                //         Icons.favorite,
-                //         color: Colors.red,
-                //       ),
-                //     ),
-                //   ],
-                // ),
               ],
             );
           }
