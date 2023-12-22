@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../widgets/constants/colors.dart';
 
-GestureDetector googleSignInWidget(double height, double width) {
+GestureDetector googleSignInWidget(
+    double height, double width, BuildContext context) {
   return GestureDetector(
+    onTap: () {},
     child: Container(
       height: height * 0.07,
       width: width * .15,

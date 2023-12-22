@@ -176,22 +176,32 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      buildOptionButton('Faith', selectedOptions.faith,
-                          FontAwesomeIcons.personPraying),
-                      buildOptionButton(
-                          'Relationship Status',
-                          selectedOptions.relationshipStatus,
-                          FontAwesomeIcons.heart),
+                      Flexible(
+                        child: buildOptionButton('Faith', selectedOptions.faith,
+                            FontAwesomeIcons.personPraying),
+                      ),
+                      Flexible(
+                        child: buildOptionButton(
+                            'Relationship Status',
+                            selectedOptions.relationshipStatus,
+                            FontAwesomeIcons.heart),
+                      ),
                     ],
                   ),
                   SizedBox(height: height * 0.05),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      buildOptionButton('Smoking', selectedOptions.smoking,
-                          FontAwesomeIcons.smoking),
-                      buildOptionButton('Drinking', selectedOptions.drinking,
-                          FontAwesomeIcons.wineGlass),
+                      Flexible(
+                        child: buildOptionButton('Smoking',
+                            selectedOptions.smoking, FontAwesomeIcons.smoking),
+                      ),
+                      Flexible(
+                        child: buildOptionButton(
+                            'Drinking',
+                            selectedOptions.drinking,
+                            FontAwesomeIcons.wineGlass),
+                      ),
                     ],
                   ),
                   SizedBox(height: height * 0.03),

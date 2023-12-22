@@ -22,7 +22,6 @@ class DragWidget extends StatefulWidget {
   @override
   State<DragWidget> createState() => _DragWidgetState();
 }
-
 class _DragWidgetState extends State<DragWidget> {
   ValueNotifier<Swipe> swipeNotifier = ValueNotifier(Swipe.none);
 

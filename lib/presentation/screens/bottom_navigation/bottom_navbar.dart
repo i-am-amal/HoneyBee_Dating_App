@@ -13,9 +13,9 @@ import 'package:honeybee/presentation/screens/profile/menu_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 
 class BottomNavbar extends StatelessWidget {
-  BottomNavbar({super.key, this.token});
+  BottomNavbar({super.key,required this.token});
 
-  final String? token;
+  final String token;
 
   final List<Widget> bottomNavOptions = [
     const DiscoverPage(),

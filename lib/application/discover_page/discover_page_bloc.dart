@@ -40,5 +40,10 @@ class DiscoverPageBloc extends Bloc<DiscoverPageEvent, DiscoverPageState> {
         }
       });
     });
+
+    on<_SyncEvent>((event, emit) {
+      emit(state.copyWith(updateState: true));
+      emit(state.copyWith(updateState: null));
+    });
   }
 }

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'package:honeybee/application/create_account_page/create_account_bloc.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
@@ -183,18 +184,54 @@ class PreviewAccount extends StatelessWidget {
                     BlocBuilder<CreateAccountBloc, CreateAccountState>(
                         builder: (context, state) {
                       if (state.isLoading!) {
-                        return LoadingAnimationWidget.dotsTriangle(
-                          color: CustomColors.kRedButtonColor,
+                        return LoadingAnimationWidget.horizontalRotatingDots(
+                          color: Colors.purple,
                           size: 60,
                         );
                       } else if (state.navigationState == true) {
                         WidgetsBinding.instance
                             .addPostFrameCallback((timeStamp) {
-                          Navigator.pushReplacement(
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: const Row(
+                                children: [
+                                  Icon(Icons.check_circle_outline,
+                                      color: Colors.white),
+                                  SizedBox(width: 15),
+                                  Flexible(
+                                    child: Text(
+                                      'Sign in and let the sparks fly with new connections...',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              duration: const Duration(seconds: 5),
+                              backgroundColor:
+                                  const Color.fromARGB(234, 92, 16, 105),
+                              behavior: SnackBarBehavior.floating,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          );
+
+                          BlocProvider.of<BasicInfoAuthBloc>(context)
+                              .add(const BasicInfoAuthEvent.clearValues());
+
+                          Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const SignInPage()),
+                            (route) => false,
                           );
+
+                          // Navigator.popUntil(
+                          //   context,
+                          //   (route) => route.isFirst,
+                          // );
                         });
                       } else {
                         return MainCustomButton(

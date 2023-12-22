@@ -10,6 +10,9 @@ class BasicInfoAuthEvent with _$BasicInfoAuthEvent {
   const factory BasicInfoAuthEvent.pickImage2() = _PickImage2;
   const factory BasicInfoAuthEvent.pickImage3() = _PickImage3;
 
+    const factory BasicInfoAuthEvent.clearValues() = _ClearValues;
+
+
   const factory BasicInfoAuthEvent.nextPage({
     String? fullName,
     String? email,

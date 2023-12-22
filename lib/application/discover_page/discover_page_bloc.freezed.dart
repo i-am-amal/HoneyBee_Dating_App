@@ -19,32 +19,38 @@ mixin _$DiscoverPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchDiscoverData,
+    required TResult Function() syncEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchDiscoverData,
+    TResult? Function()? syncEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchDiscoverData,
+    TResult Function()? syncEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchDiscoverData value) fetchDiscoverData,
+    required TResult Function(_SyncEvent value) syncEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchDiscoverData value)? fetchDiscoverData,
+    TResult? Function(_SyncEvent value)? syncEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchDiscoverData value)? fetchDiscoverData,
+    TResult Function(_SyncEvent value)? syncEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchDiscoverData,
+    required TResult Function() syncEvent,
   }) {
     return fetchDiscoverData();
   }
@@ -115,6 +122,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchDiscoverData,
+    TResult? Function()? syncEvent,
   }) {
     return fetchDiscoverData?.call();
   }
@@ -123,6 +131,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchDiscoverData,
+    TResult Function()? syncEvent,
     required TResult orElse(),
   }) {
     if (fetchDiscoverData != null) {
@@ -135,6 +144,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchDiscoverData value) fetchDiscoverData,
+    required TResult Function(_SyncEvent value) syncEvent,
   }) {
     return fetchDiscoverData(this);
   }
@@ -143,6 +153,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchDiscoverData value)? fetchDiscoverData,
+    TResult? Function(_SyncEvent value)? syncEvent,
   }) {
     return fetchDiscoverData?.call(this);
   }
@@ -151,6 +162,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchDiscoverData value)? fetchDiscoverData,
+    TResult Function(_SyncEvent value)? syncEvent,
     required TResult orElse(),
   }) {
     if (fetchDiscoverData != null) {
@@ -165,9 +177,112 @@ abstract class _FetchDiscoverData implements DiscoverPageEvent {
 }
 
 /// @nodoc
+abstract class _$$_SyncEventCopyWith<$Res> {
+  factory _$$_SyncEventCopyWith(
+          _$_SyncEvent value, $Res Function(_$_SyncEvent) then) =
+      __$$_SyncEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SyncEventCopyWithImpl<$Res>
+    extends _$DiscoverPageEventCopyWithImpl<$Res, _$_SyncEvent>
+    implements _$$_SyncEventCopyWith<$Res> {
+  __$$_SyncEventCopyWithImpl(
+      _$_SyncEvent _value, $Res Function(_$_SyncEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SyncEvent implements _SyncEvent {
+  const _$_SyncEvent();
+
+  @override
+  String toString() {
+    return 'DiscoverPageEvent.syncEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SyncEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchDiscoverData,
+    required TResult Function() syncEvent,
+  }) {
+    return syncEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchDiscoverData,
+    TResult? Function()? syncEvent,
+  }) {
+    return syncEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchDiscoverData,
+    TResult Function()? syncEvent,
+    required TResult orElse(),
+  }) {
+    if (syncEvent != null) {
+      return syncEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchDiscoverData value) fetchDiscoverData,
+    required TResult Function(_SyncEvent value) syncEvent,
+  }) {
+    return syncEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchDiscoverData value)? fetchDiscoverData,
+    TResult? Function(_SyncEvent value)? syncEvent,
+  }) {
+    return syncEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchDiscoverData value)? fetchDiscoverData,
+    TResult Function(_SyncEvent value)? syncEvent,
+    required TResult orElse(),
+  }) {
+    if (syncEvent != null) {
+      return syncEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SyncEvent implements DiscoverPageEvent {
+  const factory _SyncEvent() = _$_SyncEvent;
+}
+
+/// @nodoc
 mixin _$DiscoverPageState {
   String? get errorMessage => throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
+  bool? get updateState => throw _privateConstructorUsedError;
   DiscoverListResponseModel? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -184,6 +299,7 @@ abstract class $DiscoverPageStateCopyWith<$Res> {
   $Res call(
       {String? errorMessage,
       bool? isLoading,
+      bool? updateState,
       DiscoverListResponseModel? profile});
 }
 
@@ -202,6 +318,7 @@ class _$DiscoverPageStateCopyWithImpl<$Res, $Val extends DiscoverPageState>
   $Res call({
     Object? errorMessage = freezed,
     Object? isLoading = freezed,
+    Object? updateState = freezed,
     Object? profile = freezed,
   }) {
     return _then(_value.copyWith(
@@ -212,6 +329,10 @@ class _$DiscoverPageStateCopyWithImpl<$Res, $Val extends DiscoverPageState>
       isLoading: freezed == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      updateState: freezed == updateState
+          ? _value.updateState
+          : updateState // ignore: cast_nullable_to_non_nullable
               as bool?,
       profile: freezed == profile
           ? _value.profile
@@ -232,6 +353,7 @@ abstract class _$$_DiscoverPageStateCopyWith<$Res>
   $Res call(
       {String? errorMessage,
       bool? isLoading,
+      bool? updateState,
       DiscoverListResponseModel? profile});
 }
 
@@ -248,6 +370,7 @@ class __$$_DiscoverPageStateCopyWithImpl<$Res>
   $Res call({
     Object? errorMessage = freezed,
     Object? isLoading = freezed,
+    Object? updateState = freezed,
     Object? profile = freezed,
   }) {
     return _then(_$_DiscoverPageState(
@@ -258,6 +381,10 @@ class __$$_DiscoverPageStateCopyWithImpl<$Res>
       isLoading: freezed == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      updateState: freezed == updateState
+          ? _value.updateState
+          : updateState // ignore: cast_nullable_to_non_nullable
               as bool?,
       profile: freezed == profile
           ? _value.profile
@@ -270,18 +397,21 @@ class __$$_DiscoverPageStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DiscoverPageState implements _DiscoverPageState {
-  const _$_DiscoverPageState({this.errorMessage, this.isLoading, this.profile});
+  const _$_DiscoverPageState(
+      {this.errorMessage, this.isLoading, this.updateState, this.profile});
 
   @override
   final String? errorMessage;
   @override
   final bool? isLoading;
   @override
+  final bool? updateState;
+  @override
   final DiscoverListResponseModel? profile;
 
   @override
   String toString() {
-    return 'DiscoverPageState(errorMessage: $errorMessage, isLoading: $isLoading, profile: $profile)';
+    return 'DiscoverPageState(errorMessage: $errorMessage, isLoading: $isLoading, updateState: $updateState, profile: $profile)';
   }
 
   @override
@@ -293,12 +423,14 @@ class _$_DiscoverPageState implements _DiscoverPageState {
                 other.errorMessage == errorMessage) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.updateState, updateState) ||
+                other.updateState == updateState) &&
             (identical(other.profile, profile) || other.profile == profile));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, errorMessage, isLoading, profile);
+      Object.hash(runtimeType, errorMessage, isLoading, updateState, profile);
 
   @JsonKey(ignore: true)
   @override
@@ -312,12 +444,15 @@ abstract class _DiscoverPageState implements DiscoverPageState {
   const factory _DiscoverPageState(
       {final String? errorMessage,
       final bool? isLoading,
+      final bool? updateState,
       final DiscoverListResponseModel? profile}) = _$_DiscoverPageState;
 
   @override
   String? get errorMessage;
   @override
   bool? get isLoading;
+  @override
+  bool? get updateState;
   @override
   DiscoverListResponseModel? get profile;
   @override

@@ -44,7 +44,9 @@ class OtpNumberAuthPageBloc
           emit(state.copyWith(errorMessage: null));
         }, (success) {
           if (success.success == true) {
+            log('--------------------------------------------------');
             // Success from backend
+            log(success.redirect!);
             emit(state.copyWith(
                 isOtpVerified: true,
                 token: success.token,

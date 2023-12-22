@@ -133,11 +133,9 @@ void handleState(OtpNumberAuthPageState state, BuildContext context) async {
       await saveTokenToPrefs(state.token.toString());
 
       Future.microtask(() {
-        CustomNavigator().push(context, BottomNavbar(token: state.token));
+        CustomNavigator().push(context, BottomNavbar(token: state.token!));
       });
-    }
-
-    if (state.redirectPage == '/createAccount') {
+    } else if (state.redirectPage == '/createAccount') {
       log("---------------Redirected to${state.redirectPage}------------------------");
 
       Future.microtask(() {

@@ -30,9 +30,9 @@ class SignInPage extends StatelessWidget {
             SizedBox(
               height: height * 0.06,
             ),
-            googleSignInWidget(height, width),
+            googleSignInWidget(height, width, context),
             SizedBox(
-              height: height * 0.1,
+              height: height * 0.075,
             ),
             const PrivacyPolicyWidget()
           ],

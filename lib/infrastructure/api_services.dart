@@ -32,6 +32,7 @@ import 'package:honeybee/domain/models/user_edit_response_model/user_edit_respon
 import 'package:honeybee/domain/models/verify_otp_request_model/verify_otp_request_model.dart';
 import 'package:honeybee/domain/models/verify_payment_request_model/verify_payment_request_model.dart';
 import 'package:honeybee/domain/models/verify_payment_response_model/verify_payment_response_model.dart';
+import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import '../domain/models/verify_otp_response_model/verify_otp_response_model.dart';
@@ -69,7 +70,7 @@ class ApiServices {
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
@@ -81,6 +82,7 @@ class ApiServices {
   static Future<Either<ApiFailures, VerifyOtpResponseModel>> verifyOtpLogin(
       VerifyOtpRequestModel request) async {
     try {
+      log('entered in try ');
       final response = await http.post(
         Uri.parse(Config.verifyOtpApi),
         headers: <String, String>{
@@ -105,7 +107,7 @@ class ApiServices {
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
@@ -117,11 +119,13 @@ class ApiServices {
   static Future<Either<ApiFailures, GetUserDataResponseModel>>
       getUserData() async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.get(
         Uri.parse(Config.getUserDataApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
       );
 
@@ -139,7 +143,7 @@ class ApiServices {
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
@@ -169,15 +173,14 @@ class ApiServices {
     String? email,
   }) async {
     try {
-      log('entered in try');
-      log(image0.toString());
-      log(image1.toString());
-      log(image2.toString());
+      // final apiToken = await getTokenFromPrefs();
+
       var request =
           http.MultipartRequest('POST', Uri.parse(Config.createAccountApi));
+
       // request.headers.addAll({
       //   "Content-Type": "multipart/form-data",
-      // "Authorization": Config.token!,
+      //   "auth-token": apiToken!,
       // });
 
       request.fields['phone'] = phone;
@@ -293,7 +296,7 @@ class ApiServices {
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
@@ -307,12 +310,28 @@ class ApiServices {
     log('discover api call');
 
     try {
-      log('checkinggg...try');
+      final apiToken = await getTokenFromPrefs();
+
+      // if (apiToken == null || apiToken.isEmpty) {
+      //   log('token is empty');
+      // } else {
+      //   log('------------------------$apiToken');
+      // }
+
+      // if (Config.token == null) {
+      //   log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Token is null');
+      // } else {
+      //   log('---------->>>>>>>>>>>${Config.token!}>>>>>>>>>>>>>>>----------------');
+      // }
+      // log('checkinggg...try');
+      // print('Before log statement');
+      // log('token on api service ${Config.token!}');
+      // print('after log statement');
       final response = await http.get(
         Uri.parse(Config.discoverApi),
         headers: <String, String>{
-          'auth-token':
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmU0NTk1NTZkZDQxYzI5MWFiNzE5MiIsImlhdCI6MTcwMjk4NTcwOX0._pRAwVLgk0fSteZ3pRVBOGO2rFjy2Jpcvk1OOxjA8BY'
+          'auth-token': apiToken!
+          // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmU0NTk1NTZkZDQxYzI5MWFiNzE5MiIsImlhdCI6MTcwMjk4NTcwOX0._pRAwVLgk0fSteZ3pRVBOGO2rFjy2Jpcvk1OOxjA8BY'
         },
       );
       log('--------------');
@@ -320,8 +339,6 @@ class ApiServices {
       log(response.statusCode.toString());
 
       if (response.statusCode == 200) {
-
-        
         DiscoverListResponseModel result =
             DiscoverListResponseModel.fromJson(jsonDecode(response.body));
 
@@ -331,7 +348,7 @@ class ApiServices {
 
         return right(result);
       } else {
-        log('server out compleeetly ');
+        log('server out completly ');
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
@@ -346,11 +363,13 @@ class ApiServices {
   static Future<Either<ApiFailures, LikeUserResponseModel>> likeUserData(
       LikeUserRequestModel request) async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.put(
         Uri.parse(Config.likeUserApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
@@ -367,7 +386,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -378,11 +397,13 @@ class ApiServices {
   static Future<Either<ApiFailures, DislikeUserResponseModel>> dislikeUserData(
       DislikeUserRequestModel request) async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.put(
         Uri.parse(Config.dislikeUserApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
@@ -400,7 +421,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -411,11 +432,13 @@ class ApiServices {
   static Future<Either<ApiFailures, MatchesResponseModel>>
       getMatchesData() async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.get(
         Uri.parse(Config.matchesApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'Authorization': apiToken!,
         },
       );
 
@@ -431,7 +454,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -442,11 +465,13 @@ class ApiServices {
   static Future<Either<ApiFailures, AllLikedUsersResponseModel>>
       allLikedUsersData() async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.get(
         Uri.parse(Config.likedUsersApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
       );
 
@@ -463,13 +488,13 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
   }
 
-////////////////////---------CreateAccount----------/////////////////////////////
+////////////////////---------EditAccount----------/////////////////////////////
 
   static Future<Either<ApiFailures, UserEditResponseModel>> userEditData({
     File? profilePic,
@@ -492,11 +517,13 @@ class ApiServices {
     String? email,
   }) async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       var request =
           http.MultipartRequest('POST', Uri.parse(Config.userEditApi));
       request.headers.addAll({
         "Content-Type": "multipart/form-data",
-        "Authorization": Config.token!,
+        "Authorization": apiToken!,
       });
 
       if (fullName != null) {
@@ -613,7 +640,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -624,11 +651,13 @@ class ApiServices {
   static Future<Either<ApiFailures, BlockUserResponseModel>> blockUserData(
       BlockUserRequestModel request) async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.put(
         Uri.parse(Config.blockUserApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
@@ -657,11 +686,13 @@ class ApiServices {
   static Future<Either<ApiFailures, VerifyPaymentResponseModel>>
       verifyPaymentData(VerifyPaymentRequestModel request) async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.post(
         Uri.parse(Config.verifyPaymentApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
@@ -679,7 +710,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -690,11 +721,13 @@ class ApiServices {
   static Future<Either<ApiFailures, SearchFilterResponseModel>>
       searchFilterData(SearchFilterRequestModel request) async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.post(
         Uri.parse(Config.searchFilterApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
@@ -712,7 +745,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -723,11 +756,13 @@ class ApiServices {
   static Future<Either<ApiFailures, PaymentPlatinumResponseModel>>
       platinumPaymentData(PaymentPlatinumRequestModel request) async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.post(
         Uri.parse(Config.platinumPaymentApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
@@ -745,7 +780,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -756,11 +791,13 @@ class ApiServices {
   static Future<Either<ApiFailures, AddMessageResponseModel>> addNewMessageData(
       AddMessageRequestModel request) async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.post(
         Uri.parse(Config.addMessageApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
@@ -778,7 +815,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -789,11 +826,13 @@ class ApiServices {
   static Future<Either<ApiFailures, GetMessageResponseModel>> getAllMessageData(
       GetMessageRequestModel request) async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.post(
         Uri.parse(Config.getAllMessageApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
@@ -811,7 +850,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -822,11 +861,13 @@ class ApiServices {
   static Future<Either<ApiFailures, LastMessageResponseModel>> lastMessageData(
       LastMessageRequestModel request) async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.post(
         Uri.parse(Config.lastMessageApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
@@ -844,7 +885,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }
@@ -855,11 +896,13 @@ class ApiServices {
   static Future<Either<ApiFailures, MarkReadResponseModel>>
       markReadMessageData() async {
     try {
+      final apiToken = await getTokenFromPrefs();
+
       final response = await http.post(
         Uri.parse(Config.markReadMessageApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': Config.token!,
+          'auth-token': apiToken!,
         },
       );
 
@@ -875,7 +918,7 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
+      log("client side error $e");
 
       return left(const ApiFailures.clientFailure());
     }

@@ -51,11 +51,11 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 300,
+                    height: 250,
                   ),
-                  LoadingAnimationWidget.halfTriangleDot(
+                  LoadingAnimationWidget.discreteCircle(
                     color: CustomColors.kRedButtonColor,
-                    size: 100,
+                    size: 70,
                   ),
                 ],
               ),
@@ -221,7 +221,6 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
               ],
             );
           }
-
           return const SizedBox();
         },
       ),

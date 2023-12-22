@@ -1,7 +1,9 @@
-import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
 
 class Config {
-  static String? token = saveTokenToPrefs(token!).toString();
+  // static String? token = saveTokenToPrefs(token!).toString();
+
+  // static String? token = getTokenFromPrefs().toString();
+
   // static String token =
   //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmU0NTk1NTZkZDQxYzI5MWFiNzE5MiIsImlhdCI6MTcwMjk4NTcwOX0._pRAwVLgk0fSteZ3pRVBOGO2rFjy2Jpcvk1OOxjA8BY';
 
