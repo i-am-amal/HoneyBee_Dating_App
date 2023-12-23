@@ -79,18 +79,6 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       emit(state.copyWith(isValidated: isValidationSuccess));
     });
 
-    on<_ClearValues>((event, emit) {
-      emit(state.copyWith(
-        birthdayErrorMsg: null,
-        coverProfileImage: null,
-        emailErrorMsg: null,
-        fullNameErrorMsg: null,
-        isValidated: null,
-        pic1: null,
-        pic2: null,
-        pic3: null,
-        pickedProfileImage: null,
-      ));
-    });
+   
   }
 }

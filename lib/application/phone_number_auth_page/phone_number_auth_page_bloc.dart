@@ -36,6 +36,7 @@ class PhoneNumberAuthPageBloc
 
         result.fold((failure) {
 // failure message from Api Services
+          log('phone number api request failed..');
 
           emit(state.copyWith(errorMessage: failure.errorMessage));
           emit(state.copyWith(errorMessage: null));

@@ -4,11 +4,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'package:honeybee/application/create_account_page/create_account_bloc.dart';
+import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
+import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
-import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -218,20 +218,20 @@ class PreviewAccount extends StatelessWidget {
                             ),
                           );
 
-                          BlocProvider.of<BasicInfoAuthBloc>(context)
-                              .add(const BasicInfoAuthEvent.clearValues());
+                          log('token on the preview account page --- ${state.token!}');
+
+//----------->>>>>>>>>>----------saving token---------------->>>>>>>>>>>
+                          saveTokenToPrefs(state.token!);
 
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const SignInPage()),
+                              builder: (context) => BottomNavbar(
+                                token: state.token!,
+                              ),
+                            ),
                             (route) => false,
                           );
-
-                          // Navigator.popUntil(
-                          //   context,
-                          //   (route) => route.isFirst,
-                          // );
                         });
                       } else {
                         return MainCustomButton(
@@ -260,23 +260,6 @@ class PreviewAccount extends StatelessWidget {
 
                             log("on create function $image1,$image2,$image3");
                             log("$fullName, $birthday, $coverImage, $email, $location, $phoneNumber, $profileImage, $image1, $image2, $image3,${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},$bio,$gender,$preference");
-
-                            // if (state.navigationState == true) {
-
-                            //   ScaffoldMessenger.of(context).showSnackBar(
-                            //     const SnackBar(
-                            //       content: Text(
-                            //           'Account created. Redirecting to Sign In page...'),
-                            //       duration: Duration(seconds: 5),
-                            //     ),
-                            //   );
-
-                            //   Navigator.pushReplacement(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => const SignInPage()),
-                            //   );
-                            // }
                           },
                         );
                       }

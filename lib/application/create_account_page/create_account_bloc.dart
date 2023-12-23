@@ -60,6 +60,14 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         if (success.success == true) {
           // Success from backend
 
+
+
+          emit(state.copyWith(token: success.token));
+          log('-Token from create account bloc--${success.token}----');
+
+
+
+
           emit(state.copyWith(navigationState: true, isLoading: false));
           log('loading set to false');
 

@@ -688,6 +688,7 @@ mixin _$CreateAccountState {
   File? get image2 => throw _privateConstructorUsedError;
   File? get image3 => throw _privateConstructorUsedError;
   bool? get navigationState => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreateAccountStateCopyWith<CreateAccountState> get copyWith =>
@@ -718,7 +719,8 @@ abstract class $CreateAccountStateCopyWith<$Res> {
       File? image1,
       File? image2,
       File? image3,
-      bool? navigationState});
+      bool? navigationState,
+      String? token});
 }
 
 /// @nodoc
@@ -752,6 +754,7 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
     Object? image2 = freezed,
     Object? image3 = freezed,
     Object? navigationState = freezed,
+    Object? token = freezed,
   }) {
     return _then(_value.copyWith(
       errorMessage: freezed == errorMessage
@@ -826,6 +829,10 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
           ? _value.navigationState
           : navigationState // ignore: cast_nullable_to_non_nullable
               as bool?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -856,7 +863,8 @@ abstract class _$$_CreateAccountStateCopyWith<$Res>
       File? image1,
       File? image2,
       File? image3,
-      bool? navigationState});
+      bool? navigationState,
+      String? token});
 }
 
 /// @nodoc
@@ -888,6 +896,7 @@ class __$$_CreateAccountStateCopyWithImpl<$Res>
     Object? image2 = freezed,
     Object? image3 = freezed,
     Object? navigationState = freezed,
+    Object? token = freezed,
   }) {
     return _then(_$_CreateAccountState(
       errorMessage: freezed == errorMessage
@@ -962,6 +971,10 @@ class __$$_CreateAccountStateCopyWithImpl<$Res>
           ? _value.navigationState
           : navigationState // ignore: cast_nullable_to_non_nullable
               as bool?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -987,7 +1000,8 @@ class _$_CreateAccountState implements _CreateAccountState {
       this.image1,
       this.image2,
       this.image3,
-      this.navigationState});
+      this.navigationState,
+      this.token});
 
   @override
   final String? errorMessage;
@@ -1025,10 +1039,12 @@ class _$_CreateAccountState implements _CreateAccountState {
   final File? image3;
   @override
   final bool? navigationState;
+  @override
+  final String? token;
 
   @override
   String toString() {
-    return 'CreateAccountState(errorMessage: $errorMessage, isLoading: $isLoading, fullName: $fullName, location: $location, email: $email, phoneNumber: $phoneNumber, birthday: $birthday, bio: $bio, gender: $gender, age: $age, preference: $preference, profileImage: $profileImage, coverImage: $coverImage, selectedOptions: $selectedOptions, image1: $image1, image2: $image2, image3: $image3, navigationState: $navigationState)';
+    return 'CreateAccountState(errorMessage: $errorMessage, isLoading: $isLoading, fullName: $fullName, location: $location, email: $email, phoneNumber: $phoneNumber, birthday: $birthday, bio: $bio, gender: $gender, age: $age, preference: $preference, profileImage: $profileImage, coverImage: $coverImage, selectedOptions: $selectedOptions, image1: $image1, image2: $image2, image3: $image3, navigationState: $navigationState, token: $token)';
   }
 
   @override
@@ -1064,30 +1080,33 @@ class _$_CreateAccountState implements _CreateAccountState {
             (identical(other.image2, image2) || other.image2 == image2) &&
             (identical(other.image3, image3) || other.image3 == image3) &&
             (identical(other.navigationState, navigationState) ||
-                other.navigationState == navigationState));
+                other.navigationState == navigationState) &&
+            (identical(other.token, token) || other.token == token));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      errorMessage,
-      isLoading,
-      fullName,
-      location,
-      email,
-      phoneNumber,
-      birthday,
-      bio,
-      gender,
-      age,
-      preference,
-      profileImage,
-      coverImage,
-      selectedOptions,
-      image1,
-      image2,
-      image3,
-      navigationState);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        errorMessage,
+        isLoading,
+        fullName,
+        location,
+        email,
+        phoneNumber,
+        birthday,
+        bio,
+        gender,
+        age,
+        preference,
+        profileImage,
+        coverImage,
+        selectedOptions,
+        image1,
+        image2,
+        image3,
+        navigationState,
+        token
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1116,7 +1135,8 @@ abstract class _CreateAccountState implements CreateAccountState {
       final File? image1,
       final File? image2,
       final File? image3,
-      final bool? navigationState}) = _$_CreateAccountState;
+      final bool? navigationState,
+      final String? token}) = _$_CreateAccountState;
 
   @override
   String? get errorMessage;
@@ -1154,6 +1174,8 @@ abstract class _CreateAccountState implements CreateAccountState {
   File? get image3;
   @override
   bool? get navigationState;
+  @override
+  String? get token;
   @override
   @JsonKey(ignore: true)
   _$$_CreateAccountStateCopyWith<_$_CreateAccountState> get copyWith =>

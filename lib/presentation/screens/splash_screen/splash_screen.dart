@@ -1,4 +1,7 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
+import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/onboarding/onboarding.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/logo_widget/logo_widget.dart';
@@ -63,13 +66,30 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
     );
   }
 
-  splashScreenFunctions() {
+  splashScreenFunctions() async {
+    String? token = await getTokenFromPrefs();
     Future.delayed(const Duration(seconds: 5)).then((value) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const Onboarding(),
-        ),
-      );
+      // Navigator.of(context).pushReplacement(
+      //   MaterialPageRoute(
+      //     builder: (context) => const SignInPage(),
+      //   ),
+      // );
+      if (token != null) {
+        log('-----token on splash screen $token');
+
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => BottomNavbar(token: token),
+          ),
+        );
+      } else {
+        log('--token on splash screen ${token.toString()} ');
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const Onboarding(),
+          ),
+        );
+      }
     });
   }
 }

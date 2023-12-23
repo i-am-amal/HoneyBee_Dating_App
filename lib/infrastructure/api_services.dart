@@ -312,11 +312,11 @@ class ApiServices {
     try {
       final apiToken = await getTokenFromPrefs();
 
-      // if (apiToken == null || apiToken.isEmpty) {
-      //   log('token is empty');
-      // } else {
-      //   log('------------------------$apiToken');
-      // }
+      if (apiToken == null || apiToken.isEmpty) {
+        log('token is empty');
+      } else {
+        log('------------------------$apiToken');
+      }
 
       // if (Config.token == null) {
       //   log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Token is null');

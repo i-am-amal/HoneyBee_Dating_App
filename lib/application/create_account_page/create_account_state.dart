@@ -21,6 +21,7 @@ class CreateAccountState with _$CreateAccountState {
     File? image2,
     File? image3,
     bool? navigationState,
+    String? token,
   }) = _CreateAccountState;
 
   factory CreateAccountState.initial() {

@@ -56,7 +56,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
   TextEditingController bioTextController = TextEditingController();
 
   String selectedGenderButton = 'Male';
-  String selectedPreferenceButton = 'Male';
+  String selectedPreferenceButton = 'Everyone';
   String selectedGenderOtherOption = 'Other';
 
   @override
@@ -214,7 +214,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                       log("${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking}");
                       log("${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bioTextController.text},$selectedGenderButton,$selectedGenderOtherOption,$selectedPreferenceButton");
                       log(selectedGenderButton);
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (context) => PreviewAccount(
