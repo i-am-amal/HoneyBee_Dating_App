@@ -15,8 +15,6 @@ void main() {
     statusBarColor: Colors.transparent,
   ));
 
-    // SharedPreferences prefs = await SharedPreferences.getInstance();
-
   runApp(const MyApp());
 }
 
