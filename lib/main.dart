@@ -55,10 +55,6 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: const SplashScreen(),
-        // home: BasicInfoMainPage(formattedPhoneNumber: '+91 86065 09838'),
-        // home: BottomNavbar(
-        //     token:
-        //         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmU0NTk1NTZkZDQxYzI5MWFiNzE5MiIsImlhdCI6MTcwMjk4NTcwOX0._pRAwVLgk0fSteZ3pRVBOGO2rFjy2Jpcvk1OOxjA8BY'),
       ),
     );
   }
