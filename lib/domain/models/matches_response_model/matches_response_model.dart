@@ -70,3 +70,22 @@ class MatchesResponseModel {
 
   Map<String, dynamic> toJson() => _$MatchesResponseModelToJson(this);
 }
+
+
+class MatchesListResponseModel {
+  List<MatchesResponseModel>? profiles;
+
+  MatchesListResponseModel({this.profiles});
+
+  factory MatchesListResponseModel.fromJson(List<dynamic> json) {
+    return MatchesListResponseModel(
+      profiles: json.map((item) => MatchesResponseModel.fromJson(item)).toList(),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'profiles': profiles?.map((profile) => profile.toJson()).toList(),
+    };
+  }
+}

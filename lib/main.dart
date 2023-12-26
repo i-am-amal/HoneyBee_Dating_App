@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/bottom_navigation/bottom_navigation_bloc.dart';
 import 'package:honeybee/application/create_account_page/create_account_bloc.dart';
 import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
+import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
@@ -45,6 +46,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => DiscoverPageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => MatchesPageBloc(),
         ),
       ],
       child: MaterialApp(

@@ -430,7 +430,7 @@ class ApiServices {
 
 ///////////////////---------Matches----------/////////////////////////////
 
-  static Future<Either<ApiFailures, MatchesResponseModel>>
+  static Future<Either<ApiFailures, MatchesListResponseModel>>
       getMatchesData() async {
     try {
       final apiToken = await getTokenFromPrefs();
@@ -439,16 +439,19 @@ class ApiServices {
         Uri.parse(Config.matchesApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': apiToken!,
+          'auth-token': apiToken!,
         },
       );
 
       if (response.statusCode == 200) {
-        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+        // Map<String, dynamic> jsonMap = jsonDecode(response.body);
 
-        MatchesResponseModel result = MatchesResponseModel.fromJson(jsonMap);
+        // MatchesResponseModel result = MatchesResponseModel.fromJson(jsonMap);
 
-        log(jsonMap.toString());
+        MatchesListResponseModel result =
+            MatchesListResponseModel.fromJson(jsonDecode(response.body));
+
+        log(result.toString());
 
         return right(result);
       } else {

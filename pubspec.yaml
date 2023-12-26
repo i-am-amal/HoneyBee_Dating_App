@@ -29,6 +29,7 @@ dependencies:
   json_annotation: ^4.8.1
   json_serializable: ^6.7.1
   loading_animation_widget: ^1.2.0+4
+  lottie: ^2.7.0
   shared_preferences: ^2.2.2
 
 dev_dependencies:
