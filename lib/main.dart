@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/all_liked_users_page/all_liked_users_page_bloc.dart';
 import 'package:honeybee/application/bottom_navigation/bottom_navigation_bloc.dart';
 import 'package:honeybee/application/create_account_page/create_account_bloc.dart';
 import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
@@ -49,6 +50,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => MatchesPageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AllLikedUsersPageBloc(),
         ),
       ],
       child: MaterialApp(

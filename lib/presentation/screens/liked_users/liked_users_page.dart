@@ -59,7 +59,7 @@ class LikedUsersPage extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                color: Colors.amber,
+                color: Colors.red,
                 child: const LikedProfileGrid(),
               ),
             )

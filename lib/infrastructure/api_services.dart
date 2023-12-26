@@ -466,7 +466,7 @@ class ApiServices {
 
 ///////////////////---------LikedUsers----------/////////////////////////////
 
-  static Future<Either<ApiFailures, AllLikedUsersResponseModel>>
+  static Future<Either<ApiFailures, AllLikedUsersListResponseModel>>
       allLikedUsersData() async {
     try {
       final apiToken = await getTokenFromPrefs();
@@ -480,12 +480,15 @@ class ApiServices {
       );
 
       if (response.statusCode == 200) {
-        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+        // Map<String, dynamic> jsonMap = jsonDecode(response.body);
 
-        AllLikedUsersResponseModel result =
-            AllLikedUsersResponseModel.fromJson(jsonMap);
+        // AllLikedUsersResponseModel result =
+        //     AllLikedUsersResponseModel.fromJson(jsonMap);
 
-        log(jsonMap.toString());
+        AllLikedUsersListResponseModel result =
+            AllLikedUsersListResponseModel.fromJson(jsonDecode(response.body));
+
+        log(result.toString());
 
         return right(result);
       } else {
