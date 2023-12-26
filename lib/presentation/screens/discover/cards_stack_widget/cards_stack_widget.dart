@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
@@ -18,6 +20,7 @@ class CardsStackWidget extends StatefulWidget {
 class _CardsStackWidgetState extends State<CardsStackWidget>
     with SingleTickerProviderStateMixin {
   ValueNotifier<Swipe> swipeNotifier = ValueNotifier(Swipe.none);
+  ValueNotifier<String> userId = ValueNotifier('');
 
   late final AnimationController _animationController;
 
@@ -80,11 +83,15 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                           children:
                               List.generate(draggableItems!.length, (index) {
                             Profile obj = Profile(
+                                id: draggableItems[index].id!,
                                 name: draggableItems[index].fullName!,
                                 age: draggableItems[index].age!.toString(),
                                 profileImage:
                                     draggableItems[index].profilePic!);
 
+                            userId.value = obj.id;
+
+                            log('---------------------${obj.id},${obj.age},${obj.name}--------data on card stack widget------');
                             if (index == draggableItems.length - 1) {
                               return PositionedTransition(
                                 rect: RelativeRectTween(
@@ -197,6 +204,10 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                       ActionButtonWidget(
                         onPressed: () {
                           swipeNotifier.value = Swipe.left;
+
+                          BlocProvider.of<DiscoverPageBloc>(context).add(
+                              DiscoverPageEvent.dislikeUserEvent(userId.value));
+                          log('${userId.value}---------dislike------------------');
                           _animationController.forward();
                         },
                         icon: const Icon(
@@ -208,6 +219,16 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                       ActionButtonWidget(
                         onPressed: () {
                           swipeNotifier.value = Swipe.right;
+
+                          log(swipeNotifier.value.toString());
+                          log('action widget like');
+                          BlocProvider.of<DiscoverPageBloc>(context).add(
+                              DiscoverPageEvent.likeUserEvent(userId.value));
+                          log('${userId.value}---------like------------------');
+
+                          log(swipeNotifier.value.toString());
+                          log('action widget like');
+
                           _animationController.forward();
                         },
                         icon: const Icon(

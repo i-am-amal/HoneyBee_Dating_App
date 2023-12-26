@@ -6,6 +6,7 @@ class DiscoverPageState with _$DiscoverPageState {
     String? errorMessage,
     bool? isLoading,
     bool? updateState,
+    String? userId,
    DiscoverListResponseModel? profile,
     
   }) = _DiscoverPageState;

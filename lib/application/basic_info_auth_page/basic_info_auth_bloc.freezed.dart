@@ -23,7 +23,6 @@ mixin _$BasicInfoAuthEvent {
     required TResult Function() pickImage1,
     required TResult Function() pickImage2,
     required TResult Function() pickImage3,
-    required TResult Function() clearValues,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) =>
@@ -35,7 +34,6 @@ mixin _$BasicInfoAuthEvent {
     TResult? Function()? pickImage1,
     TResult? Function()? pickImage2,
     TResult? Function()? pickImage3,
-    TResult? Function()? clearValues,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) =>
@@ -47,7 +45,6 @@ mixin _$BasicInfoAuthEvent {
     TResult Function()? pickImage1,
     TResult Function()? pickImage2,
     TResult Function()? pickImage3,
-    TResult Function()? clearValues,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -60,7 +57,6 @@ mixin _$BasicInfoAuthEvent {
     required TResult Function(_PickImage1 value) pickImage1,
     required TResult Function(_PickImage2 value) pickImage2,
     required TResult Function(_PickImage3 value) pickImage3,
-    required TResult Function(_ClearValues value) clearValues,
     required TResult Function(_NextPage value) nextPage,
   }) =>
       throw _privateConstructorUsedError;
@@ -71,7 +67,6 @@ mixin _$BasicInfoAuthEvent {
     TResult? Function(_PickImage1 value)? pickImage1,
     TResult? Function(_PickImage2 value)? pickImage2,
     TResult? Function(_PickImage3 value)? pickImage3,
-    TResult? Function(_ClearValues value)? clearValues,
     TResult? Function(_NextPage value)? nextPage,
   }) =>
       throw _privateConstructorUsedError;
@@ -82,7 +77,6 @@ mixin _$BasicInfoAuthEvent {
     TResult Function(_PickImage1 value)? pickImage1,
     TResult Function(_PickImage2 value)? pickImage2,
     TResult Function(_PickImage3 value)? pickImage3,
-    TResult Function(_ClearValues value)? clearValues,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) =>
@@ -150,7 +144,6 @@ class _$_PickProfileImage implements _PickProfileImage {
     required TResult Function() pickImage1,
     required TResult Function() pickImage2,
     required TResult Function() pickImage3,
-    required TResult Function() clearValues,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -165,7 +158,6 @@ class _$_PickProfileImage implements _PickProfileImage {
     TResult? Function()? pickImage1,
     TResult? Function()? pickImage2,
     TResult? Function()? pickImage3,
-    TResult? Function()? clearValues,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -180,7 +172,6 @@ class _$_PickProfileImage implements _PickProfileImage {
     TResult Function()? pickImage1,
     TResult Function()? pickImage2,
     TResult Function()? pickImage3,
-    TResult Function()? clearValues,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -199,7 +190,6 @@ class _$_PickProfileImage implements _PickProfileImage {
     required TResult Function(_PickImage1 value) pickImage1,
     required TResult Function(_PickImage2 value) pickImage2,
     required TResult Function(_PickImage3 value) pickImage3,
-    required TResult Function(_ClearValues value) clearValues,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return pickProfileImage(this);
@@ -213,7 +203,6 @@ class _$_PickProfileImage implements _PickProfileImage {
     TResult? Function(_PickImage1 value)? pickImage1,
     TResult? Function(_PickImage2 value)? pickImage2,
     TResult? Function(_PickImage3 value)? pickImage3,
-    TResult? Function(_ClearValues value)? clearValues,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return pickProfileImage?.call(this);
@@ -227,7 +216,6 @@ class _$_PickProfileImage implements _PickProfileImage {
     TResult Function(_PickImage1 value)? pickImage1,
     TResult Function(_PickImage2 value)? pickImage2,
     TResult Function(_PickImage3 value)? pickImage3,
-    TResult Function(_ClearValues value)? clearValues,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
@@ -285,7 +273,6 @@ class _$_PickCoverImage implements _PickCoverImage {
     required TResult Function() pickImage1,
     required TResult Function() pickImage2,
     required TResult Function() pickImage3,
-    required TResult Function() clearValues,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -300,7 +287,6 @@ class _$_PickCoverImage implements _PickCoverImage {
     TResult? Function()? pickImage1,
     TResult? Function()? pickImage2,
     TResult? Function()? pickImage3,
-    TResult? Function()? clearValues,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -315,7 +301,6 @@ class _$_PickCoverImage implements _PickCoverImage {
     TResult Function()? pickImage1,
     TResult Function()? pickImage2,
     TResult Function()? pickImage3,
-    TResult Function()? clearValues,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -334,7 +319,6 @@ class _$_PickCoverImage implements _PickCoverImage {
     required TResult Function(_PickImage1 value) pickImage1,
     required TResult Function(_PickImage2 value) pickImage2,
     required TResult Function(_PickImage3 value) pickImage3,
-    required TResult Function(_ClearValues value) clearValues,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return pickCoverImage(this);
@@ -348,7 +332,6 @@ class _$_PickCoverImage implements _PickCoverImage {
     TResult? Function(_PickImage1 value)? pickImage1,
     TResult? Function(_PickImage2 value)? pickImage2,
     TResult? Function(_PickImage3 value)? pickImage3,
-    TResult? Function(_ClearValues value)? clearValues,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return pickCoverImage?.call(this);
@@ -362,7 +345,6 @@ class _$_PickCoverImage implements _PickCoverImage {
     TResult Function(_PickImage1 value)? pickImage1,
     TResult Function(_PickImage2 value)? pickImage2,
     TResult Function(_PickImage3 value)? pickImage3,
-    TResult Function(_ClearValues value)? clearValues,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
@@ -420,7 +402,6 @@ class _$_PickImage1 implements _PickImage1 {
     required TResult Function() pickImage1,
     required TResult Function() pickImage2,
     required TResult Function() pickImage3,
-    required TResult Function() clearValues,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -435,7 +416,6 @@ class _$_PickImage1 implements _PickImage1 {
     TResult? Function()? pickImage1,
     TResult? Function()? pickImage2,
     TResult? Function()? pickImage3,
-    TResult? Function()? clearValues,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -450,7 +430,6 @@ class _$_PickImage1 implements _PickImage1 {
     TResult Function()? pickImage1,
     TResult Function()? pickImage2,
     TResult Function()? pickImage3,
-    TResult Function()? clearValues,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -469,7 +448,6 @@ class _$_PickImage1 implements _PickImage1 {
     required TResult Function(_PickImage1 value) pickImage1,
     required TResult Function(_PickImage2 value) pickImage2,
     required TResult Function(_PickImage3 value) pickImage3,
-    required TResult Function(_ClearValues value) clearValues,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return pickImage1(this);
@@ -483,7 +461,6 @@ class _$_PickImage1 implements _PickImage1 {
     TResult? Function(_PickImage1 value)? pickImage1,
     TResult? Function(_PickImage2 value)? pickImage2,
     TResult? Function(_PickImage3 value)? pickImage3,
-    TResult? Function(_ClearValues value)? clearValues,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return pickImage1?.call(this);
@@ -497,7 +474,6 @@ class _$_PickImage1 implements _PickImage1 {
     TResult Function(_PickImage1 value)? pickImage1,
     TResult Function(_PickImage2 value)? pickImage2,
     TResult Function(_PickImage3 value)? pickImage3,
-    TResult Function(_ClearValues value)? clearValues,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
@@ -555,7 +531,6 @@ class _$_PickImage2 implements _PickImage2 {
     required TResult Function() pickImage1,
     required TResult Function() pickImage2,
     required TResult Function() pickImage3,
-    required TResult Function() clearValues,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -570,7 +545,6 @@ class _$_PickImage2 implements _PickImage2 {
     TResult? Function()? pickImage1,
     TResult? Function()? pickImage2,
     TResult? Function()? pickImage3,
-    TResult? Function()? clearValues,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -585,7 +559,6 @@ class _$_PickImage2 implements _PickImage2 {
     TResult Function()? pickImage1,
     TResult Function()? pickImage2,
     TResult Function()? pickImage3,
-    TResult Function()? clearValues,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -604,7 +577,6 @@ class _$_PickImage2 implements _PickImage2 {
     required TResult Function(_PickImage1 value) pickImage1,
     required TResult Function(_PickImage2 value) pickImage2,
     required TResult Function(_PickImage3 value) pickImage3,
-    required TResult Function(_ClearValues value) clearValues,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return pickImage2(this);
@@ -618,7 +590,6 @@ class _$_PickImage2 implements _PickImage2 {
     TResult? Function(_PickImage1 value)? pickImage1,
     TResult? Function(_PickImage2 value)? pickImage2,
     TResult? Function(_PickImage3 value)? pickImage3,
-    TResult? Function(_ClearValues value)? clearValues,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return pickImage2?.call(this);
@@ -632,7 +603,6 @@ class _$_PickImage2 implements _PickImage2 {
     TResult Function(_PickImage1 value)? pickImage1,
     TResult Function(_PickImage2 value)? pickImage2,
     TResult Function(_PickImage3 value)? pickImage3,
-    TResult Function(_ClearValues value)? clearValues,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
@@ -690,7 +660,6 @@ class _$_PickImage3 implements _PickImage3 {
     required TResult Function() pickImage1,
     required TResult Function() pickImage2,
     required TResult Function() pickImage3,
-    required TResult Function() clearValues,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -705,7 +674,6 @@ class _$_PickImage3 implements _PickImage3 {
     TResult? Function()? pickImage1,
     TResult? Function()? pickImage2,
     TResult? Function()? pickImage3,
-    TResult? Function()? clearValues,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -720,7 +688,6 @@ class _$_PickImage3 implements _PickImage3 {
     TResult Function()? pickImage1,
     TResult Function()? pickImage2,
     TResult Function()? pickImage3,
-    TResult Function()? clearValues,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -739,7 +706,6 @@ class _$_PickImage3 implements _PickImage3 {
     required TResult Function(_PickImage1 value) pickImage1,
     required TResult Function(_PickImage2 value) pickImage2,
     required TResult Function(_PickImage3 value) pickImage3,
-    required TResult Function(_ClearValues value) clearValues,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return pickImage3(this);
@@ -753,7 +719,6 @@ class _$_PickImage3 implements _PickImage3 {
     TResult? Function(_PickImage1 value)? pickImage1,
     TResult? Function(_PickImage2 value)? pickImage2,
     TResult? Function(_PickImage3 value)? pickImage3,
-    TResult? Function(_ClearValues value)? clearValues,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return pickImage3?.call(this);
@@ -767,7 +732,6 @@ class _$_PickImage3 implements _PickImage3 {
     TResult Function(_PickImage1 value)? pickImage1,
     TResult Function(_PickImage2 value)? pickImage2,
     TResult Function(_PickImage3 value)? pickImage3,
-    TResult Function(_ClearValues value)? clearValues,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
@@ -780,141 +744,6 @@ class _$_PickImage3 implements _PickImage3 {
 
 abstract class _PickImage3 implements BasicInfoAuthEvent {
   const factory _PickImage3() = _$_PickImage3;
-}
-
-/// @nodoc
-abstract class _$$_ClearValuesCopyWith<$Res> {
-  factory _$$_ClearValuesCopyWith(
-          _$_ClearValues value, $Res Function(_$_ClearValues) then) =
-      __$$_ClearValuesCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_ClearValuesCopyWithImpl<$Res>
-    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_ClearValues>
-    implements _$$_ClearValuesCopyWith<$Res> {
-  __$$_ClearValuesCopyWithImpl(
-      _$_ClearValues _value, $Res Function(_$_ClearValues) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_ClearValues implements _ClearValues {
-  const _$_ClearValues();
-
-  @override
-  String toString() {
-    return 'BasicInfoAuthEvent.clearValues()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ClearValues);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() pickProfileImage,
-    required TResult Function() pickCoverImage,
-    required TResult Function() pickImage1,
-    required TResult Function() pickImage2,
-    required TResult Function() pickImage3,
-    required TResult Function() clearValues,
-    required TResult Function(String? fullName, String? email, String? birthday)
-        nextPage,
-  }) {
-    return clearValues();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickProfileImage,
-    TResult? Function()? pickCoverImage,
-    TResult? Function()? pickImage1,
-    TResult? Function()? pickImage2,
-    TResult? Function()? pickImage3,
-    TResult? Function()? clearValues,
-    TResult? Function(String? fullName, String? email, String? birthday)?
-        nextPage,
-  }) {
-    return clearValues?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickProfileImage,
-    TResult Function()? pickCoverImage,
-    TResult Function()? pickImage1,
-    TResult Function()? pickImage2,
-    TResult Function()? pickImage3,
-    TResult Function()? clearValues,
-    TResult Function(String? fullName, String? email, String? birthday)?
-        nextPage,
-    required TResult orElse(),
-  }) {
-    if (clearValues != null) {
-      return clearValues();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_PickProfileImage value) pickProfileImage,
-    required TResult Function(_PickCoverImage value) pickCoverImage,
-    required TResult Function(_PickImage1 value) pickImage1,
-    required TResult Function(_PickImage2 value) pickImage2,
-    required TResult Function(_PickImage3 value) pickImage3,
-    required TResult Function(_ClearValues value) clearValues,
-    required TResult Function(_NextPage value) nextPage,
-  }) {
-    return clearValues(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickProfileImage value)? pickProfileImage,
-    TResult? Function(_PickCoverImage value)? pickCoverImage,
-    TResult? Function(_PickImage1 value)? pickImage1,
-    TResult? Function(_PickImage2 value)? pickImage2,
-    TResult? Function(_PickImage3 value)? pickImage3,
-    TResult? Function(_ClearValues value)? clearValues,
-    TResult? Function(_NextPage value)? nextPage,
-  }) {
-    return clearValues?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickProfileImage value)? pickProfileImage,
-    TResult Function(_PickCoverImage value)? pickCoverImage,
-    TResult Function(_PickImage1 value)? pickImage1,
-    TResult Function(_PickImage2 value)? pickImage2,
-    TResult Function(_PickImage3 value)? pickImage3,
-    TResult Function(_ClearValues value)? clearValues,
-    TResult Function(_NextPage value)? nextPage,
-    required TResult orElse(),
-  }) {
-    if (clearValues != null) {
-      return clearValues(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ClearValues implements BasicInfoAuthEvent {
-  const factory _ClearValues() = _$_ClearValues;
 }
 
 /// @nodoc
@@ -1004,7 +833,6 @@ class _$_NextPage implements _NextPage {
     required TResult Function() pickImage1,
     required TResult Function() pickImage2,
     required TResult Function() pickImage3,
-    required TResult Function() clearValues,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -1019,7 +847,6 @@ class _$_NextPage implements _NextPage {
     TResult? Function()? pickImage1,
     TResult? Function()? pickImage2,
     TResult? Function()? pickImage3,
-    TResult? Function()? clearValues,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -1034,7 +861,6 @@ class _$_NextPage implements _NextPage {
     TResult Function()? pickImage1,
     TResult Function()? pickImage2,
     TResult Function()? pickImage3,
-    TResult Function()? clearValues,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -1053,7 +879,6 @@ class _$_NextPage implements _NextPage {
     required TResult Function(_PickImage1 value) pickImage1,
     required TResult Function(_PickImage2 value) pickImage2,
     required TResult Function(_PickImage3 value) pickImage3,
-    required TResult Function(_ClearValues value) clearValues,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return nextPage(this);
@@ -1067,7 +892,6 @@ class _$_NextPage implements _NextPage {
     TResult? Function(_PickImage1 value)? pickImage1,
     TResult? Function(_PickImage2 value)? pickImage2,
     TResult? Function(_PickImage3 value)? pickImage3,
-    TResult? Function(_ClearValues value)? clearValues,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return nextPage?.call(this);
@@ -1081,7 +905,6 @@ class _$_NextPage implements _NextPage {
     TResult Function(_PickImage1 value)? pickImage1,
     TResult Function(_PickImage2 value)? pickImage2,
     TResult Function(_PickImage3 value)? pickImage3,
-    TResult Function(_ClearValues value)? clearValues,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {

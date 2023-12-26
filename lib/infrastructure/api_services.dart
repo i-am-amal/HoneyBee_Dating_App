@@ -362,17 +362,19 @@ class ApiServices {
 
   static Future<Either<ApiFailures, LikeUserResponseModel>> likeUserData(
       LikeUserRequestModel request) async {
+    log(request.toString());
     try {
       final apiToken = await getTokenFromPrefs();
-
+      log('$apiToken-------on like apiservice----');
       final response = await http.put(
         Uri.parse(Config.likeUserApi),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
+
+      log(response.body);
 
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
@@ -402,7 +404,6 @@ class ApiServices {
       final response = await http.put(
         Uri.parse(Config.dislikeUserApi),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
         body: request.toJson(),

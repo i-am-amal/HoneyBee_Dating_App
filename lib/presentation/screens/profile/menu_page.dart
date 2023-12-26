@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile.dart';
 import 'package:honeybee/presentation/screens/profile/profile_preview.dart';
-import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
+import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/policies/privacy.dart';
@@ -120,9 +123,11 @@ class MenuPage extends StatelessWidget {
                 textColor: CustomColors.kRedButtonColor,
               ),
               onPressed: () {
-                Navigator.push(
+                removeTokenFromPrefs();
+                log('token removed');
+                Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const SignInPage()),
+                  MaterialPageRoute(builder: (context) => const SplashScreen()),
                 );
               },
             ),
