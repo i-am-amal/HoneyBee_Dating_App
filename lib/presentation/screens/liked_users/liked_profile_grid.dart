@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/all_liked_users_page/all_liked_users_page_bloc.dart';
-import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
@@ -81,9 +80,25 @@ class LikedProfileGrid extends StatelessWidget {
                                   ),
                                 ),
                                 onPressed: () {
-                                  BlocProvider.of<DiscoverPageBloc>(context)
-                                      .add(DiscoverPageEvent.dislikeUserEvent(
+                                  BlocProvider.of<AllLikedUsersPageBloc>(
+                                          context)
+                                      .add(AllLikedUsersPageEvent.dislikeEvent(
                                           state.profile!.profiles![index].id));
+
+                                  // BlocProvider.of<AllLikedUsersPageBloc>(
+                                  //         context)
+                                  //     .add(const AllLikedUsersPageEvent
+                                  //         .resyncLikedUsersData());
+////////////////////////////////////////////////////////////////////////////////////////////
+                                  Future.delayed(const Duration(seconds: 2),
+                                      () {
+                                    BlocProvider.of<AllLikedUsersPageBloc>(
+                                            context)
+                                        .add(const AllLikedUsersPageEvent
+                                            .fetchLikedUsersData());
+                                  });
+
+                                  /////////////////////////////////////////////////////////
                                 },
                               ),
                             ),
@@ -103,7 +118,14 @@ class LikedProfileGrid extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  BlocProvider.of<AllLikedUsersPageBloc>(
+                                          context)
+                                      .add(
+                                          AllLikedUsersPageEvent.blockUserEvent(
+                                              state.profile!.profiles![index]
+                                                  .id));
+                                },
                               ),
                             ),
                           ),

@@ -19,32 +19,50 @@ mixin _$AllLikedUsersPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchLikedUsersData,
+    required TResult Function(String? userId) dislikeEvent,
+    required TResult Function(String? userId) blockUserEvent,
+    required TResult Function() resyncLikedUsersData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchLikedUsersData,
+    TResult? Function(String? userId)? dislikeEvent,
+    TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function()? resyncLikedUsersData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchLikedUsersData,
+    TResult Function(String? userId)? dislikeEvent,
+    TResult Function(String? userId)? blockUserEvent,
+    TResult Function()? resyncLikedUsersData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
+    required TResult Function(_DislikeEvent value) dislikeEvent,
+    required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult? Function(_DislikeEvent value)? dislikeEvent,
+    TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult Function(_DislikeEvent value)? dislikeEvent,
+    TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +126,9 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchLikedUsersData,
+    required TResult Function(String? userId) dislikeEvent,
+    required TResult Function(String? userId) blockUserEvent,
+    required TResult Function() resyncLikedUsersData,
   }) {
     return fetchLikedUsersData();
   }
@@ -116,6 +137,9 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchLikedUsersData,
+    TResult? Function(String? userId)? dislikeEvent,
+    TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function()? resyncLikedUsersData,
   }) {
     return fetchLikedUsersData?.call();
   }
@@ -124,6 +148,9 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchLikedUsersData,
+    TResult Function(String? userId)? dislikeEvent,
+    TResult Function(String? userId)? blockUserEvent,
+    TResult Function()? resyncLikedUsersData,
     required TResult orElse(),
   }) {
     if (fetchLikedUsersData != null) {
@@ -136,6 +163,9 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
+    required TResult Function(_DislikeEvent value) dislikeEvent,
+    required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
   }) {
     return fetchLikedUsersData(this);
   }
@@ -144,6 +174,9 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult? Function(_DislikeEvent value)? dislikeEvent,
+    TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
   }) {
     return fetchLikedUsersData?.call(this);
   }
@@ -152,6 +185,9 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult Function(_DislikeEvent value)? dislikeEvent,
+    TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
     required TResult orElse(),
   }) {
     if (fetchLikedUsersData != null) {
@@ -163,6 +199,410 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
 
 abstract class _FetchLikedUsersData implements AllLikedUsersPageEvent {
   const factory _FetchLikedUsersData() = _$_FetchLikedUsersData;
+}
+
+/// @nodoc
+abstract class _$$_DislikeEventCopyWith<$Res> {
+  factory _$$_DislikeEventCopyWith(
+          _$_DislikeEvent value, $Res Function(_$_DislikeEvent) then) =
+      __$$_DislikeEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? userId});
+}
+
+/// @nodoc
+class __$$_DislikeEventCopyWithImpl<$Res>
+    extends _$AllLikedUsersPageEventCopyWithImpl<$Res, _$_DislikeEvent>
+    implements _$$_DislikeEventCopyWith<$Res> {
+  __$$_DislikeEventCopyWithImpl(
+      _$_DislikeEvent _value, $Res Function(_$_DislikeEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = freezed,
+  }) {
+    return _then(_$_DislikeEvent(
+      freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DislikeEvent implements _DislikeEvent {
+  const _$_DislikeEvent(this.userId);
+
+  @override
+  final String? userId;
+
+  @override
+  String toString() {
+    return 'AllLikedUsersPageEvent.dislikeEvent(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DislikeEvent &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DislikeEventCopyWith<_$_DislikeEvent> get copyWith =>
+      __$$_DislikeEventCopyWithImpl<_$_DislikeEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLikedUsersData,
+    required TResult Function(String? userId) dislikeEvent,
+    required TResult Function(String? userId) blockUserEvent,
+    required TResult Function() resyncLikedUsersData,
+  }) {
+    return dislikeEvent(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLikedUsersData,
+    TResult? Function(String? userId)? dislikeEvent,
+    TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function()? resyncLikedUsersData,
+  }) {
+    return dislikeEvent?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLikedUsersData,
+    TResult Function(String? userId)? dislikeEvent,
+    TResult Function(String? userId)? blockUserEvent,
+    TResult Function()? resyncLikedUsersData,
+    required TResult orElse(),
+  }) {
+    if (dislikeEvent != null) {
+      return dislikeEvent(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
+    required TResult Function(_DislikeEvent value) dislikeEvent,
+    required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
+  }) {
+    return dislikeEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult? Function(_DislikeEvent value)? dislikeEvent,
+    TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
+  }) {
+    return dislikeEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult Function(_DislikeEvent value)? dislikeEvent,
+    TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
+    required TResult orElse(),
+  }) {
+    if (dislikeEvent != null) {
+      return dislikeEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DislikeEvent implements AllLikedUsersPageEvent {
+  const factory _DislikeEvent(final String? userId) = _$_DislikeEvent;
+
+  String? get userId;
+  @JsonKey(ignore: true)
+  _$$_DislikeEventCopyWith<_$_DislikeEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_BlockUserEventCopyWith<$Res> {
+  factory _$$_BlockUserEventCopyWith(
+          _$_BlockUserEvent value, $Res Function(_$_BlockUserEvent) then) =
+      __$$_BlockUserEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? userId});
+}
+
+/// @nodoc
+class __$$_BlockUserEventCopyWithImpl<$Res>
+    extends _$AllLikedUsersPageEventCopyWithImpl<$Res, _$_BlockUserEvent>
+    implements _$$_BlockUserEventCopyWith<$Res> {
+  __$$_BlockUserEventCopyWithImpl(
+      _$_BlockUserEvent _value, $Res Function(_$_BlockUserEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = freezed,
+  }) {
+    return _then(_$_BlockUserEvent(
+      freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_BlockUserEvent implements _BlockUserEvent {
+  const _$_BlockUserEvent(this.userId);
+
+  @override
+  final String? userId;
+
+  @override
+  String toString() {
+    return 'AllLikedUsersPageEvent.blockUserEvent(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_BlockUserEvent &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_BlockUserEventCopyWith<_$_BlockUserEvent> get copyWith =>
+      __$$_BlockUserEventCopyWithImpl<_$_BlockUserEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLikedUsersData,
+    required TResult Function(String? userId) dislikeEvent,
+    required TResult Function(String? userId) blockUserEvent,
+    required TResult Function() resyncLikedUsersData,
+  }) {
+    return blockUserEvent(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLikedUsersData,
+    TResult? Function(String? userId)? dislikeEvent,
+    TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function()? resyncLikedUsersData,
+  }) {
+    return blockUserEvent?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLikedUsersData,
+    TResult Function(String? userId)? dislikeEvent,
+    TResult Function(String? userId)? blockUserEvent,
+    TResult Function()? resyncLikedUsersData,
+    required TResult orElse(),
+  }) {
+    if (blockUserEvent != null) {
+      return blockUserEvent(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
+    required TResult Function(_DislikeEvent value) dislikeEvent,
+    required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
+  }) {
+    return blockUserEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult? Function(_DislikeEvent value)? dislikeEvent,
+    TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
+  }) {
+    return blockUserEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult Function(_DislikeEvent value)? dislikeEvent,
+    TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
+    required TResult orElse(),
+  }) {
+    if (blockUserEvent != null) {
+      return blockUserEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BlockUserEvent implements AllLikedUsersPageEvent {
+  const factory _BlockUserEvent(final String? userId) = _$_BlockUserEvent;
+
+  String? get userId;
+  @JsonKey(ignore: true)
+  _$$_BlockUserEventCopyWith<_$_BlockUserEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ResyncLikedUsersDataCopyWith<$Res> {
+  factory _$$_ResyncLikedUsersDataCopyWith(_$_ResyncLikedUsersData value,
+          $Res Function(_$_ResyncLikedUsersData) then) =
+      __$$_ResyncLikedUsersDataCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResyncLikedUsersDataCopyWithImpl<$Res>
+    extends _$AllLikedUsersPageEventCopyWithImpl<$Res, _$_ResyncLikedUsersData>
+    implements _$$_ResyncLikedUsersDataCopyWith<$Res> {
+  __$$_ResyncLikedUsersDataCopyWithImpl(_$_ResyncLikedUsersData _value,
+      $Res Function(_$_ResyncLikedUsersData) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ResyncLikedUsersData implements _ResyncLikedUsersData {
+  const _$_ResyncLikedUsersData();
+
+  @override
+  String toString() {
+    return 'AllLikedUsersPageEvent.resyncLikedUsersData()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResyncLikedUsersData);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLikedUsersData,
+    required TResult Function(String? userId) dislikeEvent,
+    required TResult Function(String? userId) blockUserEvent,
+    required TResult Function() resyncLikedUsersData,
+  }) {
+    return resyncLikedUsersData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLikedUsersData,
+    TResult? Function(String? userId)? dislikeEvent,
+    TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function()? resyncLikedUsersData,
+  }) {
+    return resyncLikedUsersData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLikedUsersData,
+    TResult Function(String? userId)? dislikeEvent,
+    TResult Function(String? userId)? blockUserEvent,
+    TResult Function()? resyncLikedUsersData,
+    required TResult orElse(),
+  }) {
+    if (resyncLikedUsersData != null) {
+      return resyncLikedUsersData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
+    required TResult Function(_DislikeEvent value) dislikeEvent,
+    required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
+  }) {
+    return resyncLikedUsersData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult? Function(_DislikeEvent value)? dislikeEvent,
+    TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
+  }) {
+    return resyncLikedUsersData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult Function(_DislikeEvent value)? dislikeEvent,
+    TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
+    required TResult orElse(),
+  }) {
+    if (resyncLikedUsersData != null) {
+      return resyncLikedUsersData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResyncLikedUsersData implements AllLikedUsersPageEvent {
+  const factory _ResyncLikedUsersData() = _$_ResyncLikedUsersData;
 }
 
 /// @nodoc

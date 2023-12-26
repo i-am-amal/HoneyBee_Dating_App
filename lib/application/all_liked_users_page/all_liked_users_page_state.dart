@@ -11,6 +11,6 @@ class AllLikedUsersPageState with _$AllLikedUsersPageState {
   }) = _MatchesPageState;
 
   factory AllLikedUsersPageState.initial() {
-    return const AllLikedUsersPageState(isLoading: false);
+    return const AllLikedUsersPageState(isLoading: false,updateState:false);
   }
 }

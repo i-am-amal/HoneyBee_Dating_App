@@ -93,7 +93,7 @@ class DiscoverPageBloc extends Bloc<DiscoverPageEvent, DiscoverPageState> {
         if (success.id != null) {
           log('response model  not null........');
           // log(success.toString());
-          // emit(state.copyWith(userId: success.id));
+          emit(state.copyWith(userId: success.id));
         } else {
           // failure from backend
           emit(state.copyWith(
