@@ -171,44 +171,6 @@ mixin _$PreviewAccountPageState {
   bool? get isLoading => throw _privateConstructorUsedError;
   String? get token => throw _privateConstructorUsedError;
   GetUserDataResponseModel? get success => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? errorMessage, bool? isLoading,
-            String? token, GetUserDataResponseModel? success)
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? errorMessage, bool? isLoading, String? token,
-            GetUserDataResponseModel? success)?
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? errorMessage, bool? isLoading, String? token,
-            GetUserDataResponseModel? success)?
-        initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PreviewAccountPageStateCopyWith<PreviewAccountPageState> get copyWith =>
@@ -269,11 +231,11 @@ class _$PreviewAccountPageStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$_PreviewAccountPageStateCopyWith<$Res>
     implements $PreviewAccountPageStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$_PreviewAccountPageStateCopyWith(_$_PreviewAccountPageState value,
+          $Res Function(_$_PreviewAccountPageState) then) =
+      __$$_PreviewAccountPageStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -284,10 +246,12 @@ abstract class _$$_InitialCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$PreviewAccountPageStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$_PreviewAccountPageStateCopyWithImpl<$Res>
+    extends _$PreviewAccountPageStateCopyWithImpl<$Res,
+        _$_PreviewAccountPageState>
+    implements _$$_PreviewAccountPageStateCopyWith<$Res> {
+  __$$_PreviewAccountPageStateCopyWithImpl(_$_PreviewAccountPageState _value,
+      $Res Function(_$_PreviewAccountPageState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -298,7 +262,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? token = freezed,
     Object? success = freezed,
   }) {
-    return _then(_$_Initial(
+    return _then(_$_PreviewAccountPageState(
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -321,8 +285,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial(
+class _$_PreviewAccountPageState implements _PreviewAccountPageState {
+  const _$_PreviewAccountPageState(
       {this.errorMessage, this.isLoading, this.token, this.success});
 
   @override
@@ -336,14 +300,14 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'PreviewAccountPageState.initial(errorMessage: $errorMessage, isLoading: $isLoading, token: $token, success: $success)';
+    return 'PreviewAccountPageState(errorMessage: $errorMessage, isLoading: $isLoading, token: $token, success: $success)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$_PreviewAccountPageState &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.isLoading, isLoading) ||
@@ -359,78 +323,18 @@ class _$_Initial implements _Initial {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? errorMessage, bool? isLoading,
-            String? token, GetUserDataResponseModel? success)
-        initial,
-  }) {
-    return initial(errorMessage, isLoading, token, success);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? errorMessage, bool? isLoading, String? token,
-            GetUserDataResponseModel? success)?
-        initial,
-  }) {
-    return initial?.call(errorMessage, isLoading, token, success);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? errorMessage, bool? isLoading, String? token,
-            GetUserDataResponseModel? success)?
-        initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(errorMessage, isLoading, token, success);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  _$$_PreviewAccountPageStateCopyWith<_$_PreviewAccountPageState>
+      get copyWith =>
+          __$$_PreviewAccountPageStateCopyWithImpl<_$_PreviewAccountPageState>(
+              this, _$identity);
 }
 
-abstract class _Initial implements PreviewAccountPageState {
-  const factory _Initial(
+abstract class _PreviewAccountPageState implements PreviewAccountPageState {
+  const factory _PreviewAccountPageState(
       {final String? errorMessage,
       final bool? isLoading,
       final String? token,
-      final GetUserDataResponseModel? success}) = _$_Initial;
+      final GetUserDataResponseModel? success}) = _$_PreviewAccountPageState;
 
   @override
   String? get errorMessage;
@@ -442,6 +346,6 @@ abstract class _Initial implements PreviewAccountPageState {
   GetUserDataResponseModel? get success;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_PreviewAccountPageStateCopyWith<_$_PreviewAccountPageState>
+      get copyWith => throw _privateConstructorUsedError;
 }

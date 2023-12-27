@@ -20,75 +20,89 @@ class MenuPage extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            height: height * 0.1,
-          ),
-          ListTile(
-            leading: const Icon(Icons.person),
-            title: const CustomText(
-              text: 'Profile',
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            SizedBox(
+              height: height * 0.07,
             ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProfilePreview()),
-              );
-            },
-          ),
-          SizedBox(
-            height: height * 0.03,
-          ),
-          ListTile(
-            leading: const Icon(Icons.edit),
-            title: const CustomText(
-              text: 'Edit Profile',
+            const CustomText(
+              text: 'User Hub ',
+              fontFamily: CustomFont.headTextFont,
+              fontWeight: FontWeight.bold,
+              fontsize: 22,
+              letterspacing: 1,
             ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const EditProfile()),
-              );
-            },
-          ),
-          SizedBox(
-            height: height * 0.03,
-          ),
-          ListTile(
-            leading: const Icon(Icons.menu_book_sharp),
-            title: const CustomText(
-              text: 'Terms & Conditions',
+            SizedBox(
+              height: height * 0.05,
             ),
-            onTap: () {
-              TermsAndConditions().termsandcondition(context);
-            },
-          ),
-          SizedBox(
-            height: height * 0.02,
-          ),
-          ListTile(
-            leading: const Icon(Icons.privacy_tip_rounded),
-            title: const CustomText(
-              text: 'Privacy policy',
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const CustomText(
+                text: 'Profile',
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfilePreview()),
+                );
+              },
             ),
-            onTap: () {
-              Privacy().privacy(context);
-            },
-          ),
-          SizedBox(
-            height: height * 0.03,
-          ),
-          ListTile(
-            leading: const Icon(Icons.logout),
-            title: const CustomText(
-              text: 'Logout',
+            SizedBox(
+              height: height * 0.03,
             ),
-            onTap: () {
-              logoutAlertMethod(context);
-            },
-          ),
-        ],
+            ListTile(
+              leading: const Icon(Icons.edit),
+              title: const CustomText(
+                text: 'Edit Profile',
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const EditProfile()),
+                );
+              },
+            ),
+            SizedBox(
+              height: height * 0.03,
+            ),
+            ListTile(
+              leading: const Icon(Icons.menu_book_sharp),
+              title: const CustomText(
+                text: 'Terms & Conditions',
+              ),
+              onTap: () {
+                TermsAndConditions().termsandcondition(context);
+              },
+            ),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            ListTile(
+              leading: const Icon(Icons.privacy_tip_rounded),
+              title: const CustomText(
+                text: 'Privacy policy',
+              ),
+              onTap: () {
+                Privacy().privacy(context);
+              },
+            ),
+            SizedBox(
+              height: height * 0.03,
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const CustomText(
+                text: 'Logout',
+              ),
+              onTap: () {
+                logoutAlertMethod(context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

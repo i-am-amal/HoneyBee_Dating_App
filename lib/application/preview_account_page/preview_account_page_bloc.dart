@@ -11,7 +11,7 @@ part 'preview_account_page_bloc.freezed.dart';
 
 class PreviewAccountPageBloc
     extends Bloc<PreviewAccountPageEvent, PreviewAccountPageState> {
-  PreviewAccountPageBloc() : super(const _Initial()) {
+  PreviewAccountPageBloc() : super(PreviewAccountPageState.initial()) {
     on<_FetchAccountData>((event, emit) async {
       emit(state.copyWith(isLoading: true));
 

@@ -138,7 +138,7 @@ class EditProfile extends StatelessWidget {
                           children: [
                             ChoiceButton(
                                 icon: FontAwesomeIcons.person,
-                                label: state.success!.gender!),
+                                label: state.success!.gender ?? 'NA'),
                             ChoiceButton(
                                 icon: FontAwesomeIcons.personPraying,
                                 label: state.success!.faith!),

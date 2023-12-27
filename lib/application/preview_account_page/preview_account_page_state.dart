@@ -2,14 +2,14 @@ part of 'preview_account_page_bloc.dart';
 
 @freezed
 class PreviewAccountPageState with _$PreviewAccountPageState {
-  const factory PreviewAccountPageState.initial({
-
-
-
+  const factory PreviewAccountPageState({
     String? errorMessage,
     bool? isLoading,
     String? token,
-GetUserDataResponseModel? success,
+    GetUserDataResponseModel? success,
+  }) = _PreviewAccountPageState;
 
-  }) = _Initial;
+  factory PreviewAccountPageState.initial() {
+    return const PreviewAccountPageState(isLoading: false);
+  }
 }
