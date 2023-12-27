@@ -1,0 +1,65 @@
+import 'dart:developer';
+
+import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:honeybee/domain/models/search_filter_request_model/search_filter_request_model.dart';
+import 'package:honeybee/domain/models/search_filter_response_model/search_filter_response_model.dart';
+import 'package:honeybee/infrastructure/api_services.dart';
+
+part 'search_page_event.dart';
+part 'search_page_state.dart';
+part 'search_page_bloc.freezed.dart';
+
+class SearchPageBloc extends Bloc<SearchPageEvent, SearchPageState> {
+  SearchPageBloc() : super(SearchPageState.initial()) {
+    on<_SearchData>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+
+      log(event.controllerValue!);
+
+      SearchFilterRequestModel request = SearchFilterRequestModel(
+          fullName: event.controllerValue,
+          drinking: '',
+          faith: '',
+          location: '',
+          realationshipStatus: '',
+          smoking: '',
+          ageMax: 100,
+          ageMin: 0);
+
+      final result = await ApiServices.searchFilterData(request);
+
+      result.fold((failure) {
+        // log('no response from api call in getuserdata page bloc');
+
+        emit(state.copyWith(errorMessage: failure.errorMessage));
+        emit(state.copyWith(errorMessage: null));
+      }, (success) {
+        // log('success ...entered. inn get user data.');
+        if (success.profiles != null) {
+          // log('response model  not null.....in matches page ...');
+          emit(state.copyWith(isLoading: false));
+
+          emit(state.copyWith(searchResult: success));
+        } else {
+//           // failure from backend
+          emit(state.copyWith(
+              errorMessage:
+                  'OOPS.. Something went wrong.. Please try again later...'));
+          emit(state.copyWith(errorMessage: null));
+        }
+      });
+    });
+  }
+}
+
+
+// searchFromStringList(String query, stringList) {
+//     List suggestions = stringList.where((stringElement) {
+//       String findString = query.toLowerCase();
+//       final mainString = stringElement.toString().toLowerCase();
+//       return mainString.contains(findString);
+//     }).toList();
+
+//     return suggestions;
+//   }

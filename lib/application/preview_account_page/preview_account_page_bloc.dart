@@ -37,6 +37,8 @@ class PreviewAccountPageBloc
                   'OOPS.. Something went wrong.. Please try again later...'));
           emit(state.copyWith(errorMessage: null));
         }
+
+        
       });
     });
   }

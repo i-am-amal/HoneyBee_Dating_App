@@ -12,6 +12,7 @@ class CustomTextFormFiled extends StatelessWidget {
     this.onTap,
     this.readonly,
     this.errorMessage,
+    this.buttonOnTap,
     super.key,
   });
 
@@ -26,6 +27,7 @@ class CustomTextFormFiled extends StatelessWidget {
   final IconData? icon;
   final bool? readonly;
   final String? errorMessage;
+  final Function? buttonOnTap;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,13 @@ class CustomTextFormFiled extends StatelessWidget {
             keyboardType: keyboardType,
             readOnly: readonly ?? false,
             decoration: InputDecoration(
-              prefixIcon: Icon(icon),
+              prefixIcon: IconButton(
+                  onPressed: () {
+                    if (buttonOnTap != null) {
+                      buttonOnTap!();
+                    }
+                  },
+                  icon: Icon(icon)),
               labelText: text,
               contentPadding: const EdgeInsets.symmetric(vertical: 8.0),
               enabledBorder: OutlineInputBorder(

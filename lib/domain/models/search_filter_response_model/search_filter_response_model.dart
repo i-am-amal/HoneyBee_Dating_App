@@ -68,3 +68,22 @@ class SearchFilterResponseModel {
 
   Map<String, dynamic> toJson() => _$SearchFilterResponseModelToJson(this);
 }
+
+
+class SearchFilterListResponseModel {
+  List<SearchFilterResponseModel>? profiles;
+
+  SearchFilterListResponseModel({this.profiles});
+
+  factory SearchFilterListResponseModel.fromJson(List<dynamic> json) {
+    return SearchFilterListResponseModel(
+      profiles: json.map((item) => SearchFilterResponseModel.fromJson(item)).toList(),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'profiles': profiles?.map((profile) => profile.toJson()).toList(),
+    };
+  }
+}

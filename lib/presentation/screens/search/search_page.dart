@@ -1,15 +1,16 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/search_page/search_page_bloc.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
-import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
-import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+import 'package:honeybee/presentation/widgets/search_widget/search_widget.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
 
-import '../../widgets/customModalBottomSheet/custom_modal_bottom_sheet.dart';
-
 class SearchPage extends StatelessWidget {
-  const SearchPage({super.key});
+  SearchPage({super.key});
+
+  final _controllerValue = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,74 +32,37 @@ class SearchPage extends StatelessWidget {
                     onpressed: () {
                       Navigator.pop(context);
                     }),
-                BorderlineButton(
-                    icon: Icons.tune,
-                    onpressed: () {
-                      showModalBottomSheet(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return const CustomModalBottomSheet();
-                        },
-                      );
-                    }),
+                // BorderlineButton(
+                //     icon: Icons.tune,
+                //     onpressed: () {
+                //       showModalBottomSheet(
+                //         context: context,
+                //         builder: (BuildContext context) {
+                //           return const CustomModalBottomSheet();
+                //         },
+                //       );
+                //     }),
               ],
             ),
           ),
           SizedBox(
             height: height * 0.01,
           ),
-          const CustomTextFormFiled(
-            text: 'Search',
+          CustomTextFormFiled(
+            // text: '',
+            editController: _controllerValue,
+            buttonOnTap: () {
+              BlocProvider.of<SearchPageBloc>(context)
+                  .add(SearchPageEvent.searchData(_controllerValue.text));
+            },
+            onChanged: (value) {},
             icon: Icons.search,
           ),
           SizedBox(
             height: height * 0.01,
           ),
-          const SearchWidget()
+          SearchWidget()
         ],
-      ),
-    );
-  }
-}
-
-class SearchWidget extends StatelessWidget {
-  const SearchWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: 30, // Number of users
-        itemBuilder: (BuildContext context, int index) {
-          return Column(
-            children: [
-              ListTile(
-                leading: const CircleAvatar(
-                  radius: 30, // Adjust size as needed
-                  backgroundImage: AssetImage('assets/images/profile.jpg'),
-                ),
-
-                title: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: CustomText(
-                    text: 'John',
-                    fontWeight: FontWeight.bold,
-                    fontFamily: CustomFont.textFont,
-                  ),
-                ),
-                // Replace with actual user name
-                onTap: () {
-                  // Handle tap on user
-                  log('Tapped on user $index');
-                },
-              ),
-              const Divider(),
-              const SizedBox(
-                height: 10,
-              )
-            ],
-          );
-        },
       ),
     );
   }

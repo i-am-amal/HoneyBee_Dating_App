@@ -725,27 +725,31 @@ class ApiServices {
 
 ////////////////////---------SearchFilter----------/////////////////////////////
 
-  static Future<Either<ApiFailures, SearchFilterResponseModel>>
+  static Future<Either<ApiFailures, SearchFilterListResponseModel>>
       searchFilterData(SearchFilterRequestModel request) async {
     try {
       final apiToken = await getTokenFromPrefs();
 
-      final response = await http.post(
+      final Response response = await http.post(
         Uri.parse(Config.searchFilterApi),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
+          // 'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
-
+      log(response.body);
+      log("response.statusCode = ${response.statusCode}");
       if (response.statusCode == 200) {
-        Map<String, dynamic> jsonMap = jsonDecode(response.body);
+        // Map<String, dynamic> jsonMap = jsonDecode(response.body);
 
-        SearchFilterResponseModel result =
-            SearchFilterResponseModel.fromJson(jsonMap);
+        // SearchFilterResponseModel result =
+        //     SearchFilterResponseModel.fromJson(jsonMap);
 
-        log(jsonMap.toString());
+        SearchFilterListResponseModel result =
+            SearchFilterListResponseModel.fromJson(jsonDecode(response.body));
+
+        log(result.toString());
 
         return right(result);
       } else {

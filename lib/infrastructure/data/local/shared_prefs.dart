@@ -19,3 +19,12 @@ Future<void> removeTokenFromPrefs() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   await prefs.remove('token');
 }
+
+
+
+
+
+
+
+
+
