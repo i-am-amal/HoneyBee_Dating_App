@@ -1,21 +1,19 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
+import 'package:honeybee/domain/models/matches_response_model/matches_response_model.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 class UserProfilePreviewPage extends StatelessWidget {
-  const UserProfilePreviewPage({super.key, required this.userId});
+  const UserProfilePreviewPage({super.key, required this.userDetails});
 
-  final String userId;
+  final MatchesResponseModel userDetails;
 
   @override
   Widget build(BuildContext context) {
-    log('$userId---------------userid in preview account----------');
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -70,8 +68,9 @@ class UserProfilePreviewPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Image.asset(
-                      'assets/images/profile.jpg',
+                    child: Image.network(
+                      userDetails.profilePic!,
+                      // 'assets/images/profile.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -86,8 +85,9 @@ class UserProfilePreviewPage extends StatelessWidget {
                             SizedBox(
                               width: width * 0.1,
                             ),
-                            const CustomText(
-                              text: 'Full Name , age',
+                            CustomText(
+                              text:
+                                  '${userDetails.fullName}, ${userDetails.age}',
                               fontFamily: CustomFont.headTextFont,
                               fontsize: 20,
                               fontWeight: FontWeight.bold,
@@ -102,8 +102,8 @@ class UserProfilePreviewPage extends StatelessWidget {
                             SizedBox(
                               width: width * 0.1,
                             ),
-                            const CustomText(
-                              text: 'Location',
+                            CustomText(
+                              text: userDetails.location,
                               fontFamily: CustomFont.headTextFont,
                               fontsize: 15,
                               fontWeight: FontWeight.bold,
@@ -118,10 +118,9 @@ class UserProfilePreviewPage extends StatelessWidget {
                             SizedBox(
                               width: width * 0.1,
                             ),
-                            const Flexible(
+                            Flexible(
                               child: CustomText(
-                                text:
-                                    'This is a dummy text that showing the bio of the user',
+                                text: userDetails.bio,
                                 fontFamily: CustomFont.headTextFont,
                                 fontsize: 15,
                               ),
@@ -131,33 +130,34 @@ class UserProfilePreviewPage extends StatelessWidget {
                         SizedBox(
                           height: height * 0.03,
                         ),
-                        const Row(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ChoiceButton(
-                                icon: FontAwesomeIcons.person, label: 'Gender'),
+                                icon: FontAwesomeIcons.person,
+                                label: userDetails.gender ?? 'NA'),
                             ChoiceButton(
                                 icon: FontAwesomeIcons.personPraying,
-                                label: 'Faith'),
+                                label: userDetails.faith!),
                           ],
                         ),
                         SizedBox(height: height * 0.03),
-                        const ChoiceButton(
+                        ChoiceButton(
                             icon: FontAwesomeIcons.heart,
-                            label: 'Relationship status'),
+                            label: userDetails.realationshipStatus!),
                         SizedBox(height: height * 0.03),
-                        const Row(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ChoiceButton(
                                 icon: FontAwesomeIcons.smoking,
-                                label: 'Smoking'),
+                                label: userDetails.smoking!),
                             ChoiceButton(
                                 icon: FontAwesomeIcons.wineGlass,
-                                label: 'Drinking'),
+                                label: userDetails.drinking!),
                           ],
                         ),
-                        SizedBox(height: height * 0.05),
+                        // SizedBox(height: height * 0.05),
                         // MainCustomButton(
                         //   customtext: 'Create Account',
                         //   height: height * 0.015,
@@ -171,7 +171,7 @@ class UserProfilePreviewPage extends StatelessWidget {
                         //     );
                         //   },
                         // ),
-                        SizedBox(height: height * 0.1),
+                        SizedBox(height: height * 0.05),
                       ],
                     ),
                   )

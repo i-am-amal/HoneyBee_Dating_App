@@ -53,7 +53,7 @@ class ProfileGrid extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => UserProfilePreviewPage(
-                                userId: state.profile!.profiles![index].id!,
+                                userDetails: state.profile!.profiles![index],
                               )),
                     );
                   },
