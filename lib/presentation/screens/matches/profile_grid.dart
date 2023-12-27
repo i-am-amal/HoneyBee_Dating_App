@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
+import 'package:honeybee/presentation/screens/profile/user_profile_view_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
@@ -45,7 +46,17 @@ class ProfileGrid extends StatelessWidget {
               itemCount: state.profile!.profiles!.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    log('logged on on tap');
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => UserProfilePreviewPage(
+                                userId: state.profile!.profiles![index].id!,
+                              )),
+                    );
+                  },
                   child: Card(
                     elevation: 5,
                     child: Stack(
@@ -80,7 +91,9 @@ class ProfileGrid extends StatelessWidget {
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                log('logged on on onpressed');
+                              },
                             ),
                           ),
                         ),

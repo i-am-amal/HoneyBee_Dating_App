@@ -77,12 +77,10 @@ class AllLikedUsersPageBloc
       emit(state.copyWith(updateState: true));
     });
 
-    on<_BlockUserEvent>((event, emit)async {
+    on<_BlockUserEvent>((event, emit) async {
+      emit(state.copyWith(isBlocked: false));
 
-
-
-BlockUserRequestModel request =
-          BlockUserRequestModel(user: event.userId);
+      BlockUserRequestModel request = BlockUserRequestModel(user: event.userId);
 
       final result = await ApiServices.blockUserData(request);
       log(result.toString());
@@ -100,6 +98,8 @@ BlockUserRequestModel request =
           // log(success.toString());
           // emit(state.copyWith(updateState: true));
           // log(state.updateState.toString());
+          emit(state.copyWith(isBlocked: true));
+
           emit(state.copyWith(userId: success.id));
         } else {
           // failure from backend
@@ -109,9 +109,39 @@ BlockUserRequestModel request =
           emit(state.copyWith(errorMessage: null));
         }
       });
+    });
 
+    on<_UnBlockUserEvent>((event, emit) async {
+      BlockUserRequestModel request = BlockUserRequestModel(user: event.userId);
 
+      emit(state.copyWith(isBlocked: true));
 
+      final result = await ApiServices.blockUserData(request);
+      log(result.toString());
+
+      log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>unblock the user event in liked users page>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+      result.fold((failure) {
+        log('no response from api call');
+
+        emit(state.copyWith(errorMessage: failure.errorMessage));
+        emit(state.copyWith(errorMessage: null));
+      }, (success) {
+        log('success ...entered...un block user event...');
+        if (success.id != null) {
+          log('response model  not null..... un blocked the user...');
+          // log(success.toString());
+          // emit(state.copyWith(updateState: true));
+          // log(state.updateState.toString());
+          emit(state.copyWith(isBlocked: false));
+          emit(state.copyWith(userId: success.id));
+        } else {
+          // failure from backend
+          emit(state.copyWith(
+              errorMessage:
+                  'OOPS.. Something went wrong.. Please try again later...'));
+          emit(state.copyWith(errorMessage: null));
+        }
+      });
     });
   }
 }

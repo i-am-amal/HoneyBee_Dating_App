@@ -6,11 +6,13 @@ class AllLikedUsersPageState with _$AllLikedUsersPageState {
     String? errorMessage,
     bool? isLoading,
     bool? updateState,
+        bool? isBlocked,
+
     String? userId,
     AllLikedUsersListResponseModel? profile,
   }) = _MatchesPageState;
 
   factory AllLikedUsersPageState.initial() {
-    return const AllLikedUsersPageState(isLoading: false,updateState:false);
+    return const AllLikedUsersPageState(isLoading: false,updateState:false,isBlocked:false);
   }
 }

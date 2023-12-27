@@ -111,20 +111,48 @@ class LikedProfileGrid extends StatelessWidget {
                               height: 35,
                               color: Colors.black.withOpacity(0.5),
                               child: TextButton(
-                                child: const Text(
-                                  'Block User',
-                                  style: TextStyle(
+                                child: Text(
+                                  // 'Block User',
+
+                                  state.profile!.profiles![index]
+                                              .blockedUsers ==
+                                          null
+                                      ? 'Unblock User'
+                                      : 'Block User',
+
+                                  style: const TextStyle(
                                     color: Colors.red,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 onPressed: () {
-                                  BlocProvider.of<AllLikedUsersPageBloc>(
-                                          context)
-                                      .add(
-                                          AllLikedUsersPageEvent.blockUserEvent(
-                                              state.profile!.profiles![index]
-                                                  .id));
+                                  if (state.isBlocked == false) {
+                                    BlocProvider.of<AllLikedUsersPageBloc>(
+                                            context)
+                                        .add(AllLikedUsersPageEvent
+                                            .blockUserEvent(state
+                                                .profile!.profiles![index].id));
+                                    // Future.delayed(const Duration(seconds: 4),
+                                    //     () {
+                                    //   BlocProvider.of<AllLikedUsersPageBloc>(
+                                    //           context)
+                                    //       .add(const AllLikedUsersPageEvent
+                                    //           .fetchLikedUsersData());
+                                    // });
+                                  } else {
+                                    BlocProvider.of<AllLikedUsersPageBloc>(
+                                            context)
+                                        .add(AllLikedUsersPageEvent
+                                            .unBlockUserEvent(state
+                                                .profile!.profiles![index].id));
+                                    // Future.delayed(const Duration(seconds: 4),
+                                    //     () {
+                                    //   BlocProvider.of<AllLikedUsersPageBloc>(
+                                    //           context)
+                                    //       .add(const AllLikedUsersPageEvent
+                                    //           .fetchLikedUsersData());
+                                    // });
+                                  }
                                 },
                               ),
                             ),

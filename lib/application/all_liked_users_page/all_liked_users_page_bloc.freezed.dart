@@ -21,6 +21,7 @@ mixin _$AllLikedUsersPageEvent {
     required TResult Function() fetchLikedUsersData,
     required TResult Function(String? userId) dislikeEvent,
     required TResult Function(String? userId) blockUserEvent,
+    required TResult Function(String? userId) unBlockUserEvent,
     required TResult Function() resyncLikedUsersData,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$AllLikedUsersPageEvent {
     TResult? Function()? fetchLikedUsersData,
     TResult? Function(String? userId)? dislikeEvent,
     TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function(String? userId)? unBlockUserEvent,
     TResult? Function()? resyncLikedUsersData,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$AllLikedUsersPageEvent {
     TResult Function()? fetchLikedUsersData,
     TResult Function(String? userId)? dislikeEvent,
     TResult Function(String? userId)? blockUserEvent,
+    TResult Function(String? userId)? unBlockUserEvent,
     TResult Function()? resyncLikedUsersData,
     required TResult orElse(),
   }) =>
@@ -46,6 +49,7 @@ mixin _$AllLikedUsersPageEvent {
     required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
     required TResult Function(_DislikeEvent value) dislikeEvent,
     required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_UnBlockUserEvent value) unBlockUserEvent,
     required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +58,7 @@ mixin _$AllLikedUsersPageEvent {
     TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
     TResult? Function(_DislikeEvent value)? dislikeEvent,
     TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_UnBlockUserEvent value)? unBlockUserEvent,
     TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +67,7 @@ mixin _$AllLikedUsersPageEvent {
     TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
     TResult Function(_DislikeEvent value)? dislikeEvent,
     TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_UnBlockUserEvent value)? unBlockUserEvent,
     TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
     required TResult orElse(),
   }) =>
@@ -128,6 +134,7 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
     required TResult Function() fetchLikedUsersData,
     required TResult Function(String? userId) dislikeEvent,
     required TResult Function(String? userId) blockUserEvent,
+    required TResult Function(String? userId) unBlockUserEvent,
     required TResult Function() resyncLikedUsersData,
   }) {
     return fetchLikedUsersData();
@@ -139,6 +146,7 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
     TResult? Function()? fetchLikedUsersData,
     TResult? Function(String? userId)? dislikeEvent,
     TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function(String? userId)? unBlockUserEvent,
     TResult? Function()? resyncLikedUsersData,
   }) {
     return fetchLikedUsersData?.call();
@@ -150,6 +158,7 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
     TResult Function()? fetchLikedUsersData,
     TResult Function(String? userId)? dislikeEvent,
     TResult Function(String? userId)? blockUserEvent,
+    TResult Function(String? userId)? unBlockUserEvent,
     TResult Function()? resyncLikedUsersData,
     required TResult orElse(),
   }) {
@@ -165,6 +174,7 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
     required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
     required TResult Function(_DislikeEvent value) dislikeEvent,
     required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_UnBlockUserEvent value) unBlockUserEvent,
     required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
   }) {
     return fetchLikedUsersData(this);
@@ -176,6 +186,7 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
     TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
     TResult? Function(_DislikeEvent value)? dislikeEvent,
     TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_UnBlockUserEvent value)? unBlockUserEvent,
     TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
   }) {
     return fetchLikedUsersData?.call(this);
@@ -187,6 +198,7 @@ class _$_FetchLikedUsersData implements _FetchLikedUsersData {
     TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
     TResult Function(_DislikeEvent value)? dislikeEvent,
     TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_UnBlockUserEvent value)? unBlockUserEvent,
     TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
     required TResult orElse(),
   }) {
@@ -268,6 +280,7 @@ class _$_DislikeEvent implements _DislikeEvent {
     required TResult Function() fetchLikedUsersData,
     required TResult Function(String? userId) dislikeEvent,
     required TResult Function(String? userId) blockUserEvent,
+    required TResult Function(String? userId) unBlockUserEvent,
     required TResult Function() resyncLikedUsersData,
   }) {
     return dislikeEvent(userId);
@@ -279,6 +292,7 @@ class _$_DislikeEvent implements _DislikeEvent {
     TResult? Function()? fetchLikedUsersData,
     TResult? Function(String? userId)? dislikeEvent,
     TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function(String? userId)? unBlockUserEvent,
     TResult? Function()? resyncLikedUsersData,
   }) {
     return dislikeEvent?.call(userId);
@@ -290,6 +304,7 @@ class _$_DislikeEvent implements _DislikeEvent {
     TResult Function()? fetchLikedUsersData,
     TResult Function(String? userId)? dislikeEvent,
     TResult Function(String? userId)? blockUserEvent,
+    TResult Function(String? userId)? unBlockUserEvent,
     TResult Function()? resyncLikedUsersData,
     required TResult orElse(),
   }) {
@@ -305,6 +320,7 @@ class _$_DislikeEvent implements _DislikeEvent {
     required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
     required TResult Function(_DislikeEvent value) dislikeEvent,
     required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_UnBlockUserEvent value) unBlockUserEvent,
     required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
   }) {
     return dislikeEvent(this);
@@ -316,6 +332,7 @@ class _$_DislikeEvent implements _DislikeEvent {
     TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
     TResult? Function(_DislikeEvent value)? dislikeEvent,
     TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_UnBlockUserEvent value)? unBlockUserEvent,
     TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
   }) {
     return dislikeEvent?.call(this);
@@ -327,6 +344,7 @@ class _$_DislikeEvent implements _DislikeEvent {
     TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
     TResult Function(_DislikeEvent value)? dislikeEvent,
     TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_UnBlockUserEvent value)? unBlockUserEvent,
     TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
     required TResult orElse(),
   }) {
@@ -413,6 +431,7 @@ class _$_BlockUserEvent implements _BlockUserEvent {
     required TResult Function() fetchLikedUsersData,
     required TResult Function(String? userId) dislikeEvent,
     required TResult Function(String? userId) blockUserEvent,
+    required TResult Function(String? userId) unBlockUserEvent,
     required TResult Function() resyncLikedUsersData,
   }) {
     return blockUserEvent(userId);
@@ -424,6 +443,7 @@ class _$_BlockUserEvent implements _BlockUserEvent {
     TResult? Function()? fetchLikedUsersData,
     TResult? Function(String? userId)? dislikeEvent,
     TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function(String? userId)? unBlockUserEvent,
     TResult? Function()? resyncLikedUsersData,
   }) {
     return blockUserEvent?.call(userId);
@@ -435,6 +455,7 @@ class _$_BlockUserEvent implements _BlockUserEvent {
     TResult Function()? fetchLikedUsersData,
     TResult Function(String? userId)? dislikeEvent,
     TResult Function(String? userId)? blockUserEvent,
+    TResult Function(String? userId)? unBlockUserEvent,
     TResult Function()? resyncLikedUsersData,
     required TResult orElse(),
   }) {
@@ -450,6 +471,7 @@ class _$_BlockUserEvent implements _BlockUserEvent {
     required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
     required TResult Function(_DislikeEvent value) dislikeEvent,
     required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_UnBlockUserEvent value) unBlockUserEvent,
     required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
   }) {
     return blockUserEvent(this);
@@ -461,6 +483,7 @@ class _$_BlockUserEvent implements _BlockUserEvent {
     TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
     TResult? Function(_DislikeEvent value)? dislikeEvent,
     TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_UnBlockUserEvent value)? unBlockUserEvent,
     TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
   }) {
     return blockUserEvent?.call(this);
@@ -472,6 +495,7 @@ class _$_BlockUserEvent implements _BlockUserEvent {
     TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
     TResult Function(_DislikeEvent value)? dislikeEvent,
     TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_UnBlockUserEvent value)? unBlockUserEvent,
     TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
     required TResult orElse(),
   }) {
@@ -488,6 +512,157 @@ abstract class _BlockUserEvent implements AllLikedUsersPageEvent {
   String? get userId;
   @JsonKey(ignore: true)
   _$$_BlockUserEventCopyWith<_$_BlockUserEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UnBlockUserEventCopyWith<$Res> {
+  factory _$$_UnBlockUserEventCopyWith(
+          _$_UnBlockUserEvent value, $Res Function(_$_UnBlockUserEvent) then) =
+      __$$_UnBlockUserEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? userId});
+}
+
+/// @nodoc
+class __$$_UnBlockUserEventCopyWithImpl<$Res>
+    extends _$AllLikedUsersPageEventCopyWithImpl<$Res, _$_UnBlockUserEvent>
+    implements _$$_UnBlockUserEventCopyWith<$Res> {
+  __$$_UnBlockUserEventCopyWithImpl(
+      _$_UnBlockUserEvent _value, $Res Function(_$_UnBlockUserEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = freezed,
+  }) {
+    return _then(_$_UnBlockUserEvent(
+      freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UnBlockUserEvent implements _UnBlockUserEvent {
+  const _$_UnBlockUserEvent(this.userId);
+
+  @override
+  final String? userId;
+
+  @override
+  String toString() {
+    return 'AllLikedUsersPageEvent.unBlockUserEvent(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UnBlockUserEvent &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UnBlockUserEventCopyWith<_$_UnBlockUserEvent> get copyWith =>
+      __$$_UnBlockUserEventCopyWithImpl<_$_UnBlockUserEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLikedUsersData,
+    required TResult Function(String? userId) dislikeEvent,
+    required TResult Function(String? userId) blockUserEvent,
+    required TResult Function(String? userId) unBlockUserEvent,
+    required TResult Function() resyncLikedUsersData,
+  }) {
+    return unBlockUserEvent(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLikedUsersData,
+    TResult? Function(String? userId)? dislikeEvent,
+    TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function(String? userId)? unBlockUserEvent,
+    TResult? Function()? resyncLikedUsersData,
+  }) {
+    return unBlockUserEvent?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLikedUsersData,
+    TResult Function(String? userId)? dislikeEvent,
+    TResult Function(String? userId)? blockUserEvent,
+    TResult Function(String? userId)? unBlockUserEvent,
+    TResult Function()? resyncLikedUsersData,
+    required TResult orElse(),
+  }) {
+    if (unBlockUserEvent != null) {
+      return unBlockUserEvent(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
+    required TResult Function(_DislikeEvent value) dislikeEvent,
+    required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_UnBlockUserEvent value) unBlockUserEvent,
+    required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
+  }) {
+    return unBlockUserEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult? Function(_DislikeEvent value)? dislikeEvent,
+    TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_UnBlockUserEvent value)? unBlockUserEvent,
+    TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
+  }) {
+    return unBlockUserEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
+    TResult Function(_DislikeEvent value)? dislikeEvent,
+    TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_UnBlockUserEvent value)? unBlockUserEvent,
+    TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
+    required TResult orElse(),
+  }) {
+    if (unBlockUserEvent != null) {
+      return unBlockUserEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnBlockUserEvent implements AllLikedUsersPageEvent {
+  const factory _UnBlockUserEvent(final String? userId) = _$_UnBlockUserEvent;
+
+  String? get userId;
+  @JsonKey(ignore: true)
+  _$$_UnBlockUserEventCopyWith<_$_UnBlockUserEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -532,6 +707,7 @@ class _$_ResyncLikedUsersData implements _ResyncLikedUsersData {
     required TResult Function() fetchLikedUsersData,
     required TResult Function(String? userId) dislikeEvent,
     required TResult Function(String? userId) blockUserEvent,
+    required TResult Function(String? userId) unBlockUserEvent,
     required TResult Function() resyncLikedUsersData,
   }) {
     return resyncLikedUsersData();
@@ -543,6 +719,7 @@ class _$_ResyncLikedUsersData implements _ResyncLikedUsersData {
     TResult? Function()? fetchLikedUsersData,
     TResult? Function(String? userId)? dislikeEvent,
     TResult? Function(String? userId)? blockUserEvent,
+    TResult? Function(String? userId)? unBlockUserEvent,
     TResult? Function()? resyncLikedUsersData,
   }) {
     return resyncLikedUsersData?.call();
@@ -554,6 +731,7 @@ class _$_ResyncLikedUsersData implements _ResyncLikedUsersData {
     TResult Function()? fetchLikedUsersData,
     TResult Function(String? userId)? dislikeEvent,
     TResult Function(String? userId)? blockUserEvent,
+    TResult Function(String? userId)? unBlockUserEvent,
     TResult Function()? resyncLikedUsersData,
     required TResult orElse(),
   }) {
@@ -569,6 +747,7 @@ class _$_ResyncLikedUsersData implements _ResyncLikedUsersData {
     required TResult Function(_FetchLikedUsersData value) fetchLikedUsersData,
     required TResult Function(_DislikeEvent value) dislikeEvent,
     required TResult Function(_BlockUserEvent value) blockUserEvent,
+    required TResult Function(_UnBlockUserEvent value) unBlockUserEvent,
     required TResult Function(_ResyncLikedUsersData value) resyncLikedUsersData,
   }) {
     return resyncLikedUsersData(this);
@@ -580,6 +759,7 @@ class _$_ResyncLikedUsersData implements _ResyncLikedUsersData {
     TResult? Function(_FetchLikedUsersData value)? fetchLikedUsersData,
     TResult? Function(_DislikeEvent value)? dislikeEvent,
     TResult? Function(_BlockUserEvent value)? blockUserEvent,
+    TResult? Function(_UnBlockUserEvent value)? unBlockUserEvent,
     TResult? Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
   }) {
     return resyncLikedUsersData?.call(this);
@@ -591,6 +771,7 @@ class _$_ResyncLikedUsersData implements _ResyncLikedUsersData {
     TResult Function(_FetchLikedUsersData value)? fetchLikedUsersData,
     TResult Function(_DislikeEvent value)? dislikeEvent,
     TResult Function(_BlockUserEvent value)? blockUserEvent,
+    TResult Function(_UnBlockUserEvent value)? unBlockUserEvent,
     TResult Function(_ResyncLikedUsersData value)? resyncLikedUsersData,
     required TResult orElse(),
   }) {
@@ -610,6 +791,7 @@ mixin _$AllLikedUsersPageState {
   String? get errorMessage => throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
   bool? get updateState => throw _privateConstructorUsedError;
+  bool? get isBlocked => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
   AllLikedUsersListResponseModel? get profile =>
       throw _privateConstructorUsedError;
@@ -629,6 +811,7 @@ abstract class $AllLikedUsersPageStateCopyWith<$Res> {
       {String? errorMessage,
       bool? isLoading,
       bool? updateState,
+      bool? isBlocked,
       String? userId,
       AllLikedUsersListResponseModel? profile});
 }
@@ -650,6 +833,7 @@ class _$AllLikedUsersPageStateCopyWithImpl<$Res,
     Object? errorMessage = freezed,
     Object? isLoading = freezed,
     Object? updateState = freezed,
+    Object? isBlocked = freezed,
     Object? userId = freezed,
     Object? profile = freezed,
   }) {
@@ -665,6 +849,10 @@ class _$AllLikedUsersPageStateCopyWithImpl<$Res,
       updateState: freezed == updateState
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBlocked: freezed == isBlocked
+          ? _value.isBlocked
+          : isBlocked // ignore: cast_nullable_to_non_nullable
               as bool?,
       userId: freezed == userId
           ? _value.userId
@@ -690,6 +878,7 @@ abstract class _$$_MatchesPageStateCopyWith<$Res>
       {String? errorMessage,
       bool? isLoading,
       bool? updateState,
+      bool? isBlocked,
       String? userId,
       AllLikedUsersListResponseModel? profile});
 }
@@ -708,6 +897,7 @@ class __$$_MatchesPageStateCopyWithImpl<$Res>
     Object? errorMessage = freezed,
     Object? isLoading = freezed,
     Object? updateState = freezed,
+    Object? isBlocked = freezed,
     Object? userId = freezed,
     Object? profile = freezed,
   }) {
@@ -723,6 +913,10 @@ class __$$_MatchesPageStateCopyWithImpl<$Res>
       updateState: freezed == updateState
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBlocked: freezed == isBlocked
+          ? _value.isBlocked
+          : isBlocked // ignore: cast_nullable_to_non_nullable
               as bool?,
       userId: freezed == userId
           ? _value.userId
@@ -743,6 +937,7 @@ class _$_MatchesPageState implements _MatchesPageState {
       {this.errorMessage,
       this.isLoading,
       this.updateState,
+      this.isBlocked,
       this.userId,
       this.profile});
 
@@ -753,13 +948,15 @@ class _$_MatchesPageState implements _MatchesPageState {
   @override
   final bool? updateState;
   @override
+  final bool? isBlocked;
+  @override
   final String? userId;
   @override
   final AllLikedUsersListResponseModel? profile;
 
   @override
   String toString() {
-    return 'AllLikedUsersPageState(errorMessage: $errorMessage, isLoading: $isLoading, updateState: $updateState, userId: $userId, profile: $profile)';
+    return 'AllLikedUsersPageState(errorMessage: $errorMessage, isLoading: $isLoading, updateState: $updateState, isBlocked: $isBlocked, userId: $userId, profile: $profile)';
   }
 
   @override
@@ -773,13 +970,15 @@ class _$_MatchesPageState implements _MatchesPageState {
                 other.isLoading == isLoading) &&
             (identical(other.updateState, updateState) ||
                 other.updateState == updateState) &&
+            (identical(other.isBlocked, isBlocked) ||
+                other.isBlocked == isBlocked) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.profile, profile) || other.profile == profile));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, errorMessage, isLoading, updateState, userId, profile);
+  int get hashCode => Object.hash(runtimeType, errorMessage, isLoading,
+      updateState, isBlocked, userId, profile);
 
   @JsonKey(ignore: true)
   @override
@@ -793,6 +992,7 @@ abstract class _MatchesPageState implements AllLikedUsersPageState {
       {final String? errorMessage,
       final bool? isLoading,
       final bool? updateState,
+      final bool? isBlocked,
       final String? userId,
       final AllLikedUsersListResponseModel? profile}) = _$_MatchesPageState;
 
@@ -802,6 +1002,8 @@ abstract class _MatchesPageState implements AllLikedUsersPageState {
   bool? get isLoading;
   @override
   bool? get updateState;
+  @override
+  bool? get isBlocked;
   @override
   String? get userId;
   @override

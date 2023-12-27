@@ -653,7 +653,7 @@ class ApiServices {
     }
   }
 
-////////////////////---------BlockUser----------/////////////////////////////
+////////////////////---------Block and Unblock User----------/////////////////////////////
 
   static Future<Either<ApiFailures, BlockUserResponseModel>> blockUserData(
       BlockUserRequestModel request) async {
@@ -663,7 +663,7 @@ class ApiServices {
       final response = await http.put(
         Uri.parse(Config.blockUserApi),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
+          // 'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
         body: request.toJson(),

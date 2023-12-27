@@ -1,24 +1,28 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
+import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
-class ProfilePreview extends StatelessWidget {
-  const ProfilePreview({super.key});
+class UserProfilePreviewPage extends StatelessWidget {
+  const UserProfilePreviewPage({super.key, required this.userId});
+
+  final String userId;
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<PreviewAccountPageBloc>(context)
-        .add(const PreviewAccountPageEvent.fetchAccountData());
+    log('$userId---------------userid in preview account----------');
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          child: BlocBuilder<PreviewAccountPageBloc, PreviewAccountPageState>(
+          child: BlocBuilder<MatchesPageBloc, MatchesPageState>(
             builder: (context, state) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,7 +44,7 @@ class ProfilePreview extends StatelessWidget {
                         width: width * 0.09,
                       ),
                       const CustomText(
-                        text: 'My Account',
+                        text: 'Preview ',
                         fontFamily: CustomFont.headTextFont,
                         fontWeight: FontWeight.bold,
                         fontsize: 20,
@@ -66,9 +70,8 @@ class ProfilePreview extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Image.network(
-                      // 'assets/images/profile.jpg',
-                      state.success!.profilePic!,
+                    child: Image.asset(
+                      'assets/images/profile.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -83,9 +86,8 @@ class ProfilePreview extends StatelessWidget {
                             SizedBox(
                               width: width * 0.1,
                             ),
-                            CustomText(
-                              text:
-                                  '${state.success!.fullName!} , ${state.success!.age}',
+                            const CustomText(
+                              text: 'Full Name , age',
                               fontFamily: CustomFont.headTextFont,
                               fontsize: 20,
                               fontWeight: FontWeight.bold,
@@ -100,8 +102,8 @@ class ProfilePreview extends StatelessWidget {
                             SizedBox(
                               width: width * 0.1,
                             ),
-                            CustomText(
-                              text: state.success!.location!,
+                            const CustomText(
+                              text: 'Location',
                               fontFamily: CustomFont.headTextFont,
                               fontsize: 15,
                               fontWeight: FontWeight.bold,
@@ -116,9 +118,10 @@ class ProfilePreview extends StatelessWidget {
                             SizedBox(
                               width: width * 0.1,
                             ),
-                            Flexible(
+                            const Flexible(
                               child: CustomText(
-                                text: state.success!.bio!,
+                                text:
+                                    'This is a dummy text that showing the bio of the user',
                                 fontFamily: CustomFont.headTextFont,
                                 fontsize: 15,
                               ),
@@ -128,34 +131,33 @@ class ProfilePreview extends StatelessWidget {
                         SizedBox(
                           height: height * 0.03,
                         ),
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ChoiceButton(
-                                icon: FontAwesomeIcons.person,
-                                label: state.success!.gender!),
+                                icon: FontAwesomeIcons.person, label: 'Gender'),
                             ChoiceButton(
                                 icon: FontAwesomeIcons.personPraying,
-                                label: state.success!.faith!),
+                                label: 'Faith'),
                           ],
                         ),
                         SizedBox(height: height * 0.03),
-                        ChoiceButton(
+                        const ChoiceButton(
                             icon: FontAwesomeIcons.heart,
-                            label: state.success!.realationshipStatus!),
+                            label: 'Relationship status'),
                         SizedBox(height: height * 0.03),
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ChoiceButton(
                                 icon: FontAwesomeIcons.smoking,
-                                label: state.success!.smoking!),
+                                label: 'Smoking'),
                             ChoiceButton(
                                 icon: FontAwesomeIcons.wineGlass,
-                                label: state.success!.drinking!),
+                                label: 'Drinking'),
                           ],
                         ),
-                        // SizedBox(height: height * 0.05),
+                        SizedBox(height: height * 0.05),
                         // MainCustomButton(
                         //   customtext: 'Create Account',
                         //   height: height * 0.015,
@@ -169,7 +171,7 @@ class ProfilePreview extends StatelessWidget {
                         //     );
                         //   },
                         // ),
-                        SizedBox(height: height * 0.05),
+                        SizedBox(height: height * 0.1),
                       ],
                     ),
                   )
