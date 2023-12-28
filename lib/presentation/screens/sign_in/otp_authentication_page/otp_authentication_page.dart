@@ -10,7 +10,7 @@ import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import '../../../../application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import '../../../../core/routes/navigation_functions.dart';
-import '../../../../infrastructure/data/local/shared_prefs.dart';
+import '../../../../infrastructure/shared_preferences/shared_prefs.dart';
 
 class OtpAuthenticationPage extends StatelessWidget {
   const OtpAuthenticationPage(

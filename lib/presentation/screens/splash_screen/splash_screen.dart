@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
+import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/onboarding/onboarding.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';

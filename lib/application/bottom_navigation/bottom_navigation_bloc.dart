@@ -8,6 +8,8 @@ part 'bottom_navigation_bloc.freezed.dart';
 class BottomNavigationBloc
     extends Bloc<BottomNavigationEvent, BottomNavigationState> {
   BottomNavigationBloc() : super(const _Initial(selectedIndex: 0)) {
+    //--------------->>>-----Updating Bottom Navbar----->>>------------------------
+
     on<_UpdateNavbar>((event, emit) {
       int index = event.index;
       emit(state.copyWith(selectedIndex: index));

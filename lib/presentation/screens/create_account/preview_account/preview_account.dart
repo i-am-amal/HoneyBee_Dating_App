@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/application/create_account_page/create_account_bloc.dart';
-import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
+import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';

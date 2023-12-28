@@ -3,10 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/search_page/search_page_bloc.dart';
-import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class SearchWidget extends StatelessWidget {
   const SearchWidget({super.key});
@@ -19,11 +17,11 @@ class SearchWidget extends StatelessWidget {
           return const Center(
             child: Column(
               children: [
-                const SizedBox(
+                SizedBox(
                   height: 250,
                 ),
-Text('no data')
-                
+                Text('no data')
+
                 // LoadingAnimationWidget.discreteCircle(
                 //   color: CustomColors.kRedButtonColor,
                 //   size: 70,

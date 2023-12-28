@@ -10,6 +10,6 @@ class SearchPageState with _$SearchPageState {
   }) = _SearchPageState;
 
   factory SearchPageState.initial() {
-    return const SearchPageState(isLoading: false,controllerValue: '');
+    return const SearchPageState(isLoading: false, controllerValue: '');
   }
 }

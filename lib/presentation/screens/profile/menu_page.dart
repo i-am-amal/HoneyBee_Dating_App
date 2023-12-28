@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
+import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile.dart';
 import 'package:honeybee/presentation/screens/profile/profile_preview.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';

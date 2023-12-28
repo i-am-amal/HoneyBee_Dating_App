@@ -10,7 +10,7 @@ part 'basic_info_auth_bloc.freezed.dart';
 
 class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
   BasicInfoAuthBloc() : super(const _Initial()) {
-//-->>>>>>>>>>----------profile image picking-------------->>>>>>>>>>
+//--------------->>>-----Profile Image Picking----->>>------------------------
 
     on<_PickProfileImage>((event, emit) async {
       XFile? profileImage = await CameraServices.pickImageFromGallery();
@@ -18,7 +18,7 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       emit(state.copyWith(pickedProfileImage: profileImage));
     });
 
-//-->>>>>>>>>>>----------coverimage picking-------------->>>>>>>>>>>>
+//--------------->>>-----Cover Image Picking----->>>------------------------
 
     on<_PickCoverImage>((event, emit) async {
       XFile? coverImage = await CameraServices.pickImageFromGallery();
@@ -26,7 +26,7 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       emit(state.copyWith(coverProfileImage: coverImage));
     });
 
-//-->>>>>>>>>>>----------image1 picking-------------->>>>>>>>>>>>
+//--------------->>>-----Image1 Picking----->>>------------------------
 
     on<_PickImage1>((event, emit) async {
       XFile? image1 = await CameraServices.pickImageFromGallery();
@@ -34,7 +34,7 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       emit(state.copyWith(pic1: image1));
     });
 
-//-->>>>>>>>>>>----------image2 picking-------------->>>>>>>>>>>>
+//--------------->>>-----Image2 Picking----->>>------------------------
 
     on<_PickImage2>((event, emit) async {
       XFile? image2 = await CameraServices.pickImageFromGallery();
@@ -42,7 +42,7 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       emit(state.copyWith(pic2: image2));
     });
 
-//-->>>>>>>>>>>----------image3 picking-------------->>>>>>>>>>>>
+//-->>>>>>>>>>>----------image3 Picking-------------->>>>>>>>>>>>
 
     on<_PickImage3>((event, emit) async {
       XFile? image3 = await CameraServices.pickImageFromGallery();
@@ -50,7 +50,7 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       emit(state.copyWith(pic3: image3));
     });
 
-//-->>>>>>>>>>>---------next page navigation on main page basic info----------->>>>>>>>>>>>
+//--------------->>>-----Navigation to next page with Validation ----->>>------------------------
 
     on<_NextPage>((event, emit) {
       bool isValidationSuccess = true;
@@ -78,7 +78,5 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
 
       emit(state.copyWith(isValidated: isValidationSuccess));
     });
-
-   
   }
 }

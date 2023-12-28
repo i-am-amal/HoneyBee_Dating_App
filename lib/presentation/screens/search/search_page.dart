@@ -1,9 +1,9 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/search_page/search_page_bloc.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
+import 'package:honeybee/presentation/widgets/customModalBottomSheet/custom_modal_bottom_sheet.dart';
 import 'package:honeybee/presentation/widgets/search_widget/search_widget.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
 
@@ -32,16 +32,16 @@ class SearchPage extends StatelessWidget {
                     onpressed: () {
                       Navigator.pop(context);
                     }),
-                // BorderlineButton(
-                //     icon: Icons.tune,
-                //     onpressed: () {
-                //       showModalBottomSheet(
-                //         context: context,
-                //         builder: (BuildContext context) {
-                //           return const CustomModalBottomSheet();
-                //         },
-                //       );
-                //     }),
+                BorderlineButton(
+                    icon: Icons.tune,
+                    onpressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const CustomModalBottomSheet();
+                        },
+                      );
+                    }),
               ],
             ),
           ),
@@ -61,7 +61,7 @@ class SearchPage extends StatelessWidget {
           SizedBox(
             height: height * 0.01,
           ),
-          SearchWidget()
+         const SearchWidget()
         ],
       ),
     );

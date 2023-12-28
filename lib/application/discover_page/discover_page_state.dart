@@ -7,8 +7,7 @@ class DiscoverPageState with _$DiscoverPageState {
     bool? isLoading,
     bool? updateState,
     String? userId,
-   DiscoverListResponseModel? profile,
-    
+    DiscoverListResponseModel? profile,
   }) = _DiscoverPageState;
 
   factory DiscoverPageState.initial() {

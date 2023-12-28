@@ -1,8 +1,7 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:honeybee/infrastructure/api_services.dart';
+import 'package:honeybee/infrastructure/services/api_services.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 
 part 'create_account_event.dart';
@@ -11,9 +10,10 @@ part 'create_account_bloc.freezed.dart';
 
 class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
   CreateAccountBloc() : super(CreateAccountState.initial()) {
+    //--------------->>>-----Creating Account----->>>------------------------
+
     on<CreateAccountEvent>((event, emit) async {
       emit(state.copyWith(isLoading: true));
-      log('loading the state to true');
 
       String fullName = event.fullName;
       String location = event.location;
@@ -52,26 +52,14 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         smoking: selectedOptions.smoking,
       );
 
-      log('bloc called');
       result.fold((failure) {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
         if (success.success == true) {
           // Success from backend
-
-
-
           emit(state.copyWith(token: success.token));
-          log('-Token from create account bloc--${success.token}----');
-
-
-
-
           emit(state.copyWith(navigationState: true, isLoading: false));
-          log('loading set to false');
-
-          log('navigation state is loading');
         } else {
           // failure from backend
           emit(state.copyWith(

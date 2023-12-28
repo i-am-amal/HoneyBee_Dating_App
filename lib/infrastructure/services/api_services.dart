@@ -32,20 +32,18 @@ import 'package:honeybee/domain/models/user_edit_response_model/user_edit_respon
 import 'package:honeybee/domain/models/verify_otp_request_model/verify_otp_request_model.dart';
 import 'package:honeybee/domain/models/verify_payment_request_model/verify_payment_request_model.dart';
 import 'package:honeybee/domain/models/verify_payment_response_model/verify_payment_response_model.dart';
-import 'package:honeybee/infrastructure/data/local/shared_prefs.dart';
+import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import '../domain/models/verify_otp_response_model/verify_otp_response_model.dart';
+import '../../domain/models/verify_otp_response_model/verify_otp_response_model.dart';
 import 'package:http_parser/http_parser.dart';
 
 class ApiServices {
-///////////////////////////////--------------------PhoneNumber Login--------------------//////////////////////////////////
+  //--------------->>>-----PhoneNumber Login API----->>>------------------------
 
   static Future<Either<ApiFailures, PhoneNumberResponseModel>> phoneNumberLogin(
       PhoneNumberRequestModel request) async {
     try {
-      log('login');
-
       final response = await http.post(
         Uri.parse(Config.phoneApi),
         headers: <String, String>{
@@ -53,36 +51,27 @@ class ApiServices {
         },
         body: jsonEncode(request.toJson()),
       );
-
-      log('statuscode  ${response.statusCode} ');
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         PhoneNumberResponseModel result =
             PhoneNumberResponseModel.fromJson(jsonMap);
-
-        log(result.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure(
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      log("client side error $e");
-
+      log('client side error $e');
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
     }
   }
 
-////////////////////---------VerifyOtplogin----------/////////////////////////////
+  //--------------->>>-----Verify OTP Login API----->>>------------------------
 
   static Future<Either<ApiFailures, VerifyOtpResponseModel>> verifyOtpLogin(
       VerifyOtpRequestModel request) async {
     try {
-      log('entered in try ');
       final response = await http.post(
         Uri.parse(Config.verifyOtpApi),
         headers: <String, String>{
@@ -90,17 +79,10 @@ class ApiServices {
         },
         body: jsonEncode(request.toJson()),
       );
-
-      log(response.statusCode.toString());
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         VerifyOtpResponseModel result =
             VerifyOtpResponseModel.fromJson(jsonMap);
-
-        log(result.redirect.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure(
@@ -108,19 +90,17 @@ class ApiServices {
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
     }
   }
 
-////////////////////---------GetUserData----------/////////////////////////////
+  //--------------->>>-----Get User Data API----->>>------------------------
 
   static Future<Either<ApiFailures, GetUserDataResponseModel>>
       getUserData() async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.get(
         Uri.parse(Config.getUserDataApi),
         headers: <String, String>{
@@ -128,15 +108,10 @@ class ApiServices {
           'auth-token': apiToken!,
         },
       );
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         GetUserDataResponseModel result =
             GetUserDataResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure(
@@ -144,13 +119,12 @@ class ApiServices {
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
     }
   }
 
-////////////////////---------CreateAccount----------/////////////////////////////
+  //--------------->>>-----Create Account API----->>>------------------------
 
   static Future<Either<ApiFailures, CreateAccountResponseModel>> createAccount({
     required File profilePic,
@@ -173,15 +147,8 @@ class ApiServices {
     String? email,
   }) async {
     try {
-      // final apiToken = await getTokenFromPrefs();
-
       var request =
           http.MultipartRequest('POST', Uri.parse(Config.createAccountApi));
-
-      // request.headers.addAll({
-      //   "Content-Type": "multipart/form-data",
-      //   "auth-token": apiToken!,
-      // });
 
       request.fields['phone'] = phone;
       request.fields['Preference'] = preference;
@@ -251,6 +218,7 @@ class ApiServices {
           contentType: MediaType('image', fileExtension),
         ));
       }
+
       if (image1 != null) {
         log('image added');
         String filename = image1.path.split('/').last;
@@ -263,6 +231,7 @@ class ApiServices {
           contentType: MediaType('image', fileExtension),
         ));
       }
+
       if (image2 != null) {
         log('image added');
         String filename = image2.path.split('/').last;
@@ -278,18 +247,10 @@ class ApiServices {
 
       StreamedResponse streamedResponse = await request.send();
       Response response = await http.Response.fromStream(streamedResponse);
-
-      log(response.body);
-
       if (response.statusCode == 200) {
-        log('---api responce success-----------------');
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         CreateAccountResponseModel result =
             CreateAccountResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure(
@@ -303,52 +264,21 @@ class ApiServices {
     }
   }
 
-////////////////////---------Discover----------/////////////////////////////
+  //--------------->>>-----Discover Page API----->>>------------------------
 
   static Future<Either<ApiFailures, DiscoverListResponseModel>>
       discover() async {
-    log('discover api call');
-
     try {
       final apiToken = await getTokenFromPrefs();
-
-      if (apiToken == null || apiToken.isEmpty) {
-        log('token is empty');
-      } else {
-        log('------------------------$apiToken');
-      }
-
-      // if (Config.token == null) {
-      //   log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Token is null');
-      // } else {
-      //   log('---------->>>>>>>>>>>${Config.token!}>>>>>>>>>>>>>>>----------------');
-      // }
-      // log('checkinggg...try');
-      // print('Before log statement');
-      // log('token on api service ${Config.token!}');
-      // print('after log statement');
       final response = await http.get(
         Uri.parse(Config.discoverApi),
-        headers: <String, String>{
-          'auth-token': apiToken!
-          // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MmU0NTk1NTZkZDQxYzI5MWFiNzE5MiIsImlhdCI6MTcwMjk4NTcwOX0._pRAwVLgk0fSteZ3pRVBOGO2rFjy2Jpcvk1OOxjA8BY'
-        },
+        headers: <String, String>{'auth-token': apiToken!},
       );
-      log('--------------');
-      log(response.body.toString());
-      log(response.statusCode.toString());
-
       if (response.statusCode == 200) {
         DiscoverListResponseModel result =
             DiscoverListResponseModel.fromJson(jsonDecode(response.body));
-
-        log('log on api services $result');
-
-        log(result.toString());
-
         return right(result);
       } else {
-        log('server out completly ');
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
@@ -358,14 +288,12 @@ class ApiServices {
     }
   }
 
-  ////////////////////---------LikeUser----------/////////////////////////////
+  //--------------->>>-----Like User API----->>>------------------------
 
   static Future<Either<ApiFailures, LikeUserResponseModel>> likeUserData(
       LikeUserRequestModel request) async {
-    log(request.toString());
     try {
       final apiToken = await getTokenFromPrefs();
-      log('$apiToken-------on like apiservice----');
       final response = await http.put(
         Uri.parse(Config.likeUserApi),
         headers: <String, String>{
@@ -373,15 +301,9 @@ class ApiServices {
         },
         body: request.toJson(),
       );
-
-      log(response.body);
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         LikeUserResponseModel result = LikeUserResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
 
         return right(result);
       } else {
@@ -389,18 +311,16 @@ class ApiServices {
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-  ////////////////////---------DislikeUser----------/////////////////////////////
+  //--------------->>>-----Dislike User  API----->>>------------------------
 
   static Future<Either<ApiFailures, DislikeUserResponseModel>> dislikeUserData(
       DislikeUserRequestModel request) async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.put(
         Uri.parse(Config.dislikeUserApi),
         headers: <String, String>{
@@ -408,33 +328,26 @@ class ApiServices {
         },
         body: request.toJson(),
       );
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         DislikeUserResponseModel result =
             DislikeUserResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-///////////////////---------Matches----------/////////////////////////////
+  //--------------->>>-----Matches Page API----->>>------------------------
 
   static Future<Either<ApiFailures, MatchesListResponseModel>>
       getMatchesData() async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.get(
         Uri.parse(Config.matchesApi),
         headers: <String, String>{
@@ -442,35 +355,25 @@ class ApiServices {
           'auth-token': apiToken!,
         },
       );
-
       if (response.statusCode == 200) {
-        // Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
-        // MatchesResponseModel result = MatchesResponseModel.fromJson(jsonMap);
-
         MatchesListResponseModel result =
             MatchesListResponseModel.fromJson(jsonDecode(response.body));
-
-        log(result.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-///////////////////---------LikedUsers----------/////////////////////////////
+  //--------------->>>-----All Liked Users API----->>>------------------------
 
   static Future<Either<ApiFailures, AllLikedUsersListResponseModel>>
       allLikedUsersData() async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.get(
         Uri.parse(Config.likedUsersApi),
         headers: <String, String>{
@@ -478,30 +381,20 @@ class ApiServices {
           'auth-token': apiToken!,
         },
       );
-
       if (response.statusCode == 200) {
-        // Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
-        // AllLikedUsersResponseModel result =
-        //     AllLikedUsersResponseModel.fromJson(jsonMap);
-
         AllLikedUsersListResponseModel result =
             AllLikedUsersListResponseModel.fromJson(jsonDecode(response.body));
-
-        log(result.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-////////////////////---------EditAccount----------/////////////////////////////
+  //--------------->>>-----Edit Account API----->>>------------------------
 
   static Future<Either<ApiFailures, UserEditResponseModel>> userEditData({
     File? profilePic,
@@ -525,7 +418,6 @@ class ApiServices {
   }) async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       var request =
           http.MultipartRequest('POST', Uri.parse(Config.userEditApi));
       request.headers.addAll({
@@ -607,6 +499,7 @@ class ApiServices {
           contentType: MediaType('image', fileExtension),
         ));
       }
+
       if (image1 != null) {
         log('image added');
         String filename = image1.path.split('/').last;
@@ -619,6 +512,7 @@ class ApiServices {
           contentType: MediaType('image', fileExtension),
         ));
       }
+
       if (image2 != null) {
         log('image added');
         String filename = image2.path.split('/').last;
@@ -634,67 +528,52 @@ class ApiServices {
 
       StreamedResponse streamedResponse = await request.send();
       Response response = await http.Response.fromStream(streamedResponse);
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         UserEditResponseModel result = UserEditResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-////////////////////---------Block and Unblock User----------/////////////////////////////
+  //--------------->>>-----Block User API----->>>------------------------
 
   static Future<Either<ApiFailures, BlockUserResponseModel>> blockUserData(
       BlockUserRequestModel request) async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.put(
         Uri.parse(Config.blockUserApi),
         headers: <String, String>{
-          // 'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         BlockUserResponseModel result =
             BlockUserResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-////////////////////---------VerifyPayment----------/////////////////////////////
+  //--------------->>>-----Verify Payment API----->>>------------------------
 
   static Future<Either<ApiFailures, VerifyPaymentResponseModel>>
       verifyPaymentData(VerifyPaymentRequestModel request) async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.post(
         Uri.parse(Config.verifyPaymentApi),
         headers: <String, String>{
@@ -703,72 +582,59 @@ class ApiServices {
         },
         body: request.toJson(),
       );
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         VerifyPaymentResponseModel result =
             VerifyPaymentResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-////////////////////---------SearchFilter----------/////////////////////////////
+  //--------------->>>-----Search/Filter API----->>>------------------------
 
   static Future<Either<ApiFailures, SearchFilterListResponseModel>>
       searchFilterData(SearchFilterRequestModel request) async {
     try {
+      log('-----Entered in try section in Search API Services------');
       final apiToken = await getTokenFromPrefs();
-
+      log('>>>>>>>-------API Token in search page is $apiToken----->>>>>>>');
       final Response response = await http.post(
         Uri.parse(Config.searchFilterApi),
         headers: <String, String>{
-          // 'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
-      log(response.body);
-      log("response.statusCode = ${response.statusCode}");
+      log('----------Response from the API Service is ${response.body}-------------');
+      log("--------response.statusCode = ${response.statusCode}--------");
       if (response.statusCode == 200) {
-        // Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
-        // SearchFilterResponseModel result =
-        //     SearchFilterResponseModel.fromJson(jsonMap);
-
         SearchFilterListResponseModel result =
             SearchFilterListResponseModel.fromJson(jsonDecode(response.body));
-
-        log(result.toString());
-
+        log('-----------Statuscode 200 and response is ${response.body}------------');
         return right(result);
       } else {
+        log('-------------Entered in else condition SERVER Failure----------');
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
+      log('---------Entered in Catch-------');
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-////////////////////---------PaymentPlatinum----------/////////////////////////////
+  //--------------->>>-----Payment Platinum  API----->>>------------------------
 
   static Future<Either<ApiFailures, PaymentPlatinumResponseModel>>
       platinumPaymentData(PaymentPlatinumRequestModel request) async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.post(
         Uri.parse(Config.platinumPaymentApi),
         headers: <String, String>{
@@ -777,33 +643,26 @@ class ApiServices {
         },
         body: request.toJson(),
       );
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         PaymentPlatinumResponseModel result =
             PaymentPlatinumResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-////////////////////---------AddNewMessage----------/////////////////////////////
+  //--------------->>>-----Chat Add New Message API----->>>------------------------
 
   static Future<Either<ApiFailures, AddMessageResponseModel>> addNewMessageData(
       AddMessageRequestModel request) async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.post(
         Uri.parse(Config.addMessageApi),
         headers: <String, String>{
@@ -812,33 +671,26 @@ class ApiServices {
         },
         body: request.toJson(),
       );
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         AddMessageResponseModel result =
             AddMessageResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-////////////////////---------getAllMessage----------/////////////////////////////
+  //--------------->>>-----Get All Message API----->>>------------------------
 
   static Future<Either<ApiFailures, GetMessageResponseModel>> getAllMessageData(
       GetMessageRequestModel request) async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.post(
         Uri.parse(Config.getAllMessageApi),
         headers: <String, String>{
@@ -847,33 +699,26 @@ class ApiServices {
         },
         body: request.toJson(),
       );
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         GetMessageResponseModel result =
             GetMessageResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
 
-////////////////////---------lastMessage----------/////////////////////////////
+  //--------------->>>-----Last Message API----->>>------------------------
 
   static Future<Either<ApiFailures, LastMessageResponseModel>> lastMessageData(
       LastMessageRequestModel request) async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.post(
         Uri.parse(Config.lastMessageApi),
         headers: <String, String>{
@@ -882,22 +727,16 @@ class ApiServices {
         },
         body: request.toJson(),
       );
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         LastMessageResponseModel result =
             LastMessageResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -908,7 +747,6 @@ class ApiServices {
       markReadMessageData() async {
     try {
       final apiToken = await getTokenFromPrefs();
-
       final response = await http.post(
         Uri.parse(Config.markReadMessageApi),
         headers: <String, String>{
@@ -916,21 +754,15 @@ class ApiServices {
           'auth-token': apiToken!,
         },
       );
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         MarkReadResponseModel result = MarkReadResponseModel.fromJson(jsonMap);
-
-        log(jsonMap.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
       log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
