@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,10 +11,9 @@ import 'package:honeybee/presentation/screens/profile/menu_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 
 class BottomNavbar extends StatelessWidget {
-  BottomNavbar({super.key,required this.token});
+  BottomNavbar({super.key, required this.token});
 
   final String token;
-
   final List<Widget> bottomNavOptions = [
     const DiscoverPage(),
     const MatchesPage(),
@@ -28,10 +25,11 @@ class BottomNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavigationBloc, BottomNavigationState>(
       builder: (context, state) {
+        //--------------->>>-----Event for Fetching the Data for discover page ----->>>------------------------
+
         BlocProvider.of<DiscoverPageBloc>(context)
             .add(const DiscoverPageEvent.fetchDiscoverData());
 
-        log('$token..........from bottomnav');
         return Scaffold(
           body: bottomNavOptions[state.selectedIndex],
           bottomNavigationBar: CurvedNavigationBar(
@@ -62,6 +60,8 @@ class BottomNavbar extends StatelessWidget {
             ],
             index: state.selectedIndex,
             onTap: (index) {
+              //--------------->>>-----Event for updating the navbar depends on the change----->>>------------------------
+
               BlocProvider.of<BottomNavigationBloc>(context)
                   .add(BottomNavigationEvent.updateNavbar(index: index));
             },

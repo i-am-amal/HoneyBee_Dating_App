@@ -5,11 +5,9 @@ import 'package:flutter/material.dart';
 class CustomDatePicker {
   static DateTime? selectedDate;
   static Future showDatePickerDialog(context) async {
-    log("inside cupertino datepicker");
     return showDialog(
       context: context,
       builder: (BuildContext context) {
-        log("inside alertbox datepicker");
         return AlertDialog(
           backgroundColor: Colors.white,
           actions: [

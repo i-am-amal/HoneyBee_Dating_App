@@ -33,9 +33,7 @@ class ProfileCustomButton extends StatelessWidget {
         backgroundColor:
             MaterialStateProperty.all<Color>(CustomColors.kRedButtonColor),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         ),
         elevation: MaterialStateProperty.all<double>(5.0),
         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
@@ -59,10 +57,7 @@ class ProfileCustomButton extends StatelessWidget {
               fontWeight: fontWeight,
               fontsize: fontsize,
             ),
-            Icon(
-              icon,
-              color: CustomColors.kwhiteIconColor,
-            )
+            Icon(icon, color: CustomColors.kwhiteIconColor)
           ],
         ),
       ),

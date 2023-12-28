@@ -42,19 +42,13 @@ class BasicInfoLastPage extends StatefulWidget {
 
 class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
   SelectedOptions selectedOptions = SelectedOptions(
-    faith: '',
-    drinking: '',
-    relationshipStatus: '',
-    smoking: '',
-  );
-
+      faith: '', drinking: '', relationshipStatus: '', smoking: '');
   List<String> faithOptions = CommonLists().faithOptions;
   List<String> relationShipOptions = CommonLists().relationShipOptions;
   List<String> genderOptions = CommonLists().genderOptions;
   List<String> drinkingOptions = CommonLists().drinkingOptions;
   List<String> smokingOptions = CommonLists().smokingOptions;
   TextEditingController bioTextController = TextEditingController();
-
   String selectedGenderButton = 'Male';
   String selectedPreferenceButton = 'Everyone';
   String selectedGenderOtherOption = 'Other';
@@ -63,8 +57,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-
-    log("${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3}");
 
     return Scaffold(
       body: Padding(
@@ -211,7 +203,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                     width: width * 0.14,
                     height: height * 0.015,
                     onpressed: () {
-                      log("${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking}");
                       log("${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bioTextController.text},$selectedGenderButton,$selectedGenderOtherOption,$selectedPreferenceButton");
                       log(selectedGenderButton);
                       Navigator.pushReplacement(

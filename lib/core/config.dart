@@ -1,5 +1,5 @@
 class Config {
-////////////////----------API from BackEnd----------/////////////////////
+//--------------->>>-----API Config From Backend----->>>------------------------
 
   static const phoneApi = '$apiBaseUrl/api/phone';
   static const verifyOtpApi = '$apiBaseUrl/api/verifyOtp';

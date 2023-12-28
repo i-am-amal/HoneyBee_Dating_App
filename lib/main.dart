@@ -15,10 +15,10 @@ import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import 'application/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 
 void main() {
+  //-------->>>-----SystemUIOverlayStyle used for changing the status bar color----->>>--------
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
-
   runApp(const MyApp());
 }
 
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'HoneyBee',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

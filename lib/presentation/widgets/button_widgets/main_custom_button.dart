@@ -36,9 +36,7 @@ class MainCustomButton extends StatelessWidget {
         backgroundColor: MaterialStateProperty.all<Color>(
             isSelected ? Colors.blue : CustomColors.kRedButtonColor),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         ),
         elevation: MaterialStateProperty.all<double>(5.0),
         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
