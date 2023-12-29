@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:honeybee/infrastructure/data/services/camera_services.dart';
+import 'package:honeybee/infrastructure/services/camera_services.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../domain/validation/form_validation_services.dart';
 
