@@ -43,7 +43,10 @@ class ApiServices {
 
   static Future<Either<ApiFailures, PhoneNumberResponseModel>> phoneNumberLogin(
       PhoneNumberRequestModel request) async {
+    log('entered in phone number login api services');
     try {
+      log('entered in try');
+
       final response = await http.post(
         Uri.parse(Config.phoneApi),
         headers: <String, String>{
@@ -51,10 +54,13 @@ class ApiServices {
         },
         body: jsonEncode(request.toJson()),
       );
+      log('$response--------responce from api service');
+
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
         PhoneNumberResponseModel result =
             PhoneNumberResponseModel.fromJson(jsonMap);
+        log(result.toString());
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure(

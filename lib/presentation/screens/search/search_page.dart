@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/search_page/search_page_bloc.dart';
@@ -61,7 +60,7 @@ class SearchPage extends StatelessWidget {
           SizedBox(
             height: height * 0.01,
           ),
-         const SearchWidget()
+          const SearchWidget()
         ],
       ),
     );

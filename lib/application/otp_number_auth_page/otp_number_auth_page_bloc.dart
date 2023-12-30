@@ -24,15 +24,15 @@ class OtpNumberAuthPageBloc
     on<_OtpLogin>((event, emit) async {
       String? otpNumber = state.otp;
       bool? isOtpValidated = FormValidationServices.otpValidation(otpNumber);
-      String countryCode = state.countryCode!;
+      // String countryCode = state.countryCode!;
       String phoneNumber = state.phoneNumber!;
 
       if (isOtpValidated) {
-        String formattedPhoneNumber =
-            '$countryCode ${phoneNumber.substring(0, 5)} ${phoneNumber.substring(5)}';
+        // String formattedPhoneNumber =
+        //     '$countryCode ${phoneNumber.substring(0, 5)} ${phoneNumber.substring(5)}';
 
         VerifyOtpRequestModel request =
-            VerifyOtpRequestModel(otp: otpNumber, phone: formattedPhoneNumber);
+            VerifyOtpRequestModel(otp: otpNumber, phone: phoneNumber);
 
         final result = await ApiServices.verifyOtpLogin(request);
 
@@ -49,7 +49,7 @@ class OtpNumberAuthPageBloc
                 isOtpVerified: true,
                 token: success.token,
                 redirectPage: success.redirect,
-                formattedPhoneNumber: formattedPhoneNumber));
+                formattedPhoneNumber: phoneNumber));
           } else {
             // failure from backend
             emit(state.copyWith(

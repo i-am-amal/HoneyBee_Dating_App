@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../domain/models/phone_number_request_model/phone_number_request_model.dart';
@@ -14,30 +16,44 @@ class PhoneNumberAuthPageBloc
 
     on<_PhoneNumberLogin>((event, emit) async {
       String? phoneNumber = event.phoneNumber;
-      String? countryCode = event.countryCode;
+      // String? phoneNumber = '8921848655';
+      log('phone number before validation $phoneNumber');
+      // String? countryCode = event.countryCode;
       bool? isValidated =
           FormValidationServices.phoneNumberValidation(phoneNumber);
 
       if (isValidated) {
-        String formattedPhoneNumber =
-            '$countryCode ${phoneNumber!.substring(0, 5)} ${phoneNumber.substring(5)}';
+        log('entered in if validated');
+
+        // String formattedPhoneNumber =
+        //     '$countryCode ${phoneNumber!.substring(0, 5)} ${phoneNumber.substring(5)}';
 
         PhoneNumberRequestModel request =
-            PhoneNumberRequestModel(phone: formattedPhoneNumber);
+            PhoneNumberRequestModel(phone: phoneNumber);
+        log('request in request model $request');
 
         final result = await ApiServices.phoneNumberLogin(request);
 
+        log('result of api service $result');
+
         result.fold((failure) {
           // failure message from Api Services
+          log('api failure');
           emit(state.copyWith(errorMessage: failure.errorMessage));
           emit(state.copyWith(errorMessage: null));
         }, (success) {
+          log('entered in success');
+
           if (success.success == true) {
             // Success from backend
+            log('entered in if condition in success');
+
             emit(state.copyWith(isPhoneNumberVerified: true));
             emit(state.copyWith(isPhoneNumberVerified: null));
           } else {
             // failure from backend
+            log('entered in failure in backend');
+
             emit(state.copyWith(
                 errorMessage:
                     'OOPS.. Something went wrong.. Please try again later...'));
@@ -46,6 +62,8 @@ class PhoneNumberAuthPageBloc
         });
       } else {
         // form validation failed
+        log('entered in failure in form validation');
+
         emit(state.copyWith(errorMessage: 'Phone Number Validation Failed'));
       }
     });
@@ -53,6 +71,7 @@ class PhoneNumberAuthPageBloc
     //--------------->>>-----Set PhoneNumber Event----->>>------------------------
 
     on<_SetPhoneNumber>((event, emit) {
+      // String? phoneNumber = event.phoneNumber;
       String? phoneNumber = event.phoneNumber;
       emit(state.copyWith(phoneNumber: phoneNumber));
     });
