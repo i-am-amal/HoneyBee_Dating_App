@@ -76,7 +76,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-///
-///have to check the gender issue which is not passing to create account ..edit profile ,search,placeholder in images ,validation,snackbar,messenger,privacy terms and conditions
-///all have to be done ....pending
