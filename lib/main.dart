@@ -76,3 +76,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// Pendings to done
+/// Search page ..try to do with debouncer
+/// chat with socket IO
+/// images have to be replaced with placeholder and have to make loading also
+/// Cover entire validations on the app
+/// try to change the colors if the colors are not suitable
+/// try to fix the backend properly with fast2sms
+/// fix the codes and restructure the widgets 
+/// try to implement video calling
+/// fix all as soon as possible and finish the app

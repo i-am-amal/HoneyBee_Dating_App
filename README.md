@@ -1,6 +1,6 @@
 # honeybee
 
-A new Flutter project.
+"🐝 Welcome to Honey Bee, where connections blossom! This app is designed to help you find meaningful relationships with like-minded individuals. Swipe, chat, and meet with confidence - our user-friendly interface and advanced matching algorithms ensure you make the right connections. Join the hive and let love take flight! 🍯💖 #FindYourHoney"
 
 ## Getting Started
 
@@ -14,3 +14,5 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
