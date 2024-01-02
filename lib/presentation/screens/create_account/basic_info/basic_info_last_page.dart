@@ -203,7 +203,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                     width: width * 0.14,
                     height: height * 0.015,
                     onpressed: () {
-                      log("${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bioTextController.text},$selectedGenderButton,$selectedGenderOtherOption,$selectedPreferenceButton");
+                      log("-----------This is the data when pressed on create account on preview account----------${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bioTextController.text},$selectedGenderButton,$selectedGenderOtherOption,$selectedPreferenceButton");
                       log(selectedGenderButton);
                       Navigator.pushReplacement(
                         context,

@@ -169,6 +169,9 @@ class ApiServices {
       if (age != null) {
         request.fields['age'] = age;
       }
+      if (gender != null) {
+        request.fields['gender'] = gender;
+      }
 
       if (location != null) {
         request.fields['location'] = location;
@@ -446,7 +449,9 @@ class ApiServices {
       if (age != null) {
         request.fields['age'] = age;
       }
-
+      if (gender != null) {
+        request.fields['gender'] = gender;
+      }
       if (location != null) {
         request.fields['location'] = location;
       }

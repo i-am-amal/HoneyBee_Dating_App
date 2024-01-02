@@ -200,7 +200,7 @@ class PreviewAccount extends StatelessWidget {
                                   SizedBox(width: 15),
                                   Flexible(
                                     child: Text(
-                                      'Sign in and let the sparks fly with new connections...',
+                                      'Welcome to HoneyBee.. Let the sparks fly with new connections...',
                                       style: TextStyle(
                                         color: Colors.white,
                                       ),

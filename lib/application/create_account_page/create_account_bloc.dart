@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -23,6 +24,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       String birthday = event.birthday;
       String bio = event.bio;
       String gender = event.gender;
+      log('------------on bloc  $gender');
       String preference = event.preference;
       File profileImage = event.profileImage;
       File coverImage = event.coverImage;
