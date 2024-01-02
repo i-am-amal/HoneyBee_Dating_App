@@ -11,6 +11,6 @@ class MatchesPageState with _$MatchesPageState {
   }) = _MatchesPageState;
 
   factory MatchesPageState.initial() {
-    return const MatchesPageState(isLoading: false);
+    return const MatchesPageState(isLoading: true);
   }
 }

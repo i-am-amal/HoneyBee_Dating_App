@@ -20,14 +20,14 @@ class SearchPageBloc extends Bloc<SearchPageEvent, SearchPageState> {
       log('${event.controllerValue!}-----------textfield value-------------');
 
       SearchFilterRequestModel request = SearchFilterRequestModel(
-          fullName: event.controllerValue,
+          fullName: '${event.controllerValue}',
           drinking: '',
           faith: '',
           location: '',
           realationshipStatus: '',
           smoking: '',
-          ageMax: 100,
-          ageMin: 0);
+          ageMax: "100",
+          ageMin: "0");
 
       final result = await ApiServices.searchFilterData(request);
 

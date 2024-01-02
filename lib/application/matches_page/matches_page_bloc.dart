@@ -17,14 +17,14 @@ class MatchesPageBloc extends Bloc<MatchesPageEvent, MatchesPageState> {
       final result = await ApiServices.getMatchesData();
 
       result.fold((failure) {
+        print("Failure");
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
+        print({"Success ${success.profiles}"});
         //success from backend
         if (success.profiles != null) {
-          emit(state.copyWith(isLoading: false));
-
-          emit(state.copyWith(profile: success));
+          emit(state.copyWith(profile: success, isLoading: false));
         } else {
           // failure from backend
           emit(state.copyWith(

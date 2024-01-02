@@ -15,8 +15,8 @@ SearchFilterRequestModel _$SearchFilterRequestModelFromJson(
       location: json['location'] as String?,
       drinking: json['drinking'] as String?,
       smoking: json['smoking'] as String?,
-      ageMin: json['ageMin'] as int?,
-      ageMax: json['ageMax'] as int?,
+      ageMin: json['ageMin'] as String?,
+      ageMax: json['ageMax'] as String?,
     );
 
 Map<String, dynamic> _$SearchFilterRequestModelToJson(

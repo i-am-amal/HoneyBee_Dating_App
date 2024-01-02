@@ -615,9 +615,12 @@ class ApiServices {
       log('-----Entered in try section in Search API Services------');
       final apiToken = await getTokenFromPrefs();
       log('>>>>>>>-------API Token in search page is $apiToken----->>>>>>>');
-      final Response response = await http.post(
+      log('>>>>>>>-------URL in search page is ${Config.searchFilterApi}----->>>>>>>');
+      log('>>>>>>>-------URL in search page is ${request.toJson()}----->>>>>>>');
+      final response = await http.post(
         Uri.parse(Config.searchFilterApi),
         headers: <String, String>{
+          // 'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
         body: request.toJson(),

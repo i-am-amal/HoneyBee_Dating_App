@@ -10,8 +10,8 @@ class SearchFilterRequestModel {
   String? location;
   String? drinking;
   String? smoking;
-  int? ageMin;
-  int? ageMax;
+  String? ageMin;
+  String? ageMax;
 
   SearchFilterRequestModel({
     this.fullName,

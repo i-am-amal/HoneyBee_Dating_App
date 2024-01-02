@@ -18,7 +18,8 @@ class ProfileGrid extends StatelessWidget {
     log('building matches page');
     return BlocBuilder<MatchesPageBloc, MatchesPageState>(
       builder: (context, state) {
-        if (state.isLoading!) {
+        log("state.isLoading = ${state.isLoading}");
+        if (state.isLoading == true) {
           return Center(
             child: Column(
               children: [
@@ -32,7 +33,8 @@ class ProfileGrid extends StatelessWidget {
               ],
             ),
           );
-        } else if (state.profile != null) {
+        } else if (state.isLoading == false &&
+            state.profile!.profiles!.isNotEmpty) {
           return Padding(
             padding: const EdgeInsets.all(18.0),
             child: GridView.builder(
@@ -52,9 +54,10 @@ class ProfileGrid extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => UserProfilePreviewPage(
-                                userDetails: state.profile!.profiles![index],
-                              )),
+                        builder: (context) => UserProfilePreviewPage(
+                          userDetails: state.profile!.profiles![index],
+                        ),
+                      ),
                     );
                   },
                   child: Card(
@@ -106,7 +109,9 @@ class ProfileGrid extends StatelessWidget {
           );
         } else {
           return Center(
-            child: Lottie.asset(
+            child:
+                //  Text('no data')
+                Lottie.asset(
               'assets/images/noData.json',
               height: 500, // Adjust the height as needed
               width: 500, // Adjust the width as needed
