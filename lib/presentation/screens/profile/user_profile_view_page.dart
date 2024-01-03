@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
-import 'package:honeybee/domain/models/matches_response_model/matches_response_model.dart';
+import 'package:honeybee/domain/models/user_model/user_model.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
@@ -10,7 +10,8 @@ import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 class UserProfilePreviewPage extends StatelessWidget {
   const UserProfilePreviewPage({super.key, required this.userDetails});
 
-  final MatchesResponseModel userDetails;
+  // final MatchesResponseModel userDetails;
+  final UserModel userDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +70,7 @@ class UserProfilePreviewPage extends StatelessWidget {
                       ],
                     ),
                     child: Image.network(
-                      userDetails.profilePic!,
+                      userDetails.profilePic,
                       // 'assets/images/profile.jpg',
                       fit: BoxFit.cover,
                     ),
@@ -135,42 +136,28 @@ class UserProfilePreviewPage extends StatelessWidget {
                           children: [
                             ChoiceButton(
                                 icon: FontAwesomeIcons.person,
-                                label: userDetails.gender ?? 'NA'),
+                                label: userDetails.gender),
                             ChoiceButton(
                                 icon: FontAwesomeIcons.personPraying,
-                                label: userDetails.faith!),
+                                label: userDetails.faith),
                           ],
                         ),
                         SizedBox(height: height * 0.03),
                         ChoiceButton(
                             icon: FontAwesomeIcons.heart,
-                            label: userDetails.realationshipStatus!),
+                            label: userDetails.realationshipStatus),
                         SizedBox(height: height * 0.03),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ChoiceButton(
                                 icon: FontAwesomeIcons.smoking,
-                                label: userDetails.smoking!),
+                                label: userDetails.smoking),
                             ChoiceButton(
                                 icon: FontAwesomeIcons.wineGlass,
-                                label: userDetails.drinking!),
+                                label: userDetails.drinking),
                           ],
                         ),
-                        // SizedBox(height: height * 0.05),
-                        // MainCustomButton(
-                        //   customtext: 'Create Account',
-                        //   height: height * 0.015,
-                        //   width: width * 0.2,
-                        //   txtcolor: CustomColors.kWhiteTextColor,
-                        //   onpressed: () {
-                        //     Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //           builder: (context) => const BottomNavbar()),
-                        //     );
-                        //   },
-                        // ),
                         SizedBox(height: height * 0.05),
                       ],
                     ),

@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/search_page/search_page_bloc.dart';
+import 'package:honeybee/domain/models/user_model/user_model.dart';
+import 'package:honeybee/presentation/screens/profile/user_profile_view_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
@@ -56,6 +58,37 @@ class SearchWidget extends StatelessWidget {
                       // Replace with actual user name
                       onTap: () {
                         // Handle tap on user
+                        if (state.searchResult != null) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => UserProfilePreviewPage(
+                                userDetails: UserModel(
+                                    fullName: state.searchResult!
+                                        .profiles![index].fullName!,
+                                    age: state
+                                        .searchResult!.profiles![index].age!,
+                                    location: state.searchResult!
+                                        .profiles![index].location!,
+                                    bio: state
+                                        .searchResult!.profiles![index].bio!,
+                                    drinking: state.searchResult!
+                                        .profiles![index].drinking!,
+                                    faith: state
+                                        .searchResult!.profiles![index].faith!,
+                                    gender: state
+                                        .searchResult!.profiles![index].gender!,
+                                    profilePic: state.searchResult!
+                                        .profiles![index].profilePic!,
+                                    realationshipStatus: state.searchResult!
+                                        .profiles![index].realationshipStatus!,
+                                    smoking: state.searchResult!
+                                        .profiles![index].smoking!),
+                              ),
+                            ),
+                          );
+                        }
+
                         log('Tapped on user $index ---${state.searchResult!.profiles![index].fullName}');
                       },
                     ),

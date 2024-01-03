@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/all_liked_users_page/all_liked_users_page_bloc.dart';
+import 'package:honeybee/domain/models/user_model/user_model.dart';
+import 'package:honeybee/presentation/screens/profile/user_profile_view_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
@@ -44,7 +46,32 @@ class LikedProfileGrid extends StatelessWidget {
                 itemCount: state.profile!.profiles!.length,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UserProfilePreviewPage(
+                            userDetails: UserModel(
+                                fullName:
+                                    state.profile!.profiles![index].fullName!,
+                                age: state.profile!.profiles![index].age!,
+                                location:
+                                    state.profile!.profiles![index].location!,
+                                bio: state.profile!.profiles![index].bio!,
+                                drinking:
+                                    state.profile!.profiles![index].drinking!,
+                                faith: state.profile!.profiles![index].faith!,
+                                gender: state.profile!.profiles![index].gender!,
+                                profilePic:
+                                    state.profile!.profiles![index].profilePic!,
+                                realationshipStatus: state.profile!
+                                    .profiles![index].realationshipStatus!,
+                                smoking:
+                                    state.profile!.profiles![index].smoking!),
+                          ),
+                        ),
+                      );
+                    },
                     child: Card(
                       elevation: 5,
                       child: Stack(
