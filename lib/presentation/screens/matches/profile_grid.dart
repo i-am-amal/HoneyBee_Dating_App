@@ -127,11 +127,10 @@ class ProfileGrid extends StatelessWidget {
         } else {
           return Center(
             child:
-                //  Text('no data')
                 Lottie.asset(
               'assets/images/noData.json',
-              height: 500, // Adjust the height as needed
-              width: 500, // Adjust the width as needed
+              height: 500, 
+              width: 500, 
             ),
           );
         }

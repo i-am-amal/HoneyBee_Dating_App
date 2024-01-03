@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
 import 'package:honeybee/domain/models/discover_response_model/discover_response_model.dart';
+import 'package:honeybee/domain/models/user_model/user_model.dart';
+import 'package:honeybee/presentation/screens/profile/user_profile_view_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'action_button_widget.dart';
@@ -73,77 +75,112 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: ValueListenableBuilder(
-                        valueListenable: swipeNotifier,
-                        builder: (context, swipe, _) => Stack(
-                          clipBehavior: Clip.none,
-                          alignment: Alignment.center,
-                          children:
-                              List.generate(draggableItems!.length, (index) {
-                            Profile obj = Profile(
-                                id: draggableItems[index].id!,
-                                name: draggableItems[index].fullName!,
-                                age: draggableItems[index].age!.toString(),
-                                profileImage:
-                                    draggableItems[index].profilePic!);
+                    GestureDetector(
+                      onTap: () {
+                        int currentIndex = draggableItems!.indexWhere(
+                            (profile) => profile.id == userId.value);
 
-                            userId.value = obj.id;
+                        if (currentIndex != -1) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => UserProfilePreviewPage(
+                                userDetails: UserModel(
+                                  fullName:
+                                      draggableItems[currentIndex].fullName!,
+                                  age: draggableItems[currentIndex].age!,
+                                  location:
+                                      draggableItems[currentIndex].location!,
+                                  bio: draggableItems[currentIndex].bio!,
+                                  drinking:
+                                      draggableItems[currentIndex].drinking!,
+                                  faith: draggableItems[currentIndex].faith!,
+                                  gender: draggableItems[currentIndex].gender!,
+                                  profilePic:
+                                      draggableItems[currentIndex].profilePic!,
+                                  realationshipStatus:
+                                      draggableItems[currentIndex]
+                                          .realationshipStatus!,
+                                  smoking:
+                                      draggableItems[currentIndex].smoking!,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: ValueListenableBuilder(
+                          valueListenable: swipeNotifier,
+                          builder: (context, swipe, _) => Stack(
+                            clipBehavior: Clip.none,
+                            alignment: Alignment.center,
+                            children:
+                                List.generate(draggableItems!.length, (index) {
+                              Profile obj = Profile(
+                                  id: draggableItems[index].id!,
+                                  name: draggableItems[index].fullName!,
+                                  age: draggableItems[index].age!.toString(),
+                                  profileImage:
+                                      draggableItems[index].profilePic!);
 
-                            log('---------------------${obj.id},${obj.age},${obj.name}--------data on card stack widget------');
-                            if (index == draggableItems.length - 1) {
-                              return PositionedTransition(
-                                rect: RelativeRectTween(
-                                  begin: RelativeRect.fromSize(
-                                      const Rect.fromLTWH(0, 0, 600, 360),
-                                      const Size(600, 360)),
-                                  end: RelativeRect.fromSize(
-                                      Rect.fromLTWH(
-                                          swipe != Swipe.none
-                                              ? swipe == Swipe.left
-                                                  ? -300
-                                                  : 300
-                                              : 0,
-                                          0,
-                                          600,
-                                          360),
-                                      const Size(600, 360)),
-                                ).animate(CurvedAnimation(
-                                  parent: _animationController,
-                                  curve: Curves.easeInOut,
-                                )),
-                                child: RotationTransition(
-                                  turns: Tween<double>(
-                                          begin: 0,
-                                          end: swipe != Swipe.none
-                                              ? swipe == Swipe.left
-                                                  ? -0.1 * 0.3
-                                                  : 0.1 * 0.3
-                                              : 0.0)
-                                      .animate(
-                                    CurvedAnimation(
-                                      parent: _animationController,
-                                      curve: const Interval(0, 0.4,
-                                          curve: Curves.easeInOut),
+                              userId.value = obj.id;
+
+                              log('---------------------${obj.id},${obj.age},${obj.name}--------data on card stack widget------');
+                              if (index == draggableItems.length - 1) {
+                                return PositionedTransition(
+                                  rect: RelativeRectTween(
+                                    begin: RelativeRect.fromSize(
+                                        const Rect.fromLTWH(0, 0, 600, 360),
+                                        const Size(600, 360)),
+                                    end: RelativeRect.fromSize(
+                                        Rect.fromLTWH(
+                                            swipe != Swipe.none
+                                                ? swipe == Swipe.left
+                                                    ? -300
+                                                    : 300
+                                                : 0,
+                                            0,
+                                            600,
+                                            360),
+                                        const Size(600, 360)),
+                                  ).animate(CurvedAnimation(
+                                    parent: _animationController,
+                                    curve: Curves.easeInOut,
+                                  )),
+                                  child: RotationTransition(
+                                    turns: Tween<double>(
+                                            begin: 0,
+                                            end: swipe != Swipe.none
+                                                ? swipe == Swipe.left
+                                                    ? -0.1 * 0.3
+                                                    : 0.1 * 0.3
+                                                : 0.0)
+                                        .animate(
+                                      CurvedAnimation(
+                                        parent: _animationController,
+                                        curve: const Interval(0, 0.4,
+                                            curve: Curves.easeInOut),
+                                      ),
+                                    ),
+                                    child: DragWidget(
+                                      profile: obj,
+                                      index: index,
+                                      swipeNotifier: swipeNotifier,
+                                      isLastCard: true,
                                     ),
                                   ),
-                                  child: DragWidget(
-                                    profile: obj,
-                                    index: index,
-                                    swipeNotifier: swipeNotifier,
-                                    isLastCard: true,
-                                  ),
-                                ),
-                              );
-                            } else {
-                              return DragWidget(
-                                profile: obj,
-                                index: index,
-                                swipeNotifier: swipeNotifier,
-                              );
-                            }
-                          }),
+                                );
+                              } else {
+                                return DragWidget(
+                                  profile: obj,
+                                  index: index,
+                                  swipeNotifier: swipeNotifier,
+                                );
+                              }
+                            }),
+                          ),
                         ),
                       ),
                     ),
