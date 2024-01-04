@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/pick_image_modal_popup.dart';
-import 'package:honeybee/presentation/screens/profile/edit_profile/edit_location_page.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile_model.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/date_picker/date_picker.dart';
@@ -15,45 +15,12 @@ import 'package:intl/intl.dart';
 import '../../../widgets/textform_widgets/custom_textformfield.dart';
 
 class EditInfoMainPage extends StatefulWidget {
-  const EditInfoMainPage(
-      {super.key,
-      required this.age,
-      required this.bio,
-      required this.birthday,
-      required this.coverPic,
-      required this.drinking,
-      required this.email,
-      required this.faith,
-      required this.fullName,
-      required this.gender,
-      required this.location,
-      required this.phone,
-      required this.preference,
-      required this.profilePic,
-      required this.relationshipStatus,
-      required this.smoking,
-      this.image0,
-      this.image1,
-      this.image2});
+  const EditInfoMainPage({
+    required this.editProfileDetails,
+    super.key,
+  });
 
-  final File profilePic;
-  final File coverPic;
-  final String preference;
-  final String phone;
-  final String age;
-  final String bio;
-  final String birthday;
-  final String drinking;
-  final String email;
-  final String faith;
-  final String fullName;
-  final String gender;
-  final File? image0;
-  final File? image1;
-  final File? image2;
-  final String location;
-  final String relationshipStatus;
-  final String smoking;
+  final EditProfileModel editProfileDetails;
 
   @override
   State<EditInfoMainPage> createState() => _EditInfoMainPageState();
@@ -64,17 +31,21 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
   TextEditingController editNameController = TextEditingController();
   TextEditingController editEmailController = TextEditingController();
   TextEditingController editPhoneNumberController = TextEditingController();
-  File? pickedProfilePic;
+  File? profilePic;
 
   @override
   void initState() {
     super.initState();
 
-    editDateController = TextEditingController(text: widget.birthday);
-    editPhoneNumberController = TextEditingController(text: widget.phone);
-    editNameController = TextEditingController(text: widget.fullName);
-    editEmailController = TextEditingController(text: widget.email);
-    pickedProfilePic = widget.profilePic;
+    editDateController =
+        TextEditingController(text: widget.editProfileDetails.birthday);
+    editPhoneNumberController =
+        TextEditingController(text: widget.editProfileDetails.phone);
+    editNameController =
+        TextEditingController(text: widget.editProfileDetails.fullName);
+    editEmailController =
+        TextEditingController(text: widget.editProfileDetails.email);
+    profilePic = widget.editProfileDetails.profilePic;
   }
 
   @override
@@ -91,11 +62,6 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    // editDateController.text = widget.birthday;
-    // editPhoneNumberController.text = widget.phone;
-    // editNameController.text = widget.fullName;
-    // editEmailController.text = widget.email;
-
     return Scaffold(
       body: SingleChildScrollView(
         child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
@@ -104,40 +70,37 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
 
             if (state.isValidated != null) {
               if (state.isValidated == true) {
-
-
-                if (pickedProfilePic != null) {
-                  pickedProfilePic = File(pickedProfilePic!.path);
-                }
+                // if (pickedProfilePic != null) {
+                //   pickedProfilePic = File(pickedProfilePic!.path);
+                // }
 
                 WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                   log('${editDateController.text},${editEmailController.text},${editNameController.text},${editPhoneNumberController.text}');
-                  log(pickedProfilePic.toString());
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EditLocationPage(
-                        fullName: editNameController.text,
-                        birthday: editDateController.text,
-                        email: editEmailController.text,
-                        phone: widget.phone,
-                        profilePic: pickedProfilePic ?? File(''),
-                        age: widget.age,
-                        bio: widget.bio,
-                        coverPic: widget.coverPic,
-                        drinking: widget.drinking,
-                        faith: widget.faith,
-                        gender: widget.gender,
-                        location: widget.location,
-                        preference: widget.preference,
-                        relationshipStatus: widget.relationshipStatus,
-                        smoking: widget.smoking,
-                        image0: widget.image0,
-                        image1: widget.image1,
-                        image2: widget.image2,
-                      ),
-                    ),
-                  );
+                  // Navigator.pushReplacement(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => EditLocationPage(
+                  //       fullName: editNameController.text,
+                  //       birthday: editDateController.text,
+                  //       email: editEmailController.text,
+                  //       phone: widget.editProfileDetails.phone,
+                  //       profilePic: pickedProfilePic ?? File(''),
+                  //       age: widget.age,
+                  //       bio: widget.bio,
+                  //       coverPic: widget.coverPic,
+                  //       drinking: widget.drinking,
+                  //       faith: widget.faith,
+                  //       gender: widget.gender,
+                  //       location: widget.location,
+                  //       preference: widget.preference,
+                  //       relationshipStatus: widget.relationshipStatus,
+                  //       smoking: widget.smoking,
+                  //       image0: widget.image0,
+                  //       image1: widget.image1,
+                  //       image2: widget.image2,
+                  //     ),
+                  //   ),
+                  // );
                 });
                 //>>>>>>>>>>>>>>------------------->>>>>>>>>>>>>>>>>>>>>>
               }
@@ -170,15 +133,12 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                         width: width * 0.33,
                         height: height * 0.25,
                         child: GestureDetector(
-
-
                           child: state.pickedProfileImage != null
                               ? Image.file(
                                   File(state.pickedProfileImage!.path),
                                 )
-                              : Image.network(widget.profilePic.path),
-
-                              
+                              : Image.network(
+                                  widget.editProfileDetails.profilePic!.path),
                           onTap: () {
                             log("on tap on pop up edit info main page");
                             pickImageModalPopUp(

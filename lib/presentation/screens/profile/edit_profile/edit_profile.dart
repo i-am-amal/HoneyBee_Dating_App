@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/screens/profile/edit_profile/edit_info_main_page.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile_model.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
@@ -65,41 +67,64 @@ class EditProfile extends StatelessWidget {
                             icon: Icons.edit,
                             onpressed: () {
                               if (state.success != null) {
+                                log('''----log on edit profile page------${state.success!.age},
+                                  ${state.success!.bio},
+                                  ${state.success!.birthday},
+                                  ${state.success!.coverPic},
+                                  ${state.success!.drinking},
+                                  ${state.success!.email},
+                                  ${state.success!.faith},
+                                  ${state.success!.fullName},
+                                  ${state.success!.gender},
+                                  ${state.success!.location},
+                                  ${state.success!.smoking},
+                                  ${state.success!.phone},
+                                  ${state.success!.preference},
+                                  ${state.success!.realationshipStatus},
+                                  ${state.success!.profilePic},
+                                  ${state.success!.images}''');
+
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => EditInfoMainPage(
-                                            fullName: state.success!.fullName!,
-                                            age: state.success!.age.toString(),
-                                            bio: state.success!.bio!,
-                                            birthday: state.success!.birthday!,
-                                            coverPic:File( state.success!.coverPic!),
-                                            drinking: state.success!.drinking!,
-                                            email: state.success!.email!,
-                                            faith: state.success!.faith!,
-                                            gender: state.success!.gender!,
-                                            location: state.success!.location!,
-                                            phone: state.success!.phone!,
-                                            preference:
-                                                state.success!.preference!,
-                                            profilePic:
-                                               File( state.success!.profilePic!),
-                                            relationshipStatus: state
-                                                .success!.realationshipStatus!,
-                                            smoking: state.success!.smoking!,
-                                            image0:
-                                                state.success!.images!.isEmpty
-                                                    ? File('')
-                                                    : File(state.success!.images![0]),
-                                            image1:
-                                                state.success!.images!.isEmpty
-                                                    ? File('')
-                                                    : File(state.success!.images![1]),
-                                            image2:
-                                                state.success!.images!.isEmpty
-                                                    ? File('')
-                                                    : File(state.success!.images![2]),
-                                          )),
+                                    builder: (context) => EditInfoMainPage(
+                                      editProfileDetails: EditProfileModel(
+                                        age: state.success!.age.toString(),
+                                        bio: state.success!.bio,
+                                        birthday: state.success!.birthday,
+                                        coverPic:
+                                            File(state.success!.coverPic!),
+                                        drinking: state.success!.drinking,
+                                        email: state.success!.email,
+                                        faith: state.success!.faith,
+                                        fullName: state.success!.fullName,
+                                        gender: state.success!.gender,
+                                        image0: state.success!.images != null &&
+                                                state
+                                                    .success!.images!.isNotEmpty
+                                            ? File(state.success!.images![0])
+                                            : null,
+                                        image1: state.success!.images != null &&
+                                                state.success!.images!.length >
+                                                    1
+                                            ? File(state.success!.images![1])
+                                            : null,
+                                        image2: state.success!.images != null &&
+                                                state.success!.images!.length >
+                                                    2
+                                            ? File(state.success!.images![2])
+                                            : null,
+                                        location: state.success!.location,
+                                        phone: state.success!.phone,
+                                        preference: state.success!.preference,
+                                        profilePic:
+                                            File(state.success!.profilePic!),
+                                        relationshipStatus:
+                                            state.success!.realationshipStatus,
+                                        smoking: state.success!.smoking,
+                                      ),
+                                    ),
+                                  ),
                                 );
                               }
                             }),

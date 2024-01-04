@@ -1,10 +1,9 @@
-import 'dart:developer';
-import 'dart:io';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/location_auth_page/location_auth_page_bloc.dart';
-import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile_images.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile_model.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -12,45 +11,11 @@ import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class EditLocationPage extends StatelessWidget {
-  const EditLocationPage(
-      {super.key,
-      required this.age,
-      required this.bio,
-      required this.birthday,
-      required this.coverPic,
-      required this.drinking,
-      required this.email,
-      required this.faith,
-      required this.fullName,
-      required this.gender,
-      required this.location,
-      required this.phone,
-      required this.preference,
-      required this.profilePic,
-      required this.relationshipStatus,
-      required this.smoking,
-      this.image0,
-      this.image1,
-      this.image2});
+  const EditLocationPage({required this.editProfileDetails,
+    super.key,
+  });
 
-  final File profilePic;
-  final File coverPic;
-  final String preference;
-  final String phone;
-  final String age;
-  final String bio;
-  final String birthday;
-  final String drinking;
-  final String email;
-  final String faith;
-  final String fullName;
-  final String gender;
-  final File? image0;
-  final File? image1;
-  final File? image2;
-  final String location;
-  final String relationshipStatus;
-  final String smoking;
+  final EditProfileModel editProfileDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -128,34 +93,33 @@ class EditLocationPage extends StatelessWidget {
                     letterspacing: 1,
                     fontsize: 15,
                     onpressed: () {
-                      log(profilePic.toString());
-                      log(coverPic.toString());
+                      
                       if (state.locationName != null) {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => EditProfileImages(
-                              fullName: fullName,
-                              email: email,
-                              birthday: birthday,
-                              location: state.locationName!,
-                              age: age,
-                              bio: bio,
-                              drinking: drinking,
-                              faith: faith,
-                              gender: gender,
-                              phone: phone,
-                              preference: preference,
-                              profilePic: profilePic,
-                              relationshipStatus: relationshipStatus,
-                              smoking: smoking,
-                              coverPic: coverPic,
-                              image0: image0,
-                              image1: image1,
-                              image2: image2,
-                            ),
-                          ),
-                        );
+                        // Navigator.pushReplacement(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => EditProfileImages(
+                        //       fullName: fullName,
+                        //       email: email,
+                        //       birthday: birthday,
+                        //       location: state.locationName!,
+                        //       age: age,
+                        //       bio: bio,
+                        //       drinking: drinking,
+                        //       faith: faith,
+                        //       gender: gender,
+                        //       phone: phone,
+                        //       preference: preference,
+                        //       profilePic: profilePic,
+                        //       relationshipStatus: relationshipStatus,
+                        //       smoking: smoking,
+                        //       coverPic: coverPic,
+                        //       image0: image0,
+                        //       image1: image1,
+                        //       image2: image2,
+                        //     ),
+                        //   ),
+                        // );
                       } else {
                         return const CircularProgressIndicator();
                       }
