@@ -1,6 +1,8 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:intl/intl.dart';
+
 class FormValidationServices {
 //--------------->>>-----PhoneNumber Validation----->>>------------------------
 
@@ -47,10 +49,19 @@ class FormValidationServices {
   static bool validateBirthday(String? date) {
     if (date != null) {
       try {
-        DateTime parseDate = DateTime.parse(date);
+        DateTime parseDate;
+
+        // Try parsing the date in the "dd/MM/yyyy" format
+        try {
+          parseDate = DateFormat('dd/MM/yyyy').parse(date);
+        } catch (_) {
+          // If parsing fails, try parsing in another format or handle accordingly
+          parseDate = DateFormat('your_alternate_format').parse(date);
+        }
+
         DateTime currentDate = DateTime.now();
 
-        if (parseDate.isBefore(currentDate)) {
+        if (parseDate.isBefore(currentDate) && isAdult(parseDate)) {
           return true;
         }
       } catch (e) {
@@ -58,6 +69,19 @@ class FormValidationServices {
       }
     }
     return false;
+  }
+
+  static bool isAdult(DateTime birthDate) {
+    DateTime today = DateTime.now();
+    int age = today.year - birthDate.year;
+
+    // Check if the birthday has occurred this year
+    if (today.month < birthDate.month ||
+        (today.month == birthDate.month && today.day < birthDate.day)) {
+      age--;
+    }
+
+    return age >= 18;
   }
 }
 

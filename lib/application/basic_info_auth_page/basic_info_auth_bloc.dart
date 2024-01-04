@@ -70,7 +70,9 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       }
 
       if (!FormValidationServices.validateBirthday(event.birthday)) {
-        emit(state.copyWith(birthdayErrorMsg: 'Please enter a valid birthday'));
+        emit(state.copyWith(
+            birthdayErrorMsg:
+                'Please enter a valid birthday / You are under 18'));
         isValidationSuccess = false;
       } else {
         emit(state.copyWith(birthdayErrorMsg: null));

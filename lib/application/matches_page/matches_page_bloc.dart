@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/matches_response_model/matches_response_model.dart';
@@ -17,11 +19,11 @@ class MatchesPageBloc extends Bloc<MatchesPageEvent, MatchesPageState> {
       final result = await ApiServices.getMatchesData();
 
       result.fold((failure) {
-        print("Failure");
+        log("Failure");
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
-        print({"Success ${success.profiles}"});
+        log("Success ${success.profiles}");
         //success from backend
         if (success.profiles != null) {
           emit(state.copyWith(profile: success, isLoading: false));

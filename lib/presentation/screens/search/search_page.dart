@@ -38,6 +38,10 @@ class _SearchPageState extends State<SearchPage> {
             .add(SearchPageEvent.searchData(_controllerValue.text));
       });
     }
+    if (query.isEmpty) {
+      BlocProvider.of<SearchPageBloc>(context)
+          .add(SearchPageEvent.searchData(_controllerValue.text));
+    }
   }
 
   @override

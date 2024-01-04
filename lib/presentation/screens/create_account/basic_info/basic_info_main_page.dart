@@ -8,6 +8,7 @@ import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/date_picker/date_picker.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+import 'package:intl/intl.dart';
 import '../../../../application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import '../../../widgets/textform_widgets/custom_textformfield.dart';
 import 'pick_image_modal_popup.dart';
@@ -164,10 +165,13 @@ class BasicInfoMainPage extends StatelessWidget {
                   onTap: () async {
                     await CustomDatePicker.showDatePickerDialog(context);
                     if (CustomDatePicker.selectedDate != null) {
-                      String formattedDate = CustomDatePicker.selectedDate!
-                          .toString()
-                          .split(' ')[0];
+                      final formatter = DateFormat('dd/MM/yyyy');
+
+                      String formattedDate = formatter
+                          .format(CustomDatePicker.selectedDate!)
+                          .toString();
                       dateController.text = formattedDate;
+
                       log(formattedDate);
                     }
                   },
