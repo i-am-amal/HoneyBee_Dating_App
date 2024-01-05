@@ -1,10 +1,13 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
+import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/pick_image_modal_popup.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_info_last_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/custom_container/custom_container.dart';
@@ -12,46 +15,34 @@ import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-class EditProfileImages extends StatelessWidget {
-  EditProfileImages(
-      {super.key,
-      required this.age,
-      required this.bio,
-      required this.birthday,
-      this.coverPic,
-      required this.drinking,
-      required this.email,
-      required this.faith,
-      required this.fullName,
-      required this.gender,
-      required this.location,
-      required this.phone,
-      required this.preference,
-      required this.profilePic,
-      required this.relationshipStatus,
-      required this.smoking,
-      this.image0,
-      this.image1,
-      this.image2});
+class EditProfileImages extends StatefulWidget {
+  const EditProfileImages({
+    required this.editProfileDetails,
+    super.key,
+  });
 
-  final File profilePic;
+  final EditProfileModel editProfileDetails;
+
+  @override
+  State<EditProfileImages> createState() => _EditProfileImagesState();
+}
+
+class _EditProfileImagesState extends State<EditProfileImages> {
+  File? profilePic;
   File? coverPic;
-  final String preference;
-  final String phone;
-  final String age;
-  final String bio;
-  final String birthday;
-  final String drinking;
-  final String email;
-  final String faith;
-  final String fullName;
-  final String gender;
   File? image0;
   File? image1;
   File? image2;
-  final String location;
-  final String relationshipStatus;
-  final String smoking;
+  @override
+  void initState() {
+    super.initState();
+    profilePic = widget.editProfileDetails.profilePic;
+    coverPic = widget.editProfileDetails.coverPic;
+    image0 = widget.editProfileDetails.image0;
+    image1 = widget.editProfileDetails.image1;
+    image2 = widget.editProfileDetails.image2;
+    log(profilePic.toString());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +73,7 @@ Stay clear of inappropriate content''';
                 image2 = File(state.pic3!.path);
               }
 
-              if (state.pickedProfileImage == null) {
+              if (profilePic == null) {
                 return Center(
                   child: Column(
                     children: [
@@ -96,7 +87,7 @@ Stay clear of inappropriate content''';
                     ],
                   ),
                 );
-              } else if (state.pickedProfileImage != null) {
+              } else if (profilePic != null) {
                 return Column(
                   children: [
                     SizedBox(height: height * 0.03),
@@ -119,20 +110,32 @@ Stay clear of inappropriate content''';
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                            height: height * 0.25,
-                            width: width * 0.35,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 5,
-                                      blurRadius: 7,
-                                      offset: const Offset(0, 3)),
-                                ]),
-                            child: Image.file(profilePic,
-                                fit: BoxFit.cover)),
+                          height: height * 0.25,
+                          width: width * 0.35,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ]),
+
+
+                              ///////////////////////////////////
+                          child: profilePic != null
+                              ? profilePic!.path.startsWith(
+                                      'http') // Assuming URLs start with 'http'
+                                  ? Image.network(profilePic!.path,
+                                      fit: BoxFit.cover)
+                                  : Image.file(profilePic!, fit: BoxFit.cover)
+                              : const Center(
+                                  child: Text('No profile image available')),
+                         //////////////////////////////////
+                        ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -149,27 +152,30 @@ Stay clear of inappropriate content''';
                     SizedBox(height: height * 0.01),
                     GestureDetector(
                       child: Container(
-                        height: height * 0.25,
-                        width: width * 0.99,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: const Offset(0, 3)),
-                            ]),
+                          height: height * 0.25,
+                          width: width * 0.99,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: const Offset(0, 3)),
+                              ]),
 
-                        ///--------------->>>>>>>>>>----------------cover image --------->>>>>>>>>>>---------
+                          ///--------------->>>>>>>>>>----------------cover image --------->>>>>>>>>>>---------
 
-                        child: state.coverProfileImage != null
-                            ? Image.file(File(state.coverProfileImage!.path),
-                                fit: BoxFit.cover)
-                            : const Center(
-                                child: Text('No cover image available')),
-                      ),
+                          child: state.coverProfileImage != null
+                              ? Image.file(File(state.coverProfileImage!.path),
+                                  fit: BoxFit.cover)
+                              : Image.network(
+                                  widget.editProfileDetails.coverPic!.path)
+
+                          //  const Center(
+                          //     child: Text('No cover image available')),
+                          ),
                       onTap: () {
                         pickImageModalPopUp(
                           context,
@@ -226,30 +232,63 @@ Stay clear of inappropriate content''';
                       width: width * 0.2,
                       txtcolor: CustomColors.kWhiteTextColor,
                       onpressed: () {
-                        // log("$fullName,$birthday,$coverImage,$email,$location,$phoneNumber,$profileImage,$image1,$image2,$image3");
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => BasicInfoLastPage(
-                        //       fullName: fullName,
-                        //       email: email,
-                        //       location: location,
-                        //       birthday: birthday,
-                        //       phoneNumber: phoneNumber,
-                        //       profileImage: profileImage,
-                        //       coverImage: coverImage,
-                        //       image1: image1,
-                        //       image2: image2,
-                        //       image3: image3,
-                        //     ),
-                        //   ),
-                        // );
+                        log('''----log on edit profileimages page------
+                                age-  ${widget.editProfileDetails.age},
+                               bio-   ${widget.editProfileDetails.bio},
+                                birthday-  ${widget.editProfileDetails.birthday},
+                                 coverpic- $coverPic,
+                                 drinking- ${widget.editProfileDetails.drinking},
+                                email-  ${widget.editProfileDetails.email},
+                                 faith ${widget.editProfileDetails.faith},
+                                 name- ${widget.editProfileDetails.fullName},
+                                 gender- ${widget.editProfileDetails.gender},
+                                 image0- $image0,
+                                 image1- $image1,
+                                 image2- $image2,
+                                 location- ${widget.editProfileDetails.location},
+                                 phone- ${widget.editProfileDetails.phone},
+                                 preference- ${widget.editProfileDetails.preference},
+                                 profilepic- ${widget.editProfileDetails.profilePic}
+                                  relationshipStatus- ${widget.editProfileDetails.relationshipStatus} 
+                                 smoking-  ${widget.editProfileDetails.smoking}
+                                  ''');
+
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EditInfoLastPage(
+                              editProfileDetails: EditProfileModel(
+                                age: widget.editProfileDetails.age,
+                                bio: widget.editProfileDetails.bio,
+                                birthday: widget.editProfileDetails.birthday,
+                                coverPic: coverPic,
+                                drinking: widget.editProfileDetails.drinking,
+                                email: widget.editProfileDetails.email,
+                                faith: widget.editProfileDetails.faith,
+                                fullName: widget.editProfileDetails.fullName,
+                                gender: widget.editProfileDetails.gender,
+                                image0: image0,
+                                image1: image1,
+                                image2: image2,
+                                location: widget.editProfileDetails.location,
+                                phone: widget.editProfileDetails.phone,
+                                preference:
+                                    widget.editProfileDetails.preference,
+                                profilePic:
+                                    widget.editProfileDetails.profilePic,
+                                relationshipStatus: widget
+                                    .editProfileDetails.relationshipStatus,
+                                smoking: widget.editProfileDetails.smoking,
+                              ),
+                            ),
+                          ),
+                        );
                       },
                     )
                   ],
                 );
               } else {
-                return Center();
+                return const Center();
               }
             },
           ),
@@ -259,16 +298,14 @@ Stay clear of inappropriate content''';
   }
 }
 
-
-
 //   @override
 //   Widget build(BuildContext context) {
 //     double width = MediaQuery.of(context).size.width;
 //     double height = MediaQuery.of(context).size.height;
 
-//     String instructions = '''Add atleast two picture to continue. 
-// Avoid Blurry Photos. 
-// Try to upload image within 2 MB size. 
+//     String instructions = '''Add atleast two picture to continue.
+// Avoid Blurry Photos.
+// Try to upload image within 2 MB size.
 // Stay clear of inappropriate content''';
 
 //     return Scaffold(

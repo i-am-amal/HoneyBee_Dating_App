@@ -67,9 +67,11 @@ class EditProfile extends StatelessWidget {
                             icon: Icons.edit,
                             onpressed: () {
                               if (state.success != null) {
-                                log('''----log on edit profile page------${state.success!.age},
+                                log('''----log on edit profile page------
+                                  ${state.success!.age},
                                   ${state.success!.bio},
                                   ${state.success!.birthday},
+                                  ${state.success!.profilePic},
                                   ${state.success!.coverPic},
                                   ${state.success!.drinking},
                                   ${state.success!.email},
@@ -81,7 +83,6 @@ class EditProfile extends StatelessWidget {
                                   ${state.success!.phone},
                                   ${state.success!.preference},
                                   ${state.success!.realationshipStatus},
-                                  ${state.success!.profilePic},
                                   ${state.success!.images}''');
 
                                 Navigator.push(

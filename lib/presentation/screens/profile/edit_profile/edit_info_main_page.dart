@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/pick_image_modal_popup.dart';
 import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_location_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/date_picker/date_picker.dart';
@@ -70,37 +71,58 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
 
             if (state.isValidated != null) {
               if (state.isValidated == true) {
-                // if (pickedProfilePic != null) {
-                //   pickedProfilePic = File(pickedProfilePic!.path);
-                // }
+                if (state.pickedProfileImage != null) {
+                  profilePic = File(state.pickedProfileImage!.path);
+                }
 
                 WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                  log('${editDateController.text},${editEmailController.text},${editNameController.text},${editPhoneNumberController.text}');
-                  // Navigator.pushReplacement(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => EditLocationPage(
-                  //       fullName: editNameController.text,
-                  //       birthday: editDateController.text,
-                  //       email: editEmailController.text,
-                  //       phone: widget.editProfileDetails.phone,
-                  //       profilePic: pickedProfilePic ?? File(''),
-                  //       age: widget.age,
-                  //       bio: widget.bio,
-                  //       coverPic: widget.coverPic,
-                  //       drinking: widget.drinking,
-                  //       faith: widget.faith,
-                  //       gender: widget.gender,
-                  //       location: widget.location,
-                  //       preference: widget.preference,
-                  //       relationshipStatus: widget.relationshipStatus,
-                  //       smoking: widget.smoking,
-                  //       image0: widget.image0,
-                  //       image1: widget.image1,
-                  //       image2: widget.image2,
-                  //     ),
-                  //   ),
-                  // );
+                  log('''----log on edit info main page------
+                                age-  ${widget.editProfileDetails.age},
+                               bio-   ${widget.editProfileDetails.bio},
+                                birthday-  ${editDateController.text},
+                                 coverpic- ${widget.editProfileDetails.coverPic},
+                                 drinking- ${widget.editProfileDetails.drinking},
+                                email-  ${editEmailController.text},
+                                 faith ${widget.editProfileDetails.faith},
+                                 name- ${editNameController.text},
+                                 gender- ${widget.editProfileDetails.gender},
+                                 image0- ${widget.editProfileDetails.image0},
+                                 image1- ${widget.editProfileDetails.image1},
+                                 image2- ${widget.editProfileDetails.image2},
+                                 location- ${widget.editProfileDetails.location},
+                                 phone- ${editPhoneNumberController.text},
+                                 preference- ${widget.editProfileDetails.preference},
+                                 profilepic- $profilePic
+                                  relationshipStatus- ${widget.editProfileDetails.relationshipStatus} 
+                                 smoking-  ${widget.editProfileDetails.smoking}
+                                  ''');
+
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => EditLocationPage(
+                                editProfileDetails: EditProfileModel(
+                              age: widget.editProfileDetails.age,
+                              bio: widget.editProfileDetails.bio,
+                              birthday: editDateController.text,
+                              coverPic: widget.editProfileDetails.coverPic,
+                              drinking: widget.editProfileDetails.drinking,
+                              email: editEmailController.text,
+                              faith: widget.editProfileDetails.faith,
+                              fullName: editNameController.text,
+                              gender: widget.editProfileDetails.gender,
+                              image0: widget.editProfileDetails.image0,
+                              image1: widget.editProfileDetails.image1,
+                              image2: widget.editProfileDetails.image2,
+                              location: widget.editProfileDetails.location,
+                              phone: editPhoneNumberController.text,
+                              preference: widget.editProfileDetails.preference,
+                              profilePic: profilePic,
+                              relationshipStatus:
+                                  widget.editProfileDetails.relationshipStatus,
+                              smoking: widget.editProfileDetails.smoking,
+                            ))),
+                  );
                 });
                 //>>>>>>>>>>>>>>------------------->>>>>>>>>>>>>>>>>>>>>>
               }
@@ -133,12 +155,17 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                         width: width * 0.33,
                         height: height * 0.25,
                         child: GestureDetector(
-                          child: state.pickedProfileImage != null
-                              ? Image.file(
-                                  File(state.pickedProfileImage!.path),
-                                )
-                              : Image.network(
-                                  widget.editProfileDetails.profilePic!.path),
+                          child:
+                              //  profilePic != null
+                              //     ? Image.file(profilePic!)
+                              //     : Image.network(
+                              //         widget.editProfileDetails.profilePic!.path),
+                              state.pickedProfileImage != null
+                                  ? Image.file(
+                                      File(state.pickedProfileImage!.path),
+                                    )
+                                  : Image.network(widget
+                                      .editProfileDetails.profilePic!.path),
                           onTap: () {
                             log("on tap on pop up edit info main page");
                             pickImageModalPopUp(

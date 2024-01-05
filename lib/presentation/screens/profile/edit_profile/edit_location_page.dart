@@ -1,9 +1,10 @@
-
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/location_auth_page/location_auth_page_bloc.dart';
 import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile_images.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -11,7 +12,8 @@ import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class EditLocationPage extends StatelessWidget {
-  const EditLocationPage({required this.editProfileDetails,
+  const EditLocationPage({
+    required this.editProfileDetails,
     super.key,
   });
 
@@ -93,33 +95,56 @@ class EditLocationPage extends StatelessWidget {
                     letterspacing: 1,
                     fontsize: 15,
                     onpressed: () {
-                      
                       if (state.locationName != null) {
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => EditProfileImages(
-                        //       fullName: fullName,
-                        //       email: email,
-                        //       birthday: birthday,
-                        //       location: state.locationName!,
-                        //       age: age,
-                        //       bio: bio,
-                        //       drinking: drinking,
-                        //       faith: faith,
-                        //       gender: gender,
-                        //       phone: phone,
-                        //       preference: preference,
-                        //       profilePic: profilePic,
-                        //       relationshipStatus: relationshipStatus,
-                        //       smoking: smoking,
-                        //       coverPic: coverPic,
-                        //       image0: image0,
-                        //       image1: image1,
-                        //       image2: image2,
-                        //     ),
-                        //   ),
-                        // );
+                        log('''----log on edit location page------
+                                age-  ${editProfileDetails.age},
+                               bio-   ${editProfileDetails.bio},
+                                birthday-  ${editProfileDetails.birthday},
+                                 coverpic- ${editProfileDetails.coverPic},
+                                 drinking- ${editProfileDetails.drinking},
+                                email-  ${editProfileDetails.email},
+                                 faith ${editProfileDetails.faith},
+                                 name- ${editProfileDetails.fullName},
+                                 gender- ${editProfileDetails.gender},
+                                 image0- ${editProfileDetails.image0},
+                                 image1- ${editProfileDetails.image1},
+                                 image2- ${editProfileDetails.image2},
+                                 location- ${editProfileDetails.location},
+                                 phone- ${editProfileDetails.phone},
+                                 preference- ${editProfileDetails.preference},
+                                 profilepic- ${editProfileDetails.profilePic}
+                                  relationshipStatus- ${editProfileDetails.relationshipStatus} 
+                                 smoking-  ${editProfileDetails.smoking}
+                                  ''');
+
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EditProfileImages(
+                              editProfileDetails: EditProfileModel(
+                                age: editProfileDetails.age,
+                                bio: editProfileDetails.bio,
+                                birthday: editProfileDetails.birthday,
+                                coverPic: editProfileDetails.coverPic,
+                                drinking: editProfileDetails.drinking,
+                                email: editProfileDetails.email,
+                                faith: editProfileDetails.faith,
+                                fullName: editProfileDetails.fullName,
+                                gender: editProfileDetails.gender,
+                                image0: editProfileDetails.image0,
+                                image1: editProfileDetails.image1,
+                                image2: editProfileDetails.image2,
+                                location: editProfileDetails.location,
+                                phone: editProfileDetails.phone,
+                                preference: editProfileDetails.preference,
+                                profilePic: editProfileDetails.profilePic,
+                                relationshipStatus:
+                                    editProfileDetails.relationshipStatus,
+                                smoking: editProfileDetails.smoking,
+                              ),
+                            ),
+                          ),
+                        );
                       } else {
                         return const CircularProgressIndicator();
                       }
