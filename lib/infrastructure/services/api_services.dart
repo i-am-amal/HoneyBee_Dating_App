@@ -427,11 +427,15 @@ class ApiServices {
   }) async {
     try {
       final apiToken = await getTokenFromPrefs();
+
       var request =
-          http.MultipartRequest('POST', Uri.parse(Config.userEditApi));
+          http.MultipartRequest('PATCH', Uri.parse(Config.userEditApi));
+
+      log(request.toString());
+
+// headers: <String, String>{'auth-token': apiToken!};
       request.headers.addAll({
-        "Content-Type": "multipart/form-data",
-        "Authorization": apiToken!,
+        "auth-token": apiToken!,
       });
 
       if (fullName != null) {
@@ -539,9 +543,12 @@ class ApiServices {
 
       StreamedResponse streamedResponse = await request.send();
       Response response = await http.Response.fromStream(streamedResponse);
+      log(response.statusCode.toString());
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
+        log(jsonMap.toString());
         UserEditResponseModel result = UserEditResponseModel.fromJson(jsonMap);
+        log(result.toString());
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
