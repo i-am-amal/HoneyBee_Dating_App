@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/location_auth_page/location_auth_page_bloc.dart';
-import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile_model.dart';
+import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';

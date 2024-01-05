@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/screens/profile/edit_profile/edit_info_main_page.dart';
-import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile_model.dart';
+import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';

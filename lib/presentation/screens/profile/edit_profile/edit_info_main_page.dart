@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/pick_image_modal_popup.dart';
-import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile_model.dart';
+import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/date_picker/date_picker.dart';
