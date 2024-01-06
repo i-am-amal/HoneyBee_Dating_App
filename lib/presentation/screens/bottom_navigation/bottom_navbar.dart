@@ -7,7 +7,7 @@ import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
 import 'package:honeybee/presentation/screens/chatting/chat_page.dart';
 import 'package:honeybee/presentation/screens/discover/discover_page.dart';
 import 'package:honeybee/presentation/screens/matches/matches_page.dart';
-import 'package:honeybee/presentation/screens/profile/menu_page.dart';
+import 'package:honeybee/presentation/screens/menu_page/menu_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 
 class BottomNavbar extends StatelessWidget {

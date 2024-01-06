@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/search_page/search_page_bloc.dart';
 import 'package:honeybee/domain/models/user_model/user_model.dart';
-import 'package:honeybee/presentation/screens/profile/user_profile_view_page.dart';
+import 'package:honeybee/presentation/screens/profile/profile_preview/user_profile_view_page.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 

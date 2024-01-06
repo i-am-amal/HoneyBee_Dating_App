@@ -7,9 +7,7 @@ import 'package:honeybee/application/update_account_page/update_account_page_blo
 import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
 import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
-import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
-import 'package:honeybee/presentation/screens/profile/profile_preview.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -21,11 +19,9 @@ class EditPreviewAccount extends StatelessWidget {
   const EditPreviewAccount({
     super.key,
     required this.editProfileDetails,
-    // required this.selectedOptions,
   });
 
   final EditProfileModel editProfileDetails;
-  // final SelectedOptions selectedOptions;
 
   @override
   Widget build(BuildContext context) {
@@ -82,22 +78,15 @@ class EditPreviewAccount extends StatelessWidget {
                   ],
                 ),
                 child: editProfileDetails.profilePic != null
-                    ? editProfileDetails.profilePic!.path.startsWith(
-                            'http') // Assuming URLs start with 'http'
+                    ? editProfileDetails.profilePic!.path.startsWith('http')
                         ? Image.network(editProfileDetails.profilePic!.path,
                             fit: BoxFit.cover)
                         : Image.file(editProfileDetails.profilePic!,
                             fit: BoxFit.cover)
                     : const Center(child: Text('No profile image available')),
-
-                //  Image.file(
-                //   profileImage,
-                //   fit: BoxFit.cover,
-                // ),
               ),
               SizedBox(
                 width: width * 0.99,
-                // color: Colors.grey,
                 child: Column(
                   children: [
                     SizedBox(height: height * 0.05),
@@ -179,48 +168,53 @@ class EditPreviewAccount extends StatelessWidget {
                       } else if (state.navigationState == true) {
                         WidgetsBinding.instance
                             .addPostFrameCallback((timeStamp) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: const Row(
-                                children: [
-                                  Icon(Icons.check_circle_outline,
-                                      color: Colors.white),
-                                  SizedBox(width: 15),
-                                  Flexible(
-                                    child: Text(
-                                      'Profile Details Updated...',
-                                      style: TextStyle(
-                                        color: Colors.white,
+                          getTokenFromPrefs().then((token) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: const Row(
+                                  children: [
+                                    Icon(Icons.check_circle_outline,
+                                        color: Colors.white),
+                                    SizedBox(width: 15),
+                                    Flexible(
+                                      child: Text(
+                                        'Profile Details Updated...',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              duration: const Duration(seconds: 5),
-                              backgroundColor:
-                                  const Color.fromARGB(234, 92, 16, 105),
-                              behavior: SnackBarBehavior.floating,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
-                          );
-
-                          // log('token on the preview account page --- ${state.token!}');
-
-//----------->>>>>>>>>>----------saving token---------------->>>>>>>>>>>
-                          // saveTokenToPrefs(state.token!);
-
-                          Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ProfilePreview()
-                                // BottomNavbar(
-                                //   token: '',
-                                // ),
+                                  ],
                                 ),
-                            (route) => false,
-                          );
+                                duration: const Duration(seconds: 5),
+                                backgroundColor:
+                                    const Color.fromARGB(234, 92, 16, 105),
+                                behavior: SnackBarBehavior.floating,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                              ),
+                            );
+
+                            log('token on the edit preview account page --- $token');
+
+                            if (token != null) {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => BottomNavbar(
+                                    token: token,
+                                  ),
+                                ),
+                                (route) => false,
+                              );
+                            } else {
+                              return const Center(
+                                child: Text(
+                                    'There is an issue with the user id please login again'),
+                              );
+                            }
+                          });
                         });
                       } else {
                         return MainCustomButton(
@@ -256,27 +250,7 @@ class EditPreviewAccount extends StatelessWidget {
                               ),
                             );
 
-                            // BlocProvider.of<CreateAccountBloc>(context).add(
-                            //     CreateAccountEvent.createAccount(
-                            //         fullName: fullName,
-                            //         location: location,
-                            //         email: email,
-                            //         phoneNumber: phoneNumber,
-                            //         birthday: birthday,
-                            //         bio: bio,
-                            //         gender: gender,
-                            //         age: age,
-                            //         profileImage: profileImage,
-                            //         coverImage: coverImage,
-                            //         selectedOptions: selectedOptions,
-                            //         preference: preference,
-                            //         image1: image1,
-                            //         image2: image2,
-                            //         image3: image3));
-
-                            // log("on create function $image1,$image2,$image3");
-                            // log("$fullName, $birthday, $coverImage, $email, $location, $phoneNumber, $profileImage, $image1, $image2, $image3,${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},$bio,$gender,$preference");
-                          },
+                            },
                         );
                       }
 
