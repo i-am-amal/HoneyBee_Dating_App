@@ -9,6 +9,7 @@ import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/application/search_page/search_page_bloc.dart';
 import 'package:honeybee/application/update_account_page/update_account_page_bloc.dart';
+import 'package:honeybee/presentation/screens/chatting/chat_page.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
@@ -62,7 +63,8 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SearchPageBloc(),
-        ),BlocProvider(
+        ),
+        BlocProvider(
           create: (context) => UpdateAccountPageBloc(),
         ),
       ],
@@ -74,6 +76,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: const SplashScreen(),
+        // home:const ChatPage(),
       ),
     );
   }

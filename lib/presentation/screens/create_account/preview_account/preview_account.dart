@@ -13,6 +13,7 @@ import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+import 'package:intl/intl.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 // ignore: must_be_immutable
@@ -278,14 +279,17 @@ class PreviewAccount extends StatelessWidget {
   }
 
   int calculateAge(String birthday) {
-    DateTime birthDate = DateTime.parse(birthday);
+    DateFormat formatter = DateFormat('dd/MM/yyyy');
+    DateTime birthDate = formatter.parse(birthday);
     DateTime currentDate = DateTime.now();
     int age = currentDate.year - birthDate.year;
+
     if (currentDate.month < birthDate.month ||
         (currentDate.month == birthDate.month &&
             currentDate.day < birthDate.day)) {
       age--;
     }
+
     return age;
   }
 }
