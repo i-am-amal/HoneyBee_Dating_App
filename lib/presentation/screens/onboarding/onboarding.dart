@@ -23,7 +23,9 @@ class Onboarding extends StatelessWidget {
             const SizedBox(
               height: 70,
             ),
-            const ImageWidget(),
+            const ImageWidget(
+                imagepath:
+                    'https://images.pexels.com/photos/935789/pexels-photo-935789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
             const SizedBox(
               height: 50,
             ),
