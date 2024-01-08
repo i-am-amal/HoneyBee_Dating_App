@@ -205,26 +205,62 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                     onpressed: () {
                       log("-----------This is the data when pressed on create account on preview account----------${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bioTextController.text},$selectedGenderButton,$selectedGenderOtherOption,$selectedPreferenceButton");
                       log(selectedGenderButton);
+
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => PreviewAccount(
-                                  fullName: widget.fullName,
-                                  email: widget.email,
-                                  phoneNumber: widget.phoneNumber,
-                                  birthday: widget.birthday,
-                                  coverImage: widget.coverImage,
-                                  location: widget.location,
-                                  profileImage: widget.profileImage,
-                                  selectedOptions: selectedOptions,
-                                  gender: selectedGenderButton,
-                                  bio: bioTextController.text,
-                                  preference: selectedPreferenceButton,
-                                  image1: widget.image1,
-                                  image2: widget.image2,
-                                  image3: widget.image3,
-                                )),
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  PreviewAccount(
+                            fullName: widget.fullName,
+                            email: widget.email,
+                            phoneNumber: widget.phoneNumber,
+                            birthday: widget.birthday,
+                            coverImage: widget.coverImage,
+                            location: widget.location,
+                            profileImage: widget.profileImage,
+                            selectedOptions: selectedOptions,
+                            gender: selectedGenderButton,
+                            bio: bioTextController.text,
+                            preference: selectedPreferenceButton,
+                            image1: widget.image1,
+                            image2: widget.image2,
+                            image3: widget.image3,
+                          ),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            const begin = Offset(1.0, 0.0);
+                            const end = Offset.zero;
+                            const curve = Curves.easeInOutQuart;
+                            var tween = Tween(begin: begin, end: end)
+                                .chain(CurveTween(curve: curve));
+                            var offsetAnimation = animation.drive(tween);
+                            return SlideTransition(
+                                position: offsetAnimation, child: child);
+                          },
+                        ),
                       );
+
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //       builder: (context) => PreviewAccount(
+                      //             fullName: widget.fullName,
+                      //             email: widget.email,
+                      //             phoneNumber: widget.phoneNumber,
+                      //             birthday: widget.birthday,
+                      //             coverImage: widget.coverImage,
+                      //             location: widget.location,
+                      //             profileImage: widget.profileImage,
+                      //             selectedOptions: selectedOptions,
+                      //             gender: selectedGenderButton,
+                      //             bio: bioTextController.text,
+                      //             preference: selectedPreferenceButton,
+                      //             image1: widget.image1,
+                      //             image2: widget.image2,
+                      //             image3: widget.image3,
+                      //           )),
+                      // );
                     },
                   )
                 ],

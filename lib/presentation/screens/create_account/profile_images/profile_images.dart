@@ -189,10 +189,31 @@ Stay clear of inappropriate content''';
                     txtcolor: CustomColors.kWhiteTextColor,
                     onpressed: () {
                       log("$fullName,$birthday,$coverImage,$email,$location,$phoneNumber,$profileImage,$image1,$image2,$image3");
+
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => BasicInfoLastPage(
+                      //       fullName: fullName,
+                      //       email: email,
+                      //       location: location,
+                      //       birthday: birthday,
+                      //       phoneNumber: phoneNumber,
+                      //       profileImage: profileImage,
+                      //       coverImage: coverImage,
+                      //       image1: image1,
+                      //       image2: image2,
+                      //       image3: image3,
+                      //     ),
+                      //   ),
+                      // );
+
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => BasicInfoLastPage(
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  BasicInfoLastPage(
                             fullName: fullName,
                             email: email,
                             location: location,
@@ -204,6 +225,17 @@ Stay clear of inappropriate content''';
                             image2: image2,
                             image3: image3,
                           ),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            const begin = Offset(1.0, 0.0);
+                            const end = Offset.zero;
+                            const curve = Curves.easeInOutQuart;
+                            var tween = Tween(begin: begin, end: end)
+                                .chain(CurveTween(curve: curve));
+                            var offsetAnimation = animation.drive(tween);
+                            return SlideTransition(
+                                position: offsetAnimation, child: child);
+                          },
                         ),
                       );
                     },

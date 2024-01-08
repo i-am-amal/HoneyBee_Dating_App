@@ -59,9 +59,27 @@ class Onboarding extends StatelessWidget {
               letterspacing: 1.5,
               fontFamily: CustomFont.headTextFont,
               onpressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const SignInPage(),
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (context) => const SignInPage(),
+                //   ),
+                // );
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const SignInPage(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      const begin = Offset(1.0, 0.0);
+                      const end = Offset.zero;
+                      const curve = Curves.easeInOutQuart;
+                      var tween = Tween(begin: begin, end: end)
+                          .chain(CurveTween(curve: curve));
+                      var offsetAnimation = animation.drive(tween);
+                      return SlideTransition(
+                          position: offsetAnimation, child: child);
+                    },
                   ),
                 );
 

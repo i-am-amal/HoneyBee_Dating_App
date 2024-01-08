@@ -105,16 +105,42 @@ class LocationPage extends StatelessWidget {
                     fontsize: 15,
                     onpressed: () {
                       if (state.locationName != null) {
+                        // Navigator.pushReplacement(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => ProfileImages(
+                        //         fullName: fullName,
+                        //         email: email,
+                        //         birthday: birthday,
+                        //         phoneNumber: phoneNumber,
+                        //         location: state.locationName!,
+                        //         profileImage: profileImage),
+                        //   ),
+                        // );
+
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => ProfileImages(
-                                fullName: fullName,
-                                email: email,
-                                birthday: birthday,
-                                phoneNumber: phoneNumber,
-                                location: state.locationName!,
-                                profileImage: profileImage),
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation,
+                                    secondaryAnimation) =>
+                                ProfileImages(
+                                    fullName: fullName,
+                                    email: email,
+                                    birthday: birthday,
+                                    phoneNumber: phoneNumber,
+                                    location: state.locationName!,
+                                    profileImage: profileImage),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              const begin = Offset(1.0, 0.0);
+                              const end = Offset.zero;
+                              const curve = Curves.easeInOutQuart;
+                              var tween = Tween(begin: begin, end: end)
+                                  .chain(CurveTween(curve: curve));
+                              var offsetAnimation = animation.drive(tween);
+                              return SlideTransition(
+                                  position: offsetAnimation, child: child);
+                            },
                           ),
                         );
                       } else {
