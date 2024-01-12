@@ -44,3 +44,4 @@
 ----------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 • Try to fix the bug that when a user is created gets logged out and tries to sign in it redirects again to the create account page ..try to fix the bug
+*  Have to finish the chat as soon as possible
