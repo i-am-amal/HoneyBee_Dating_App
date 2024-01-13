@@ -62,7 +62,6 @@ class ChatPage extends StatelessWidget {
                     debugPrint('tapping');
                   },
                   child: Card(
-                    // Adjust padding, margin, and decoration as needed
                     child: ListTile(
                       leading: CircleAvatar(
                         backgroundImage: AssetImage(message.profilePicUrl),
