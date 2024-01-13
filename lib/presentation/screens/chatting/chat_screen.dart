@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/border_outlined_icon_button.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -13,6 +16,57 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   // final TextEditingController _messageController = TextEditingController();
+  late IO.Socket socket;
+
+  @override
+  void initState() {
+    socket = IO.io(
+        'http://10.0.2.2:5000',
+        IO.OptionBuilder()
+            .setTransports(['websocket'])
+            .disableAutoConnect()
+            .build());
+
+    socket.connect();
+
+    socket.emit('add-user', '659950df6a562775dbebb7f4');
+    socket.onConnect((data) {
+      log('connected------------------------');
+    });
+    socket.on('add-user', (data) {
+      log('---------------------------socket--------');
+    });
+
+    socket.onDisconnect((data) {
+      log('disconnected------------------------');
+    });
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    socket.dispose();
+    super.dispose();
+  }
+// @override
+// void initState() {
+//   socket = IO.io(
+//       'https://amal.fun',
+//       IO.OptionBuilder()
+//           .setTransports(['websocket'])
+//           .disableAutoConnect()
+//           .build());
+
+//   socket.connect();
+//   socket.emit('getOnlineUsers', '659950df6a562775dbebb7f4');
+//   socket.onConnect((data) {
+//     log('connected------------------------');
+//   });
+//   socket.on('getOnlineUsers', (data) {
+//     log('---------------------------socket--------');
+//   });
+// }
 
   @override
   Widget build(BuildContext context) {
