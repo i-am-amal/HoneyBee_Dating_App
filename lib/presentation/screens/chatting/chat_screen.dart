@@ -49,24 +49,6 @@ class _ChatScreenState extends State<ChatScreen> {
     socket.dispose();
     super.dispose();
   }
-// @override
-// void initState() {
-//   socket = IO.io(
-//       'https://amal.fun',
-//       IO.OptionBuilder()
-//           .setTransports(['websocket'])
-//           .disableAutoConnect()
-//           .build());
-
-//   socket.connect();
-//   socket.emit('getOnlineUsers', '659950df6a562775dbebb7f4');
-//   socket.onConnect((data) {
-//     log('connected------------------------');
-//   });
-//   socket.on('getOnlineUsers', (data) {
-//     log('---------------------------socket--------');
-//   });
-// }
 
   @override
   Widget build(BuildContext context) {
