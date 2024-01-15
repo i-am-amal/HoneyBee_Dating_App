@@ -2,5 +2,16 @@ part of 'add_new_message_bloc.dart';
 
 @freezed
 class AddNewMessageState with _$AddNewMessageState {
-  const factory AddNewMessageState.initial() = _Initial;
+  const factory AddNewMessageState({
+    String? errorMessage,
+    String? controllerValue,
+    String? senderId,
+    String? receiverId,
+    String? coversationId,
+    bool? isLoading,
+  }) = _AddNewMessageState;
+
+  factory AddNewMessageState.initial() {
+    return const AddNewMessageState(isLoading: false, controllerValue: '');
+  }
 }

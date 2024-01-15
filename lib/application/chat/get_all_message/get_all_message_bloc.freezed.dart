@@ -16,37 +16,45 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$GetAllMessageEvent {
+  String? get senderId => throw _privateConstructorUsedError;
+  String? get receiverId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(String? senderId, String? receiverId)
+        getAllMessageOfUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(String? senderId, String? receiverId)?
+        getAllMessageOfUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $GetAllMessageEventCopyWith<GetAllMessageEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +63,8 @@ abstract class $GetAllMessageEventCopyWith<$Res> {
   factory $GetAllMessageEventCopyWith(
           GetAllMessageEvent value, $Res Function(GetAllMessageEvent) then) =
       _$GetAllMessageEventCopyWithImpl<$Res, GetAllMessageEvent>;
+  @useResult
+  $Res call({String? senderId, String? receiverId});
 }
 
 /// @nodoc
@@ -66,66 +76,126 @@ class _$GetAllMessageEventCopyWithImpl<$Res, $Val extends GetAllMessageEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? senderId = freezed,
+    Object? receiverId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      senderId: freezed == senderId
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      receiverId: freezed == receiverId
+          ? _value.receiverId
+          : receiverId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_GetAllMessageOfUserCopyWith<$Res>
+    implements $GetAllMessageEventCopyWith<$Res> {
+  factory _$$_GetAllMessageOfUserCopyWith(_$_GetAllMessageOfUser value,
+          $Res Function(_$_GetAllMessageOfUser) then) =
+      __$$_GetAllMessageOfUserCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? senderId, String? receiverId});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$GetAllMessageEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_GetAllMessageOfUserCopyWithImpl<$Res>
+    extends _$GetAllMessageEventCopyWithImpl<$Res, _$_GetAllMessageOfUser>
+    implements _$$_GetAllMessageOfUserCopyWith<$Res> {
+  __$$_GetAllMessageOfUserCopyWithImpl(_$_GetAllMessageOfUser _value,
+      $Res Function(_$_GetAllMessageOfUser) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? senderId = freezed,
+    Object? receiverId = freezed,
+  }) {
+    return _then(_$_GetAllMessageOfUser(
+      freezed == senderId
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == receiverId
+          ? _value.receiverId
+          : receiverId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
+  const _$_GetAllMessageOfUser(this.senderId, this.receiverId);
+
+  @override
+  final String? senderId;
+  @override
+  final String? receiverId;
 
   @override
   String toString() {
-    return 'GetAllMessageEvent.started()';
+    return 'GetAllMessageEvent.getAllMessageOfUser(senderId: $senderId, receiverId: $receiverId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType &&
+            other is _$_GetAllMessageOfUser &&
+            (identical(other.senderId, senderId) ||
+                other.senderId == senderId) &&
+            (identical(other.receiverId, receiverId) ||
+                other.receiverId == receiverId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, senderId, receiverId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetAllMessageOfUserCopyWith<_$_GetAllMessageOfUser> get copyWith =>
+      __$$_GetAllMessageOfUserCopyWithImpl<_$_GetAllMessageOfUser>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(String? senderId, String? receiverId)
+        getAllMessageOfUser,
   }) {
-    return started();
+    return getAllMessageOfUser(senderId, receiverId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(String? senderId, String? receiverId)?
+        getAllMessageOfUser,
   }) {
-    return started?.call();
+    return getAllMessageOfUser?.call(senderId, receiverId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (getAllMessageOfUser != null) {
+      return getAllMessageOfUser(senderId, receiverId);
     }
     return orElse();
   }
@@ -133,69 +203,58 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
   }) {
-    return started(this);
+    return getAllMessageOfUser(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
   }) {
-    return started?.call(this);
+    return getAllMessageOfUser?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (getAllMessageOfUser != null) {
+      return getAllMessageOfUser(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements GetAllMessageEvent {
-  const factory _Started() = _$_Started;
+abstract class _GetAllMessageOfUser implements GetAllMessageEvent {
+  const factory _GetAllMessageOfUser(
+          final String? senderId, final String? receiverId) =
+      _$_GetAllMessageOfUser;
+
+  @override
+  String? get senderId;
+  @override
+  String? get receiverId;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetAllMessageOfUserCopyWith<_$_GetAllMessageOfUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$GetAllMessageState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  String? get errorMessage => throw _privateConstructorUsedError;
+  String? get senderId => throw _privateConstructorUsedError;
+  String? get receiverId => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
+  bool? get isLoading => throw _privateConstructorUsedError;
+  bool? get fromSelf => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $GetAllMessageStateCopyWith<GetAllMessageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -204,6 +263,14 @@ abstract class $GetAllMessageStateCopyWith<$Res> {
   factory $GetAllMessageStateCopyWith(
           GetAllMessageState value, $Res Function(GetAllMessageState) then) =
       _$GetAllMessageStateCopyWithImpl<$Res, GetAllMessageState>;
+  @useResult
+  $Res call(
+      {String? errorMessage,
+      String? senderId,
+      String? receiverId,
+      String? message,
+      bool? isLoading,
+      bool? fromSelf});
 }
 
 /// @nodoc
@@ -215,99 +282,192 @@ class _$GetAllMessageStateCopyWithImpl<$Res, $Val extends GetAllMessageState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = freezed,
+    Object? senderId = freezed,
+    Object? receiverId = freezed,
+    Object? message = freezed,
+    Object? isLoading = freezed,
+    Object? fromSelf = freezed,
+  }) {
+    return _then(_value.copyWith(
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      senderId: freezed == senderId
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      receiverId: freezed == receiverId
+          ? _value.receiverId
+          : receiverId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isLoading: freezed == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      fromSelf: freezed == fromSelf
+          ? _value.fromSelf
+          : fromSelf // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$_GetAllMessageStateCopyWith<$Res>
+    implements $GetAllMessageStateCopyWith<$Res> {
+  factory _$$_GetAllMessageStateCopyWith(_$_GetAllMessageState value,
+          $Res Function(_$_GetAllMessageState) then) =
+      __$$_GetAllMessageStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? errorMessage,
+      String? senderId,
+      String? receiverId,
+      String? message,
+      bool? isLoading,
+      bool? fromSelf});
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$GetAllMessageStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$_GetAllMessageStateCopyWithImpl<$Res>
+    extends _$GetAllMessageStateCopyWithImpl<$Res, _$_GetAllMessageState>
+    implements _$$_GetAllMessageStateCopyWith<$Res> {
+  __$$_GetAllMessageStateCopyWithImpl(
+      _$_GetAllMessageState _value, $Res Function(_$_GetAllMessageState) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = freezed,
+    Object? senderId = freezed,
+    Object? receiverId = freezed,
+    Object? message = freezed,
+    Object? isLoading = freezed,
+    Object? fromSelf = freezed,
+  }) {
+    return _then(_$_GetAllMessageState(
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      senderId: freezed == senderId
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      receiverId: freezed == receiverId
+          ? _value.receiverId
+          : receiverId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isLoading: freezed == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      fromSelf: freezed == fromSelf
+          ? _value.fromSelf
+          : fromSelf // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_GetAllMessageState implements _GetAllMessageState {
+  const _$_GetAllMessageState(
+      {this.errorMessage,
+      this.senderId,
+      this.receiverId,
+      this.message,
+      this.isLoading,
+      this.fromSelf});
+
+  @override
+  final String? errorMessage;
+  @override
+  final String? senderId;
+  @override
+  final String? receiverId;
+  @override
+  final String? message;
+  @override
+  final bool? isLoading;
+  @override
+  final bool? fromSelf;
 
   @override
   String toString() {
-    return 'GetAllMessageState.initial()';
+    return 'GetAllMessageState(errorMessage: $errorMessage, senderId: $senderId, receiverId: $receiverId, message: $message, isLoading: $isLoading, fromSelf: $fromSelf)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType &&
+            other is _$_GetAllMessageState &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
+            (identical(other.senderId, senderId) ||
+                other.senderId == senderId) &&
+            (identical(other.receiverId, receiverId) ||
+                other.receiverId == receiverId) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.fromSelf, fromSelf) ||
+                other.fromSelf == fromSelf));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, errorMessage, senderId,
+      receiverId, message, isLoading, fromSelf);
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$_GetAllMessageStateCopyWith<_$_GetAllMessageState> get copyWith =>
+      __$$_GetAllMessageStateCopyWithImpl<_$_GetAllMessageState>(
+          this, _$identity);
 }
 
-abstract class _Initial implements GetAllMessageState {
-  const factory _Initial() = _$_Initial;
+abstract class _GetAllMessageState implements GetAllMessageState {
+  const factory _GetAllMessageState(
+      {final String? errorMessage,
+      final String? senderId,
+      final String? receiverId,
+      final String? message,
+      final bool? isLoading,
+      final bool? fromSelf}) = _$_GetAllMessageState;
+
+  @override
+  String? get errorMessage;
+  @override
+  String? get senderId;
+  @override
+  String? get receiverId;
+  @override
+  String? get message;
+  @override
+  bool? get isLoading;
+  @override
+  bool? get fromSelf;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetAllMessageStateCopyWith<_$_GetAllMessageState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

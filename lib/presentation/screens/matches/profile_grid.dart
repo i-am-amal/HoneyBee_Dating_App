@@ -20,6 +20,7 @@ class ProfileGrid extends StatelessWidget {
     return BlocBuilder<MatchesPageBloc, MatchesPageState>(
       builder: (context, state) {
         log("state.isLoading = ${state.isLoading}");
+        
         if (state.isLoading == true) {
           return Center(
             child: Column(
