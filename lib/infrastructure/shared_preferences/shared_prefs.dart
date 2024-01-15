@@ -20,3 +20,24 @@ Future<void> removeTokenFromPrefs() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   await prefs.remove('token');
 }
+
+//--------------->>>-----Save userId----->>>------------------------
+
+Future<void> saveUserIdToPrefs(String userId) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setString('userId', userId);
+}
+
+//--------------->>>-----Read Token----->>>------------------------
+
+Future<String?> getuserIdFromPrefs() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getString('userId');
+}
+
+//--------------->>>-----Remove Token----->>>------------------------
+
+Future<void> removeUserIdFromPrefs() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.remove('userId');
+}

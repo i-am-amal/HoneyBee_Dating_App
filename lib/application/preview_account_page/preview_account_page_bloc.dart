@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/get_user_data_response_model/get_user_data_response_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
+import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 
 part 'preview_account_page_event.dart';
 part 'preview_account_page_state.dart';
@@ -21,9 +22,11 @@ class PreviewAccountPageBloc
         //failure on Api Service
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
-      }, (success) {
+      }, (success) async {
         //success from backend
         if (success.id != null) {
+          await saveUserIdToPrefs(success.id!);
+
           emit(state.copyWith(isLoading: false));
 
           emit(state.copyWith(success: success));

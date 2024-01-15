@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
+import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -31,6 +32,8 @@ class OtpAuthenticationPage extends StatelessWidget {
     return BlocListener<OtpNumberAuthPageBloc, OtpNumberAuthPageState>(
       listener: (context, state) async {
         handleState(state, context);
+
+        
       },
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -134,6 +137,9 @@ void handleState(OtpNumberAuthPageState state, BuildContext context) async {
       log("---------------Redirected to${state.redirectPage}------------------------");
 
       await saveTokenToPrefs(state.token.toString());
+
+      BlocProvider.of<PreviewAccountPageBloc>(context)
+          .add(const PreviewAccountPageEvent.fetchAccountData());
 
       Future.microtask(() {
         CustomNavigator().push(context, BottomNavbar(token: state.token!));
