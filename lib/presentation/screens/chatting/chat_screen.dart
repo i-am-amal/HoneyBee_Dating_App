@@ -21,7 +21,9 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     socket = IO.io(
-        'http://10.0.2.2:5000',
+        // 'http://10.0.2.2:5000',
+          "https://amal.fun",
+
         IO.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect()
