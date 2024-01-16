@@ -50,18 +50,27 @@ class ProfileList extends StatelessWidget {
                     log(state.profile!.profiles![index].conversationId!);
 
                     log(state.profile!.profiles![index].id!);
+
                     log(state.userId!);
                     // getuserIdFromPrefs();
-
+////////////////////////////////////////////////////
                     BlocProvider.of<GetAllMessageBloc>(context).add(
-                        GetAllMessageEvent.getAllMessageOfUser(
-                            state.userId, '659950df6a562775dbebb7f4'));
+                      GetAllMessageEvent.getAllMessageOfUser(
+                          state.userId, state.profile!.profiles![index].id),
+                    );
 
+///////////////////////////////////////////////////
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => ChatScreen(
-                                userId: state.userId!,
+                                senderId: state.userId,
+                                receiverId: state.profile!.profiles![index].id,
+                                conversationId: state
+                                    .profile!.profiles![index].conversationId,
+                                profilePic:
+                                    state.profile!.profiles![index].profilePic,
+                                name: state.profile!.profiles![index].fullName!,
                               )
 
                           //   showCupertinoModalPopup(
@@ -78,7 +87,7 @@ class ProfileList extends StatelessWidget {
                   child: Card(
                     child: ListTile(
                       leading: CircleAvatar(
-                        backgroundImage: AssetImage(
+                        backgroundImage: NetworkImage(
                             state.profile!.profiles![index].profilePic!),
                       ),
                       title: Row(

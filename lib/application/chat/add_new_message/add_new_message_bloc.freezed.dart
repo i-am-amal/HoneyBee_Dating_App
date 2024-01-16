@@ -305,6 +305,7 @@ mixin _$AddNewMessageState {
   String? get senderId => throw _privateConstructorUsedError;
   String? get receiverId => throw _privateConstructorUsedError;
   String? get coversationId => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -324,6 +325,7 @@ abstract class $AddNewMessageStateCopyWith<$Res> {
       String? senderId,
       String? receiverId,
       String? coversationId,
+      String? message,
       bool? isLoading});
 }
 
@@ -345,6 +347,7 @@ class _$AddNewMessageStateCopyWithImpl<$Res, $Val extends AddNewMessageState>
     Object? senderId = freezed,
     Object? receiverId = freezed,
     Object? coversationId = freezed,
+    Object? message = freezed,
     Object? isLoading = freezed,
   }) {
     return _then(_value.copyWith(
@@ -368,6 +371,10 @@ class _$AddNewMessageStateCopyWithImpl<$Res, $Val extends AddNewMessageState>
           ? _value.coversationId
           : coversationId // ignore: cast_nullable_to_non_nullable
               as String?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
       isLoading: freezed == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -390,6 +397,7 @@ abstract class _$$_AddNewMessageStateCopyWith<$Res>
       String? senderId,
       String? receiverId,
       String? coversationId,
+      String? message,
       bool? isLoading});
 }
 
@@ -409,6 +417,7 @@ class __$$_AddNewMessageStateCopyWithImpl<$Res>
     Object? senderId = freezed,
     Object? receiverId = freezed,
     Object? coversationId = freezed,
+    Object? message = freezed,
     Object? isLoading = freezed,
   }) {
     return _then(_$_AddNewMessageState(
@@ -432,6 +441,10 @@ class __$$_AddNewMessageStateCopyWithImpl<$Res>
           ? _value.coversationId
           : coversationId // ignore: cast_nullable_to_non_nullable
               as String?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
       isLoading: freezed == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -449,6 +462,7 @@ class _$_AddNewMessageState implements _AddNewMessageState {
       this.senderId,
       this.receiverId,
       this.coversationId,
+      this.message,
       this.isLoading});
 
   @override
@@ -462,11 +476,13 @@ class _$_AddNewMessageState implements _AddNewMessageState {
   @override
   final String? coversationId;
   @override
+  final String? message;
+  @override
   final bool? isLoading;
 
   @override
   String toString() {
-    return 'AddNewMessageState(errorMessage: $errorMessage, controllerValue: $controllerValue, senderId: $senderId, receiverId: $receiverId, coversationId: $coversationId, isLoading: $isLoading)';
+    return 'AddNewMessageState(errorMessage: $errorMessage, controllerValue: $controllerValue, senderId: $senderId, receiverId: $receiverId, coversationId: $coversationId, message: $message, isLoading: $isLoading)';
   }
 
   @override
@@ -484,13 +500,14 @@ class _$_AddNewMessageState implements _AddNewMessageState {
                 other.receiverId == receiverId) &&
             (identical(other.coversationId, coversationId) ||
                 other.coversationId == coversationId) &&
+            (identical(other.message, message) || other.message == message) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, errorMessage, controllerValue,
-      senderId, receiverId, coversationId, isLoading);
+      senderId, receiverId, coversationId, message, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -507,6 +524,7 @@ abstract class _AddNewMessageState implements AddNewMessageState {
       final String? senderId,
       final String? receiverId,
       final String? coversationId,
+      final String? message,
       final bool? isLoading}) = _$_AddNewMessageState;
 
   @override
@@ -519,6 +537,8 @@ abstract class _AddNewMessageState implements AddNewMessageState {
   String? get receiverId;
   @override
   String? get coversationId;
+  @override
+  String? get message;
   @override
   bool? get isLoading;
   @override

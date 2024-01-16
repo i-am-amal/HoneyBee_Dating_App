@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/add_message_request_model/add_message_request_model.dart';
+import 'package:honeybee/domain/models/add_message_response_model/add_message_response_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
 
 part 'add_new_message_event.dart';
@@ -33,11 +34,11 @@ class AddNewMessageBloc extends Bloc<AddNewMessageEvent, AddNewMessageState> {
         emit(state.copyWith(errorMessage: null));
       }, (success) {
         log('success ...entered. in add user msg.');
-        if (success.msg !=null) {
-            log('response model  not null.....in add new msg request  ...');
+        if (success.msg != null) {
+          log('response model  not null.....in add new msg request  ...');
 
           //   emit(state.copyWith(isLoading: false));
-
+          emit(state.copyWith(message: event.controllerValue));
           //   // emit(state.copyWith(searchResult: success));
         } else {
           // failure from backend

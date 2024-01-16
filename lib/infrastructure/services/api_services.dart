@@ -687,7 +687,6 @@ class ApiServices {
       final response = await http.post(
         Uri.parse(Config.addMessageApi),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
         body: request.toJson(),

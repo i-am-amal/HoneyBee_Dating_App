@@ -26,13 +26,14 @@ class GetAllMessageBloc extends Bloc<GetAllMessageEvent, GetAllMessageState> {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
-        log('success ...entered. in add user msg.');
+        log('success ...entered. in get all  msg.');
         if (success.isNotEmpty) {
-          log('response model  not null.....in add new msg request  ...');
+          log('response model  not null.....in  get all msg request  ...');
 
           //   emit(state.copyWith(isLoading: false));
 
           emit(state.copyWith(message: success));
+          log('-------------success result---------${success.toString()}');
           // emit(state.copyWith(message: success.message));
         } else {
           // failure from backend

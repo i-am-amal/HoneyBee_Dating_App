@@ -8,6 +8,7 @@ class AddNewMessageState with _$AddNewMessageState {
     String? senderId,
     String? receiverId,
     String? coversationId,
+    String? message,
     bool? isLoading,
   }) = _AddNewMessageState;
 
