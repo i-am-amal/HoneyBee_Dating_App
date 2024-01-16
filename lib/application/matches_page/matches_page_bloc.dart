@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/matches_response_model/matches_response_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
+import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 
 part 'matches_page_event.dart';
 part 'matches_page_state.dart';
@@ -18,15 +19,19 @@ class MatchesPageBloc extends Bloc<MatchesPageEvent, MatchesPageState> {
 
       final result = await ApiServices.getMatchesData();
 
+      String? id = await getuserIdFromPrefs();
+
       result.fold((failure) {
         log("Failure");
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
         log("Success ${success.profiles}");
+
+        log('--------------$id----------');
         //success from backend
         if (success.profiles != null) {
-          emit(state.copyWith(profile: success, isLoading: false));
+          emit(state.copyWith(profile: success, isLoading: false, userId: id));
         } else {
           // failure from backend
           emit(state.copyWith(

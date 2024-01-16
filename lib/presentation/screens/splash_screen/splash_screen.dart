@@ -1,5 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/onboarding/onboarding.dart';
@@ -74,7 +76,11 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
       //     builder: (context) => const SignInPage(),
       //   ),
       // );
+
       if (token != null) {
+        BlocProvider.of<PreviewAccountPageBloc>(context)
+            .add(const PreviewAccountPageEvent.fetchAccountData());
+
         log('-----token on splash screen $token');
 
         Navigator.of(context).pushReplacement(

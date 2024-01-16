@@ -708,22 +708,23 @@ class ApiServices {
 
   //--------------->>>-----Get All Message API----->>>------------------------
 
-  static Future<Either<ApiFailures, GetMessageResponseModel>> getAllMessageData(
-      GetMessageRequestModel request) async {
+  static Future<Either<ApiFailures, List<GetMessageResponseModel>>>
+      getAllMessageData(GetMessageRequestModel request) async {
     try {
       final apiToken = await getTokenFromPrefs();
       final response = await http.post(
         Uri.parse(Config.getAllMessageApi),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
         body: request.toJson(),
       );
       if (response.statusCode == 200) {
-        Map<String, dynamic> jsonMap = jsonDecode(response.body);
-        GetMessageResponseModel result =
-            GetMessageResponseModel.fromJson(jsonMap);
+        // Map<String, dynamic> jsonMap = jsonDecode(response.body);
+
+        List<GetMessageResponseModel> result =
+            GetMessageResponseModel.fromList(jsonDecode(response.body));
+
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());

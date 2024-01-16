@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/chat/get_all_message/get_all_message_bloc.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/border_outlined_icon_button.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
@@ -8,7 +10,9 @@ import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfi
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({super.key});
+  const ChatScreen({super.key, required this.userId});
+
+  final String userId;
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -21,9 +25,8 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     socket = IO.io(
-        // 'http://10.0.2.2:5000',
-          "https://amal.fun",
-
+        'http://10.0.2.2:5000',
+        // "https://amal.fun",
         IO.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect()
@@ -31,12 +34,28 @@ class _ChatScreenState extends State<ChatScreen> {
 
     socket.connect();
 
-    socket.emit('add-user', '659950df6a562775dbebb7f4');
+    socket.emit('add-user', widget.userId);
+    socket.emit('getOnlineUsers');
+    socket.on('onlineUsersList', (data) {
+      log('online user list event called');
+    });
     socket.onConnect((data) {
       log('connected------------------------');
     });
     socket.on('add-user', (data) {
-      log('---------------------------socket--------');
+      log('---------------------------socket--new user added------');
+    });
+
+    socket.on('new-msg', (data) {
+      log('new message received------------------------');
+    });
+
+    socket.on('msg-recieve', (data) {
+      log(' message received------------------------');
+    });
+
+    socket.on('getOnlineUsers', (data) {
+      log('getting online users------------------------');
     });
 
     socket.onDisconnect((data) {
@@ -55,71 +74,78 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+
     double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            height: height * 0.05,
-          ),
-          Row(
+      body: BlocBuilder<GetAllMessageBloc, GetAllMessageState>(
+        builder: (context, state) {
+          return Column(
             children: [
               SizedBox(
-                width: width * 0.02,
+                height: height * 0.05,
               ),
-              BorderlineButton(
-                  icon: Icons.arrow_back_ios_new,
-                  onpressed: () {
-                    Navigator.pop(context);
-                  }),
-              SizedBox(
-                width: width * 0.1,
+              Row(
+                children: [
+                  SizedBox(
+                    width: width * 0.02,
+                  ),
+                  BorderlineButton(
+                      icon: Icons.arrow_back_ios_new,
+                      onpressed: () {
+                        Navigator.pop(context);
+                      }),
+                  SizedBox(
+                    width: width * 0.1,
+                  ),
+                  const CircleAvatar(
+                    radius: 20,
+                    backgroundImage: NetworkImage('assets/images/profile.jpg'),
+                  ),
+                  SizedBox(
+                    width: width * 0.03,
+                  ),
+                  const CustomText(
+                    text: 'John Doe',
+                    fontFamily: CustomFont.textFont,
+                    fontsize: 20,
+                  ),
+                  SizedBox(
+                    width: width * 0.2,
+                  ),
+                  BorderlineButton(
+                      icon: Icons.video_call_rounded, onpressed: () {})
+                ],
               ),
-              const CircleAvatar(
-                radius: 20,
-                backgroundImage: AssetImage('assets/images/profile.jpg'),
-              ),
-              SizedBox(
-                width: width * 0.03,
-              ),
-              const CustomText(
-                text: 'John Doe',
-                fontFamily: CustomFont.textFont,
-                fontsize: 20,
-              ),
-              SizedBox(
-                width: width * 0.2,
-              ),
-              BorderlineButton(icon: Icons.video_call_rounded, onpressed: () {})
-            ],
-          ),
-          Expanded(
-            child: ListView(
-              children: const [
-                ChatMessage(text: 'Hello!', isMe: false),
-                ChatMessage(text: 'Hi there!', isMe: true),
-                ChatMessage(text: 'Hi , how are you?  😄', isMe: false),
-                ChatMessage(text: 'Nice to meet you!', isMe: true),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                const Expanded(
-                    child: CustomTextFormFiled(
-                  icon: Icons.emoji_emotions,
-                  text: 'Your Message',
-                )),
-                IconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: () {},
+              Expanded(
+                child: ListView(
+                  children: const [
+                    ChatMessage(text: 'Hello!', isMe: false),
+                    ChatMessage(text: 'Hi there!', isMe: true),
+                    ChatMessage(text: 'Hi , how are you?  😄', isMe: false),
+                    ChatMessage(text: 'Nice to meet you!', isMe: true),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Expanded(
+                        child: CustomTextFormFiled(
+                      icon: Icons.emoji_emotions,
+                      text: 'Your Message',
+                    )),
+                    IconButton(
+                      icon: const Icon(Icons.send),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

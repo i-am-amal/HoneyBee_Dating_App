@@ -15,4 +15,8 @@ class GetMessageResponseModel {
   }
 
   Map<String, dynamic> toJson() => _$GetMessageResponseModelToJson(this);
+
+  static List<GetMessageResponseModel> fromList(List<dynamic> list) {
+    return list.map((map) => GetMessageResponseModel.fromJson(map)).toList();
+  }
 }

@@ -9,9 +9,9 @@ class GetAllMessageState with _$GetAllMessageState {
     String? errorMessage,
     String? senderId,
     String? receiverId,
-    String? message,
+    List<GetMessageResponseModel>? message,
     bool? isLoading,
-    bool? fromSelf,
+    // bool? fromSelf,
   }) = _GetAllMessageState;
 
   factory GetAllMessageState.initial() {

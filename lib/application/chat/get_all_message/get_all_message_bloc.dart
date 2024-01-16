@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/get_message_request_model/get_message_request_model.dart';
+import 'package:honeybee/domain/models/get_message_response_model/get_message_response_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
 
 part 'get_all_message_event.dart';
@@ -20,19 +21,19 @@ class GetAllMessageBloc extends Bloc<GetAllMessageEvent, GetAllMessageState> {
       final result = await ApiServices.getAllMessageData(request);
 
       result.fold((failure) {
-        log('no response from api call in search page bloc');
+        log('no response from api call in get all msg page bloc');
 
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
         log('success ...entered. in add user msg.');
-        if (success.messageType != null) {
+        if (success.isNotEmpty) {
           log('response model  not null.....in add new msg request  ...');
 
           //   emit(state.copyWith(isLoading: false));
 
-          emit(state.copyWith(fromSelf: success.fromSelf));
-          emit(state.copyWith(message: success.message));
+          emit(state.copyWith(message: success));
+          // emit(state.copyWith(message: success.message));
         } else {
           // failure from backend
           log('backend error------------');

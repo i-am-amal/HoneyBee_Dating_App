@@ -1,80 +1,81 @@
-import '../../screens/chatting/chat_page.dart';
 
 class CommonLists {
-  List<Message> messages = [
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-    Message(
-      senderName: 'John Doe',
-      lastMessage: 'Hello!',
-      profilePicUrl: 'assets/images/profile.jpg',
-      lastSeenTime: '2 hrs',
-    ),
-  ];
+
+
+  // List<Message> messages = [
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!', 
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  //   Message(
+  //     senderName: 'John Doe',
+  //     lastMessage: 'Hello!',
+  //     profilePicUrl: 'assets/images/profile.jpg',
+  //     lastSeenTime: '2 hrs',
+  //   ),
+  // ];
 
   List<String> faithOptions = [
     'Hindu',

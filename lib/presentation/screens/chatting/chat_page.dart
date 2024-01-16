@@ -25,7 +25,7 @@ class ChatPage extends StatelessWidget {
                 width: width * 0.07,
               ),
               const CustomText(
-                text: 'Messages',
+                text: "Let's Chat",
                 fontFamily: CustomFont.headTextFont,
                 fontsize: 25,
                 fontWeight: FontWeight.bold,
@@ -49,16 +49,16 @@ class ChatPage extends StatelessWidget {
   }
 }
 
-class Message {
-  final String senderName;
-  final String lastMessage;
-  final String profilePicUrl;
-  final String lastSeenTime;
+// class Message {
+//   final String senderName;
+//   final String lastMessage;
+//   final String profilePicUrl;
+//   final String lastSeenTime;
 
-  Message({
-    required this.senderName,
-    required this.lastMessage,
-    required this.profilePicUrl,
-    required this.lastSeenTime,
-  });
-}
+//   Message({
+//     required this.senderName,
+//     required this.lastMessage,
+//     required this.profilePicUrl,
+//     required this.lastSeenTime,
+//   });
+// }

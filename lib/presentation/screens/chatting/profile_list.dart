@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/chat/get_all_message/get_all_message_bloc.dart';
 import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
+import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/chatting/chat_screen.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -45,9 +47,22 @@ class ProfileList extends StatelessWidget {
                   onTap: () {
                     log('logged on on tap');
 
+                    log(state.profile!.profiles![index].conversationId!);
+
+                    log(state.profile!.profiles![index].id!);
+                    log(state.userId!);
+                    // getuserIdFromPrefs();
+
+                    BlocProvider.of<GetAllMessageBloc>(context).add(
+                        GetAllMessageEvent.getAllMessageOfUser(
+                            state.userId, '659950df6a562775dbebb7f4'));
+
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const ChatScreen()
+                      MaterialPageRoute(
+                          builder: (context) => ChatScreen(
+                                userId: state.userId!,
+                              )
 
                           //   showCupertinoModalPopup(
                           //   context: context,
@@ -63,7 +78,7 @@ class ProfileList extends StatelessWidget {
                   child: Card(
                     child: ListTile(
                       leading: CircleAvatar(
-                        backgroundImage: NetworkImage(
+                        backgroundImage: AssetImage(
                             state.profile!.profiles![index].profilePic!),
                       ),
                       title: Row(

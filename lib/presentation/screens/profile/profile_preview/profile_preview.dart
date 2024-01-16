@@ -24,7 +24,7 @@ class ProfilePreview extends StatelessWidget {
             builder: (context, state) {
               if (state.isLoading!) {
                 return Center(
-                  child: Column(
+                  child: Column( 
                     children: [
                       const SizedBox(
                         height: 250,

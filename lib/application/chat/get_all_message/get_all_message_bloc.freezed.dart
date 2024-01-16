@@ -249,9 +249,9 @@ mixin _$GetAllMessageState {
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get senderId => throw _privateConstructorUsedError;
   String? get receiverId => throw _privateConstructorUsedError;
-  String? get message => throw _privateConstructorUsedError;
+  List<GetMessageResponseModel>? get message =>
+      throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
-  bool? get fromSelf => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GetAllMessageStateCopyWith<GetAllMessageState> get copyWith =>
@@ -268,9 +268,8 @@ abstract class $GetAllMessageStateCopyWith<$Res> {
       {String? errorMessage,
       String? senderId,
       String? receiverId,
-      String? message,
-      bool? isLoading,
-      bool? fromSelf});
+      List<GetMessageResponseModel>? message,
+      bool? isLoading});
 }
 
 /// @nodoc
@@ -291,7 +290,6 @@ class _$GetAllMessageStateCopyWithImpl<$Res, $Val extends GetAllMessageState>
     Object? receiverId = freezed,
     Object? message = freezed,
     Object? isLoading = freezed,
-    Object? fromSelf = freezed,
   }) {
     return _then(_value.copyWith(
       errorMessage: freezed == errorMessage
@@ -309,14 +307,10 @@ class _$GetAllMessageStateCopyWithImpl<$Res, $Val extends GetAllMessageState>
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<GetMessageResponseModel>?,
       isLoading: freezed == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      fromSelf: freezed == fromSelf
-          ? _value.fromSelf
-          : fromSelf // ignore: cast_nullable_to_non_nullable
               as bool?,
     ) as $Val);
   }
@@ -334,9 +328,8 @@ abstract class _$$_GetAllMessageStateCopyWith<$Res>
       {String? errorMessage,
       String? senderId,
       String? receiverId,
-      String? message,
-      bool? isLoading,
-      bool? fromSelf});
+      List<GetMessageResponseModel>? message,
+      bool? isLoading});
 }
 
 /// @nodoc
@@ -355,7 +348,6 @@ class __$$_GetAllMessageStateCopyWithImpl<$Res>
     Object? receiverId = freezed,
     Object? message = freezed,
     Object? isLoading = freezed,
-    Object? fromSelf = freezed,
   }) {
     return _then(_$_GetAllMessageState(
       errorMessage: freezed == errorMessage
@@ -371,16 +363,12 @@ class __$$_GetAllMessageStateCopyWithImpl<$Res>
           : receiverId // ignore: cast_nullable_to_non_nullable
               as String?,
       message: freezed == message
-          ? _value.message
+          ? _value._message
           : message // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<GetMessageResponseModel>?,
       isLoading: freezed == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      fromSelf: freezed == fromSelf
-          ? _value.fromSelf
-          : fromSelf // ignore: cast_nullable_to_non_nullable
               as bool?,
     ));
   }
@@ -393,9 +381,9 @@ class _$_GetAllMessageState implements _GetAllMessageState {
       {this.errorMessage,
       this.senderId,
       this.receiverId,
-      this.message,
-      this.isLoading,
-      this.fromSelf});
+      final List<GetMessageResponseModel>? message,
+      this.isLoading})
+      : _message = message;
 
   @override
   final String? errorMessage;
@@ -403,16 +391,22 @@ class _$_GetAllMessageState implements _GetAllMessageState {
   final String? senderId;
   @override
   final String? receiverId;
+  final List<GetMessageResponseModel>? _message;
   @override
-  final String? message;
+  List<GetMessageResponseModel>? get message {
+    final value = _message;
+    if (value == null) return null;
+    if (_message is EqualUnmodifiableListView) return _message;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final bool? isLoading;
-  @override
-  final bool? fromSelf;
 
   @override
   String toString() {
-    return 'GetAllMessageState(errorMessage: $errorMessage, senderId: $senderId, receiverId: $receiverId, message: $message, isLoading: $isLoading, fromSelf: $fromSelf)';
+    return 'GetAllMessageState(errorMessage: $errorMessage, senderId: $senderId, receiverId: $receiverId, message: $message, isLoading: $isLoading)';
   }
 
   @override
@@ -426,16 +420,14 @@ class _$_GetAllMessageState implements _GetAllMessageState {
                 other.senderId == senderId) &&
             (identical(other.receiverId, receiverId) ||
                 other.receiverId == receiverId) &&
-            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other._message, _message) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.fromSelf, fromSelf) ||
-                other.fromSelf == fromSelf));
+                other.isLoading == isLoading));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, errorMessage, senderId,
-      receiverId, message, isLoading, fromSelf);
+      receiverId, const DeepCollectionEquality().hash(_message), isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -450,9 +442,8 @@ abstract class _GetAllMessageState implements GetAllMessageState {
       {final String? errorMessage,
       final String? senderId,
       final String? receiverId,
-      final String? message,
-      final bool? isLoading,
-      final bool? fromSelf}) = _$_GetAllMessageState;
+      final List<GetMessageResponseModel>? message,
+      final bool? isLoading}) = _$_GetAllMessageState;
 
   @override
   String? get errorMessage;
@@ -461,11 +452,9 @@ abstract class _GetAllMessageState implements GetAllMessageState {
   @override
   String? get receiverId;
   @override
-  String? get message;
+  List<GetMessageResponseModel>? get message;
   @override
   bool? get isLoading;
-  @override
-  bool? get fromSelf;
   @override
   @JsonKey(ignore: true)
   _$$_GetAllMessageStateCopyWith<_$_GetAllMessageState> get copyWith =>

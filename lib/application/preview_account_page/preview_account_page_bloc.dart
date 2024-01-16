@@ -22,10 +22,10 @@ class PreviewAccountPageBloc
         //failure on Api Service
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
-      }, (success) async {
+      }, (success) {
         //success from backend
         if (success.id != null) {
-          await saveUserIdToPrefs(success.id!);
+          saveUserIdToPrefs(success.id!);
 
           emit(state.copyWith(isLoading: false));
 
