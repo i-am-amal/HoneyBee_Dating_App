@@ -8,6 +8,7 @@ environment:
   sdk: '>=3.0.6 <4.0.0'
 
 dependencies:
+  # awesome_notifications: ^0.9.1
   bloc: ^8.1.2
   build_runner: ^2.4.6
   country_code_picker: ^3.0.0

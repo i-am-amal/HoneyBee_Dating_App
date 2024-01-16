@@ -17,14 +17,14 @@ class ChatScreen extends StatelessWidget {
       required this.senderId,
       required this.receiverId,
       required this.conversationId,
-      required this.profilePic,
-      required this.name});
+      this.profilePic,
+      this.name});
 
   final String? senderId;
   final String? receiverId;
   final String? conversationId;
   final String? profilePic;
-  final String name;
+  final String? name;
 
   final TextEditingController messageController = TextEditingController();
 
@@ -176,7 +176,6 @@ class ChatScreen extends StatelessWidget {
                           //     const Duration(milliseconds: 10),
                           //     () => _scrollController.jumpTo(
                           //         _scrollController.position.maxScrollExtent));
-                          
                         },
                       ),
                     ),

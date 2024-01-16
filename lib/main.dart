@@ -11,6 +11,8 @@ import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/application/search_page/search_page_bloc.dart';
 import 'package:honeybee/application/update_account_page/update_account_page_bloc.dart';
+import 'package:honeybee/core/routes/navigation_functions.dart';
+import 'package:honeybee/infrastructure/services/notification_services.dart';
 import 'package:honeybee/infrastructure/services/socket_services.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
@@ -19,11 +21,15 @@ import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import 'application/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await NotificationService.initializeNotification();
   //-------->>>-----SystemUIOverlayStyle used for changing the status bar color----->>>--------
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
+
   SocketServices.socketSetup();
+
   runApp(const MyApp());
 }
 
@@ -78,6 +84,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        navigatorKey: CustomNavigator.navigatorKey,
         title: 'HoneyBee',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

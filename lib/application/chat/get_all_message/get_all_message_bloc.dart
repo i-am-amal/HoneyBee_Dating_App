@@ -16,11 +16,10 @@ class GetAllMessageBloc extends Bloc<GetAllMessageEvent, GetAllMessageState> {
     on<_InitializeGetAllMessagePage>((event, emit) {
       add(_GetAllMessageOfUser(event.senderId, event.receiverId));
 
-      // SocketServices.socketMsgReceiveListener(() {
-      //   add(_GetAllMessageOfUser(event.senderId, event.receiverId));
-      //   log('socketMsgReceiveListener funtion from bloc working');
-      // });
-
+      SocketServices.socketMsgReceiveListener(() {
+        add(_GetAllMessageOfUser(event.senderId, event.receiverId));
+        log('socketMsgReceiveListener funtion from bloc working');
+      });
     });
 
     on<_GetAllMessageOfUser>((event, emit) async {
