@@ -172,7 +172,7 @@ class ProfilePreview extends StatelessWidget {
                                   label: state.success!.drinking!),
                             ],
                           ),
-                          
+
                           // SizedBox(height: height * 0.05),
                           // MainCustomButton(
                           //   customtext: 'Create Account',

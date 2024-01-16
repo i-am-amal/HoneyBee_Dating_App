@@ -1,11 +1,8 @@
-
 class CommonLists {
-
-
   // List<Message> messages = [
   //   Message(
   //     senderName: 'John Doe',
-  //     lastMessage: 'Hello!', 
+  //     lastMessage: 'Hello!',
   //     profilePicUrl: 'assets/images/profile.jpg',
   //     lastSeenTime: '2 hrs',
   //   ),

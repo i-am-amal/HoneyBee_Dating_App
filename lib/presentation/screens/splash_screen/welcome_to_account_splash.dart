@@ -83,10 +83,6 @@ class _WelcomeScreenCreateAnimationState
     // });
 
     CustomNavigator().push(context, BasicInfoMainPage());
-        // CustomNavigator().push(context, DiscoverPage());
-
-
-
-
+    // CustomNavigator().push(context, DiscoverPage());
   }
 }

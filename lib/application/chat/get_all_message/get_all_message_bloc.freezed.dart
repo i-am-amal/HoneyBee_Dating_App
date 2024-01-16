@@ -22,33 +22,45 @@ mixin _$GetAllMessageEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String? senderId, String? receiverId)
         getAllMessageOfUser,
+    required TResult Function(String? senderId, String? receiverId)
+        initializeGetAllMessagePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? senderId, String? receiverId)?
         getAllMessageOfUser,
+    TResult? Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
+    TResult Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
+    required TResult Function(_InitializeGetAllMessagePage value)
+        initializeGetAllMessagePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult? Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -175,6 +187,8 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
   TResult when<TResult extends Object?>({
     required TResult Function(String? senderId, String? receiverId)
         getAllMessageOfUser,
+    required TResult Function(String? senderId, String? receiverId)
+        initializeGetAllMessagePage,
   }) {
     return getAllMessageOfUser(senderId, receiverId);
   }
@@ -184,6 +198,8 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? senderId, String? receiverId)?
         getAllMessageOfUser,
+    TResult? Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
   }) {
     return getAllMessageOfUser?.call(senderId, receiverId);
   }
@@ -192,6 +208,8 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
+    TResult Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
     required TResult orElse(),
   }) {
     if (getAllMessageOfUser != null) {
@@ -204,6 +222,8 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
+    required TResult Function(_InitializeGetAllMessagePage value)
+        initializeGetAllMessagePage,
   }) {
     return getAllMessageOfUser(this);
   }
@@ -212,6 +232,8 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult? Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
   }) {
     return getAllMessageOfUser?.call(this);
   }
@@ -220,6 +242,8 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
     required TResult orElse(),
   }) {
     if (getAllMessageOfUser != null) {
@@ -242,6 +266,169 @@ abstract class _GetAllMessageOfUser implements GetAllMessageEvent {
   @JsonKey(ignore: true)
   _$$_GetAllMessageOfUserCopyWith<_$_GetAllMessageOfUser> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_InitializeGetAllMessagePageCopyWith<$Res>
+    implements $GetAllMessageEventCopyWith<$Res> {
+  factory _$$_InitializeGetAllMessagePageCopyWith(
+          _$_InitializeGetAllMessagePage value,
+          $Res Function(_$_InitializeGetAllMessagePage) then) =
+      __$$_InitializeGetAllMessagePageCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? senderId, String? receiverId});
+}
+
+/// @nodoc
+class __$$_InitializeGetAllMessagePageCopyWithImpl<$Res>
+    extends _$GetAllMessageEventCopyWithImpl<$Res,
+        _$_InitializeGetAllMessagePage>
+    implements _$$_InitializeGetAllMessagePageCopyWith<$Res> {
+  __$$_InitializeGetAllMessagePageCopyWithImpl(
+      _$_InitializeGetAllMessagePage _value,
+      $Res Function(_$_InitializeGetAllMessagePage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? senderId = freezed,
+    Object? receiverId = freezed,
+  }) {
+    return _then(_$_InitializeGetAllMessagePage(
+      freezed == senderId
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == receiverId
+          ? _value.receiverId
+          : receiverId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InitializeGetAllMessagePage implements _InitializeGetAllMessagePage {
+  const _$_InitializeGetAllMessagePage(this.senderId, this.receiverId);
+
+  @override
+  final String? senderId;
+  @override
+  final String? receiverId;
+
+  @override
+  String toString() {
+    return 'GetAllMessageEvent.initializeGetAllMessagePage(senderId: $senderId, receiverId: $receiverId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_InitializeGetAllMessagePage &&
+            (identical(other.senderId, senderId) ||
+                other.senderId == senderId) &&
+            (identical(other.receiverId, receiverId) ||
+                other.receiverId == receiverId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, senderId, receiverId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InitializeGetAllMessagePageCopyWith<_$_InitializeGetAllMessagePage>
+      get copyWith => __$$_InitializeGetAllMessagePageCopyWithImpl<
+          _$_InitializeGetAllMessagePage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? senderId, String? receiverId)
+        getAllMessageOfUser,
+    required TResult Function(String? senderId, String? receiverId)
+        initializeGetAllMessagePage,
+  }) {
+    return initializeGetAllMessagePage(senderId, receiverId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? senderId, String? receiverId)?
+        getAllMessageOfUser,
+    TResult? Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
+  }) {
+    return initializeGetAllMessagePage?.call(senderId, receiverId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
+    TResult Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
+    required TResult orElse(),
+  }) {
+    if (initializeGetAllMessagePage != null) {
+      return initializeGetAllMessagePage(senderId, receiverId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
+    required TResult Function(_InitializeGetAllMessagePage value)
+        initializeGetAllMessagePage,
+  }) {
+    return initializeGetAllMessagePage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult? Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
+  }) {
+    return initializeGetAllMessagePage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
+    required TResult orElse(),
+  }) {
+    if (initializeGetAllMessagePage != null) {
+      return initializeGetAllMessagePage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitializeGetAllMessagePage implements GetAllMessageEvent {
+  const factory _InitializeGetAllMessagePage(
+          final String? senderId, final String? receiverId) =
+      _$_InitializeGetAllMessagePage;
+
+  @override
+  String? get senderId;
+  @override
+  String? get receiverId;
+  @override
+  @JsonKey(ignore: true)
+  _$$_InitializeGetAllMessagePageCopyWith<_$_InitializeGetAllMessagePage>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

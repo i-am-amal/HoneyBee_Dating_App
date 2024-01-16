@@ -71,7 +71,6 @@ class MatchesResponseModel {
   Map<String, dynamic> toJson() => _$MatchesResponseModelToJson(this);
 }
 
-
 class MatchesListResponseModel {
   List<MatchesResponseModel>? profiles;
 
@@ -79,7 +78,8 @@ class MatchesListResponseModel {
 
   factory MatchesListResponseModel.fromJson(List<dynamic> json) {
     return MatchesListResponseModel(
-      profiles: json.map((item) => MatchesResponseModel.fromJson(item)).toList(),
+      profiles:
+          json.map((item) => MatchesResponseModel.fromJson(item)).toList(),
     );
   }
 

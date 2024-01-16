@@ -6,4 +6,8 @@ class GetAllMessageEvent with _$GetAllMessageEvent {
     String? senderId,
     String? receiverId,
   ) = _GetAllMessageOfUser;
+   const factory GetAllMessageEvent.initializeGetAllMessagePage(
+  String? senderId,
+    String? receiverId,
+  ) = _InitializeGetAllMessagePage;
 }

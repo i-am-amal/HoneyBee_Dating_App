@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/get_message_request_model/get_message_request_model.dart';
 import 'package:honeybee/domain/models/get_message_response_model/get_message_response_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
+import 'package:honeybee/infrastructure/services/socket_services.dart';
 
 part 'get_all_message_event.dart';
 part 'get_all_message_state.dart';
@@ -12,6 +13,16 @@ part 'get_all_message_bloc.freezed.dart';
 
 class GetAllMessageBloc extends Bloc<GetAllMessageEvent, GetAllMessageState> {
   GetAllMessageBloc() : super(GetAllMessageState.initial()) {
+    on<_InitializeGetAllMessagePage>((event, emit) {
+      add(_GetAllMessageOfUser(event.senderId, event.receiverId));
+
+      // SocketServices.socketMsgReceiveListener(() {
+      //   add(_GetAllMessageOfUser(event.senderId, event.receiverId));
+      //   log('socketMsgReceiveListener funtion from bloc working');
+      // });
+
+    });
+
     on<_GetAllMessageOfUser>((event, emit) async {
       // log('${event.controllerValue!}-----------textfield value-------------');
 
@@ -33,7 +44,7 @@ class GetAllMessageBloc extends Bloc<GetAllMessageEvent, GetAllMessageState> {
           //   emit(state.copyWith(isLoading: false));
 
           emit(state.copyWith(message: success));
-          log('-------------success result---------${success.toString()}');
+          // log('-------------success result---------${success.toString()}');
           // emit(state.copyWith(message: success.message));
         } else {
           // failure from backend

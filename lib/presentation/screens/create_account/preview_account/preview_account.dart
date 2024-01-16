@@ -225,8 +225,8 @@ class PreviewAccount extends StatelessWidget {
 //----------->>>>>>>>>>----------saving token---------------->>>>>>>>>>>
                           saveTokenToPrefs(state.token!);
 
-                           BlocProvider.of<PreviewAccountPageBloc>(context)
-          .add(const PreviewAccountPageEvent.fetchAccountData());
+                          BlocProvider.of<PreviewAccountPageBloc>(context).add(
+                              const PreviewAccountPageEvent.fetchAccountData());
 
                           Navigator.pushAndRemoveUntil(
                             context,

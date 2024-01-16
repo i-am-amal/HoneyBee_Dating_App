@@ -54,10 +54,10 @@ class ProfileList extends StatelessWidget {
                     log(state.userId!);
                     // getuserIdFromPrefs();
 ////////////////////////////////////////////////////
-                    BlocProvider.of<GetAllMessageBloc>(context).add(
-                      GetAllMessageEvent.getAllMessageOfUser(
-                          state.userId, state.profile!.profiles![index].id),
-                    );
+                    // BlocProvider.of<GetAllMessageBloc>(context).add(
+                    //   GetAllMessageEvent.getAllMessageOfUser(
+                    //       state.userId, state.profile!.profiles![index].id),
+                    // );
 
 ///////////////////////////////////////////////////
                     Navigator.push(

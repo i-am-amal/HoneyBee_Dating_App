@@ -397,27 +397,6 @@ class SelectedOptions {
   });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //   String? faith;
 //   String? relationshipStatus;
 //   String? smoking;
@@ -440,8 +419,6 @@ class SelectedOptions {
 
 //   @override
 //   Widget build(BuildContext context) {
-
-
 
 //     TextEditingController bioTextController = TextEditingController();
 

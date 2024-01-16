@@ -619,11 +619,7 @@ class ApiServices {
   static Future<Either<ApiFailures, SearchFilterListResponseModel>>
       searchFilterData(SearchFilterRequestModel request) async {
     try {
-      log('-----Entered in try section in Search API Services------');
       final apiToken = await getTokenFromPrefs();
-      log('>>>>>>>-------API Token in search page is $apiToken----->>>>>>>');
-      log('>>>>>>>-------URL in search page is ${Config.searchFilterApi}----->>>>>>>');
-      log('>>>>>>>-------URL in search page is ${request.toJson()}----->>>>>>>');
       final response = await http.post(
         Uri.parse(Config.searchFilterApi),
         headers: <String, String>{
@@ -632,19 +628,14 @@ class ApiServices {
         },
         body: request.toJson(),
       );
-      log('----------Response from the API Service is ${response.body}-------------');
-      log("--------response.statusCode = ${response.statusCode}--------");
       if (response.statusCode == 200) {
         SearchFilterListResponseModel result =
             SearchFilterListResponseModel.fromJson(jsonDecode(response.body));
-        log('-----------Statuscode 200 and response is ${response.body}------------');
         return right(result);
       } else {
-        log('-------------Entered in else condition SERVER Failure----------');
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log('---------Entered in Catch-------');
       log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }

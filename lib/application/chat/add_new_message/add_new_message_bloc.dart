@@ -4,7 +4,9 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/add_message_request_model/add_message_request_model.dart';
 import 'package:honeybee/domain/models/add_message_response_model/add_message_response_model.dart';
+import 'package:honeybee/domain/models/socket_send_msg_request_model/socket_send_msg_request_model/socket_send_msg_request_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
+import 'package:honeybee/infrastructure/services/socket_services.dart';
 
 part 'add_new_message_event.dart';
 part 'add_new_message_state.dart';
@@ -33,6 +35,14 @@ class AddNewMessageBloc extends Bloc<AddNewMessageEvent, AddNewMessageState> {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
+        SocketServices.sendMsg(
+            sendMsgRequest: SocketSendMsgRequestModel(
+                conversationId: event.conversationId,
+                from: event.senderId,
+                to: event.receiverId,
+                message: event.controllerValue,
+                messageType: 'text'));
+
         log('success ...entered. in add user msg.');
         if (success.msg != null) {
           log('response model  not null.....in add new msg request  ...');

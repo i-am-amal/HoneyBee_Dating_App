@@ -249,8 +249,7 @@ class EditPreviewAccount extends StatelessWidget {
                                 ),
                               ),
                             );
-
-                            },
+                          },
                         );
                       }
 

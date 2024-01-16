@@ -69,7 +69,6 @@ class DiscoverResponseModel {
   Map<String, dynamic> toJson() => _$DiscoverResponseModelToJson(this);
 }
 
-
 class DiscoverListResponseModel {
   List<DiscoverResponseModel>? profiles;
 
@@ -77,7 +76,8 @@ class DiscoverListResponseModel {
 
   factory DiscoverListResponseModel.fromJson(List<dynamic> json) {
     return DiscoverListResponseModel(
-      profiles: json.map((item) => DiscoverResponseModel.fromJson(item)).toList(),
+      profiles:
+          json.map((item) => DiscoverResponseModel.fromJson(item)).toList(),
     );
   }
 

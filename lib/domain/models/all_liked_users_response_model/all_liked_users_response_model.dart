@@ -69,7 +69,6 @@ class AllLikedUsersResponseModel {
   Map<String, dynamic> toJson() => _$AllLikedUsersResponseModelToJson(this);
 }
 
-
 class AllLikedUsersListResponseModel {
   List<AllLikedUsersResponseModel>? profiles;
 
@@ -77,7 +76,9 @@ class AllLikedUsersListResponseModel {
 
   factory AllLikedUsersListResponseModel.fromJson(List<dynamic> json) {
     return AllLikedUsersListResponseModel(
-      profiles: json.map((item) => AllLikedUsersResponseModel.fromJson(item)).toList(),
+      profiles: json
+          .map((item) => AllLikedUsersResponseModel.fromJson(item))
+          .toList(),
     );
   }
 
@@ -87,5 +88,3 @@ class AllLikedUsersListResponseModel {
     };
   }
 }
-
-

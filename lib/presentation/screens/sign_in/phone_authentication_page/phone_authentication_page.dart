@@ -161,8 +161,7 @@ class PhoneAuthenticationPage extends StatelessWidget {
                   log('-----in on pressed-----');
                   log(countryCode.toString());
                   log(phoneNumberController.text);
-                                    log('-----after onpressed-----');
-
+                  log('-----after onpressed-----');
                 },
               ),
             ],

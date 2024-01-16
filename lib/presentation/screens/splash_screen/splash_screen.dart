@@ -100,6 +100,4 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
   }
 }
 
-
-
 // have to give entire pemission on the splash screen

@@ -69,7 +69,6 @@ class SearchFilterResponseModel {
   Map<String, dynamic> toJson() => _$SearchFilterResponseModelToJson(this);
 }
 
-
 class SearchFilterListResponseModel {
   List<SearchFilterResponseModel>? profiles;
 
@@ -77,7 +76,8 @@ class SearchFilterListResponseModel {
 
   factory SearchFilterListResponseModel.fromJson(List<dynamic> json) {
     return SearchFilterListResponseModel(
-      profiles: json.map((item) => SearchFilterResponseModel.fromJson(item)).toList(),
+      profiles:
+          json.map((item) => SearchFilterResponseModel.fromJson(item)).toList(),
     );
   }
 

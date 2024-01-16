@@ -32,8 +32,6 @@ class OtpAuthenticationPage extends StatelessWidget {
     return BlocListener<OtpNumberAuthPageBloc, OtpNumberAuthPageState>(
       listener: (context, state) async {
         handleState(state, context);
-
-        
       },
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),

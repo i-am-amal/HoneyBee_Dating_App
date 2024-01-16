@@ -20,7 +20,7 @@ class ProfileGrid extends StatelessWidget {
     return BlocBuilder<MatchesPageBloc, MatchesPageState>(
       builder: (context, state) {
         log("state.isLoading = ${state.isLoading}");
-        
+
         if (state.isLoading == true) {
           return Center(
             child: Column(
@@ -127,11 +127,10 @@ class ProfileGrid extends StatelessWidget {
           );
         } else {
           return Center(
-            child:
-                Lottie.asset(
+            child: Lottie.asset(
               'assets/images/noData.json',
-              height: 500, 
-              width: 500, 
+              height: 500,
+              width: 500,
             ),
           );
         }

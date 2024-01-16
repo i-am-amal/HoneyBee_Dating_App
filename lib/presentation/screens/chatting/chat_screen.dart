@@ -10,10 +10,9 @@ import 'package:honeybee/presentation/widgets/button_widgets/border_outlined_ico
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
 
-class ChatScreen extends StatefulWidget {
-  const ChatScreen(
+class ChatScreen extends StatelessWidget {
+  ChatScreen(
       {super.key,
       required this.senderId,
       required this.receiverId,
@@ -27,67 +26,14 @@ class ChatScreen extends StatefulWidget {
   final String? profilePic;
   final String name;
 
-  @override
-  State<ChatScreen> createState() => _ChatScreenState();
-}
-
-class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController messageController = TextEditingController();
+
   final ScrollController _scrollController = ScrollController();
-  late IO.Socket socket;
-
-  @override
-  void initState() {
-    socket = IO.io(
-        'http://10.0.2.2:5000',
-        // "https://amal.fun",
-        IO.OptionBuilder()
-            .setTransports(['websocket'])
-            .disableAutoConnect()
-            .build());
-
-    socket.connect();
-
-    socket.emit('add-user', widget.senderId);
-    socket.emit('getOnlineUsers');
-    socket.on('onlineUsersList', (data) {
-      log('online user list event called');
-    });
-    socket.onConnect((data) {
-      log('connected------------------------');
-    });
-    socket.on('add-user', (data) {
-      log('---------------------------socket--new user added------');
-    });
-
-    socket.on('new-msg', (data) {
-      log('new message received------------------------');
-    });
-
-    socket.on('msg-recieve', (data) {
-      log(' message received------------------------');
-    });
-
-    socket.on('getOnlineUsers', (data) {
-      log('getting online users------------------------');
-    });
-
-    socket.onDisconnect((data) {
-      log('disconnected------------------------');
-    });
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    socket.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<GetAllMessageBloc>(context).add(
+        GetAllMessageEvent.initializeGetAllMessagePage(senderId, receiverId));
     double width = MediaQuery.of(context).size.width;
 
     double height = MediaQuery.of(context).size.height;
@@ -97,9 +43,10 @@ class _ChatScreenState extends State<ChatScreen> {
         () => _scrollController
             .jumpTo(_scrollController.position.maxScrollExtent));
 
-    BlocProvider.of<GetAllMessageBloc>(context).add(
-        GetAllMessageEvent.getAllMessageOfUser(
-            widget.senderId, widget.receiverId));
+    // BlocProvider.of<GetAllMessageBloc>(context).add(
+    //     GetAllMessageEvent.getAllMessageOfUser(
+    //         widget.senderId, widget.receiverId));
+
     return Scaffold(
       body: BlocBuilder<GetAllMessageBloc, GetAllMessageState>(
         builder: (context, state) {
@@ -123,10 +70,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   SizedBox(
                     width: width * 0.05,
                   ),
-                  if (widget.profilePic != null)
+                  if (profilePic != null)
                     CircleAvatar(
                       radius: 20,
-                      backgroundImage: NetworkImage(widget.profilePic!),
+                      backgroundImage: NetworkImage(profilePic!),
                     )
                   else
                     const CircleAvatar(
@@ -137,7 +84,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     width: width * 0.01,
                   ),
                   CustomText(
-                    text: widget.name,
+                    text: name,
                     fontFamily: CustomFont.textFont,
                     fontsize: 20,
                   ),
@@ -217,9 +164,9 @@ class _ChatScreenState extends State<ChatScreen> {
                           BlocProvider.of<AddNewMessageBloc>(context).add(
                               AddNewMessageEvent.newMessage(
                                   messageController.text,
-                                  widget.senderId,
-                                  widget.receiverId,
-                                  widget.conversationId));
+                                  senderId,
+                                  receiverId,
+                                  conversationId));
                           messageController.clear();
 
                           _scrollController.jumpTo(
@@ -229,6 +176,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           //     const Duration(milliseconds: 10),
                           //     () => _scrollController.jumpTo(
                           //         _scrollController.position.maxScrollExtent));
+                          
                         },
                       ),
                     ),

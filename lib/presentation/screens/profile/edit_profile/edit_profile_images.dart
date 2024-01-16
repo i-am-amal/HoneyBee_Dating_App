@@ -166,18 +166,12 @@ Stay clear of inappropriate content''';
 
                           ///--------------->>>>>>>>>>----------------cover image --------->>>>>>>>>>>---------
 
-                          child: 
-                          
-                          
-                          
-                          state.coverProfileImage != null
+                          child: state.coverProfileImage != null
                               ? Image.file(File(state.coverProfileImage!.path),
                                   fit: BoxFit.cover)
                               : Image.network(
                                   widget.editProfileDetails.coverPic!.path,
-                                  fit: BoxFit.cover)
-
-                          ),
+                                  fit: BoxFit.cover)),
                       onTap: () {
                         pickImageModalPopUp(
                           context,
