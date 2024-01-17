@@ -16,15 +16,17 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddNewMessageEvent {
-  String? get controllerValue => throw _privateConstructorUsedError;
   String? get senderId => throw _privateConstructorUsedError;
   String? get receiverId => throw _privateConstructorUsedError;
-  String? get conversationId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? controllerValue, String? senderId,
             String? receiverId, String? conversationId)
         newMessage,
+    required TResult Function(String? senderId, String? receiverId)
+        getAllMessageOfUser,
+    required TResult Function(String? senderId, String? receiverId)
+        initializeGetAllMessagePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,10 @@ mixin _$AddNewMessageEvent {
     TResult? Function(String? controllerValue, String? senderId,
             String? receiverId, String? conversationId)?
         newMessage,
+    TResult? Function(String? senderId, String? receiverId)?
+        getAllMessageOfUser,
+    TResult? Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,22 +45,34 @@ mixin _$AddNewMessageEvent {
     TResult Function(String? controllerValue, String? senderId,
             String? receiverId, String? conversationId)?
         newMessage,
+    TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
+    TResult Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NewMessage value) newMessage,
+    required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
+    required TResult Function(_InitializeGetAllMessagePage value)
+        initializeGetAllMessagePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_NewMessage value)? newMessage,
+    TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult? Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NewMessage value)? newMessage,
+    TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -70,11 +88,7 @@ abstract class $AddNewMessageEventCopyWith<$Res> {
           AddNewMessageEvent value, $Res Function(AddNewMessageEvent) then) =
       _$AddNewMessageEventCopyWithImpl<$Res, AddNewMessageEvent>;
   @useResult
-  $Res call(
-      {String? controllerValue,
-      String? senderId,
-      String? receiverId,
-      String? conversationId});
+  $Res call({String? senderId, String? receiverId});
 }
 
 /// @nodoc
@@ -90,16 +104,10 @@ class _$AddNewMessageEventCopyWithImpl<$Res, $Val extends AddNewMessageEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? controllerValue = freezed,
     Object? senderId = freezed,
     Object? receiverId = freezed,
-    Object? conversationId = freezed,
   }) {
     return _then(_value.copyWith(
-      controllerValue: freezed == controllerValue
-          ? _value.controllerValue
-          : controllerValue // ignore: cast_nullable_to_non_nullable
-              as String?,
       senderId: freezed == senderId
           ? _value.senderId
           : senderId // ignore: cast_nullable_to_non_nullable
@@ -107,10 +115,6 @@ class _$AddNewMessageEventCopyWithImpl<$Res, $Val extends AddNewMessageEvent>
       receiverId: freezed == receiverId
           ? _value.receiverId
           : receiverId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      conversationId: freezed == conversationId
-          ? _value.conversationId
-          : conversationId // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -219,6 +223,10 @@ class _$_NewMessage implements _NewMessage {
     required TResult Function(String? controllerValue, String? senderId,
             String? receiverId, String? conversationId)
         newMessage,
+    required TResult Function(String? senderId, String? receiverId)
+        getAllMessageOfUser,
+    required TResult Function(String? senderId, String? receiverId)
+        initializeGetAllMessagePage,
   }) {
     return newMessage(controllerValue, senderId, receiverId, conversationId);
   }
@@ -229,6 +237,10 @@ class _$_NewMessage implements _NewMessage {
     TResult? Function(String? controllerValue, String? senderId,
             String? receiverId, String? conversationId)?
         newMessage,
+    TResult? Function(String? senderId, String? receiverId)?
+        getAllMessageOfUser,
+    TResult? Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
   }) {
     return newMessage?.call(
         controllerValue, senderId, receiverId, conversationId);
@@ -240,6 +252,9 @@ class _$_NewMessage implements _NewMessage {
     TResult Function(String? controllerValue, String? senderId,
             String? receiverId, String? conversationId)?
         newMessage,
+    TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
+    TResult Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
     required TResult orElse(),
   }) {
     if (newMessage != null) {
@@ -252,6 +267,9 @@ class _$_NewMessage implements _NewMessage {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NewMessage value) newMessage,
+    required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
+    required TResult Function(_InitializeGetAllMessagePage value)
+        initializeGetAllMessagePage,
   }) {
     return newMessage(this);
   }
@@ -260,6 +278,9 @@ class _$_NewMessage implements _NewMessage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_NewMessage value)? newMessage,
+    TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult? Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
   }) {
     return newMessage?.call(this);
   }
@@ -268,6 +289,9 @@ class _$_NewMessage implements _NewMessage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NewMessage value)? newMessage,
+    TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
     required TResult orElse(),
   }) {
     if (newMessage != null) {
@@ -284,18 +308,363 @@ abstract class _NewMessage implements AddNewMessageEvent {
       final String? receiverId,
       final String? conversationId) = _$_NewMessage;
 
-  @override
   String? get controllerValue;
   @override
   String? get senderId;
   @override
   String? get receiverId;
-  @override
   String? get conversationId;
   @override
   @JsonKey(ignore: true)
   _$$_NewMessageCopyWith<_$_NewMessage> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetAllMessageOfUserCopyWith<$Res>
+    implements $AddNewMessageEventCopyWith<$Res> {
+  factory _$$_GetAllMessageOfUserCopyWith(_$_GetAllMessageOfUser value,
+          $Res Function(_$_GetAllMessageOfUser) then) =
+      __$$_GetAllMessageOfUserCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? senderId, String? receiverId});
+}
+
+/// @nodoc
+class __$$_GetAllMessageOfUserCopyWithImpl<$Res>
+    extends _$AddNewMessageEventCopyWithImpl<$Res, _$_GetAllMessageOfUser>
+    implements _$$_GetAllMessageOfUserCopyWith<$Res> {
+  __$$_GetAllMessageOfUserCopyWithImpl(_$_GetAllMessageOfUser _value,
+      $Res Function(_$_GetAllMessageOfUser) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? senderId = freezed,
+    Object? receiverId = freezed,
+  }) {
+    return _then(_$_GetAllMessageOfUser(
+      freezed == senderId
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == receiverId
+          ? _value.receiverId
+          : receiverId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
+  const _$_GetAllMessageOfUser(this.senderId, this.receiverId);
+
+  @override
+  final String? senderId;
+  @override
+  final String? receiverId;
+
+  @override
+  String toString() {
+    return 'AddNewMessageEvent.getAllMessageOfUser(senderId: $senderId, receiverId: $receiverId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetAllMessageOfUser &&
+            (identical(other.senderId, senderId) ||
+                other.senderId == senderId) &&
+            (identical(other.receiverId, receiverId) ||
+                other.receiverId == receiverId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, senderId, receiverId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetAllMessageOfUserCopyWith<_$_GetAllMessageOfUser> get copyWith =>
+      __$$_GetAllMessageOfUserCopyWithImpl<_$_GetAllMessageOfUser>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? controllerValue, String? senderId,
+            String? receiverId, String? conversationId)
+        newMessage,
+    required TResult Function(String? senderId, String? receiverId)
+        getAllMessageOfUser,
+    required TResult Function(String? senderId, String? receiverId)
+        initializeGetAllMessagePage,
+  }) {
+    return getAllMessageOfUser(senderId, receiverId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? controllerValue, String? senderId,
+            String? receiverId, String? conversationId)?
+        newMessage,
+    TResult? Function(String? senderId, String? receiverId)?
+        getAllMessageOfUser,
+    TResult? Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
+  }) {
+    return getAllMessageOfUser?.call(senderId, receiverId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? controllerValue, String? senderId,
+            String? receiverId, String? conversationId)?
+        newMessage,
+    TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
+    TResult Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
+    required TResult orElse(),
+  }) {
+    if (getAllMessageOfUser != null) {
+      return getAllMessageOfUser(senderId, receiverId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NewMessage value) newMessage,
+    required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
+    required TResult Function(_InitializeGetAllMessagePage value)
+        initializeGetAllMessagePage,
+  }) {
+    return getAllMessageOfUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_NewMessage value)? newMessage,
+    TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult? Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
+  }) {
+    return getAllMessageOfUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NewMessage value)? newMessage,
+    TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
+    required TResult orElse(),
+  }) {
+    if (getAllMessageOfUser != null) {
+      return getAllMessageOfUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAllMessageOfUser implements AddNewMessageEvent {
+  const factory _GetAllMessageOfUser(
+          final String? senderId, final String? receiverId) =
+      _$_GetAllMessageOfUser;
+
+  @override
+  String? get senderId;
+  @override
+  String? get receiverId;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetAllMessageOfUserCopyWith<_$_GetAllMessageOfUser> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_InitializeGetAllMessagePageCopyWith<$Res>
+    implements $AddNewMessageEventCopyWith<$Res> {
+  factory _$$_InitializeGetAllMessagePageCopyWith(
+          _$_InitializeGetAllMessagePage value,
+          $Res Function(_$_InitializeGetAllMessagePage) then) =
+      __$$_InitializeGetAllMessagePageCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? senderId, String? receiverId});
+}
+
+/// @nodoc
+class __$$_InitializeGetAllMessagePageCopyWithImpl<$Res>
+    extends _$AddNewMessageEventCopyWithImpl<$Res,
+        _$_InitializeGetAllMessagePage>
+    implements _$$_InitializeGetAllMessagePageCopyWith<$Res> {
+  __$$_InitializeGetAllMessagePageCopyWithImpl(
+      _$_InitializeGetAllMessagePage _value,
+      $Res Function(_$_InitializeGetAllMessagePage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? senderId = freezed,
+    Object? receiverId = freezed,
+  }) {
+    return _then(_$_InitializeGetAllMessagePage(
+      freezed == senderId
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == receiverId
+          ? _value.receiverId
+          : receiverId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InitializeGetAllMessagePage implements _InitializeGetAllMessagePage {
+  const _$_InitializeGetAllMessagePage(this.senderId, this.receiverId);
+
+  @override
+  final String? senderId;
+  @override
+  final String? receiverId;
+
+  @override
+  String toString() {
+    return 'AddNewMessageEvent.initializeGetAllMessagePage(senderId: $senderId, receiverId: $receiverId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_InitializeGetAllMessagePage &&
+            (identical(other.senderId, senderId) ||
+                other.senderId == senderId) &&
+            (identical(other.receiverId, receiverId) ||
+                other.receiverId == receiverId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, senderId, receiverId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InitializeGetAllMessagePageCopyWith<_$_InitializeGetAllMessagePage>
+      get copyWith => __$$_InitializeGetAllMessagePageCopyWithImpl<
+          _$_InitializeGetAllMessagePage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? controllerValue, String? senderId,
+            String? receiverId, String? conversationId)
+        newMessage,
+    required TResult Function(String? senderId, String? receiverId)
+        getAllMessageOfUser,
+    required TResult Function(String? senderId, String? receiverId)
+        initializeGetAllMessagePage,
+  }) {
+    return initializeGetAllMessagePage(senderId, receiverId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? controllerValue, String? senderId,
+            String? receiverId, String? conversationId)?
+        newMessage,
+    TResult? Function(String? senderId, String? receiverId)?
+        getAllMessageOfUser,
+    TResult? Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
+  }) {
+    return initializeGetAllMessagePage?.call(senderId, receiverId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? controllerValue, String? senderId,
+            String? receiverId, String? conversationId)?
+        newMessage,
+    TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
+    TResult Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
+    required TResult orElse(),
+  }) {
+    if (initializeGetAllMessagePage != null) {
+      return initializeGetAllMessagePage(senderId, receiverId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NewMessage value) newMessage,
+    required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
+    required TResult Function(_InitializeGetAllMessagePage value)
+        initializeGetAllMessagePage,
+  }) {
+    return initializeGetAllMessagePage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_NewMessage value)? newMessage,
+    TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult? Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
+  }) {
+    return initializeGetAllMessagePage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NewMessage value)? newMessage,
+    TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
+    required TResult orElse(),
+  }) {
+    if (initializeGetAllMessagePage != null) {
+      return initializeGetAllMessagePage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitializeGetAllMessagePage implements AddNewMessageEvent {
+  const factory _InitializeGetAllMessagePage(
+          final String? senderId, final String? receiverId) =
+      _$_InitializeGetAllMessagePage;
+
+  @override
+  String? get senderId;
+  @override
+  String? get receiverId;
+  @override
+  @JsonKey(ignore: true)
+  _$$_InitializeGetAllMessagePageCopyWith<_$_InitializeGetAllMessagePage>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -305,6 +674,8 @@ mixin _$AddNewMessageState {
   String? get senderId => throw _privateConstructorUsedError;
   String? get receiverId => throw _privateConstructorUsedError;
   String? get coversationId => throw _privateConstructorUsedError;
+  List<GetMessageResponseModel>? get messages =>
+      throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
 
@@ -325,6 +696,7 @@ abstract class $AddNewMessageStateCopyWith<$Res> {
       String? senderId,
       String? receiverId,
       String? coversationId,
+      List<GetMessageResponseModel>? messages,
       String? message,
       bool? isLoading});
 }
@@ -347,6 +719,7 @@ class _$AddNewMessageStateCopyWithImpl<$Res, $Val extends AddNewMessageState>
     Object? senderId = freezed,
     Object? receiverId = freezed,
     Object? coversationId = freezed,
+    Object? messages = freezed,
     Object? message = freezed,
     Object? isLoading = freezed,
   }) {
@@ -371,6 +744,10 @@ class _$AddNewMessageStateCopyWithImpl<$Res, $Val extends AddNewMessageState>
           ? _value.coversationId
           : coversationId // ignore: cast_nullable_to_non_nullable
               as String?,
+      messages: freezed == messages
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<GetMessageResponseModel>?,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -397,6 +774,7 @@ abstract class _$$_AddNewMessageStateCopyWith<$Res>
       String? senderId,
       String? receiverId,
       String? coversationId,
+      List<GetMessageResponseModel>? messages,
       String? message,
       bool? isLoading});
 }
@@ -417,6 +795,7 @@ class __$$_AddNewMessageStateCopyWithImpl<$Res>
     Object? senderId = freezed,
     Object? receiverId = freezed,
     Object? coversationId = freezed,
+    Object? messages = freezed,
     Object? message = freezed,
     Object? isLoading = freezed,
   }) {
@@ -441,6 +820,10 @@ class __$$_AddNewMessageStateCopyWithImpl<$Res>
           ? _value.coversationId
           : coversationId // ignore: cast_nullable_to_non_nullable
               as String?,
+      messages: freezed == messages
+          ? _value._messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<GetMessageResponseModel>?,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -462,8 +845,10 @@ class _$_AddNewMessageState implements _AddNewMessageState {
       this.senderId,
       this.receiverId,
       this.coversationId,
+      final List<GetMessageResponseModel>? messages,
       this.message,
-      this.isLoading});
+      this.isLoading})
+      : _messages = messages;
 
   @override
   final String? errorMessage;
@@ -475,6 +860,16 @@ class _$_AddNewMessageState implements _AddNewMessageState {
   final String? receiverId;
   @override
   final String? coversationId;
+  final List<GetMessageResponseModel>? _messages;
+  @override
+  List<GetMessageResponseModel>? get messages {
+    final value = _messages;
+    if (value == null) return null;
+    if (_messages is EqualUnmodifiableListView) return _messages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? message;
   @override
@@ -482,7 +877,7 @@ class _$_AddNewMessageState implements _AddNewMessageState {
 
   @override
   String toString() {
-    return 'AddNewMessageState(errorMessage: $errorMessage, controllerValue: $controllerValue, senderId: $senderId, receiverId: $receiverId, coversationId: $coversationId, message: $message, isLoading: $isLoading)';
+    return 'AddNewMessageState(errorMessage: $errorMessage, controllerValue: $controllerValue, senderId: $senderId, receiverId: $receiverId, coversationId: $coversationId, messages: $messages, message: $message, isLoading: $isLoading)';
   }
 
   @override
@@ -500,14 +895,23 @@ class _$_AddNewMessageState implements _AddNewMessageState {
                 other.receiverId == receiverId) &&
             (identical(other.coversationId, coversationId) ||
                 other.coversationId == coversationId) &&
+            const DeepCollectionEquality().equals(other._messages, _messages) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorMessage, controllerValue,
-      senderId, receiverId, coversationId, message, isLoading);
+  int get hashCode => Object.hash(
+      runtimeType,
+      errorMessage,
+      controllerValue,
+      senderId,
+      receiverId,
+      coversationId,
+      const DeepCollectionEquality().hash(_messages),
+      message,
+      isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -524,6 +928,7 @@ abstract class _AddNewMessageState implements AddNewMessageState {
       final String? senderId,
       final String? receiverId,
       final String? coversationId,
+      final List<GetMessageResponseModel>? messages,
       final String? message,
       final bool? isLoading}) = _$_AddNewMessageState;
 
@@ -537,6 +942,8 @@ abstract class _AddNewMessageState implements AddNewMessageState {
   String? get receiverId;
   @override
   String? get coversationId;
+  @override
+  List<GetMessageResponseModel>? get messages;
   @override
   String? get message;
   @override

@@ -8,6 +8,8 @@ class AddNewMessageState with _$AddNewMessageState {
     String? senderId,
     String? receiverId,
     String? coversationId,
+        List<GetMessageResponseModel>? messages,
+
     String? message,
     bool? isLoading,
   }) = _AddNewMessageState;
@@ -16,3 +18,7 @@ class AddNewMessageState with _$AddNewMessageState {
     return const AddNewMessageState(isLoading: false, controllerValue: '');
   }
 }
+
+
+
+ 

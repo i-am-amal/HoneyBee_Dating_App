@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
+import 'package:honeybee/infrastructure/services/socket_services.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -151,6 +152,7 @@ void handleState(OtpNumberAuthPageState state, BuildContext context) async {
             BasicInfoMainPage(
               formattedPhoneNumber: state.formattedPhoneNumber,
             ));
+       
       });
     }
   } else {

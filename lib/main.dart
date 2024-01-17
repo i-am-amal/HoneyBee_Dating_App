@@ -20,9 +20,9 @@ import 'application/location_auth_page/location_auth_page_bloc.dart';
 import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import 'application/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 
-void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await NotificationService.initializeNotification();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.initializeNotification();
   //-------->>>-----SystemUIOverlayStyle used for changing the status bar color----->>>--------
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
@@ -76,9 +76,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => UpdateAccountPageBloc(),
         ),
-        BlocProvider(
-          create: (context) => GetAllMessageBloc(),
-        ),
+        // BlocProvider(
+        //   create: (context) => GetAllMessageBloc(),
+        // ),
         BlocProvider(
           create: (context) => AddNewMessageBloc(),
         ),

@@ -8,4 +8,21 @@ class AddNewMessageEvent with _$AddNewMessageEvent {
     String? receiverId,
     String? conversationId,
   ) = _NewMessage;
+
+
+const factory AddNewMessageEvent.getAllMessageOfUser(
+    String? senderId,
+    String? receiverId,
+  ) = _GetAllMessageOfUser;
+
+
+
+   const factory AddNewMessageEvent.initializeGetAllMessagePage(
+  String? senderId,
+    String? receiverId,
+  ) = _InitializeGetAllMessagePage;
+  
+
+
+
 }

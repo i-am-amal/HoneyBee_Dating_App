@@ -1,59 +1,59 @@
-import 'dart:developer';
+// import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:honeybee/domain/models/get_message_request_model/get_message_request_model.dart';
-import 'package:honeybee/domain/models/get_message_response_model/get_message_response_model.dart';
-import 'package:honeybee/infrastructure/services/api_services.dart';
-import 'package:honeybee/infrastructure/services/socket_services.dart';
+// import 'package:bloc/bloc.dart';
+// import 'package:freezed_annotation/freezed_annotation.dart';
+// import 'package:honeybee/domain/models/get_message_request_model/get_message_request_model.dart';
+// import 'package:honeybee/domain/models/get_message_response_model/get_message_response_model.dart';
+// import 'package:honeybee/infrastructure/services/api_services.dart';
+// import 'package:honeybee/infrastructure/services/socket_services.dart';
 
-part 'get_all_message_event.dart';
-part 'get_all_message_state.dart';
-part 'get_all_message_bloc.freezed.dart';
+// part 'get_all_message_event.dart';
+// part 'get_all_message_state.dart';
+// part 'get_all_message_bloc.freezed.dart';
 
-class GetAllMessageBloc extends Bloc<GetAllMessageEvent, GetAllMessageState> {
-  GetAllMessageBloc() : super(GetAllMessageState.initial()) {
-    on<_InitializeGetAllMessagePage>((event, emit) {
-      add(_GetAllMessageOfUser(event.senderId, event.receiverId));
+// class GetAllMessageBloc extends Bloc<GetAllMessageEvent, GetAllMessageState> {
+//   GetAllMessageBloc() : super(GetAllMessageState.initial()) {
 
-      SocketServices.socketMsgReceiveListener(() {
-        add(_GetAllMessageOfUser(event.senderId, event.receiverId));
-        log('socketMsgReceiveListener funtion from bloc working');
-      });
-    });
 
-    on<_GetAllMessageOfUser>((event, emit) async {
-      // log('${event.controllerValue!}-----------textfield value-------------');
+//     on<_InitializeGetAllMessagePage>((event, emit) {
+//       add(_GetAllMessageOfUser(event.senderId, event.receiverId));
 
-      GetMessageRequestModel request =
-          GetMessageRequestModel(from: event.senderId, to: event.receiverId);
+//       SocketServices.socketMsgReceiveListener(() {
+//         add(_GetAllMessageOfUser(event.senderId, event.receiverId));
+//         log('socketMsgReceiveListener funtion from bloc working');
+//       });
+//     });
 
-      final result = await ApiServices.getAllMessageData(request);
+//     on<_GetAllMessageOfUser>((event, emit) async {
+//       // log('${event.controllerValue!}-----------textfield value-------------');
 
-      result.fold((failure) {
-        log('no response from api call in get all msg page bloc');
+//       GetMessageRequestModel request =
+//           GetMessageRequestModel(from: event.senderId, to: event.receiverId);
 
-        emit(state.copyWith(errorMessage: failure.errorMessage));
-        emit(state.copyWith(errorMessage: null));
-      }, (success) {
-        log('success ...entered. in get all  msg.');
-        if (success.isNotEmpty) {
-          log('response model  not null.....in  get all msg request  ...');
+//       final result = await ApiServices.getAllMessageData(request);
 
-          //   emit(state.copyWith(isLoading: false));
+//       result.fold((failure) {
+//         log('no response from api call in get all msg page bloc');
 
-          emit(state.copyWith(message: success));
-          // log('-------------success result---------${success.toString()}');
-          // emit(state.copyWith(message: success.message));
-        } else {
-          // failure from backend
-          log('backend error------------');
-          emit(state.copyWith(
-              errorMessage:
-                  'OOPS.. Something went wrong.. Please try again later...'));
-          emit(state.copyWith(errorMessage: null));
-        }
-      });
-    });
-  }
-}
+//         emit(state.copyWith(errorMessage: failure.errorMessage));
+//         emit(state.copyWith(errorMessage: null));
+//       }, (success) {
+//         log('success ...entered. in get all  msg.');
+
+//         log('response model  not null.....in  get all msg request  ...');
+
+//         print("Inside bloc, success : ${success}");
+
+//         //   emit(state.copyWith(isLoading: false));
+
+//         emit(state.copyWith(message: success));
+//         // log('-------------success result---------${success.toString()}');
+//         // emit(state.copyWith(message: success.message));
+//       });
+//     });
+
+
+
+
+//   }
+// }

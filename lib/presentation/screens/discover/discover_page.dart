@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
 import 'package:honeybee/presentation/screens/discover/cards_stack_widget/cards_stack_widget.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/screens/search/search_page.dart';
@@ -12,6 +14,9 @@ class DiscoverPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
+    BlocProvider.of<DiscoverPageBloc>(context)
+        .add(const DiscoverPageEvent.joinUserToSocket());
 
     return Scaffold(
       body: Center(

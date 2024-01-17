@@ -32,8 +32,8 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<GetAllMessageBloc>(context).add(
-        GetAllMessageEvent.initializeGetAllMessagePage(senderId, receiverId));
+    BlocProvider.of<AddNewMessageBloc>(context).add(
+        AddNewMessageEvent.initializeGetAllMessagePage(senderId, receiverId));
     double width = MediaQuery.of(context).size.width;
 
     double height = MediaQuery.of(context).size.height;
@@ -48,7 +48,7 @@ class ChatScreen extends StatelessWidget {
     //         widget.senderId, widget.receiverId));
 
     return Scaffold(
-      body: BlocBuilder<GetAllMessageBloc, GetAllMessageState>(
+      body: BlocBuilder<AddNewMessageBloc, AddNewMessageState>(
         builder: (context, state) {
           // _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
 
@@ -98,9 +98,9 @@ class ChatScreen extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   controller: _scrollController,
-                  itemCount: state.message?.length ?? 0,
+                  itemCount: state.messages?.length ?? 0,
                   itemBuilder: (BuildContext context, int index) {
-                    GetMessageResponseModel message = state.message![index];
+                    GetMessageResponseModel message = state.messages![index];
 
                     return ChatMessage(
                       text: message.message ?? "",

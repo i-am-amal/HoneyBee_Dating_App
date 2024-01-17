@@ -682,6 +682,9 @@ class ApiServices {
         },
         body: request.toJson(),
       );
+
+      log("add message request : ${request.toJson()}, response status code : ${response.statusCode}");
+
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
         AddMessageResponseModel result =
@@ -709,11 +712,18 @@ class ApiServices {
         },
         body: request.toJson(),
       );
+
+      print(
+          "api : ${Config.getAllMessageApi}, request : ${request.toJson()} , response body : ${response.body}, status code : ${response.statusCode}");
+
       if (response.statusCode == 200) {
         // Map<String, dynamic> jsonMap = jsonDecode(response.body);
 
-        List<GetMessageResponseModel> result =
-            GetMessageResponseModel.fromList(jsonDecode(response.body));
+        List<GetMessageResponseModel> result = [];
+        if (jsonDecode(response.body) != null &&
+            (jsonDecode(response.body) as List).isNotEmpty) {
+          result = GetMessageResponseModel.fromList(jsonDecode(response.body));
+        }
 
         return right(result);
       } else {

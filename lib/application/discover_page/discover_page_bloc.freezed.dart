@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DiscoverPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() joinUserToSocket,
     required TResult Function() fetchDiscoverData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
@@ -27,6 +28,7 @@ mixin _$DiscoverPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? joinUserToSocket,
     TResult? Function()? fetchDiscoverData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
@@ -36,6 +38,7 @@ mixin _$DiscoverPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? joinUserToSocket,
     TResult Function()? fetchDiscoverData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
@@ -46,6 +49,7 @@ mixin _$DiscoverPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_JoinUserToSocket value) joinUserToSocket,
     required TResult Function(_FetchDiscoverData value) fetchDiscoverData,
     required TResult Function(_LikeUserEvent value) likeUserEvent,
     required TResult Function(_DislikeUserEvent value) dislikeUserEvent,
@@ -55,6 +59,7 @@ mixin _$DiscoverPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult? Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult? Function(_LikeUserEvent value)? likeUserEvent,
     TResult? Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -64,6 +69,7 @@ mixin _$DiscoverPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult Function(_LikeUserEvent value)? likeUserEvent,
     TResult Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -90,6 +96,132 @@ class _$DiscoverPageEventCopyWithImpl<$Res, $Val extends DiscoverPageEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_JoinUserToSocketCopyWith<$Res> {
+  factory _$$_JoinUserToSocketCopyWith(
+          _$_JoinUserToSocket value, $Res Function(_$_JoinUserToSocket) then) =
+      __$$_JoinUserToSocketCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_JoinUserToSocketCopyWithImpl<$Res>
+    extends _$DiscoverPageEventCopyWithImpl<$Res, _$_JoinUserToSocket>
+    implements _$$_JoinUserToSocketCopyWith<$Res> {
+  __$$_JoinUserToSocketCopyWithImpl(
+      _$_JoinUserToSocket _value, $Res Function(_$_JoinUserToSocket) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_JoinUserToSocket implements _JoinUserToSocket {
+  const _$_JoinUserToSocket();
+
+  @override
+  String toString() {
+    return 'DiscoverPageEvent.joinUserToSocket()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_JoinUserToSocket);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() joinUserToSocket,
+    required TResult Function() fetchDiscoverData,
+    required TResult Function(String? userId) likeUserEvent,
+    required TResult Function(String? userId) dislikeUserEvent,
+    required TResult Function() profileViewEvent,
+    required TResult Function() syncEvent,
+  }) {
+    return joinUserToSocket();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? joinUserToSocket,
+    TResult? Function()? fetchDiscoverData,
+    TResult? Function(String? userId)? likeUserEvent,
+    TResult? Function(String? userId)? dislikeUserEvent,
+    TResult? Function()? profileViewEvent,
+    TResult? Function()? syncEvent,
+  }) {
+    return joinUserToSocket?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? joinUserToSocket,
+    TResult Function()? fetchDiscoverData,
+    TResult Function(String? userId)? likeUserEvent,
+    TResult Function(String? userId)? dislikeUserEvent,
+    TResult Function()? profileViewEvent,
+    TResult Function()? syncEvent,
+    required TResult orElse(),
+  }) {
+    if (joinUserToSocket != null) {
+      return joinUserToSocket();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_JoinUserToSocket value) joinUserToSocket,
+    required TResult Function(_FetchDiscoverData value) fetchDiscoverData,
+    required TResult Function(_LikeUserEvent value) likeUserEvent,
+    required TResult Function(_DislikeUserEvent value) dislikeUserEvent,
+    required TResult Function(_ProfileViewEvent value) profileViewEvent,
+    required TResult Function(_SyncEvent value) syncEvent,
+  }) {
+    return joinUserToSocket(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_JoinUserToSocket value)? joinUserToSocket,
+    TResult? Function(_FetchDiscoverData value)? fetchDiscoverData,
+    TResult? Function(_LikeUserEvent value)? likeUserEvent,
+    TResult? Function(_DislikeUserEvent value)? dislikeUserEvent,
+    TResult? Function(_ProfileViewEvent value)? profileViewEvent,
+    TResult? Function(_SyncEvent value)? syncEvent,
+  }) {
+    return joinUserToSocket?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_JoinUserToSocket value)? joinUserToSocket,
+    TResult Function(_FetchDiscoverData value)? fetchDiscoverData,
+    TResult Function(_LikeUserEvent value)? likeUserEvent,
+    TResult Function(_DislikeUserEvent value)? dislikeUserEvent,
+    TResult Function(_ProfileViewEvent value)? profileViewEvent,
+    TResult Function(_SyncEvent value)? syncEvent,
+    required TResult orElse(),
+  }) {
+    if (joinUserToSocket != null) {
+      return joinUserToSocket(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _JoinUserToSocket implements DiscoverPageEvent {
+  const factory _JoinUserToSocket() = _$_JoinUserToSocket;
 }
 
 /// @nodoc
@@ -130,6 +262,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() joinUserToSocket,
     required TResult Function() fetchDiscoverData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
@@ -142,6 +275,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? joinUserToSocket,
     TResult? Function()? fetchDiscoverData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
@@ -154,6 +288,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? joinUserToSocket,
     TResult Function()? fetchDiscoverData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
@@ -170,6 +305,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_JoinUserToSocket value) joinUserToSocket,
     required TResult Function(_FetchDiscoverData value) fetchDiscoverData,
     required TResult Function(_LikeUserEvent value) likeUserEvent,
     required TResult Function(_DislikeUserEvent value) dislikeUserEvent,
@@ -182,6 +318,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult? Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult? Function(_LikeUserEvent value)? likeUserEvent,
     TResult? Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -194,6 +331,7 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult Function(_LikeUserEvent value)? likeUserEvent,
     TResult Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -276,6 +414,7 @@ class _$_LikeUserEvent implements _LikeUserEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() joinUserToSocket,
     required TResult Function() fetchDiscoverData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
@@ -288,6 +427,7 @@ class _$_LikeUserEvent implements _LikeUserEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? joinUserToSocket,
     TResult? Function()? fetchDiscoverData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
@@ -300,6 +440,7 @@ class _$_LikeUserEvent implements _LikeUserEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? joinUserToSocket,
     TResult Function()? fetchDiscoverData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
@@ -316,6 +457,7 @@ class _$_LikeUserEvent implements _LikeUserEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_JoinUserToSocket value) joinUserToSocket,
     required TResult Function(_FetchDiscoverData value) fetchDiscoverData,
     required TResult Function(_LikeUserEvent value) likeUserEvent,
     required TResult Function(_DislikeUserEvent value) dislikeUserEvent,
@@ -328,6 +470,7 @@ class _$_LikeUserEvent implements _LikeUserEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult? Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult? Function(_LikeUserEvent value)? likeUserEvent,
     TResult? Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -340,6 +483,7 @@ class _$_LikeUserEvent implements _LikeUserEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult Function(_LikeUserEvent value)? likeUserEvent,
     TResult Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -427,6 +571,7 @@ class _$_DislikeUserEvent implements _DislikeUserEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() joinUserToSocket,
     required TResult Function() fetchDiscoverData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
@@ -439,6 +584,7 @@ class _$_DislikeUserEvent implements _DislikeUserEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? joinUserToSocket,
     TResult? Function()? fetchDiscoverData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
@@ -451,6 +597,7 @@ class _$_DislikeUserEvent implements _DislikeUserEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? joinUserToSocket,
     TResult Function()? fetchDiscoverData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
@@ -467,6 +614,7 @@ class _$_DislikeUserEvent implements _DislikeUserEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_JoinUserToSocket value) joinUserToSocket,
     required TResult Function(_FetchDiscoverData value) fetchDiscoverData,
     required TResult Function(_LikeUserEvent value) likeUserEvent,
     required TResult Function(_DislikeUserEvent value) dislikeUserEvent,
@@ -479,6 +627,7 @@ class _$_DislikeUserEvent implements _DislikeUserEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult? Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult? Function(_LikeUserEvent value)? likeUserEvent,
     TResult? Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -491,6 +640,7 @@ class _$_DislikeUserEvent implements _DislikeUserEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult Function(_LikeUserEvent value)? likeUserEvent,
     TResult Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -552,6 +702,7 @@ class _$_ProfileViewEvent implements _ProfileViewEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() joinUserToSocket,
     required TResult Function() fetchDiscoverData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
@@ -564,6 +715,7 @@ class _$_ProfileViewEvent implements _ProfileViewEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? joinUserToSocket,
     TResult? Function()? fetchDiscoverData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
@@ -576,6 +728,7 @@ class _$_ProfileViewEvent implements _ProfileViewEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? joinUserToSocket,
     TResult Function()? fetchDiscoverData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
@@ -592,6 +745,7 @@ class _$_ProfileViewEvent implements _ProfileViewEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_JoinUserToSocket value) joinUserToSocket,
     required TResult Function(_FetchDiscoverData value) fetchDiscoverData,
     required TResult Function(_LikeUserEvent value) likeUserEvent,
     required TResult Function(_DislikeUserEvent value) dislikeUserEvent,
@@ -604,6 +758,7 @@ class _$_ProfileViewEvent implements _ProfileViewEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult? Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult? Function(_LikeUserEvent value)? likeUserEvent,
     TResult? Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -616,6 +771,7 @@ class _$_ProfileViewEvent implements _ProfileViewEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult Function(_LikeUserEvent value)? likeUserEvent,
     TResult Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -672,6 +828,7 @@ class _$_SyncEvent implements _SyncEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() joinUserToSocket,
     required TResult Function() fetchDiscoverData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
@@ -684,6 +841,7 @@ class _$_SyncEvent implements _SyncEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? joinUserToSocket,
     TResult? Function()? fetchDiscoverData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
@@ -696,6 +854,7 @@ class _$_SyncEvent implements _SyncEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? joinUserToSocket,
     TResult Function()? fetchDiscoverData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
@@ -712,6 +871,7 @@ class _$_SyncEvent implements _SyncEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_JoinUserToSocket value) joinUserToSocket,
     required TResult Function(_FetchDiscoverData value) fetchDiscoverData,
     required TResult Function(_LikeUserEvent value) likeUserEvent,
     required TResult Function(_DislikeUserEvent value) dislikeUserEvent,
@@ -724,6 +884,7 @@ class _$_SyncEvent implements _SyncEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult? Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult? Function(_LikeUserEvent value)? likeUserEvent,
     TResult? Function(_DislikeUserEvent value)? dislikeUserEvent,
@@ -736,6 +897,7 @@ class _$_SyncEvent implements _SyncEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_JoinUserToSocket value)? joinUserToSocket,
     TResult Function(_FetchDiscoverData value)? fetchDiscoverData,
     TResult Function(_LikeUserEvent value)? likeUserEvent,
     TResult Function(_DislikeUserEvent value)? dislikeUserEvent,

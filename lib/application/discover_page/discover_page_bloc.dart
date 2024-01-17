@@ -4,6 +4,8 @@ import 'package:honeybee/domain/models/discover_response_model/discover_response
 import 'package:honeybee/domain/models/dislike_user_request_model/dislike_user_request_model.dart';
 import 'package:honeybee/domain/models/like_user_request_model/like_user_request_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
+import 'package:honeybee/infrastructure/services/socket_services.dart';
+import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 
 part 'discover_page_event.dart';
 part 'discover_page_state.dart';
@@ -12,6 +14,14 @@ part 'discover_page_bloc.freezed.dart';
 class DiscoverPageBloc extends Bloc<DiscoverPageEvent, DiscoverPageState> {
   DiscoverPageBloc() : super(DiscoverPageState.initial()) {
     //--------------->>>-----Fetch Discover Page Data----->>>------------------------
+
+    on<_JoinUserToSocket>((event, emit) async {
+      String? userId = await getuserIdFromPrefs();
+
+      if (userId != null) {
+        SocketServices.addUser(userId: userId);
+      }
+    });
 
     on<_FetchDiscoverData>((event, emit) async {
       emit(state.copyWith(isLoading: true));
