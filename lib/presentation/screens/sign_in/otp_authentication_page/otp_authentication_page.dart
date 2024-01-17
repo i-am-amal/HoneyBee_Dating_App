@@ -137,6 +137,7 @@ void handleState(OtpNumberAuthPageState state, BuildContext context) async {
 
       await saveTokenToPrefs(state.token.toString());
 
+      // ignore: use_build_context_synchronously
       BlocProvider.of<PreviewAccountPageBloc>(context)
           .add(const PreviewAccountPageEvent.fetchAccountData());
 

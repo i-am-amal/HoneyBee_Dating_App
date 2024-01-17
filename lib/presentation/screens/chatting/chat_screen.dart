@@ -91,8 +91,8 @@ class ChatScreen extends StatelessWidget {
                   SizedBox(
                     width: width * 0.1,
                   ),
-                  BorderlineButton(
-                      icon: Icons.video_call_rounded, onpressed: () {})
+                  // BorderlineButton(
+                  //     icon: Icons.video_call_rounded, onpressed: () {})
                 ],
               ),
               Expanded(

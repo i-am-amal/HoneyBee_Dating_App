@@ -173,6 +173,9 @@ class ProfilePreview extends StatelessWidget {
                             ],
                           ),
 
+
+
+
                           // SizedBox(height: height * 0.05),
                           // MainCustomButton(
                           //   customtext: 'Create Account',
@@ -191,6 +194,8 @@ class ProfilePreview extends StatelessWidget {
                           SizedBox(height: height * 0.05),
                         ],
                       ),
+
+                      
                     )
                   ],
                 );
