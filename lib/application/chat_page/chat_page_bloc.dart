@@ -2,20 +2,19 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:honeybee/domain/models/add_message_request_model/add_message_request_model.dart';
-import 'package:honeybee/domain/models/add_message_response_model/add_message_response_model.dart';
 import 'package:honeybee/domain/models/get_message_request_model/get_message_request_model.dart';
 import 'package:honeybee/domain/models/get_message_response_model/get_message_response_model.dart';
 import 'package:honeybee/domain/models/socket_send_msg_request_model/socket_send_msg_request_model/socket_send_msg_request_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
 import 'package:honeybee/infrastructure/services/socket_services.dart';
 
-part 'add_new_message_event.dart';
-part 'add_new_message_state.dart';
-part 'add_new_message_bloc.freezed.dart';
+part 'chat_page_event.dart';
+part 'chat_page_state.dart';
+part 'chat_page_bloc.freezed.dart';
 
-class AddNewMessageBloc extends Bloc<AddNewMessageEvent, AddNewMessageState> {
-  AddNewMessageBloc() : super(AddNewMessageState.initial()) {
+
+class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
+  ChatPageBloc() : super(ChatPageState.initial()) {
     on<_NewMessage>((event, emit) async {
 //  emit(state.copyWith(isLoading: true));
 

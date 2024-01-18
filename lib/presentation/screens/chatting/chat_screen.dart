@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:honeybee/application/chat/add_new_message/add_new_message_bloc.dart';
-import 'package:honeybee/application/chat/get_all_message/get_all_message_bloc.dart';
+import 'package:honeybee/application/chat_page/chat_page_bloc.dart';
 import 'package:honeybee/domain/models/get_message_response_model/get_message_response_model.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/border_outlined_icon_button.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -32,8 +30,8 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<AddNewMessageBloc>(context).add(
-        AddNewMessageEvent.initializeGetAllMessagePage(senderId, receiverId));
+    BlocProvider.of<ChatPageBloc>(context).add(
+        ChatPageEvent.initializeGetAllMessagePage(senderId, receiverId));
     double width = MediaQuery.of(context).size.width;
 
     double height = MediaQuery.of(context).size.height;
@@ -48,7 +46,7 @@ class ChatScreen extends StatelessWidget {
     //         widget.senderId, widget.receiverId));
 
     return Scaffold(
-      body: BlocBuilder<AddNewMessageBloc, AddNewMessageState>(
+      body: BlocBuilder<ChatPageBloc, ChatPageState>(
         builder: (context, state) {
           // _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
 
@@ -161,8 +159,8 @@ class ChatScreen extends StatelessWidget {
                       child: IconButton(
                         icon: const Icon(Icons.send),
                         onPressed: () {
-                          BlocProvider.of<AddNewMessageBloc>(context).add(
-                              AddNewMessageEvent.newMessage(
+                          BlocProvider.of<ChatPageBloc>(context).add(
+                              ChatPageEvent.newMessage(
                                   messageController.text,
                                   senderId,
                                   receiverId,

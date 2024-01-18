@@ -1,8 +1,8 @@
-part of 'add_new_message_bloc.dart';
+part of 'chat_page_bloc.dart';
 
 @freezed
-class AddNewMessageEvent with _$AddNewMessageEvent {
-  const factory AddNewMessageEvent.newMessage(
+class ChatPageEvent with _$ChatPageEvent {
+  const factory ChatPageEvent.newMessage(
     String? controllerValue,
     String? senderId,
     String? receiverId,
@@ -10,14 +10,14 @@ class AddNewMessageEvent with _$AddNewMessageEvent {
   ) = _NewMessage;
 
 
-const factory AddNewMessageEvent.getAllMessageOfUser(
+const factory ChatPageEvent.getAllMessageOfUser(
     String? senderId,
     String? receiverId,
   ) = _GetAllMessageOfUser;
 
 
 
-   const factory AddNewMessageEvent.initializeGetAllMessagePage(
+   const factory ChatPageEvent.initializeGetAllMessagePage(
   String? senderId,
     String? receiverId,
   ) = _InitializeGetAllMessagePage;

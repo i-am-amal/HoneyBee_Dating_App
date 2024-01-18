@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'add_new_message_bloc.dart';
+part of 'chat_page_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$AddNewMessageEvent {
+mixin _$ChatPageEvent {
   String? get senderId => throw _privateConstructorUsedError;
   String? get receiverId => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,23 +78,23 @@ mixin _$AddNewMessageEvent {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AddNewMessageEventCopyWith<AddNewMessageEvent> get copyWith =>
+  $ChatPageEventCopyWith<ChatPageEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AddNewMessageEventCopyWith<$Res> {
-  factory $AddNewMessageEventCopyWith(
-          AddNewMessageEvent value, $Res Function(AddNewMessageEvent) then) =
-      _$AddNewMessageEventCopyWithImpl<$Res, AddNewMessageEvent>;
+abstract class $ChatPageEventCopyWith<$Res> {
+  factory $ChatPageEventCopyWith(
+          ChatPageEvent value, $Res Function(ChatPageEvent) then) =
+      _$ChatPageEventCopyWithImpl<$Res, ChatPageEvent>;
   @useResult
   $Res call({String? senderId, String? receiverId});
 }
 
 /// @nodoc
-class _$AddNewMessageEventCopyWithImpl<$Res, $Val extends AddNewMessageEvent>
-    implements $AddNewMessageEventCopyWith<$Res> {
-  _$AddNewMessageEventCopyWithImpl(this._value, this._then);
+class _$ChatPageEventCopyWithImpl<$Res, $Val extends ChatPageEvent>
+    implements $ChatPageEventCopyWith<$Res> {
+  _$ChatPageEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -122,7 +122,7 @@ class _$AddNewMessageEventCopyWithImpl<$Res, $Val extends AddNewMessageEvent>
 
 /// @nodoc
 abstract class _$$_NewMessageCopyWith<$Res>
-    implements $AddNewMessageEventCopyWith<$Res> {
+    implements $ChatPageEventCopyWith<$Res> {
   factory _$$_NewMessageCopyWith(
           _$_NewMessage value, $Res Function(_$_NewMessage) then) =
       __$$_NewMessageCopyWithImpl<$Res>;
@@ -137,7 +137,7 @@ abstract class _$$_NewMessageCopyWith<$Res>
 
 /// @nodoc
 class __$$_NewMessageCopyWithImpl<$Res>
-    extends _$AddNewMessageEventCopyWithImpl<$Res, _$_NewMessage>
+    extends _$ChatPageEventCopyWithImpl<$Res, _$_NewMessage>
     implements _$$_NewMessageCopyWith<$Res> {
   __$$_NewMessageCopyWithImpl(
       _$_NewMessage _value, $Res Function(_$_NewMessage) _then)
@@ -189,7 +189,7 @@ class _$_NewMessage implements _NewMessage {
 
   @override
   String toString() {
-    return 'AddNewMessageEvent.newMessage(controllerValue: $controllerValue, senderId: $senderId, receiverId: $receiverId, conversationId: $conversationId)';
+    return 'ChatPageEvent.newMessage(controllerValue: $controllerValue, senderId: $senderId, receiverId: $receiverId, conversationId: $conversationId)';
   }
 
   @override
@@ -301,7 +301,7 @@ class _$_NewMessage implements _NewMessage {
   }
 }
 
-abstract class _NewMessage implements AddNewMessageEvent {
+abstract class _NewMessage implements ChatPageEvent {
   const factory _NewMessage(
       final String? controllerValue,
       final String? senderId,
@@ -322,7 +322,7 @@ abstract class _NewMessage implements AddNewMessageEvent {
 
 /// @nodoc
 abstract class _$$_GetAllMessageOfUserCopyWith<$Res>
-    implements $AddNewMessageEventCopyWith<$Res> {
+    implements $ChatPageEventCopyWith<$Res> {
   factory _$$_GetAllMessageOfUserCopyWith(_$_GetAllMessageOfUser value,
           $Res Function(_$_GetAllMessageOfUser) then) =
       __$$_GetAllMessageOfUserCopyWithImpl<$Res>;
@@ -333,7 +333,7 @@ abstract class _$$_GetAllMessageOfUserCopyWith<$Res>
 
 /// @nodoc
 class __$$_GetAllMessageOfUserCopyWithImpl<$Res>
-    extends _$AddNewMessageEventCopyWithImpl<$Res, _$_GetAllMessageOfUser>
+    extends _$ChatPageEventCopyWithImpl<$Res, _$_GetAllMessageOfUser>
     implements _$$_GetAllMessageOfUserCopyWith<$Res> {
   __$$_GetAllMessageOfUserCopyWithImpl(_$_GetAllMessageOfUser _value,
       $Res Function(_$_GetAllMessageOfUser) _then)
@@ -370,7 +370,7 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
 
   @override
   String toString() {
-    return 'AddNewMessageEvent.getAllMessageOfUser(senderId: $senderId, receiverId: $receiverId)';
+    return 'ChatPageEvent.getAllMessageOfUser(senderId: $senderId, receiverId: $receiverId)';
   }
 
   @override
@@ -477,7 +477,7 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
   }
 }
 
-abstract class _GetAllMessageOfUser implements AddNewMessageEvent {
+abstract class _GetAllMessageOfUser implements ChatPageEvent {
   const factory _GetAllMessageOfUser(
           final String? senderId, final String? receiverId) =
       _$_GetAllMessageOfUser;
@@ -494,7 +494,7 @@ abstract class _GetAllMessageOfUser implements AddNewMessageEvent {
 
 /// @nodoc
 abstract class _$$_InitializeGetAllMessagePageCopyWith<$Res>
-    implements $AddNewMessageEventCopyWith<$Res> {
+    implements $ChatPageEventCopyWith<$Res> {
   factory _$$_InitializeGetAllMessagePageCopyWith(
           _$_InitializeGetAllMessagePage value,
           $Res Function(_$_InitializeGetAllMessagePage) then) =
@@ -506,8 +506,7 @@ abstract class _$$_InitializeGetAllMessagePageCopyWith<$Res>
 
 /// @nodoc
 class __$$_InitializeGetAllMessagePageCopyWithImpl<$Res>
-    extends _$AddNewMessageEventCopyWithImpl<$Res,
-        _$_InitializeGetAllMessagePage>
+    extends _$ChatPageEventCopyWithImpl<$Res, _$_InitializeGetAllMessagePage>
     implements _$$_InitializeGetAllMessagePageCopyWith<$Res> {
   __$$_InitializeGetAllMessagePageCopyWithImpl(
       _$_InitializeGetAllMessagePage _value,
@@ -545,7 +544,7 @@ class _$_InitializeGetAllMessagePage implements _InitializeGetAllMessagePage {
 
   @override
   String toString() {
-    return 'AddNewMessageEvent.initializeGetAllMessagePage(senderId: $senderId, receiverId: $receiverId)';
+    return 'ChatPageEvent.initializeGetAllMessagePage(senderId: $senderId, receiverId: $receiverId)';
   }
 
   @override
@@ -652,7 +651,7 @@ class _$_InitializeGetAllMessagePage implements _InitializeGetAllMessagePage {
   }
 }
 
-abstract class _InitializeGetAllMessagePage implements AddNewMessageEvent {
+abstract class _InitializeGetAllMessagePage implements ChatPageEvent {
   const factory _InitializeGetAllMessagePage(
           final String? senderId, final String? receiverId) =
       _$_InitializeGetAllMessagePage;
@@ -668,7 +667,7 @@ abstract class _InitializeGetAllMessagePage implements AddNewMessageEvent {
 }
 
 /// @nodoc
-mixin _$AddNewMessageState {
+mixin _$ChatPageState {
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get controllerValue => throw _privateConstructorUsedError;
   String? get senderId => throw _privateConstructorUsedError;
@@ -680,15 +679,15 @@ mixin _$AddNewMessageState {
   bool? get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AddNewMessageStateCopyWith<AddNewMessageState> get copyWith =>
+  $ChatPageStateCopyWith<ChatPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AddNewMessageStateCopyWith<$Res> {
-  factory $AddNewMessageStateCopyWith(
-          AddNewMessageState value, $Res Function(AddNewMessageState) then) =
-      _$AddNewMessageStateCopyWithImpl<$Res, AddNewMessageState>;
+abstract class $ChatPageStateCopyWith<$Res> {
+  factory $ChatPageStateCopyWith(
+          ChatPageState value, $Res Function(ChatPageState) then) =
+      _$ChatPageStateCopyWithImpl<$Res, ChatPageState>;
   @useResult
   $Res call(
       {String? errorMessage,
@@ -702,9 +701,9 @@ abstract class $AddNewMessageStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AddNewMessageStateCopyWithImpl<$Res, $Val extends AddNewMessageState>
-    implements $AddNewMessageStateCopyWith<$Res> {
-  _$AddNewMessageStateCopyWithImpl(this._value, this._then);
+class _$ChatPageStateCopyWithImpl<$Res, $Val extends ChatPageState>
+    implements $ChatPageStateCopyWith<$Res> {
+  _$ChatPageStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -761,11 +760,11 @@ class _$AddNewMessageStateCopyWithImpl<$Res, $Val extends AddNewMessageState>
 }
 
 /// @nodoc
-abstract class _$$_AddNewMessageStateCopyWith<$Res>
-    implements $AddNewMessageStateCopyWith<$Res> {
-  factory _$$_AddNewMessageStateCopyWith(_$_AddNewMessageState value,
-          $Res Function(_$_AddNewMessageState) then) =
-      __$$_AddNewMessageStateCopyWithImpl<$Res>;
+abstract class _$$_ChatPageStateCopyWith<$Res>
+    implements $ChatPageStateCopyWith<$Res> {
+  factory _$$_ChatPageStateCopyWith(
+          _$_ChatPageState value, $Res Function(_$_ChatPageState) then) =
+      __$$_ChatPageStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -780,11 +779,11 @@ abstract class _$$_AddNewMessageStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AddNewMessageStateCopyWithImpl<$Res>
-    extends _$AddNewMessageStateCopyWithImpl<$Res, _$_AddNewMessageState>
-    implements _$$_AddNewMessageStateCopyWith<$Res> {
-  __$$_AddNewMessageStateCopyWithImpl(
-      _$_AddNewMessageState _value, $Res Function(_$_AddNewMessageState) _then)
+class __$$_ChatPageStateCopyWithImpl<$Res>
+    extends _$ChatPageStateCopyWithImpl<$Res, _$_ChatPageState>
+    implements _$$_ChatPageStateCopyWith<$Res> {
+  __$$_ChatPageStateCopyWithImpl(
+      _$_ChatPageState _value, $Res Function(_$_ChatPageState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -799,7 +798,7 @@ class __$$_AddNewMessageStateCopyWithImpl<$Res>
     Object? message = freezed,
     Object? isLoading = freezed,
   }) {
-    return _then(_$_AddNewMessageState(
+    return _then(_$_ChatPageState(
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -838,8 +837,8 @@ class __$$_AddNewMessageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddNewMessageState implements _AddNewMessageState {
-  const _$_AddNewMessageState(
+class _$_ChatPageState implements _ChatPageState {
+  const _$_ChatPageState(
       {this.errorMessage,
       this.controllerValue,
       this.senderId,
@@ -877,14 +876,14 @@ class _$_AddNewMessageState implements _AddNewMessageState {
 
   @override
   String toString() {
-    return 'AddNewMessageState(errorMessage: $errorMessage, controllerValue: $controllerValue, senderId: $senderId, receiverId: $receiverId, coversationId: $coversationId, messages: $messages, message: $message, isLoading: $isLoading)';
+    return 'ChatPageState(errorMessage: $errorMessage, controllerValue: $controllerValue, senderId: $senderId, receiverId: $receiverId, coversationId: $coversationId, messages: $messages, message: $message, isLoading: $isLoading)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddNewMessageState &&
+            other is _$_ChatPageState &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.controllerValue, controllerValue) ||
@@ -916,13 +915,12 @@ class _$_AddNewMessageState implements _AddNewMessageState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddNewMessageStateCopyWith<_$_AddNewMessageState> get copyWith =>
-      __$$_AddNewMessageStateCopyWithImpl<_$_AddNewMessageState>(
-          this, _$identity);
+  _$$_ChatPageStateCopyWith<_$_ChatPageState> get copyWith =>
+      __$$_ChatPageStateCopyWithImpl<_$_ChatPageState>(this, _$identity);
 }
 
-abstract class _AddNewMessageState implements AddNewMessageState {
-  const factory _AddNewMessageState(
+abstract class _ChatPageState implements ChatPageState {
+  const factory _ChatPageState(
       {final String? errorMessage,
       final String? controllerValue,
       final String? senderId,
@@ -930,7 +928,7 @@ abstract class _AddNewMessageState implements AddNewMessageState {
       final String? coversationId,
       final List<GetMessageResponseModel>? messages,
       final String? message,
-      final bool? isLoading}) = _$_AddNewMessageState;
+      final bool? isLoading}) = _$_ChatPageState;
 
   @override
   String? get errorMessage;
@@ -950,6 +948,6 @@ abstract class _AddNewMessageState implements AddNewMessageState {
   bool? get isLoading;
   @override
   @JsonKey(ignore: true)
-  _$$_AddNewMessageStateCopyWith<_$_AddNewMessageState> get copyWith =>
+  _$$_ChatPageStateCopyWith<_$_ChatPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
