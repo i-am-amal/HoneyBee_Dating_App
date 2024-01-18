@@ -33,6 +33,7 @@ dependencies:
   json_serializable: ^6.7.1
   loading_animation_widget: ^1.2.0+4
   lottie: ^2.7.0
+  permission_handler: ^10.4.5
   shared_preferences: ^2.2.2
   socket_io_client: ^2.0.0-beta.4-nullsafety.0
 

@@ -9,6 +9,8 @@ import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
 import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/application/search_page/search_page_bloc.dart';
+import 'package:honeybee/application/sign_in/otp_number_auth_page/otp_number_auth_page_bloc.dart';
+import 'package:honeybee/application/sign_in/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 import 'package:honeybee/application/update_account_page/update_account_page_bloc.dart';
 import 'package:honeybee/core/routes/navigation_functions.dart';
 import 'package:honeybee/infrastructure/services/notification_services.dart';
@@ -16,8 +18,6 @@ import 'package:honeybee/infrastructure/services/socket_services.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
-import 'application/otp_number_auth_page/otp_number_auth_page_bloc.dart';
-import 'application/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

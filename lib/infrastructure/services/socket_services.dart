@@ -9,6 +9,7 @@ import 'package:honeybee/infrastructure/services/notification_services.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class SocketServices {
+  
   static late IO.Socket socket;
 
   static socketSetup() {
