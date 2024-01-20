@@ -6,17 +6,16 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:honeybee/domain/models/socket_msg_receive_response_model/socket_msg_receive_response_model/socket_msg_receive_response_model.dart';
 import 'package:honeybee/domain/models/socket_send_msg_request_model/socket_send_msg_request_model/socket_send_msg_request_model.dart';
 import 'package:honeybee/infrastructure/services/notification_services.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:socket_io_client/socket_io_client.dart' as io;
 
 class SocketServices {
-  
-  static late IO.Socket socket;
+  static late io.Socket socket;
 
   static socketSetup() {
-    socket = IO.io(
-        'http://10.0.2.2:5000',
-        // "https://amal.fun",
-        IO.OptionBuilder()
+    socket = io.io(
+        // 'http://10.0.2.2:5000',
+        "https://amal.fun",
+        io.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect()
             .build());
@@ -46,11 +45,10 @@ class SocketServices {
       if (listenFunction != null) {
         listenFunction();
       }
-     
+
       SocketMsgReceiveResponseModel socketMsg =
           SocketMsgReceiveResponseModel.fromJson(jsonDecode(data));
-    
-   
+
       NotificationService.showNotification(
         id: 1,
         title: 'You have a message',
