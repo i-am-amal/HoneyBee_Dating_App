@@ -8,6 +8,7 @@ class ChatPageState with _$ChatPageState {
     String? senderId,
     String? receiverId,
     String? coversationId,
+    
         List<GetMessageResponseModel>? messages,
 
     String? message,

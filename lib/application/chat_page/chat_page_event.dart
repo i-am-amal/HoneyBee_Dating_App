@@ -9,20 +9,21 @@ class ChatPageEvent with _$ChatPageEvent {
     String? conversationId,
   ) = _NewMessage;
 
-
-const factory ChatPageEvent.getAllMessageOfUser(
+  const factory ChatPageEvent.getAllMessageOfUser(
     String? senderId,
     String? receiverId,
   ) = _GetAllMessageOfUser;
 
-
-
-   const factory ChatPageEvent.initializeGetAllMessagePage(
-  String? senderId,
+  const factory ChatPageEvent.initializeGetAllMessagePage(
+    String? senderId,
     String? receiverId,
   ) = _InitializeGetAllMessagePage;
-  
 
+
+// const factory ChatPageEvent.getLastMessage(
+//     String? senderId,
+//     String? receiverId,
+//   ) = _GetLastMessage;
 
 
 }
