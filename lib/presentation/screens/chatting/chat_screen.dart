@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/chat_page/chat_page_bloc.dart';
@@ -30,26 +28,22 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ChatPageBloc>(context).add(
-        ChatPageEvent.initializeGetAllMessagePage(senderId, receiverId));
+    BlocProvider.of<ChatPageBloc>(context)
+        .add(ChatPageEvent.initializeGetAllMessagePage(senderId, receiverId));
+
     double width = MediaQuery.of(context).size.width;
 
     double height = MediaQuery.of(context).size.height;
 
-    Timer(
-        const Duration(milliseconds: 10),
-        () => _scrollController
-            .jumpTo(_scrollController.position.maxScrollExtent));
-
-    // BlocProvider.of<GetAllMessageBloc>(context).add(
-    //     GetAllMessageEvent.getAllMessageOfUser(
-    //         widget.senderId, widget.receiverId));
-
     return Scaffold(
       body: BlocBuilder<ChatPageBloc, ChatPageState>(
         builder: (context, state) {
-          // _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
-
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            // Scroll to the bottom after the ListView updates
+            _scrollController.jumpTo(
+              _scrollController.position.maxScrollExtent,
+            );
+          });
           return Column(
             children: [
               SizedBox(
@@ -106,39 +100,12 @@ class ChatScreen extends StatelessWidget {
                     );
                   },
                 ),
-
-                // ListView(
-                //   children: const [
-                //     ChatMessage(text: 'Hello!', isMe: false),
-                //     ChatMessage(text: 'Hi there!', isMe: true),
-                //     ChatMessage(text: 'Hi , how are you?  😄', isMe: false),
-                //     ChatMessage(text: 'Nice to meet you!', isMe: true),
-                //   ],
-                // ),
               ),
               Padding(
                 padding: const EdgeInsets.all(6.0),
                 child: Row(
                   children: [
                     Expanded(
-                      // child: Stack(
-                      //   children: [
-                      //     CustomTextFormFiled(
-                      //       icon: Icons.emoji_emotions,
-                      //       text: 'Your Message',
-                      //       editController: messageController,
-                      //     ),
-                      //     EmojiPicker(
-                      //       rows: 3,
-                      //       columns: 7,
-                      //       onEmojiSelected: (emoji, category) {
-                      //         messageController.text =
-                      //             messageController.text + emoji?.emoji;
-                      //       },
-                      //     ),
-                      //   ],
-                      // ),
-
                       child: CustomTextFormFiled(
                         icon: Icons.emoji_emotions,
                         text: 'Your Message',
@@ -160,20 +127,12 @@ class ChatScreen extends StatelessWidget {
                         icon: const Icon(Icons.send),
                         onPressed: () {
                           BlocProvider.of<ChatPageBloc>(context).add(
-                              ChatPageEvent.newMessage(
-                                  messageController.text,
-                                  senderId,
-                                  receiverId,
-                                  conversationId));
+                              ChatPageEvent.newMessage(messageController.text,
+                                  senderId, receiverId, conversationId));
                           messageController.clear();
 
                           _scrollController.jumpTo(
                               _scrollController.position.maxScrollExtent);
-
-                          // Timer(
-                          //     const Duration(milliseconds: 10),
-                          //     () => _scrollController.jumpTo(
-                          //         _scrollController.position.maxScrollExtent));
                         },
                       ),
                     ),
