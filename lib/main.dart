@@ -16,12 +16,17 @@ import 'package:honeybee/core/routes/navigation_functions.dart';
 import 'package:honeybee/infrastructure/services/notification_services.dart';
 import 'package:honeybee/infrastructure/services/socket_services.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 import 'application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'application/location_auth_page/location_auth_page_bloc.dart';
 
 void main() async {
+  Intl.defaultLocale = 'en_IN';
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService.initializeNotification();
+  await initializeDateFormatting('en_IN', null);
+
   //-------->>>-----SystemUIOverlayStyle used for changing the status bar color----->>>--------
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,

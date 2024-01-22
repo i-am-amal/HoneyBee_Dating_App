@@ -7,6 +7,7 @@ import 'package:honeybee/domain/models/get_message_response_model/get_message_re
 import 'package:honeybee/domain/models/socket_send_msg_request_model/socket_send_msg_request_model/socket_send_msg_request_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
 import 'package:honeybee/infrastructure/services/socket_services.dart';
+import 'package:intl/intl.dart';
 
 part 'chat_page_event.dart';
 part 'chat_page_state.dart';
@@ -45,9 +46,34 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
-        emit(state.copyWith(messages: success));
-        
+        final message = GetMessageResponseModel.generateMessagesMap(success);
+
+        emit(state.copyWith(messages: message));
+
+        log(message.toString());
       });
     });
   }
 }
+
+
+
+
+
+
+// Map<String, List<Map<String, dynamic>>> generateMessagesMap(List<Map<String, dynamic>> messages) {
+//   Map<String, List<Map<String, dynamic>>> messagesMap = {};
+
+//   for (var message in messages) {
+//     DateTime createdAt = DateTime.parse(message["createdAt"]);
+//     String formattedDate = DateFormat('yyyy-MM-dd').format(createdAt);
+
+//     if (!messagesMap.containsKey(formattedDate)) {
+//       messagesMap[formattedDate] = [];
+//     }
+
+//     messagesMap[formattedDate]!.add(message);
+//   }
+
+//   return messagesMap;
+// }

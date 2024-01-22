@@ -675,7 +675,7 @@ mixin _$ChatPageState {
   String? get coversationId => throw _privateConstructorUsedError;
   String? get date => throw _privateConstructorUsedError;
   String? get time => throw _privateConstructorUsedError;
-  List<GetMessageResponseModel>? get messages =>
+  Map<String, List<GetMessageResponseModel>>? get messages =>
       throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
@@ -699,7 +699,7 @@ abstract class $ChatPageStateCopyWith<$Res> {
       String? coversationId,
       String? date,
       String? time,
-      List<GetMessageResponseModel>? messages,
+      Map<String, List<GetMessageResponseModel>>? messages,
       String? message,
       bool? isLoading});
 }
@@ -760,7 +760,7 @@ class _$ChatPageStateCopyWithImpl<$Res, $Val extends ChatPageState>
       messages: freezed == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<GetMessageResponseModel>?,
+              as Map<String, List<GetMessageResponseModel>>?,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -789,7 +789,7 @@ abstract class _$$_ChatPageStateCopyWith<$Res>
       String? coversationId,
       String? date,
       String? time,
-      List<GetMessageResponseModel>? messages,
+      Map<String, List<GetMessageResponseModel>>? messages,
       String? message,
       bool? isLoading});
 }
@@ -848,7 +848,7 @@ class __$$_ChatPageStateCopyWithImpl<$Res>
       messages: freezed == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<GetMessageResponseModel>?,
+              as Map<String, List<GetMessageResponseModel>>?,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -872,7 +872,7 @@ class _$_ChatPageState implements _ChatPageState {
       this.coversationId,
       this.date,
       this.time,
-      final List<GetMessageResponseModel>? messages,
+      final Map<String, List<GetMessageResponseModel>>? messages,
       this.message,
       this.isLoading})
       : _messages = messages;
@@ -891,14 +891,14 @@ class _$_ChatPageState implements _ChatPageState {
   final String? date;
   @override
   final String? time;
-  final List<GetMessageResponseModel>? _messages;
+  final Map<String, List<GetMessageResponseModel>>? _messages;
   @override
-  List<GetMessageResponseModel>? get messages {
+  Map<String, List<GetMessageResponseModel>>? get messages {
     final value = _messages;
     if (value == null) return null;
-    if (_messages is EqualUnmodifiableListView) return _messages;
+    if (_messages is EqualUnmodifiableMapView) return _messages;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -964,7 +964,7 @@ abstract class _ChatPageState implements ChatPageState {
       final String? coversationId,
       final String? date,
       final String? time,
-      final List<GetMessageResponseModel>? messages,
+      final Map<String, List<GetMessageResponseModel>>? messages,
       final String? message,
       final bool? isLoading}) = _$_ChatPageState;
 
@@ -983,7 +983,7 @@ abstract class _ChatPageState implements ChatPageState {
   @override
   String? get time;
   @override
-  List<GetMessageResponseModel>? get messages;
+  Map<String, List<GetMessageResponseModel>>? get messages;
   @override
   String? get message;
   @override

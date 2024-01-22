@@ -23,7 +23,6 @@ class ChatScreen extends StatelessWidget {
   final String? name;
 
   final TextEditingController messageController = TextEditingController();
-
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -92,13 +91,17 @@ class ChatScreen extends StatelessWidget {
                   controller: _scrollController,
                   itemCount: state.messages?.length ?? 0,
                   itemBuilder: (BuildContext context, int index) {
-                    GetMessageResponseModel message = state.messages![index];
+///-----------------------------------------------------------------------------------
+                    // GetMessageResponseModel message = state.messages![index];
 
-                    return ChatMessage(
-                      text: message.message ?? "",
-                      isMe: message.fromSelf ?? false,
-                      formattedTime: message.formattedTime,
-                    );
+                    // return ChatMessage(
+                    //   text: message.message ?? "",
+                    //   isMe: message.fromSelf ?? false,
+                    //   formattedTime: message.formattedTime,
+                    // );
+
+///------------------------------------------------------------------------------------
+
                   },
                 ),
               ),
@@ -121,6 +124,7 @@ class ChatScreen extends StatelessWidget {
                       //             messageController.text + emoji.emoji;
                       //       },
                       //     ),
+
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 15),
@@ -185,7 +189,6 @@ class ChatMessage extends StatelessWidget {
               fontFamily: CustomFont.textFont,
               fontsize: 12,
               // textalign: isMe ? TextAlign.end : TextAlign.start,
-
               // textColor: Colors.black,
             ),
           ],

@@ -10,7 +10,7 @@ class ChatPageState with _$ChatPageState {
     String? coversationId,
     String? date,
     String? time,
-    List<GetMessageResponseModel>? messages,
+    Map<String, List<GetMessageResponseModel>>? messages,
     String? message,
     bool? isLoading,
   }) = _ChatPageState;

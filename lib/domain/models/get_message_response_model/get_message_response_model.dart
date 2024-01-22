@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -19,16 +21,16 @@ class GetMessageResponseModel {
     this.updatedAt,
   });
 
-
-@JsonKey(includeFromJson: true)//waring based on ignore:true
+  @JsonKey(includeFromJson: true) //waring based on ignore
   String get formattedTime {
     if (createdAt != null) {
-      final DateTime dateTime = DateTime.parse(createdAt!);
-      return DateFormat('HH:mm').format(dateTime); // Format as desired
+      final DateTime dateTime = DateTime.parse(createdAt!).toLocal();
+      return DateFormat('hh:mm').format(dateTime); // Format as desired
     } else {
       return '';
     }
   }
+
   factory GetMessageResponseModel.fromJson(Map<String, dynamic> json) {
     return _$GetMessageResponseModelFromJson(json);
   }
@@ -37,6 +39,26 @@ class GetMessageResponseModel {
 
   static List<GetMessageResponseModel> fromList(List<dynamic> list) {
     return list.map((map) => GetMessageResponseModel.fromJson(map)).toList();
+
+  }
+
+
+
+  static Map<String, List<GetMessageResponseModel>> generateMessagesMap(List<GetMessageResponseModel> messages) {
+    Map<String, List<GetMessageResponseModel>> messagesMap = {};
+
+    for (var message in messages) {
+      DateTime createdAt = DateTime.parse(message.createdAt!);
+      String formattedDate = DateFormat('yyyy-MM-dd').format(createdAt);
+
+      if (!messagesMap.containsKey(formattedDate)) {
+        messagesMap[formattedDate] = [];
+      }
+
+      messagesMap[formattedDate]!.add(message);
+    }
+
+    return messagesMap;
   }
 
 
