@@ -12,12 +12,9 @@ part 'chat_page_event.dart';
 part 'chat_page_state.dart';
 part 'chat_page_bloc.freezed.dart';
 
-
 class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
   ChatPageBloc() : super(ChatPageState.initial()) {
     on<_NewMessage>((event, emit) async {
-//  emit(state.copyWith(isLoading: true));
-
       SocketServices.sendMsg(
           sendMsgRequest: SocketSendMsgRequestModel(
               conversationId: event.conversationId,
@@ -27,30 +24,6 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
               messageType: 'text'));
 
       add(_GetAllMessageOfUser(event.senderId, event.receiverId));
-
-      // AddMessageRequestModel request = AddMessageRequestModel(
-      //   conversationId: event.conversationId,
-      //   from: event.senderId,
-      //   to: event.receiverId,
-      //   message: event.controllerValue,
-      //   messageType: 'text',
-      // );
-
-      // final result = await ApiServices.addNewMessageData(request);
-
-      // result.fold((failure) {
-      //   emit(state.copyWith(errorMessage: failure.errorMessage));
-      //   emit(state.copyWith(errorMessage: null));
-      // }, (success) {
-
-      //   add(_GetAllMessageOfUser(event.senderId, event.receiverId));
-
-      //   log('response model  not null.....in add new msg request  ...');
-
-      //   //   emit(state.copyWith(isLoading: false));
-
-      //   //   // emit(state.copyWith(searchResult: success));
-      // });
     });
 
     on<_InitializeGetAllMessagePage>((event, emit) {
@@ -63,8 +36,6 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
     });
 
     on<_GetAllMessageOfUser>((event, emit) async {
-      // log('${event.controllerValue!}-----------textfield value-------------');
-
       GetMessageRequestModel request =
           GetMessageRequestModel(from: event.senderId, to: event.receiverId);
 
@@ -74,13 +45,8 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
-        // print("Inside bloc, success : ${success}");
-
-        //   emit(state.copyWith(isLoading: false));
-
         emit(state.copyWith(messages: success));
-        // log('-------------success result---------${success.toString()}');
-        // emit(state.copyWith(message: success.message));
+        
       });
     });
   }

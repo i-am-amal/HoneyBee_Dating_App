@@ -673,6 +673,8 @@ mixin _$ChatPageState {
   String? get senderId => throw _privateConstructorUsedError;
   String? get receiverId => throw _privateConstructorUsedError;
   String? get coversationId => throw _privateConstructorUsedError;
+  String? get date => throw _privateConstructorUsedError;
+  String? get time => throw _privateConstructorUsedError;
   List<GetMessageResponseModel>? get messages =>
       throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
@@ -695,6 +697,8 @@ abstract class $ChatPageStateCopyWith<$Res> {
       String? senderId,
       String? receiverId,
       String? coversationId,
+      String? date,
+      String? time,
       List<GetMessageResponseModel>? messages,
       String? message,
       bool? isLoading});
@@ -718,6 +722,8 @@ class _$ChatPageStateCopyWithImpl<$Res, $Val extends ChatPageState>
     Object? senderId = freezed,
     Object? receiverId = freezed,
     Object? coversationId = freezed,
+    Object? date = freezed,
+    Object? time = freezed,
     Object? messages = freezed,
     Object? message = freezed,
     Object? isLoading = freezed,
@@ -742,6 +748,14 @@ class _$ChatPageStateCopyWithImpl<$Res, $Val extends ChatPageState>
       coversationId: freezed == coversationId
           ? _value.coversationId
           : coversationId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String?,
+      time: freezed == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as String?,
       messages: freezed == messages
           ? _value.messages
@@ -773,6 +787,8 @@ abstract class _$$_ChatPageStateCopyWith<$Res>
       String? senderId,
       String? receiverId,
       String? coversationId,
+      String? date,
+      String? time,
       List<GetMessageResponseModel>? messages,
       String? message,
       bool? isLoading});
@@ -794,6 +810,8 @@ class __$$_ChatPageStateCopyWithImpl<$Res>
     Object? senderId = freezed,
     Object? receiverId = freezed,
     Object? coversationId = freezed,
+    Object? date = freezed,
+    Object? time = freezed,
     Object? messages = freezed,
     Object? message = freezed,
     Object? isLoading = freezed,
@@ -818,6 +836,14 @@ class __$$_ChatPageStateCopyWithImpl<$Res>
       coversationId: freezed == coversationId
           ? _value.coversationId
           : coversationId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String?,
+      time: freezed == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as String?,
       messages: freezed == messages
           ? _value._messages
@@ -844,6 +870,8 @@ class _$_ChatPageState implements _ChatPageState {
       this.senderId,
       this.receiverId,
       this.coversationId,
+      this.date,
+      this.time,
       final List<GetMessageResponseModel>? messages,
       this.message,
       this.isLoading})
@@ -859,6 +887,10 @@ class _$_ChatPageState implements _ChatPageState {
   final String? receiverId;
   @override
   final String? coversationId;
+  @override
+  final String? date;
+  @override
+  final String? time;
   final List<GetMessageResponseModel>? _messages;
   @override
   List<GetMessageResponseModel>? get messages {
@@ -876,7 +908,7 @@ class _$_ChatPageState implements _ChatPageState {
 
   @override
   String toString() {
-    return 'ChatPageState(errorMessage: $errorMessage, controllerValue: $controllerValue, senderId: $senderId, receiverId: $receiverId, coversationId: $coversationId, messages: $messages, message: $message, isLoading: $isLoading)';
+    return 'ChatPageState(errorMessage: $errorMessage, controllerValue: $controllerValue, senderId: $senderId, receiverId: $receiverId, coversationId: $coversationId, date: $date, time: $time, messages: $messages, message: $message, isLoading: $isLoading)';
   }
 
   @override
@@ -894,6 +926,8 @@ class _$_ChatPageState implements _ChatPageState {
                 other.receiverId == receiverId) &&
             (identical(other.coversationId, coversationId) ||
                 other.coversationId == coversationId) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.time, time) || other.time == time) &&
             const DeepCollectionEquality().equals(other._messages, _messages) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.isLoading, isLoading) ||
@@ -908,6 +942,8 @@ class _$_ChatPageState implements _ChatPageState {
       senderId,
       receiverId,
       coversationId,
+      date,
+      time,
       const DeepCollectionEquality().hash(_messages),
       message,
       isLoading);
@@ -926,6 +962,8 @@ abstract class _ChatPageState implements ChatPageState {
       final String? senderId,
       final String? receiverId,
       final String? coversationId,
+      final String? date,
+      final String? time,
       final List<GetMessageResponseModel>? messages,
       final String? message,
       final bool? isLoading}) = _$_ChatPageState;
@@ -940,6 +978,10 @@ abstract class _ChatPageState implements ChatPageState {
   String? get receiverId;
   @override
   String? get coversationId;
+  @override
+  String? get date;
+  @override
+  String? get time;
   @override
   List<GetMessageResponseModel>? get messages;
   @override

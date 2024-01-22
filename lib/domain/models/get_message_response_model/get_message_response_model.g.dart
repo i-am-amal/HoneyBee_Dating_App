@@ -12,6 +12,8 @@ GetMessageResponseModel _$GetMessageResponseModelFromJson(
       fromSelf: json['fromSelf'] as bool?,
       message: json['message'] as String?,
       messageType: json['messageType'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$GetMessageResponseModelToJson(
@@ -20,4 +22,6 @@ Map<String, dynamic> _$GetMessageResponseModelToJson(
       'fromSelf': instance.fromSelf,
       'message': instance.message,
       'messageType': instance.messageType,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
     };

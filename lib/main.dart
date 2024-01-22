@@ -75,9 +75,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => UpdateAccountPageBloc(),
         ),
-        // BlocProvider(
-        //   create: (context) => GetAllMessageBloc(),
-        // ),
         BlocProvider(
           create: (context) => ChatPageBloc(),
         ),

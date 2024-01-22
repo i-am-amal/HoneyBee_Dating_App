@@ -8,9 +8,9 @@ class ChatPageState with _$ChatPageState {
     String? senderId,
     String? receiverId,
     String? coversationId,
-    
-        List<GetMessageResponseModel>? messages,
-
+    String? date,
+    String? time,
+    List<GetMessageResponseModel>? messages,
     String? message,
     bool? isLoading,
   }) = _ChatPageState;
@@ -19,7 +19,3 @@ class ChatPageState with _$ChatPageState {
     return const ChatPageState(isLoading: false, controllerValue: '');
   }
 }
-
-
-
- 
