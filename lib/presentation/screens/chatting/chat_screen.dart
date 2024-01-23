@@ -99,7 +99,7 @@ class ChatScreen extends StatelessWidget {
                     //   isMe: message.fromSelf ?? false,
                     //   formattedTime: message.formattedTime,
                     // );
-
+//refer the doc app
 ///------------------------------------------------------------------------------------
 
                   },
@@ -115,16 +115,6 @@ class ChatScreen extends StatelessWidget {
                         text: 'Your Message',
                         editController: messageController,
                       ),
-
-                      // EmojiPicker(
-                      //       rows: 3,
-                      //       columns: 7,
-                      //       onEmojiSelected: (emoji, category) {
-                      //         messageController.text =
-                      //             messageController.text + emoji.emoji;
-                      //       },
-                      //     ),
-
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 15),
@@ -135,7 +125,6 @@ class ChatScreen extends StatelessWidget {
                               ChatPageEvent.newMessage(messageController.text,
                                   senderId, receiverId, conversationId));
                           messageController.clear();
-
                           _scrollController.jumpTo(
                               _scrollController.position.maxScrollExtent);
                         },
@@ -184,102 +173,16 @@ class ChatMessage extends StatelessWidget {
               fontsize: 15,
             ),
             CustomText(
-              // textalign: TextAlign.end,
               text: formattedTime,
               fontFamily: CustomFont.textFont,
               fontsize: 12,
-              // textalign: isMe ? TextAlign.end : TextAlign.start,
-              // textColor: Colors.black,
+          
             ),
           ],
         ),
 
-        //  CustomText(
-        //   text: text,
-        //   fontFamily: CustomFont.textFont,
-        //   fontsize: 15,
-        // ),
       ),
     );
   }
 }
 
-
-
-// class ChatScreen extends StatelessWidget {
-//   // ... existing code
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // ... existing code
-
-//     return Scaffold(
-//       body: BlocBuilder<ChatPageBloc, ChatPageState>(
-//         builder: (context, state) {
-//           // ... existing code
-
-//           return Column(
-//             children: [
-//               // ... existing code
-
-//               Expanded(
-//                 child: ListView.builder(
-//                   controller: _scrollController,
-//                   itemCount: state.messages?.length ?? 0,
-//                   itemBuilder: (BuildContext context, int index) {
-//                     GetMessageResponseModel message = state.messages![index];
-
-//                     // Check if the current message has a different date than the previous one
-//                     bool showDateHeader = index == 0 ||
-//                         !isSameDate(
-//                           message.createdAt,
-//                           state.messages![index - 1].createdAt,
-//                         );
-
-//                     return Column(
-//                       crossAxisAlignment: CrossAxisAlignment.start,
-//                       children: [
-//                         if (showDateHeader)
-//                           Container(
-//                             padding: const EdgeInsets.symmetric(
-//                               vertical: 8.0,
-//                               horizontal: 16.0,
-//                             ),
-//                             color: Colors.grey[300],
-//                             child: CustomText(
-//                               text: formattedDate(message.createdAt),
-//                               fontFamily: CustomFont.textFont,
-//                               fontsize: 14,
-//                               textColor: Colors.black,
-//                             ),
-//                           ),
-//                         ChatMessage(
-//                           text: message.message ?? "",
-//                           isMe: message.fromSelf ?? false,
-//                           formattedTime: message.formattedTime,
-//                         ),
-//                       ],
-//                     );
-//                   },
-//                 ),
-//               ),
-
-//               // ... existing code
-//             ],
-//           );
-//         },
-//       ),
-//     );
-//   }
-
-//   // Helper function to check if two dates are the same
-//   bool isSameDate(String date1, String date2) {
-//     return DateFormat('yyyy-MM-dd').format(DateTime.parse(date1)) ==
-//         DateFormat('yyyy-MM-dd').format(DateTime.parse(date2));
-//   }
-
-//   // Helper function to format the date
-//   String formattedDate(String date) {
-//     return DateFormat('MMMM dd, yyyy').format(DateTime.parse(date));
-//   }
-// }
