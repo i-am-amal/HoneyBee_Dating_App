@@ -38,7 +38,6 @@ class ChatScreen extends StatelessWidget {
       body: BlocBuilder<ChatPageBloc, ChatPageState>(
         builder: (context, state) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            // Scroll to the bottom after the ListView updates
             _scrollController.jumpTo(
               _scrollController.position.maxScrollExtent,
             );
@@ -91,17 +90,15 @@ class ChatScreen extends StatelessWidget {
                   controller: _scrollController,
                   itemCount: state.messages?.length ?? 0,
                   itemBuilder: (BuildContext context, int index) {
-///-----------------------------------------------------------------------------------
+                    ///-----------------------------------------------------------------------------------
                     // GetMessageResponseModel message = state.messages![index];
-
                     // return ChatMessage(
                     //   text: message.message ?? "",
                     //   isMe: message.fromSelf ?? false,
                     //   formattedTime: message.formattedTime,
                     // );
 //refer the doc app
-///------------------------------------------------------------------------------------
-
+                    ///------------------------------------------------------------------------------------
                   },
                 ),
               ),
@@ -176,13 +173,10 @@ class ChatMessage extends StatelessWidget {
               text: formattedTime,
               fontFamily: CustomFont.textFont,
               fontsize: 12,
-          
             ),
           ],
         ),
-
       ),
     );
   }
 }
-
