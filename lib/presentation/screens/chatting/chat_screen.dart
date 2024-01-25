@@ -98,7 +98,7 @@ class ChatScreen extends StatelessWidget {
                     //   formattedTime: message.formattedTime,
                     // );
 //refer the doc app
-                    ///------------------------------------------------------------------------------------
+                    ///--------------------------------------------------
                   },
                 ),
               ),
