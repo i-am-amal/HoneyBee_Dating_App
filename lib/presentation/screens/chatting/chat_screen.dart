@@ -27,8 +27,10 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ChatPageBloc>(context)
-        .add(ChatPageEvent.initializeGetAllMessagePage(senderId, receiverId));
+
+
+    // BlocProvider.of<ChatPageBloc>(context)
+    //     .add(ChatPageEvent.initializeGetAllMessagePage(senderId, receiverId));
 
     double width = MediaQuery.of(context).size.width;
 
@@ -90,6 +92,35 @@ class ChatScreen extends StatelessWidget {
                   controller: _scrollController,
                   itemCount: state.messages?.length ?? 0,
                   itemBuilder: (BuildContext context, int index) {
+                    final date = state.messages!.keys.toList()[index];
+                    final messageList = state.messages![date];
+
+                    return Column(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(date),
+                        ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          // controller: _scrollController,
+                          itemCount: messageList!.length,
+                          itemBuilder: (context, index) {
+                            return Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ChatMessage(
+                                  text: messageList[index].message ?? "",
+                                  isMe: messageList[index].fromSelf ?? false,
+                                  formattedTime:
+                                      messageList[index].formattedTime,
+                                )
+                              ],
+                            );
+                          },
+                        )
+                      ],
+                    );
+
                     ///-----------------------------------------------------------------------------------
                     // GetMessageResponseModel message = state.messages![index];
                     // return ChatMessage(
@@ -97,8 +128,7 @@ class ChatScreen extends StatelessWidget {
                     //   isMe: message.fromSelf ?? false,
                     //   formattedTime: message.formattedTime,
                     // );
-//refer the doc app
-                    ///--------------------------------------------------
+                    ///----------------------------------------------------------------------------------
                   },
                 ),
               ),

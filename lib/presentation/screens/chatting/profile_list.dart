@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/chat_page/chat_page_bloc.dart';
 import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
 import 'package:honeybee/presentation/screens/chatting/chat_screen.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
@@ -57,29 +58,31 @@ class ProfileList extends StatelessWidget {
                     //       state.userId, state.profile!.profiles![index].id),
                     // );
 
+                    BlocProvider.of<ChatPageBloc>(context).add(
+                        ChatPageEvent.initializeGetAllMessagePage(
+                            state.userId, state.profile!.profiles![index].id));
 ///////////////////////////////////////////////////
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ChatScreen(
-                                senderId: state.userId,
-                                receiverId: state.profile!.profiles![index].id,
-                                conversationId: state
-                                    .profile!.profiles![index].conversationId,
-                                profilePic:
-                                    state.profile!.profiles![index].profilePic,
-                                name: state.profile!.profiles![index].fullName!,
-                              )
+                        builder: (context) => ChatScreen(
+                          senderId: state.userId,
+                          receiverId: state.profile!.profiles![index].id,
+                          conversationId:
+                              state.profile!.profiles![index].conversationId,
+                          profilePic:
+                              state.profile!.profiles![index].profilePic,
+                          name: state.profile!.profiles![index].fullName!,
+                        ),
 
-                          //   showCupertinoModalPopup(
-                          //   context: context,
-                          //   builder: (context) {
-                          //     return const ChatScreen();
-                          //   },
-                          // ),
-                          // ChatScreen()
-
-                          ),
+                        //   showCupertinoModalPopup(
+                        //   context: context,
+                        //   builder: (context) {
+                        //     return const ChatScreen();
+                        //   },
+                        // ),
+                        // ChatScreen()
+                      ),
                     );
                   },
                   child: Card(
