@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';

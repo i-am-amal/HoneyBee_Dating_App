@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/chat_page/chat_page_bloc.dart';
-import 'package:honeybee/domain/models/get_message_response_model/get_message_response_model.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/border_outlined_icon_button.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';

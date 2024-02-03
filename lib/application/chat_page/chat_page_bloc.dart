@@ -7,7 +7,6 @@ import 'package:honeybee/domain/models/get_message_response_model/get_message_re
 import 'package:honeybee/domain/models/socket_send_msg_request_model/socket_send_msg_request_model/socket_send_msg_request_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
 import 'package:honeybee/infrastructure/services/socket_services.dart';
-import 'package:intl/intl.dart';
 
 part 'chat_page_event.dart';
 part 'chat_page_state.dart';
@@ -53,6 +52,28 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
         log(message.toString());
       });
     });
+
+
+
+    // on<_GetAllMessageOfUser>((event, emit) async {
+    //   GetMessageRequestModel request =
+    //       GetMessageRequestModel(from: event.senderId, to: event.receiverId);
+
+    //   final result = await ApiServices.getAllMessageData(request);
+
+    //   result.fold((failure) {
+    //     emit(state.copyWith(errorMessage: failure.errorMessage));
+    //     emit(state.copyWith(errorMessage: null));
+    //   }, (success) {
+    //     final message = GetMessageResponseModel.generateMessagesMap(success);
+
+    //     emit(state.copyWith(messages: message));
+
+    //     log(message.toString());
+    //   });
+    // });
+
+
   }
 }
 

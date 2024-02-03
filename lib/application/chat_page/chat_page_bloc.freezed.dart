@@ -16,8 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ChatPageEvent {
-  String? get senderId => throw _privateConstructorUsedError;
-  String? get receiverId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? controllerValue, String? senderId,
@@ -27,6 +25,7 @@ mixin _$ChatPageEvent {
         getAllMessageOfUser,
     required TResult Function(String? senderId, String? receiverId)
         initializeGetAllMessagePage,
+    required TResult Function(List<String>? conversationIds) getLastMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +37,7 @@ mixin _$ChatPageEvent {
         getAllMessageOfUser,
     TResult? Function(String? senderId, String? receiverId)?
         initializeGetAllMessagePage,
+    TResult? Function(List<String>? conversationIds)? getLastMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +48,7 @@ mixin _$ChatPageEvent {
     TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
     TResult Function(String? senderId, String? receiverId)?
         initializeGetAllMessagePage,
+    TResult Function(List<String>? conversationIds)? getLastMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +58,7 @@ mixin _$ChatPageEvent {
     required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
     required TResult Function(_InitializeGetAllMessagePage value)
         initializeGetAllMessagePage,
+    required TResult Function(_GetLastMessage value) getLastMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +67,7 @@ mixin _$ChatPageEvent {
     TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
     TResult? Function(_InitializeGetAllMessagePage value)?
         initializeGetAllMessagePage,
+    TResult? Function(_GetLastMessage value)? getLastMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,12 +76,9 @@ mixin _$ChatPageEvent {
     TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
     TResult Function(_InitializeGetAllMessagePage value)?
         initializeGetAllMessagePage,
+    TResult Function(_GetLastMessage value)? getLastMessage,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ChatPageEventCopyWith<ChatPageEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -87,8 +87,6 @@ abstract class $ChatPageEventCopyWith<$Res> {
   factory $ChatPageEventCopyWith(
           ChatPageEvent value, $Res Function(ChatPageEvent) then) =
       _$ChatPageEventCopyWithImpl<$Res, ChatPageEvent>;
-  @useResult
-  $Res call({String? senderId, String? receiverId});
 }
 
 /// @nodoc
@@ -100,33 +98,13 @@ class _$ChatPageEventCopyWithImpl<$Res, $Val extends ChatPageEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? senderId = freezed,
-    Object? receiverId = freezed,
-  }) {
-    return _then(_value.copyWith(
-      senderId: freezed == senderId
-          ? _value.senderId
-          : senderId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      receiverId: freezed == receiverId
-          ? _value.receiverId
-          : receiverId // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_NewMessageCopyWith<$Res>
-    implements $ChatPageEventCopyWith<$Res> {
+abstract class _$$_NewMessageCopyWith<$Res> {
   factory _$$_NewMessageCopyWith(
           _$_NewMessage value, $Res Function(_$_NewMessage) then) =
       __$$_NewMessageCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {String? controllerValue,
@@ -227,6 +205,7 @@ class _$_NewMessage implements _NewMessage {
         getAllMessageOfUser,
     required TResult Function(String? senderId, String? receiverId)
         initializeGetAllMessagePage,
+    required TResult Function(List<String>? conversationIds) getLastMessage,
   }) {
     return newMessage(controllerValue, senderId, receiverId, conversationId);
   }
@@ -241,6 +220,7 @@ class _$_NewMessage implements _NewMessage {
         getAllMessageOfUser,
     TResult? Function(String? senderId, String? receiverId)?
         initializeGetAllMessagePage,
+    TResult? Function(List<String>? conversationIds)? getLastMessage,
   }) {
     return newMessage?.call(
         controllerValue, senderId, receiverId, conversationId);
@@ -255,6 +235,7 @@ class _$_NewMessage implements _NewMessage {
     TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
     TResult Function(String? senderId, String? receiverId)?
         initializeGetAllMessagePage,
+    TResult Function(List<String>? conversationIds)? getLastMessage,
     required TResult orElse(),
   }) {
     if (newMessage != null) {
@@ -270,6 +251,7 @@ class _$_NewMessage implements _NewMessage {
     required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
     required TResult Function(_InitializeGetAllMessagePage value)
         initializeGetAllMessagePage,
+    required TResult Function(_GetLastMessage value) getLastMessage,
   }) {
     return newMessage(this);
   }
@@ -281,6 +263,7 @@ class _$_NewMessage implements _NewMessage {
     TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
     TResult? Function(_InitializeGetAllMessagePage value)?
         initializeGetAllMessagePage,
+    TResult? Function(_GetLastMessage value)? getLastMessage,
   }) {
     return newMessage?.call(this);
   }
@@ -292,6 +275,7 @@ class _$_NewMessage implements _NewMessage {
     TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
     TResult Function(_InitializeGetAllMessagePage value)?
         initializeGetAllMessagePage,
+    TResult Function(_GetLastMessage value)? getLastMessage,
     required TResult orElse(),
   }) {
     if (newMessage != null) {
@@ -309,24 +293,19 @@ abstract class _NewMessage implements ChatPageEvent {
       final String? conversationId) = _$_NewMessage;
 
   String? get controllerValue;
-  @override
   String? get senderId;
-  @override
   String? get receiverId;
   String? get conversationId;
-  @override
   @JsonKey(ignore: true)
   _$$_NewMessageCopyWith<_$_NewMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_GetAllMessageOfUserCopyWith<$Res>
-    implements $ChatPageEventCopyWith<$Res> {
+abstract class _$$_GetAllMessageOfUserCopyWith<$Res> {
   factory _$$_GetAllMessageOfUserCopyWith(_$_GetAllMessageOfUser value,
           $Res Function(_$_GetAllMessageOfUser) then) =
       __$$_GetAllMessageOfUserCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String? senderId, String? receiverId});
 }
@@ -404,6 +383,7 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
         getAllMessageOfUser,
     required TResult Function(String? senderId, String? receiverId)
         initializeGetAllMessagePage,
+    required TResult Function(List<String>? conversationIds) getLastMessage,
   }) {
     return getAllMessageOfUser(senderId, receiverId);
   }
@@ -418,6 +398,7 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
         getAllMessageOfUser,
     TResult? Function(String? senderId, String? receiverId)?
         initializeGetAllMessagePage,
+    TResult? Function(List<String>? conversationIds)? getLastMessage,
   }) {
     return getAllMessageOfUser?.call(senderId, receiverId);
   }
@@ -431,6 +412,7 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
     TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
     TResult Function(String? senderId, String? receiverId)?
         initializeGetAllMessagePage,
+    TResult Function(List<String>? conversationIds)? getLastMessage,
     required TResult orElse(),
   }) {
     if (getAllMessageOfUser != null) {
@@ -446,6 +428,7 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
     required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
     required TResult Function(_InitializeGetAllMessagePage value)
         initializeGetAllMessagePage,
+    required TResult Function(_GetLastMessage value) getLastMessage,
   }) {
     return getAllMessageOfUser(this);
   }
@@ -457,6 +440,7 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
     TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
     TResult? Function(_InitializeGetAllMessagePage value)?
         initializeGetAllMessagePage,
+    TResult? Function(_GetLastMessage value)? getLastMessage,
   }) {
     return getAllMessageOfUser?.call(this);
   }
@@ -468,6 +452,7 @@ class _$_GetAllMessageOfUser implements _GetAllMessageOfUser {
     TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
     TResult Function(_InitializeGetAllMessagePage value)?
         initializeGetAllMessagePage,
+    TResult Function(_GetLastMessage value)? getLastMessage,
     required TResult orElse(),
   }) {
     if (getAllMessageOfUser != null) {
@@ -482,24 +467,19 @@ abstract class _GetAllMessageOfUser implements ChatPageEvent {
           final String? senderId, final String? receiverId) =
       _$_GetAllMessageOfUser;
 
-  @override
   String? get senderId;
-  @override
   String? get receiverId;
-  @override
   @JsonKey(ignore: true)
   _$$_GetAllMessageOfUserCopyWith<_$_GetAllMessageOfUser> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_InitializeGetAllMessagePageCopyWith<$Res>
-    implements $ChatPageEventCopyWith<$Res> {
+abstract class _$$_InitializeGetAllMessagePageCopyWith<$Res> {
   factory _$$_InitializeGetAllMessagePageCopyWith(
           _$_InitializeGetAllMessagePage value,
           $Res Function(_$_InitializeGetAllMessagePage) then) =
       __$$_InitializeGetAllMessagePageCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String? senderId, String? receiverId});
 }
@@ -578,6 +558,7 @@ class _$_InitializeGetAllMessagePage implements _InitializeGetAllMessagePage {
         getAllMessageOfUser,
     required TResult Function(String? senderId, String? receiverId)
         initializeGetAllMessagePage,
+    required TResult Function(List<String>? conversationIds) getLastMessage,
   }) {
     return initializeGetAllMessagePage(senderId, receiverId);
   }
@@ -592,6 +573,7 @@ class _$_InitializeGetAllMessagePage implements _InitializeGetAllMessagePage {
         getAllMessageOfUser,
     TResult? Function(String? senderId, String? receiverId)?
         initializeGetAllMessagePage,
+    TResult? Function(List<String>? conversationIds)? getLastMessage,
   }) {
     return initializeGetAllMessagePage?.call(senderId, receiverId);
   }
@@ -605,6 +587,7 @@ class _$_InitializeGetAllMessagePage implements _InitializeGetAllMessagePage {
     TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
     TResult Function(String? senderId, String? receiverId)?
         initializeGetAllMessagePage,
+    TResult Function(List<String>? conversationIds)? getLastMessage,
     required TResult orElse(),
   }) {
     if (initializeGetAllMessagePage != null) {
@@ -620,6 +603,7 @@ class _$_InitializeGetAllMessagePage implements _InitializeGetAllMessagePage {
     required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
     required TResult Function(_InitializeGetAllMessagePage value)
         initializeGetAllMessagePage,
+    required TResult Function(_GetLastMessage value) getLastMessage,
   }) {
     return initializeGetAllMessagePage(this);
   }
@@ -631,6 +615,7 @@ class _$_InitializeGetAllMessagePage implements _InitializeGetAllMessagePage {
     TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
     TResult? Function(_InitializeGetAllMessagePage value)?
         initializeGetAllMessagePage,
+    TResult? Function(_GetLastMessage value)? getLastMessage,
   }) {
     return initializeGetAllMessagePage?.call(this);
   }
@@ -642,6 +627,7 @@ class _$_InitializeGetAllMessagePage implements _InitializeGetAllMessagePage {
     TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
     TResult Function(_InitializeGetAllMessagePage value)?
         initializeGetAllMessagePage,
+    TResult Function(_GetLastMessage value)? getLastMessage,
     required TResult orElse(),
   }) {
     if (initializeGetAllMessagePage != null) {
@@ -656,14 +642,181 @@ abstract class _InitializeGetAllMessagePage implements ChatPageEvent {
           final String? senderId, final String? receiverId) =
       _$_InitializeGetAllMessagePage;
 
-  @override
   String? get senderId;
-  @override
   String? get receiverId;
-  @override
   @JsonKey(ignore: true)
   _$$_InitializeGetAllMessagePageCopyWith<_$_InitializeGetAllMessagePage>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetLastMessageCopyWith<$Res> {
+  factory _$$_GetLastMessageCopyWith(
+          _$_GetLastMessage value, $Res Function(_$_GetLastMessage) then) =
+      __$$_GetLastMessageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String>? conversationIds});
+}
+
+/// @nodoc
+class __$$_GetLastMessageCopyWithImpl<$Res>
+    extends _$ChatPageEventCopyWithImpl<$Res, _$_GetLastMessage>
+    implements _$$_GetLastMessageCopyWith<$Res> {
+  __$$_GetLastMessageCopyWithImpl(
+      _$_GetLastMessage _value, $Res Function(_$_GetLastMessage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? conversationIds = freezed,
+  }) {
+    return _then(_$_GetLastMessage(
+      freezed == conversationIds
+          ? _value._conversationIds
+          : conversationIds // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetLastMessage implements _GetLastMessage {
+  const _$_GetLastMessage(final List<String>? conversationIds)
+      : _conversationIds = conversationIds;
+
+  final List<String>? _conversationIds;
+  @override
+  List<String>? get conversationIds {
+    final value = _conversationIds;
+    if (value == null) return null;
+    if (_conversationIds is EqualUnmodifiableListView) return _conversationIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'ChatPageEvent.getLastMessage(conversationIds: $conversationIds)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetLastMessage &&
+            const DeepCollectionEquality()
+                .equals(other._conversationIds, _conversationIds));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_conversationIds));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetLastMessageCopyWith<_$_GetLastMessage> get copyWith =>
+      __$$_GetLastMessageCopyWithImpl<_$_GetLastMessage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? controllerValue, String? senderId,
+            String? receiverId, String? conversationId)
+        newMessage,
+    required TResult Function(String? senderId, String? receiverId)
+        getAllMessageOfUser,
+    required TResult Function(String? senderId, String? receiverId)
+        initializeGetAllMessagePage,
+    required TResult Function(List<String>? conversationIds) getLastMessage,
+  }) {
+    return getLastMessage(conversationIds);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? controllerValue, String? senderId,
+            String? receiverId, String? conversationId)?
+        newMessage,
+    TResult? Function(String? senderId, String? receiverId)?
+        getAllMessageOfUser,
+    TResult? Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
+    TResult? Function(List<String>? conversationIds)? getLastMessage,
+  }) {
+    return getLastMessage?.call(conversationIds);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? controllerValue, String? senderId,
+            String? receiverId, String? conversationId)?
+        newMessage,
+    TResult Function(String? senderId, String? receiverId)? getAllMessageOfUser,
+    TResult Function(String? senderId, String? receiverId)?
+        initializeGetAllMessagePage,
+    TResult Function(List<String>? conversationIds)? getLastMessage,
+    required TResult orElse(),
+  }) {
+    if (getLastMessage != null) {
+      return getLastMessage(conversationIds);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NewMessage value) newMessage,
+    required TResult Function(_GetAllMessageOfUser value) getAllMessageOfUser,
+    required TResult Function(_InitializeGetAllMessagePage value)
+        initializeGetAllMessagePage,
+    required TResult Function(_GetLastMessage value) getLastMessage,
+  }) {
+    return getLastMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_NewMessage value)? newMessage,
+    TResult? Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult? Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
+    TResult? Function(_GetLastMessage value)? getLastMessage,
+  }) {
+    return getLastMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NewMessage value)? newMessage,
+    TResult Function(_GetAllMessageOfUser value)? getAllMessageOfUser,
+    TResult Function(_InitializeGetAllMessagePage value)?
+        initializeGetAllMessagePage,
+    TResult Function(_GetLastMessage value)? getLastMessage,
+    required TResult orElse(),
+  }) {
+    if (getLastMessage != null) {
+      return getLastMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetLastMessage implements ChatPageEvent {
+  const factory _GetLastMessage(final List<String>? conversationIds) =
+      _$_GetLastMessage;
+
+  List<String>? get conversationIds;
+  @JsonKey(ignore: true)
+  _$$_GetLastMessageCopyWith<_$_GetLastMessage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
