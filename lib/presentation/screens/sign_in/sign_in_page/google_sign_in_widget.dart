@@ -4,7 +4,32 @@ import '../../../widgets/constants/colors.dart';
 GestureDetector googleSignInWidget(
     double height, double width, BuildContext context) {
   return GestureDetector(
-    onTap: () {},
+    onTap: () {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Row(
+            children: [
+              Icon(Icons.build, color: Colors.white),
+              SizedBox(width: 15),
+              Flexible(
+                child: Text(
+                  '🔍 Oops! Google Sign-In is currently under construction. 🚧...',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          duration: const Duration(seconds: 5),
+          backgroundColor: const Color.fromARGB(234, 92, 16, 105),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+      );
+    },
     child: Container(
       height: height * 0.07,
       width: width * .15,
