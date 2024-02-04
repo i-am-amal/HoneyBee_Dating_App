@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/application/sign_in/otp_number_auth_page/otp_number_auth_page_bloc.dart';
+import 'package:honeybee/application/sign_in/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -25,10 +26,6 @@ class OtpAuthenticationPage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    BlocProvider.of<OtpNumberAuthPageBloc>(context).add(
-        OtpNumberAuthPageEvent.initializePage(
-            phoneNumber: phoneNumber, countryCode: countryCode));
-
     return BlocListener<OtpNumberAuthPageBloc, OtpNumberAuthPageState>(
       listener: (context, state) async {
         handleState(state, context);
@@ -38,88 +35,130 @@ class OtpAuthenticationPage extends StatelessWidget {
         child: Scaffold(
           body: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: height * 0.15,
-                ),
-                SizedBox(
-                  width: width * .05,
-                ),
-                BlocBuilder<OtpNumberAuthPageBloc, OtpNumberAuthPageState>(
-                  builder: (context, state) {
-                    if (state.timer == 0) {
-                      return const Text('Resend Otp!');
-                    } else {
-                      return Text('Time remaining: ${state.timer} seconds');
-                    }
-                  },
-                ),
-                SizedBox(
-                  height: height * 0.04,
-                ),
-                CustomText(
-                  width: width * 0.9,
-                  text: "Type the verification code we've sent you ",
-                  fontFamily: CustomFont.headTextFont,
-                  fontsize: 20,
-                  fontWeight: FontWeight.w500,
-                  letterspacing: 1,
-                ),
-                SizedBox(
-                  height: height * 0.05,
-                ),
-                PinCodeFields(
-                  length: 6,
-                  fieldBorderStyle: FieldBorderStyle.square,
-                  fieldHeight: 60,
-                  borderWidth: 1.0,
-                  activeBorderColor: Colors.red,
-                  borderRadius: BorderRadius.circular(12),
-                  textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontFamily: CustomFont.textFont,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 18),
-                  keyboardType: TextInputType.number,
-                  onComplete: (value) {
-                    BlocProvider.of<OtpNumberAuthPageBloc>(context)
-                        .add(OtpNumberAuthPageEvent.setOtp(otp: value));
-                  },
-                ),
-                SizedBox(
-                  height: height * 0.05,
-                ),
-                MainCustomButton(
-                  customtext: "Continue",
-                  txtcolor: CustomColors.kWhiteTextColor,
-                  fontFamily: CustomFont.textFont,
-                  letterspacing: 1,
-                  height: height * 0.018,
-                  width: width * 0.25,
-                  onpressed: () {
-                    BlocProvider.of<OtpNumberAuthPageBloc>(context)
-                        .add(const OtpNumberAuthPageEvent.otpLogin());
-                  },
-                ),
-                SizedBox(
-                  height: height * 0.03,
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    log('Re-send button');
-                  },
-                  child: const CustomText(
-                    text: 'Resend Otp',
-                    fontFamily: CustomFont.headTextFont,
-                    fontsize: 15,
-                    fontWeight: FontWeight.w900,
-                    letterspacing: 1.5,
-                    textColor: Colors.black87,
+            child: BlocBuilder<OtpNumberAuthPageBloc, OtpNumberAuthPageState>(
+              builder: (context, state) {
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: height * 0.15,
+                        width: width * .05,
+                      ),
+                      Container(
+                        child: state.timer == 0
+                            ? const Text('Resend Otp!')
+                            : Text('Time remaining: ${state.timer} seconds'),
+                      ),
+                      SizedBox(
+                        height: height * 0.04,
+                      ),
+                      CustomText(
+                        width: width * 0.9,
+                        text: "Type the verification code we've sent you ",
+                        fontFamily: CustomFont.headTextFont,
+                        fontsize: 20,
+                        fontWeight: FontWeight.w500,
+                        letterspacing: 1,
+                      ),
+                      SizedBox(
+                        height: height * 0.05,
+                      ),
+                      PinCodeFields(
+                        length: 6,
+                        fieldBorderStyle: FieldBorderStyle.square,
+                        fieldHeight: 60,
+                        borderWidth: 1.0,
+                        activeBorderColor: Colors.red,
+                        borderRadius: BorderRadius.circular(12),
+                        textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontFamily: CustomFont.textFont,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18),
+                        keyboardType: TextInputType.number,
+                        onComplete: (value) {
+                          BlocProvider.of<OtpNumberAuthPageBloc>(context)
+                              .add(OtpNumberAuthPageEvent.setOtp(otp: value));
+                        },
+                      ),
+                      SizedBox(
+                        height: height * 0.05,
+                      ),
+                      MainCustomButton(
+                        customtext: "Continue",
+                        txtcolor: CustomColors.kWhiteTextColor,
+                        fontFamily: CustomFont.textFont,
+                        letterspacing: 1,
+                        height: height * 0.018,
+                        width: width * 0.25,
+                        onpressed: () {
+                          if (state.otp != null && state.otp!.length == 6) {
+                            if (state.errorMessage == null) {
+                              BlocProvider.of<OtpNumberAuthPageBloc>(context)
+                                  .add(const OtpNumberAuthPageEvent.otpLogin());
+                            }
+                          } else {
+                            final errorMessage = state.errorMessage ??
+                                'Oops! Please enter a valid OTP...';
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Row(
+                                  children: [
+                                    const Icon(Icons.error_outline,
+                                        color: Colors.white),
+                                    const SizedBox(width: 15),
+                                    Flexible(
+                                      child: Text(
+                                        errorMessage,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                duration: const Duration(seconds: 4),
+                                backgroundColor:
+                                    const Color.fromARGB(234, 192, 30, 30),
+                                behavior: SnackBarBehavior.floating,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          BlocProvider.of<OtpNumberAuthPageBloc>(context).add(
+                              OtpNumberAuthPageEvent.initializePage(
+                                  phoneNumber: phoneNumber,
+                                  countryCode: countryCode));
+
+                          BlocProvider.of<PhoneNumberAuthPageBloc>(context).add(
+                            PhoneNumberAuthPageEvent.phoneNumberLogin(
+                              phoneNumber: phoneNumber,
+                              countryCode: countryCode,
+                            ),
+                          );
+                        },
+                        child: const CustomText(
+                          text: 'Resend Otp',
+                          fontFamily: CustomFont.headTextFont,
+                          fontsize: 15,
+                          fontWeight: FontWeight.w900,
+                          letterspacing: 1.5,
+                          textColor: Colors.black87,
+                        ),
+                      )
+                    ],
                   ),
-                )
-              ],
+                );
+              },
             ),
           ),
         ),
@@ -152,14 +191,32 @@ void handleState(OtpNumberAuthPageState state, BuildContext context) async {
             BasicInfoMainPage(
               formattedPhoneNumber: state.formattedPhoneNumber,
             ));
-       
       });
     }
-  } else {
-    // ScaffoldMessenger.of(context).showSnackBar(
-    //   const SnackBar(
-    //     content: Text('Please enter a valid OTP'),
-    //   ),
-    // );
+  } else if (state.errorMessage != null) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Row(
+          children: [
+            const Icon(Icons.error_outline, color: Colors.white),
+            const SizedBox(width: 15),
+            Flexible(
+              child: Text(
+                state.errorMessage ?? 'something went wrong...',
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+        duration: const Duration(seconds: 4),
+        backgroundColor: const Color.fromARGB(234, 192, 30, 30),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+    );
   }
 }

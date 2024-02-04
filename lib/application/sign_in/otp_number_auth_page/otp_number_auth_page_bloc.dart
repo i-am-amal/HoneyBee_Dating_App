@@ -24,13 +24,9 @@ class OtpNumberAuthPageBloc
     on<_OtpLogin>((event, emit) async {
       String? otpNumber = state.otp;
       bool? isOtpValidated = FormValidationServices.otpValidation(otpNumber);
-      // String countryCode = state.countryCode!;
       String phoneNumber = state.phoneNumber!;
 
       if (isOtpValidated) {
-        // String formattedPhoneNumber =
-        //     '$countryCode ${phoneNumber.substring(0, 5)} ${phoneNumber.substring(5)}';
-
         VerifyOtpRequestModel request =
             VerifyOtpRequestModel(otp: otpNumber, phone: phoneNumber);
 
@@ -38,9 +34,10 @@ class OtpNumberAuthPageBloc
 
         result.fold((failure) {
           // failure from API Services
-
           emit(state.copyWith(errorMessage: failure.errorMessage));
+          log(failure.errorMessage!);
           emit(state.copyWith(errorMessage: null));
+          log(failure.errorMessage!);
         }, (success) {
           //Success from Backend
           if (success.success == true) {
@@ -66,7 +63,7 @@ class OtpNumberAuthPageBloc
     on<_InitializePage>((event, emit) {
       emit(state.copyWith(
           phoneNumber: event.phoneNumber, countryCode: event.countryCode));
-      if (state.timer == null) {
+      if (state.timer == null || state.timer == 0) {
         add(const OtpNumberAuthPageEvent.startTimer());
       }
     });

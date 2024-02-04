@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/sign_in/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import 'package:honeybee/application/sign_in/phone_number_auth_page/phone_number_auth_page_bloc.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/screens/sign_in/otp_authentication_page/otp_authentication_page.dart';
@@ -42,22 +43,16 @@ class PhoneAuthenticationPage extends StatelessWidget {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
-                  height: height * 0.07,
-                ),
+                SizedBox(height: height * 0.07),
                 Row(
                   children: [
-                    SizedBox(
-                      width: width * .02,
-                    ),
+                    SizedBox(width: width * .02),
                     BorderlineButton(
                         icon: Icons.arrow_back_ios_new,
                         onpressed: () {
                           Navigator.pop(context);
                         }),
-                    SizedBox(
-                      width: width * .05,
-                    ),
+                    SizedBox(width: width * .05),
                     const CustomText(
                       text: 'My Mobile',
                       fontFamily: CustomFont.headTextFont,
@@ -67,10 +62,7 @@ class PhoneAuthenticationPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: height * 0.04,
-                ),
-
+                SizedBox(height: height * 0.04),
                 Container(
                   height: height * 0.3,
                   width: width * 0.5,
@@ -81,9 +73,7 @@ class PhoneAuthenticationPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: height * 0.08,
-                ),
+                SizedBox(height: height * 0.08),
                 CustomText(
                   width: width * 0.85,
                   text:
@@ -92,12 +82,7 @@ class PhoneAuthenticationPage extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   letterspacing: 1,
                 ),
-                SizedBox(
-                  height: height * 0.05,
-                ),
-
-                //-----------------phone number text field section-------------------------//
-
+                SizedBox(height: height * 0.05),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -122,25 +107,19 @@ class PhoneAuthenticationPage extends StatelessWidget {
                             width: width * 0.6,
                             child: TextFormField(
                               onChanged: (value) {
-                                log(countryCode.toString());
-
                                 BlocProvider.of<PhoneNumberAuthPageBloc>(
                                         context)
                                     .add(
-                                  PhoneNumberAuthPageEvent.setPhoneNumber(
-                                    phoneNumber: value,
-                                  ),
-                                );
+                                        PhoneNumberAuthPageEvent.setPhoneNumber(
+                                            phoneNumber: value));
                               },
                               controller: phoneNumberController,
                               keyboardType: TextInputType.phone,
                               maxLength: 10,
                               decoration: const InputDecoration(
-                                contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                ),
+                                contentPadding:
+                                    EdgeInsets.symmetric(horizontal: 20),
                                 labelText: 'Phone Number',
-                                // helperText: 'Enter your phone number',
                               ),
                             ),
                           ),
@@ -149,10 +128,7 @@ class PhoneAuthenticationPage extends StatelessWidget {
                     ],
                   ),
                 ),
-
-                SizedBox(
-                  height: height * 0.08,
-                ),
+                SizedBox(height: height * 0.08),
                 MainCustomButton(
                   customtext: "Send Code",
                   txtcolor: CustomColors.kWhiteTextColor,
@@ -162,11 +138,6 @@ class PhoneAuthenticationPage extends StatelessWidget {
                   width: width * 0.25,
                   onpressed: () {
                     if (phoneNumberController.text.length != 10) {
-                      // ScaffoldMessenger.maybeOf(context)
-                      //     ?.showSnackBar(const SnackBar(
-                      //   content: Text('Please enter a valid phone number '),
-                      // ));
-
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: const Row(
@@ -184,7 +155,8 @@ class PhoneAuthenticationPage extends StatelessWidget {
                             ],
                           ),
                           duration: const Duration(seconds: 4),
-                          backgroundColor: Color.fromARGB(234, 192, 30, 30),
+                          backgroundColor:
+                              const Color.fromARGB(234, 192, 30, 30),
                           behavior: SnackBarBehavior.floating,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -193,17 +165,17 @@ class PhoneAuthenticationPage extends StatelessWidget {
                       );
                     }
                     FocusScope.of(context).unfocus();
-
                     BlocProvider.of<PhoneNumberAuthPageBloc>(context).add(
                       PhoneNumberAuthPageEvent.phoneNumberLogin(
                         phoneNumber: phoneNumberController.text,
                         countryCode: countryCode.toString(),
                       ),
                     );
-                    log('-----in on pressed-----');
-                    log(countryCode.toString());
-                    log(phoneNumberController.text);
-                    log('-----after onpressed-----');
+
+                    BlocProvider.of<OtpNumberAuthPageBloc>(context).add(
+                        OtpNumberAuthPageEvent.initializePage(
+                            phoneNumber: phoneNumberController.text,
+                            countryCode: countryCode.toString()));
                   },
                 ),
               ],
