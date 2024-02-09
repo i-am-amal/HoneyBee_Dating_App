@@ -18,6 +18,7 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final _controllerValue = TextEditingController();
+  String age = '100';
   Timer? _debounce;
 
   @override
@@ -35,12 +36,13 @@ class _SearchPageState extends State<SearchPage> {
       _debounce = Timer(const Duration(milliseconds: 1000), () {
         log('Searching for: $query');
         BlocProvider.of<SearchPageBloc>(context)
-            .add(SearchPageEvent.searchData(_controllerValue.text));
+            .add(SearchPageEvent.searchData(_controllerValue.text, age));
       });
     }
+
     if (query.isEmpty) {
       BlocProvider.of<SearchPageBloc>(context)
-          .add(SearchPageEvent.searchData(_controllerValue.text));
+          .add(SearchPageEvent.searchData(_controllerValue.text, age));
     }
   }
 
@@ -66,13 +68,26 @@ class _SearchPageState extends State<SearchPage> {
                     }),
                 BorderlineButton(
                     icon: Icons.tune,
-                    onpressed: () {
-                      showModalBottomSheet(
+                    onpressed: () async {
+                      final  selectedAge = await showModalBottomSheet(
                         context: context,
                         builder: (BuildContext context) {
                           return const CustomModalBottomSheet();
                         },
                       );
+
+                      setState(() {
+                        age = selectedAge ?? '100';
+                      });
+
+///////////////////////////////////////////////////////////
+                      // if (selectedAge != null) {
+                      //   // Do something with the result (selectedAge)
+
+                      //   log('Selected Age: $selectedAge');
+                      // }
+
+                      //////////////////////////////////////////
                     }),
               ],
             ),

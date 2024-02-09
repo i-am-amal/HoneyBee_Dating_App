@@ -26,7 +26,7 @@ class SearchPageBloc extends Bloc<SearchPageEvent, SearchPageState> {
           location: '',
           realationshipStatus: '',
           smoking: '',
-          ageMax: "100",
+          ageMax: '${event.age}',
           ageMin: "0");
 
       if (event.controllerValue != null && event.controllerValue!.isNotEmpty) {

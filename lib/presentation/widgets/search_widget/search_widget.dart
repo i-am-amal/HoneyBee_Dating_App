@@ -13,16 +13,30 @@ class SearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return BlocBuilder<SearchPageBloc, SearchPageState>(
       builder: (context, state) {
         if (state.isLoading!) {
-          return const Center(
+          return Center(
             child: Column(
               children: [
                 SizedBox(
-                  height: 250,
+                  height: height * 0.1,
                 ),
-                Text('no data')
+                // LinearProgressIndicator(),
+
+                Container(
+                  height: height * 0.3,
+                  width: width * 0.5,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/no_result.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                // Text('no data')
 
                 // LoadingAnimationWidget.discreteCircle(
                 //   color: CustomColors.kRedButtonColor,
@@ -102,8 +116,24 @@ class SearchWidget extends StatelessWidget {
             ),
           );
         } else {
-          return const Center(
-            child: Text('No data to show'),
+          return Center(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: height * 0.1,
+                ),
+                Container(
+                  height: height * 0.3,
+                  width: width * 0.5,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/search.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           );
         }
       },

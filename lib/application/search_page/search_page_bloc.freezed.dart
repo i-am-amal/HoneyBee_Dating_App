@@ -17,19 +17,20 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SearchPageEvent {
   String? get controllerValue => throw _privateConstructorUsedError;
+  String? get age => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? controllerValue) searchData,
+    required TResult Function(String? controllerValue, String? age) searchData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? controllerValue)? searchData,
+    TResult? Function(String? controllerValue, String? age)? searchData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? controllerValue)? searchData,
+    TResult Function(String? controllerValue, String? age)? searchData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +62,7 @@ abstract class $SearchPageEventCopyWith<$Res> {
           SearchPageEvent value, $Res Function(SearchPageEvent) then) =
       _$SearchPageEventCopyWithImpl<$Res, SearchPageEvent>;
   @useResult
-  $Res call({String? controllerValue});
+  $Res call({String? controllerValue, String? age});
 }
 
 /// @nodoc
@@ -78,11 +79,16 @@ class _$SearchPageEventCopyWithImpl<$Res, $Val extends SearchPageEvent>
   @override
   $Res call({
     Object? controllerValue = freezed,
+    Object? age = freezed,
   }) {
     return _then(_value.copyWith(
       controllerValue: freezed == controllerValue
           ? _value.controllerValue
           : controllerValue // ignore: cast_nullable_to_non_nullable
+              as String?,
+      age: freezed == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -96,7 +102,7 @@ abstract class _$$_SearchDataCopyWith<$Res>
       __$$_SearchDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? controllerValue});
+  $Res call({String? controllerValue, String? age});
 }
 
 /// @nodoc
@@ -111,11 +117,16 @@ class __$$_SearchDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? controllerValue = freezed,
+    Object? age = freezed,
   }) {
     return _then(_$_SearchData(
       freezed == controllerValue
           ? _value.controllerValue
           : controllerValue // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -124,14 +135,16 @@ class __$$_SearchDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SearchData implements _SearchData {
-  const _$_SearchData(this.controllerValue);
+  const _$_SearchData(this.controllerValue, this.age);
 
   @override
   final String? controllerValue;
+  @override
+  final String? age;
 
   @override
   String toString() {
-    return 'SearchPageEvent.searchData(controllerValue: $controllerValue)';
+    return 'SearchPageEvent.searchData(controllerValue: $controllerValue, age: $age)';
   }
 
   @override
@@ -140,11 +153,12 @@ class _$_SearchData implements _SearchData {
         (other.runtimeType == runtimeType &&
             other is _$_SearchData &&
             (identical(other.controllerValue, controllerValue) ||
-                other.controllerValue == controllerValue));
+                other.controllerValue == controllerValue) &&
+            (identical(other.age, age) || other.age == age));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, controllerValue);
+  int get hashCode => Object.hash(runtimeType, controllerValue, age);
 
   @JsonKey(ignore: true)
   @override
@@ -155,27 +169,27 @@ class _$_SearchData implements _SearchData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? controllerValue) searchData,
+    required TResult Function(String? controllerValue, String? age) searchData,
   }) {
-    return searchData(controllerValue);
+    return searchData(controllerValue, age);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? controllerValue)? searchData,
+    TResult? Function(String? controllerValue, String? age)? searchData,
   }) {
-    return searchData?.call(controllerValue);
+    return searchData?.call(controllerValue, age);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? controllerValue)? searchData,
+    TResult Function(String? controllerValue, String? age)? searchData,
     required TResult orElse(),
   }) {
     if (searchData != null) {
-      return searchData(controllerValue);
+      return searchData(controllerValue, age);
     }
     return orElse();
   }
@@ -210,10 +224,13 @@ class _$_SearchData implements _SearchData {
 }
 
 abstract class _SearchData implements SearchPageEvent {
-  const factory _SearchData(final String? controllerValue) = _$_SearchData;
+  const factory _SearchData(final String? controllerValue, final String? age) =
+      _$_SearchData;
 
   @override
   String? get controllerValue;
+  @override
+  String? get age;
   @override
   @JsonKey(ignore: true)
   _$$_SearchDataCopyWith<_$_SearchData> get copyWith =>
@@ -224,6 +241,7 @@ abstract class _SearchData implements SearchPageEvent {
 mixin _$SearchPageState {
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get controllerValue => throw _privateConstructorUsedError;
+  String? get age => throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
   SearchFilterListResponseModel? get searchResult =>
       throw _privateConstructorUsedError;
@@ -242,6 +260,7 @@ abstract class $SearchPageStateCopyWith<$Res> {
   $Res call(
       {String? errorMessage,
       String? controllerValue,
+      String? age,
       bool? isLoading,
       SearchFilterListResponseModel? searchResult});
 }
@@ -261,6 +280,7 @@ class _$SearchPageStateCopyWithImpl<$Res, $Val extends SearchPageState>
   $Res call({
     Object? errorMessage = freezed,
     Object? controllerValue = freezed,
+    Object? age = freezed,
     Object? isLoading = freezed,
     Object? searchResult = freezed,
   }) {
@@ -272,6 +292,10 @@ class _$SearchPageStateCopyWithImpl<$Res, $Val extends SearchPageState>
       controllerValue: freezed == controllerValue
           ? _value.controllerValue
           : controllerValue // ignore: cast_nullable_to_non_nullable
+              as String?,
+      age: freezed == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
               as String?,
       isLoading: freezed == isLoading
           ? _value.isLoading
@@ -296,6 +320,7 @@ abstract class _$$_SearchPageStateCopyWith<$Res>
   $Res call(
       {String? errorMessage,
       String? controllerValue,
+      String? age,
       bool? isLoading,
       SearchFilterListResponseModel? searchResult});
 }
@@ -313,6 +338,7 @@ class __$$_SearchPageStateCopyWithImpl<$Res>
   $Res call({
     Object? errorMessage = freezed,
     Object? controllerValue = freezed,
+    Object? age = freezed,
     Object? isLoading = freezed,
     Object? searchResult = freezed,
   }) {
@@ -324,6 +350,10 @@ class __$$_SearchPageStateCopyWithImpl<$Res>
       controllerValue: freezed == controllerValue
           ? _value.controllerValue
           : controllerValue // ignore: cast_nullable_to_non_nullable
+              as String?,
+      age: freezed == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
               as String?,
       isLoading: freezed == isLoading
           ? _value.isLoading
@@ -343,6 +373,7 @@ class _$_SearchPageState implements _SearchPageState {
   const _$_SearchPageState(
       {this.errorMessage,
       this.controllerValue,
+      this.age,
       this.isLoading,
       this.searchResult});
 
@@ -351,13 +382,15 @@ class _$_SearchPageState implements _SearchPageState {
   @override
   final String? controllerValue;
   @override
+  final String? age;
+  @override
   final bool? isLoading;
   @override
   final SearchFilterListResponseModel? searchResult;
 
   @override
   String toString() {
-    return 'SearchPageState(errorMessage: $errorMessage, controllerValue: $controllerValue, isLoading: $isLoading, searchResult: $searchResult)';
+    return 'SearchPageState(errorMessage: $errorMessage, controllerValue: $controllerValue, age: $age, isLoading: $isLoading, searchResult: $searchResult)';
   }
 
   @override
@@ -369,6 +402,7 @@ class _$_SearchPageState implements _SearchPageState {
                 other.errorMessage == errorMessage) &&
             (identical(other.controllerValue, controllerValue) ||
                 other.controllerValue == controllerValue) &&
+            (identical(other.age, age) || other.age == age) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.searchResult, searchResult) ||
@@ -377,7 +411,7 @@ class _$_SearchPageState implements _SearchPageState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, errorMessage, controllerValue, isLoading, searchResult);
+      runtimeType, errorMessage, controllerValue, age, isLoading, searchResult);
 
   @JsonKey(ignore: true)
   @override
@@ -390,6 +424,7 @@ abstract class _SearchPageState implements SearchPageState {
   const factory _SearchPageState(
       {final String? errorMessage,
       final String? controllerValue,
+      final String? age,
       final bool? isLoading,
       final SearchFilterListResponseModel? searchResult}) = _$_SearchPageState;
 
@@ -397,6 +432,8 @@ abstract class _SearchPageState implements SearchPageState {
   String? get errorMessage;
   @override
   String? get controllerValue;
+  @override
+  String? get age;
   @override
   bool? get isLoading;
   @override

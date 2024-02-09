@@ -26,7 +26,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService.initializeNotification();
   await initializeDateFormatting('en_IN', null);
-
   //-------->>>-----SystemUIOverlayStyle used for changing the status bar color----->>>--------
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,

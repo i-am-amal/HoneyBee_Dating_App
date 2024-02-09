@@ -5,6 +5,7 @@ class SearchPageState with _$SearchPageState {
   const factory SearchPageState({
     String? errorMessage,
     String? controllerValue,
+    String? age,
     bool? isLoading,
     SearchFilterListResponseModel? searchResult,
   }) = _SearchPageState;
