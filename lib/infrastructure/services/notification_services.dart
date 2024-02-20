@@ -75,12 +75,11 @@ class NotificationService {
 
     Map payload = receivedAction.payload ?? {};
 
-    print("---------- onActionReceivedMethod payload : ${payload} -----------------------");
+    print(
+        "---------- onActionReceivedMethod payload : ${payload} -----------------------");
 
     if (payload["type"] == "message" && payload['data'] != null) {
       String dataString = payload['data']!;
-
-
 
       SocketMsgReceiveResponseModel socketMsg =
           SocketMsgReceiveResponseModel.fromJson(jsonDecode(dataString));

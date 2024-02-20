@@ -14,5 +14,3 @@ class LastMessageRequestModel {
 
   Map<String, dynamic> toJson() => _$LastMessageRequestModelToJson(this);
 }
-
-

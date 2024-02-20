@@ -26,8 +26,6 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     // BlocProvider.of<ChatPageBloc>(context)
     //     .add(ChatPageEvent.initializeGetAllMessagePage(senderId, receiverId));
 

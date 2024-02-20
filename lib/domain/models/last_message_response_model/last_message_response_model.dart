@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+
 part 'last_message_response_model.g.dart';
 
 @JsonSerializable()
@@ -7,7 +8,7 @@ class LastMessageResponseModel {
   @JsonKey(name: '_id')
   String? id;
   String? sender;
-  List<String>? users;
+  List<User>? users;
   String? messageType;
   String? message;
   String? conversationId;
@@ -35,4 +36,22 @@ class LastMessageResponseModel {
   }
 
   Map<String, dynamic> toJson() => _$LastMessageResponseModelToJson(this);
+
+
+
+}
+
+
+@JsonSerializable()
+class User {
+  @JsonKey(name: '_id')
+  String? id;
+  String? fullName;
+  String? profilePic;
+
+  User({this.id, this.fullName, this.profilePic});
+
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 }

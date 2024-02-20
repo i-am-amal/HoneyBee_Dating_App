@@ -172,9 +172,6 @@ Stay clear of inappropriate content''';
                               : Image.network(
                                   widget.editProfileDetails.coverPic!.path,
                                   fit: BoxFit.cover)),
-
-
-                                  
                       onTap: () {
                         pickImageModalPopUp(
                           context,

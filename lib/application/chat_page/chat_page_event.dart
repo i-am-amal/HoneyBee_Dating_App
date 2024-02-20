@@ -19,16 +19,10 @@ class ChatPageEvent with _$ChatPageEvent {
     String? receiverId,
   ) = _InitializeGetAllMessagePage;
 
- const factory ChatPageEvent.getLastMessage(
-   List<String>? conversationIds
-  ) = _GetLastMessage;
-
-
-
+  const factory ChatPageEvent.getLastMessage(List<String>? conversationIds) =
+      _GetLastMessage;
 
 // const factory ChatPageEvent.getLastMessage(
 //     List<String> conversationId,
 //   ) = _GetLastMessage;
-
-
 }

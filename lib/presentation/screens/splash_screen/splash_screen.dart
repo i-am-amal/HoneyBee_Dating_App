@@ -76,7 +76,6 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
 
     String? token = await getTokenFromPrefs();
     Future.delayed(const Duration(seconds: 5)).then((value) {
-     
       if (token != null) {
         BlocProvider.of<PreviewAccountPageBloc>(context)
             .add(const PreviewAccountPageEvent.fetchAccountData());

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomNavigator {
-
-static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   push(BuildContext context, page) {
     Navigator.pushReplacement(
@@ -11,4 +10,3 @@ static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
     );
   }
 }
-

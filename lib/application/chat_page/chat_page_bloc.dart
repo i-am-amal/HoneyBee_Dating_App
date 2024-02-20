@@ -53,8 +53,6 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
       });
     });
 
-
-
     // on<_GetAllMessageOfUser>((event, emit) async {
     //   GetMessageRequestModel request =
     //       GetMessageRequestModel(from: event.senderId, to: event.receiverId);
@@ -72,15 +70,8 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
     //     log(message.toString());
     //   });
     // });
-
-
   }
 }
-
-
-
-
-
 
 // Map<String, List<Map<String, dynamic>>> generateMessagesMap(List<Map<String, dynamic>> messages) {
 //   Map<String, List<Map<String, dynamic>>> messagesMap = {};

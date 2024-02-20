@@ -1,4 +1,3 @@
-
 import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -38,12 +37,10 @@ class GetMessageResponseModel {
 
   static List<GetMessageResponseModel> fromList(List<dynamic> list) {
     return list.map((map) => GetMessageResponseModel.fromJson(map)).toList();
-
   }
 
-
-
-  static Map<String, List<GetMessageResponseModel>> generateMessagesMap(List<GetMessageResponseModel> messages) {
+  static Map<String, List<GetMessageResponseModel>> generateMessagesMap(
+      List<GetMessageResponseModel> messages) {
     Map<String, List<GetMessageResponseModel>> messagesMap = {};
 
     for (var message in messages) {
@@ -59,7 +56,6 @@ class GetMessageResponseModel {
 
     return messagesMap;
   }
-
 
   static bool get $includeToJson => false;
   static bool get $includeFromJson => false;

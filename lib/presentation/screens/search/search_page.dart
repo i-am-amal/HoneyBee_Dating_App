@@ -69,7 +69,7 @@ class _SearchPageState extends State<SearchPage> {
                 BorderlineButton(
                     icon: Icons.tune,
                     onpressed: () async {
-                      final  selectedAge = await showModalBottomSheet(
+                      final selectedAge = await showModalBottomSheet(
                         context: context,
                         builder: (BuildContext context) {
                           return const CustomModalBottomSheet();

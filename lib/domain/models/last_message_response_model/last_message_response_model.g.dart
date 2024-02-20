@@ -11,8 +11,9 @@ LastMessageResponseModel _$LastMessageResponseModelFromJson(
     LastMessageResponseModel(
       id: json['_id'] as String?,
       sender: json['sender'] as String?,
-      users:
-          (json['users'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      users: (json['users'] as List<dynamic>?)
+          ?.map((e) => User.fromJson(e as Map<String, dynamic>))
+          .toList(),
       messageType: json['messageType'] as String?,
       message: json['message'] as String?,
       conversationId: json['conversationId'] as String?,
@@ -39,4 +40,16 @@ Map<String, dynamic> _$LastMessageResponseModelToJson(
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       '__v': instance.v,
+    };
+
+User _$UserFromJson(Map<String, dynamic> json) => User(
+      id: json['_id'] as String?,
+      fullName: json['fullName'] as String?,
+      profilePic: json['profilePic'] as String?,
+    );
+
+Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+      '_id': instance.id,
+      'fullName': instance.fullName,
+      'profilePic': instance.profilePic,
     };

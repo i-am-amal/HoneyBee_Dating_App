@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'profile_model.dart';
 
 class ProfileCard extends StatelessWidget {
@@ -33,10 +31,12 @@ class ProfileCard extends StatelessWidget {
                     return child;
                   }
 
-                  return LoadingAnimationWidget.halfTriangleDot(
-                    color: CustomColors.kRedButtonColor,
-                    size: 50,
-                  );
+                  // return LoadingAnimationWidget.halfTriangleDot(
+                  //   color: CustomColors.kRedButtonColor,
+                  //   size: 50,
+                  // );
+
+                  return const CircularProgressIndicator();
                 },
               ),
             ),
