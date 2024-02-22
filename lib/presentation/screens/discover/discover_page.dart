@@ -60,3 +60,92 @@ class DiscoverPage extends StatelessWidget {
     );
   }
 }
+
+
+// class DiscoverPage extends StatelessWidget {
+//   const DiscoverPage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     double height = MediaQuery.of(context).size.height;
+//     double width = MediaQuery.of(context).size.width;
+
+//     BlocProvider.of<DiscoverPageBloc>(context)
+//         .add(const DiscoverPageEvent.joinUserToSocket());
+
+//     return Scaffold(
+//       body: Center(
+//         child: Column(
+//           children: [
+//             SizedBox(
+//               height: height * 0.08,
+//             ),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceAround,
+//               children: [
+//                 SizedBox(
+//                   width: width * 0.09,
+//                 ),
+//                 const CustomText(
+//                   text: 'Discover',
+//                   fontFamily: CustomFont.headTextFont,
+//                   fontsize: 25,
+//                   fontWeight: FontWeight.bold,
+//                   letterspacing: 1,
+//                 ),
+//                 BorderlineButton(
+//                     icon: Icons.search,
+//                     onpressed: () {
+//                       Navigator.push(
+//                         context,
+//                         MaterialPageRoute(
+//                           builder: (context) => const SearchPage(),
+//                         ),
+//                       );
+//                     })
+//               ],
+//             ),
+//             SizedBox(
+//               height: height * 0.03,
+//             ),
+//             BlocBuilder<DiscoverPageBloc, DiscoverPageState>(
+//               builder: (context, state) {
+//                 if (state.isLoading!) {
+//                   return Center(
+//                     child: Column(
+//                       children: [
+//                         const SizedBox(
+//                           height: 250,
+//                         ),
+//                         LoadingAnimationWidget.discreteCircle(
+//                           color: CustomColors.kRedButtonColor,
+//                           size: 70,
+//                         ),
+//                       ],
+//                     ),
+//                   );
+//                 } else if (state.profile != null) {
+//                   List<DiscoverResponseModel>? draggableItems =
+//                       state.profile!.profiles;
+
+//                   if (draggableItems!.isEmpty) {
+//                     // If there are no more swipe profiles left, display a message
+//                     return Text(
+//                       'No more profiles to show!',
+//                       style: TextStyle(fontSize: 20),
+//                     );
+//                   }
+
+//                   // If there are swipe profiles left, display the CardsStackWidget
+//                   return const CardsStackWidget();
+//                 }
+//                 return const SizedBox();
+//               },
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+

@@ -128,11 +128,45 @@ class _DragWidgetState extends State<DragWidget> {
             BlocProvider.of<DiscoverPageBloc>(context)
                 .add(DiscoverPageEvent.likeUserEvent(widget.profile.id));
             log('user liked');
+
+            // setState(() {
+            //   BlocProvider.of<DiscoverPageBloc>(context)
+            //       .state
+            //       .profile
+            //       ?.profiles
+            //       ?.removeAt(widget.index);
+            // });
+            setState(() {
+              final profiles = BlocProvider.of<DiscoverPageBloc>(context)
+                  .state
+                  .profile
+                  ?.profiles;
+              if (profiles != null && widget.index < profiles.length) {
+                profiles.removeAt(widget.index);
+              }
+            });
           } else if (widget.dragNotifier.value == 'left') {
             // Dislike user event calling
             BlocProvider.of<DiscoverPageBloc>(context)
                 .add(DiscoverPageEvent.dislikeUserEvent(widget.profile.id));
             log('user disliked');
+
+            // setState(() {
+            //   BlocProvider.of<DiscoverPageBloc>(context)
+            //       .state
+            //       .profile
+            //       ?.profiles
+            //       ?.removeAt(widget.index);
+            // });
+            setState(() {
+              final profiles = BlocProvider.of<DiscoverPageBloc>(context)
+                  .state
+                  .profile
+                  ?.profiles;
+              if (profiles != null && widget.index < profiles.length) {
+                profiles.removeAt(widget.index);
+              }
+            });
           }
 
           log('image changed');

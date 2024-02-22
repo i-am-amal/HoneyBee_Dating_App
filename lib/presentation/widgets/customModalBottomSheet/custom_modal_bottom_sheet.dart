@@ -30,9 +30,6 @@ class _CustomModalBottomSheetState extends State<CustomModalBottomSheet> {
         ),
         ElevatedButton(
           onPressed: () {
-            // Add logic to handle button press
-            // log(selectedAge.toInt().toString());
-
             Navigator.of(context).pop(selectedAge.toInt().toString());
           },
           child: const Text('Submit'),

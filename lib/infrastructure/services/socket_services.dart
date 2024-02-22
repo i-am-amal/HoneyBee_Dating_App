@@ -24,7 +24,7 @@ class SocketServices {
       log('socket connected------------------------');
     });
     socket.onError((error) {
-      print('socket Error: $error');
+      log('socket Error: $error');
     });
 
     socketMsgReceiveListener(null);
@@ -41,7 +41,7 @@ class SocketServices {
   static socketMsgReceiveListener(Function? listenFunction) {
     socket.on('msg-recieve', (data) {
       log('socket message event received------------------------');
-      print('socket message event received data : " ${data}');
+      log('socket message event received data : " $data');
       if (listenFunction != null) {
         listenFunction();
       }
@@ -59,7 +59,7 @@ class SocketServices {
         },
         category: NotificationCategory.Message,
       );
-      print(
+      log(
           "--------- print  after  showing notification -----------------------");
     });
   }
