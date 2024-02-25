@@ -15,6 +15,7 @@ class ProfilePreview extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<PreviewAccountPageBloc>(context)
         .add(const PreviewAccountPageEvent.fetchAccountData());
+        
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -172,21 +173,91 @@ class ProfilePreview extends StatelessWidget {
                                   label: state.success!.drinking!),
                             ],
                           ),
+                          //////////////////////////////
+                          ///
+                          SizedBox(height: height * 0.05),
 
-                          // SizedBox(height: height * 0.05),
-                          // MainCustomButton(
-                          //   customtext: 'Create Account',
-                          //   height: height * 0.015,
-                          //   width: width * 0.2,
-                          //   txtcolor: CustomColors.kWhiteTextColor,
-                          //   onpressed: () {
-                          //     Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(
-                          //           builder: (context) => const BottomNavbar()),
-                          //     );
-                          //   },
-                          // ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SizedBox(
+                              height: height * 0.2,
+                              child: state.success!.coverPic != null
+                                  ? Image.network(
+                                      state.success!.coverPic!,
+                                      fit: BoxFit.cover,
+                                    )
+                                  : Image.asset(
+                                      'assets/images/no-image.png', // Replace with your placeholder image asset path
+                                      fit: BoxFit.contain,
+                                    ),
+                            ),
+                          ),
+
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      child: SizedBox(
+                                        height: height * 0.2,
+                                        child: state.success!.images != null &&
+                                                state.success!.images!
+                                                    .isNotEmpty &&
+                                                state
+                                                    .success!.images!.isNotEmpty
+                                            ? Image.network(
+                                                state.success!.images![0],
+                                                fit: BoxFit.cover,
+                                              )
+                                            : Image.asset(
+                                                'assets/images/no-image.png', // Replace with your placeholder image asset path
+                                                fit: BoxFit.contain,
+                                              ),
+                                      ),
+                                    ),
+                                    SizedBox(width: width * 0.05),
+                                    Expanded(
+                                      child: SizedBox(
+                                        height: height * 0.2,
+                                        child: state.success!.images != null &&
+                                                state.success!.images!.length >
+                                                    1
+                                            ? Image.network(
+                                                state.success!.images![1],
+                                                fit: BoxFit.cover,
+                                              )
+                                            : Image.asset(
+                                                'assets/images/no-image.png', // Replace with your placeholder image asset path
+                                                fit: BoxFit.contain,
+                                              ),
+                                      ),
+                                    ),
+                                    SizedBox(width: width * 0.05),
+                                    Expanded(
+                                      child: SizedBox(
+                                        height: height * 0.2,
+                                        child: state.success!.images != null &&
+                                                state.success!.images!.length >
+                                                    2
+                                            ? Image.network(
+                                                state.success!.images![2],
+                                                fit: BoxFit.cover,
+                                              )
+                                            : Image.asset(
+                                                'assets/images/no-image.png', // Replace with your placeholder image asset path
+                                                fit: BoxFit.contain,
+                                              ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
 
                           SizedBox(height: height * 0.05),
                         ],

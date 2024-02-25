@@ -110,21 +110,25 @@ class ApiServices {
       final response = await http.get(
         Uri.parse(Config.getUserDataApi),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
+          // 'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
       );
+
+      log(apiToken);
+      log(response.toString());
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
         GetUserDataResponseModel result =
             GetUserDataResponseModel.fromJson(jsonMap);
+        log(result.toString());
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure(
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      log("client side error $e");
+      log("client side error----------- $e");
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
     }

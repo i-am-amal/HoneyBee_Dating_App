@@ -78,26 +78,47 @@ class SearchWidget extends StatelessWidget {
                             MaterialPageRoute(
                               builder: (context) => UserProfilePreviewPage(
                                 userDetails: UserModel(
-                                    fullName: state.searchResult!
-                                        .profiles![index].fullName!,
-                                    age: state
-                                        .searchResult!.profiles![index].age!,
-                                    location: state.searchResult!
-                                        .profiles![index].location!,
-                                    bio: state
-                                        .searchResult!.profiles![index].bio!,
-                                    drinking: state.searchResult!
-                                        .profiles![index].drinking!,
-                                    faith: state
-                                        .searchResult!.profiles![index].faith!,
-                                    gender: state
-                                        .searchResult!.profiles![index].gender!,
-                                    profilePic: state.searchResult!
-                                        .profiles![index].profilePic!,
-                                    realationshipStatus: state.searchResult!
-                                        .profiles![index].realationshipStatus!,
-                                    smoking: state.searchResult!
-                                        .profiles![index].smoking!),
+                                  fullName: state
+                                      .searchResult!.profiles![index].fullName!,
+                                  age:
+                                      state.searchResult!.profiles![index].age!,
+                                  location: state
+                                      .searchResult!.profiles![index].location!,
+                                  bio:
+                                      state.searchResult!.profiles![index].bio!,
+                                  drinking: state
+                                      .searchResult!.profiles![index].drinking!,
+                                  faith: state
+                                      .searchResult!.profiles![index].faith!,
+                                  gender: state
+                                      .searchResult!.profiles![index].gender!,
+                                  profilePic: state.searchResult!
+                                      .profiles![index].profilePic!,
+                                  coverPic: state
+                                      .searchResult!.profiles![index].coverPic!,
+                                  realationshipStatus: state.searchResult!
+                                      .profiles![index].realationshipStatus!,
+                                  smoking: state
+                                      .searchResult!.profiles![index].smoking!,
+
+                                  /////////////////////////
+                                  img1: state.searchResult!.profiles![index]
+                                          .images!.isNotEmpty
+                                      ? state.searchResult!.profiles![index]
+                                          .images![0]
+                                      : null,
+                                  img2: state.searchResult!.profiles![index]
+                                          .images!.isNotEmpty
+                                      ? state.searchResult!.profiles![index]
+                                          .images![1]
+                                      : null,
+                                  img3: state.searchResult!.profiles![index]
+                                          .images!.isNotEmpty
+                                      ? state.searchResult!.profiles![index]
+                                          .images![2]
+                                      : null,
+                                  ///////////////////////////////////
+                                ),
                               ),
                             ),
                           );

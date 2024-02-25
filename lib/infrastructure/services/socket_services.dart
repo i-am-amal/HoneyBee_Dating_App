@@ -13,8 +13,8 @@ class SocketServices {
 
   static socketSetup() {
     socket = io.io(
-        'http://10.0.2.2:5000',
-        // "https://amal.fun",
+        // 'http://10.0.2.2:5000',
+        "https://amal.fun",
         io.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect()
@@ -59,8 +59,7 @@ class SocketServices {
         },
         category: NotificationCategory.Message,
       );
-      log(
-          "--------- print  after  showing notification -----------------------");
+      log("--------- print  after  showing notification -----------------------");
     });
   }
 

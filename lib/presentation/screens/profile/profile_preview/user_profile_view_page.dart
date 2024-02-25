@@ -161,7 +161,85 @@ class UserProfilePreviewPage extends StatelessWidget {
                         SizedBox(height: height * 0.05),
                       ],
                     ),
-                  )
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                        height: height * 0.2,
+                        child:
+                            //  userDetails.coverPic != null
+                            //     ?
+                            Image.network(
+                          userDetails.coverPic,
+                          fit: BoxFit.cover,
+                        )
+                        // : Image.asset(
+                        //     'assets/images/no-image.png', // Replace with your placeholder image asset path
+                        //     fit: BoxFit.contain,
+                        //   ),
+                        ),
+                  ),
+                  ///////////////////////////////
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: SizedBox(
+                                height: height * 0.2,
+                                child: userDetails.img1 != null
+                                    ? Image.network(
+                                        userDetails.img1!,
+                                        fit: BoxFit.cover,
+                                      )
+                                    : Image.asset(
+                                        'assets/images/no-image.png', // Replace with your placeholder image asset path
+                                        fit: BoxFit.contain,
+                                      ),
+                              ),
+                            ),
+                            SizedBox(width: width * 0.05),
+                            Expanded(
+                              child: SizedBox(
+                                height: height * 0.2,
+                                child: userDetails.img1 != null
+                                    ? Image.network(
+                                        userDetails.img2!,
+                                        fit: BoxFit.contain,
+                                      )
+                                    : Image.asset(
+                                        'assets/images/no-image.png', // Replace with your placeholder image asset path
+                                        fit: BoxFit.contain,
+                                      ),
+                              ),
+                            ),
+                            SizedBox(width: width * 0.05),
+                            Expanded(
+                              child: SizedBox(
+                                height: height * 0.2,
+                                child: userDetails.img1 != null
+                                    ? Image.network(
+                                        userDetails.img3!,
+                                        fit: BoxFit.cover,
+                                      )
+                                    : Image.asset(
+                                        'assets/images/no-image.png', // Replace with your placeholder image asset path
+                                        fit: BoxFit.contain,
+                                      ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  ////////////////////////////////
+                  SizedBox(height: height * 0.05),
                 ],
               );
             },

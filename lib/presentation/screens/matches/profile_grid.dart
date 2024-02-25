@@ -58,22 +58,34 @@ class ProfileGrid extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => UserProfilePreviewPage(
                           userDetails: UserModel(
-                              fullName:
-                                  state.profile!.profiles![index].fullName!,
-                              age: state.profile!.profiles![index].age!,
-                              location:
-                                  state.profile!.profiles![index].location!,
-                              bio: state.profile!.profiles![index].bio!,
-                              drinking:
-                                  state.profile!.profiles![index].drinking!,
-                              faith: state.profile!.profiles![index].faith!,
-                              gender: state.profile!.profiles![index].gender!,
-                              profilePic:
-                                  state.profile!.profiles![index].profilePic!,
-                              realationshipStatus: state.profile!
-                                  .profiles![index].realationshipStatus!,
-                              smoking:
-                                  state.profile!.profiles![index].smoking!),
+                            fullName: state.profile!.profiles![index].fullName!,
+                            age: state.profile!.profiles![index].age!,
+                            location: state.profile!.profiles![index].location!,
+                            bio: state.profile!.profiles![index].bio!,
+                            drinking: state.profile!.profiles![index].drinking!,
+                            faith: state.profile!.profiles![index].faith!,
+                            gender: state.profile!.profiles![index].gender!,
+                            profilePic:
+                                state.profile!.profiles![index].profilePic!,
+                            coverPic: state.profile!.profiles![index].coverPic!,
+                            realationshipStatus: state
+                                .profile!.profiles![index].realationshipStatus!,
+                            smoking: state.profile!.profiles![index].smoking!,
+///////////////////////////////
+                            img1: state.profile!.profiles![index].images!
+                                    .isNotEmpty
+                                ? state.profile!.profiles![index].images![0]
+                                : null,
+                            img2: state.profile!.profiles![index].images!
+                                    .isNotEmpty
+                                ? state.profile!.profiles![index].images![1]
+                                : null,
+                            img3: state.profile!.profiles![index].images!
+                                    .isNotEmpty
+                                ? state.profile!.profiles![index].images![2]
+                                : null,
+                            ///////////////////////////////////
+                          ),
                         ),
                       ),
                     );
@@ -127,10 +139,10 @@ class ProfileGrid extends StatelessWidget {
           );
         } else {
           return Center(
-            child: Lottie.asset(
-              'assets/images/noData.json',
-              height: 500,
-              width: 500,
+            child: Image.asset(
+              'assets/images/no_result.png',
+              height: 600,
+              width: 600,
             ),
           );
         }

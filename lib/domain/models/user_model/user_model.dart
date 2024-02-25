@@ -4,11 +4,15 @@ class UserModel {
   String location;
   String bio;
   String profilePic;
+  String coverPic;
   String gender;
   String faith;
   String realationshipStatus;
   String smoking;
   String drinking;
+  String? img1;
+  String? img2;
+  String? img3;
 
   UserModel({
     required this.fullName,
@@ -21,5 +25,9 @@ class UserModel {
     required this.profilePic,
     required this.realationshipStatus,
     required this.smoking,
+    required this.coverPic,
+    this.img1,
+    this.img2,
+    this.img3,
   });
 }

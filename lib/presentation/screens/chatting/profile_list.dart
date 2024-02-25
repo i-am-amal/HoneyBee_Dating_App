@@ -7,7 +7,6 @@ import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
 import 'package:honeybee/presentation/screens/chatting/chat_screen.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:lottie/lottie.dart';
 
 class ProfileList extends StatelessWidget {
   const ProfileList({Key? key}) : super(key: key);
@@ -110,8 +109,8 @@ class ProfileList extends StatelessWidget {
           );
         } else {
           return Center(
-            child: Lottie.asset(
-              'assets/images/noData.json',
+            child: Image.asset(
+              'assets/images/no_result.png',
               height: 500,
               width: 500,
             ),

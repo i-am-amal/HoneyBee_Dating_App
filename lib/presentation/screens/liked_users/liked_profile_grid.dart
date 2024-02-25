@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/all_liked_users_page/all_liked_users_page_bloc.dart';
@@ -47,27 +49,46 @@ class LikedProfileGrid extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
                     onTap: () {
+                      log('entered in on tap of liked profile');
+                      log('${state.profile!.profiles![index].images!.isNotEmpty ? state.profile!.profiles![index].images![0] : null}');
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => UserProfilePreviewPage(
                             userDetails: UserModel(
-                                fullName:
-                                    state.profile!.profiles![index].fullName!,
-                                age: state.profile!.profiles![index].age!,
-                                location:
-                                    state.profile!.profiles![index].location!,
-                                bio: state.profile!.profiles![index].bio!,
-                                drinking:
-                                    state.profile!.profiles![index].drinking!,
-                                faith: state.profile!.profiles![index].faith!,
-                                gender: state.profile!.profiles![index].gender!,
-                                profilePic:
-                                    state.profile!.profiles![index].profilePic!,
-                                realationshipStatus: state.profile!
-                                    .profiles![index].realationshipStatus!,
-                                smoking:
-                                    state.profile!.profiles![index].smoking!),
+                              fullName:
+                                  state.profile!.profiles![index].fullName!,
+                              age: state.profile!.profiles![index].age!,
+                              location:
+                                  state.profile!.profiles![index].location!,
+                              bio: state.profile!.profiles![index].bio!,
+                              drinking:
+                                  state.profile!.profiles![index].drinking!,
+                              faith: state.profile!.profiles![index].faith!,
+                              gender: state.profile!.profiles![index].gender!,
+                              profilePic:
+                                  state.profile!.profiles![index].profilePic!,
+                              realationshipStatus: state.profile!
+                                  .profiles![index].realationshipStatus!,
+                              smoking: state.profile!.profiles![index].smoking!,
+                              coverPic:
+                                  state.profile!.profiles![index].coverPic!,
+                              ////////////////////////////
+                              img1: state.profile!.profiles![index].images!
+                                      .isNotEmpty
+                                  ? state.profile!.profiles![index].images![0]
+                                  : null,
+                              img2: state.profile!.profiles![index].images!
+                                      .isNotEmpty
+                                  ? state.profile!.profiles![index].images![1]
+                                  : null,
+                              img3: state.profile!.profiles![index].images!
+                                      .isNotEmpty
+                                  ? state.profile!.profiles![index].images![2]
+                                  : null,
+                              ///////////////////////////
+                            ),
                           ),
                         ),
                       );
@@ -193,10 +214,10 @@ class LikedProfileGrid extends StatelessWidget {
             );
           } else {
             return Center(
-              child: Lottie.asset(
-                'assets/images/noData.json',
-                height: 500, // Adjust the height as needed
-                width: 500, // Adjust the width as needed
+              child: Image.asset(
+                'assets/images/no_result.png',
+                height: 500,
+                width: 500,
               ),
             );
           }

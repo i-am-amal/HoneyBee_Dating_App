@@ -119,11 +119,28 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                                   gender: draggableItems[currentIndex].gender!,
                                   profilePic:
                                       draggableItems[currentIndex].profilePic!,
+                                  coverPic:
+                                      draggableItems[currentIndex].coverPic!,
                                   realationshipStatus:
                                       draggableItems[currentIndex]
                                           .realationshipStatus!,
                                   smoking:
                                       draggableItems[currentIndex].smoking!,
+/////////////////////////
+                                  img1: draggableItems[currentIndex].images!
+                                          .isNotEmpty
+                                      ? draggableItems[currentIndex].images![0]
+                                      : null,
+                                       img2: draggableItems[currentIndex].images!
+                                          .isNotEmpty
+                                      ? draggableItems[currentIndex].images![1]
+                                      : null,
+                                       img3: draggableItems[currentIndex].images!
+                                          .isNotEmpty
+                                      ? draggableItems[currentIndex].images![2]
+                                      : null,
+
+                                  /////////////////////////////
                                 ),
                               ),
                             ),
