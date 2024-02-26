@@ -24,6 +24,7 @@ class LocationAuthPageBloc
         await results.fold((failure) async {
           emit(state.copyWith(errorMessage: failure));
           emit(state.copyWith(errorMessage: null));
+          emit(state.copyWith(locationName: 'Kerala,India', isLoading: false));
         }, (success) async {
           //success from backend
           double currentLatitude = success.latitude;

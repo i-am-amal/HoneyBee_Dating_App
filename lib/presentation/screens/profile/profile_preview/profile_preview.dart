@@ -15,7 +15,7 @@ class ProfilePreview extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<PreviewAccountPageBloc>(context)
         .add(const PreviewAccountPageEvent.fetchAccountData());
-        
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -301,3 +301,27 @@ class ChoiceButton extends StatelessWidget {
     );
   }
 }
+
+
+//                                Container(
+//                                   height: height * 0.2,
+//                                   // width: width * 0.9,
+//                                   decoration: BoxDecoration(
+//                                       color: Colors.white,
+//                                       borderRadius: BorderRadius.circular(10),
+//                                       boxShadow: [
+//                                         BoxShadow(
+//                                             color: Colors.grey.withOpacity(0.5),
+//                                             spreadRadius: 5,
+//                                             blurRadius: 7,
+//                                             offset: const Offset(0, 3)),
+//                                       ]),
+//                                   child: image3 != null
+//                                       ? Image.file(
+//                                           image3!,
+//                                           fit: BoxFit.cover,
+//                                         )
+//                                       : const Center(
+//                                           child: Text('No image Available'),
+//                                         ),
+//                                 ),

@@ -105,19 +105,7 @@ class LocationPage extends StatelessWidget {
                     fontsize: 15,
                     onpressed: () {
                       if (state.locationName != null) {
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => ProfileImages(
-                        //         fullName: fullName,
-                        //         email: email,
-                        //         birthday: birthday,
-                        //         phoneNumber: phoneNumber,
-                        //         location: state.locationName!,
-                        //         profileImage: profileImage),
-                        //   ),
-                        // );
-
+                      
                         Navigator.pushReplacement(
                           context,
                           PageRouteBuilder(

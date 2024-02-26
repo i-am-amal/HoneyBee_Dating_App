@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +17,10 @@ import 'package:honeybee/application/update_account_page/update_account_page_blo
 import 'package:honeybee/core/routes/navigation_functions.dart';
 import 'package:honeybee/infrastructure/services/notification_services.dart';
 import 'package:honeybee/infrastructure/services/socket_services.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
+import 'package:honeybee/presentation/screens/create_account/location/location_page.dart';
+import 'package:honeybee/presentation/screens/create_account/preview_account/preview_account.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -92,8 +97,28 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: SplashScreen()
+          home: const SplashScreen()
+          // LocationPage(
+          //     fullName: 'abc',
+          //     email: 'abcd@gmail.com',
+          //     phoneNumber: '8606509838',
+          //     birthday: '10/10/1998',
+          //     profileImage: File('testing'))
           // BasicInfoMainPage(formattedPhoneNumber: '8606509838'),
+          //     PreviewAccount(
+          //   fullName: 'rajan',
+          //   email: 'rabos@gmail.com',
+          //   location: 'hihihi',
+          //   phoneNumber: '8606509838',
+          //   birthday: '10/10/1999',
+          //   profileImage: File('test pro pic'),
+          //   coverImage: File('test cover'),
+          //   bio: '11111111111111',
+          //   gender: '',
+          //   preference: '',
+          //   selectedOptions: SelectedOptions(
+          //       faith: '', drinking: '', relationshipStatus: '', smoking: ''),
+          // ),
           ),
     );
   }

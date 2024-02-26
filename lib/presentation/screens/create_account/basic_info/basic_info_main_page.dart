@@ -34,6 +34,7 @@ class BasicInfoMainPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
           builder: (context, state) {
+            final bool isImageSelected = state.pickedProfileImage != null;
             //>>>>>>>>>>>>>>>>>>>-------profile image storing and navigation--------->>>>>>>>>>>>>
 
             if (state.isValidated != null) {
@@ -113,20 +114,20 @@ class BasicInfoMainPage extends StatelessWidget {
                   children: [
                     //// profile image section
                     ClipOval(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.teal.withOpacity(0.1),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: const Offset(0, 3)),
-                          ],
-                        ),
-                        width: width * 0.33,
-                        height: height * 0.23,
-                        child: GestureDetector(
-                          child: state.pickedProfileImage != null
+                      child: GestureDetector(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.teal.withOpacity(0.1),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3)),
+                            ],
+                          ),
+                          width: width * 0.33,
+                          height: height * 0.23,
+                          child: isImageSelected
                               ? Image.file(
                                   File(state.pickedProfileImage!.path),
                                   fit: BoxFit.cover,
@@ -135,34 +136,27 @@ class BasicInfoMainPage extends StatelessWidget {
                                   child: Icon(
                                     Icons.add_a_photo,
                                     size: 48,
-                                    color: Colors.teal,
+                                    color: Color.fromARGB(255, 59, 60, 122),
                                   ),
                                 ),
-                          onTap: () {
-                            log("on tap on pop up main page");
-                            pickImageModalPopUp(
-                              context,
-                              () {
-                                BlocProvider.of<BasicInfoAuthBloc>(context).add(
-                                    const BasicInfoAuthEvent
-                                        .pickProfileImageFromCamera());
-                              },
-                              () {
-                                BlocProvider.of<BasicInfoAuthBloc>(context).add(
-                                    const BasicInfoAuthEvent
-                                        .pickProfileImageFromGallery());
-
-                                log("bloc provider worked");
-                              },
-                            );
-                          },
-//                           onTap: () {
-//   pickImageModalPopUp(
-//     context,
-//     (XFile image) => BasicInfoAuthEvent.pickProfileImage(profileImage: image),
-//   );
-// },
                         ),
+                        onTap: () {
+                          pickImageModalPopUp(
+                            context,
+                            () {
+                              BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                                  const BasicInfoAuthEvent
+                                      .pickProfileImageFromCamera());
+                            },
+                            () {
+                              BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                                  const BasicInfoAuthEvent
+                                      .pickProfileImageFromGallery());
+
+                              log("bloc provider worked");
+                            },
+                          );
+                        },
                       ),
                     ),
                     //// profile image section ends
@@ -170,17 +164,15 @@ class BasicInfoMainPage extends StatelessWidget {
                     Positioned(
                       bottom: 0,
                       right: -10,
-                      child: GestureDetector(
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white,
-                          ),
-                          child: Icon(
-                            Icons.camera,
-                            color: Colors.red[800],
-                          ),
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: Icon(
+                          Icons.camera,
+                          color: Colors.red[800],
                         ),
                       ),
                     ),
@@ -251,11 +243,48 @@ class BasicInfoMainPage extends StatelessWidget {
                   letterspacing: 1,
                   fontsize: 15,
                   onpressed: () {
-                    BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                    if (!isImageSelected) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: const Row(
+                            children: [
+                              Icon(Icons.error_outline, color: Colors.white),
+                              SizedBox(width: 15),
+                              Flexible(
+                                child: Text(
+                                  'Please select profile picture...📸...',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          duration: const Duration(seconds: 5),
+                          backgroundColor:
+                              const Color.fromARGB(234, 92, 16, 105),
+                          behavior: SnackBarBehavior.floating,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          // margin: EdgeInsets.symmetric(vertical: 100),
+                        ),
+                      );
+                    } else {
+                      BlocProvider.of<BasicInfoAuthBloc>(context).add(
                         BasicInfoAuthEvent.nextPage(
-                            fullName: nameController.text,
-                            email: emailController.text,
-                            birthday: dateController.text));
+                          fullName: nameController.text,
+                          email: emailController.text,
+                          birthday: dateController.text,
+                        ),
+                      );
+                    }
+
+                    // BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                    //     BasicInfoAuthEvent.nextPage(
+                    //         fullName: nameController.text,
+                    //         email: emailController.text,
+                    //         birthday: dateController.text));
                   },
                 )
               ],

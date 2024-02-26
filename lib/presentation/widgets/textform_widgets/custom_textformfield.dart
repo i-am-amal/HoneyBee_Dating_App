@@ -52,7 +52,12 @@ class CustomTextFormFiled extends StatelessWidget {
               contentPadding: const EdgeInsets.symmetric(vertical: 8.0),
               enabledBorder: OutlineInputBorder(
                 borderSide:
-                    BorderSide(width: 1.5, color: Colors.red.withOpacity(0.5)),
+                    BorderSide(width: 1.5, color: Colors.teal.withOpacity(0.5)),
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(width: 1.5, color: Colors.teal.withOpacity(0.5)),
                 borderRadius: BorderRadius.circular(15.0),
               ),
             ),
@@ -69,7 +74,8 @@ class CustomTextFormFiled extends StatelessWidget {
           ),
           Text(
             errorMessage ?? '',
-            style: const TextStyle(color: Colors.red),
+            style: const TextStyle(
+                color: Colors.red, fontStyle: FontStyle.italic, fontSize: 14),
           )
         ],
       ),

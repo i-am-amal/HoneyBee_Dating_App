@@ -183,6 +183,127 @@ class PreviewAccount extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: height * 0.05),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: height * 0.25,
+                        width: width * 0.9,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(0, 3)),
+                            ]),
+
+                        ///--------------->>>>>>>>>>----------------cover image --------->>>>>>>>>>>---------
+
+                        child: Image.file(
+                          coverImage,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+
+                      //  SizedBox(
+                      //     height: height * 0.2,
+                      //     child: Expanded(
+                      //       child: Image.file(
+                      //         coverImage,
+                      //         fit: BoxFit.cover,
+                      //       ),
+                      //     )),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  height: height * 0.2,
+                                  // width: width * 0.9,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            spreadRadius: 5,
+                                            blurRadius: 7,
+                                            offset: const Offset(0, 3)),
+                                      ]),
+                                  child: image1 != null
+                                      ? Image.file(
+                                          image1!,
+                                          fit: BoxFit.cover,
+                                        )
+                                      : const Center(
+                                          child: Text('No image Available'),
+                                        ),
+                                ),
+                              ),
+                              SizedBox(width: width * 0.05),
+                              Expanded(
+                                child: Container(
+                                  height: height * 0.2,
+                                  // width: width * 0.9,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            spreadRadius: 5,
+                                            blurRadius: 7,
+                                            offset: const Offset(0, 3)),
+                                      ]),
+                                  child: image2 != null
+                                      ? Image.file(
+                                          image2!,
+                                          fit: BoxFit.cover,
+                                        )
+                                      : const Center(
+                                          child: Text('No image Available'),
+                                        ),
+                                ),
+                              ),
+                              SizedBox(width: width * 0.05),
+                              Expanded(
+                                child: Container(
+                                  height: height * 0.2,
+                                  // width: width * 0.9,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            spreadRadius: 5,
+                                            blurRadius: 7,
+                                            offset: const Offset(0, 3)),
+                                      ]),
+                                  child: image3 != null
+                                      ? Image.file(
+                                          image3!,
+                                          fit: BoxFit.cover,
+                                        )
+                                      : const Center(
+                                          child: Text('No image Available'),
+                                        ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: height * 0.03),
                     BlocBuilder<CreateAccountBloc, CreateAccountState>(
                         builder: (context, state) {
                       if (state.isLoading!) {

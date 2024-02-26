@@ -30,7 +30,7 @@ class ProfileImages extends StatelessWidget {
   final String phoneNumber;
   final String birthday;
   final File profileImage;
-  late File coverImage;
+  File? coverImage;
   File? image1;
   File? image2;
   File? image3;
@@ -134,7 +134,7 @@ Stay clear of inappropriate content''';
                           ? Image.file(File(state.coverProfileImage!.path),
                               fit: BoxFit.cover)
                           : const Center(
-                              child: Text('No cover image available')),
+                              child: Text('Please add a cover image')),
                     ),
                     onTap: () {
                       pickImageModalPopUp(
@@ -232,54 +232,65 @@ Stay clear of inappropriate content''';
                     onpressed: () {
                       log("$fullName,$birthday,$coverImage,$email,$location,$phoneNumber,$profileImage,$image1,$image2,$image3");
 
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => BasicInfoLastPage(
-                      //       fullName: fullName,
-                      //       email: email,
-                      //       location: location,
-                      //       birthday: birthday,
-                      //       phoneNumber: phoneNumber,
-                      //       profileImage: profileImage,
-                      //       coverImage: coverImage,
-                      //       image1: image1,
-                      //       image2: image2,
-                      //       image3: image3,
-                      //     ),
-                      //   ),
-                      // );
-
-                      Navigator.pushReplacement(
-                        context,
-                        PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  BasicInfoLastPage(
-                            fullName: fullName,
-                            email: email,
-                            location: location,
-                            birthday: birthday,
-                            phoneNumber: phoneNumber,
-                            profileImage: profileImage,
-                            coverImage: coverImage,
-                            image1: image1,
-                            image2: image2,
-                            image3: image3,
+                      if (coverImage != null) {
+                        Navigator.pushReplacement(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    BasicInfoLastPage(
+                              fullName: fullName,
+                              email: email,
+                              location: location,
+                              birthday: birthday,
+                              phoneNumber: phoneNumber,
+                              profileImage: profileImage,
+                              coverImage: coverImage!,
+                              image1: image1,
+                              image2: image2,
+                              image3: image3,
+                            ),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              const begin = Offset(1.0, 0.0);
+                              const end = Offset.zero;
+                              const curve = Curves.easeInOutQuart;
+                              var tween = Tween(begin: begin, end: end)
+                                  .chain(CurveTween(curve: curve));
+                              var offsetAnimation = animation.drive(tween);
+                              return SlideTransition(
+                                  position: offsetAnimation, child: child);
+                            },
                           ),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
-                            const begin = Offset(1.0, 0.0);
-                            const end = Offset.zero;
-                            const curve = Curves.easeInOutQuart;
-                            var tween = Tween(begin: begin, end: end)
-                                .chain(CurveTween(curve: curve));
-                            var offsetAnimation = animation.drive(tween);
-                            return SlideTransition(
-                                position: offsetAnimation, child: child);
-                          },
-                        ),
-                      );
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: const Row(
+                              children: [
+                                Icon(Icons.error_outline, color: Colors.white),
+                                SizedBox(width: 15),
+                                Flexible(
+                                  child: Text(
+                                    'Please select cover picture...📸...',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            duration: const Duration(seconds: 5),
+                            backgroundColor:
+                                const Color.fromARGB(234, 92, 16, 105),
+                            behavior: SnackBarBehavior.floating,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            // margin: EdgeInsets.symmetric(vertical: 100),
+                          ),
+                        );
+                      }
                     },
                   )
                 ],

@@ -206,40 +206,68 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                       log("-----------This is the data when pressed on create account on preview account----------${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bioTextController.text},$selectedGenderButton,$selectedGenderOtherOption,$selectedPreferenceButton");
                       log(selectedGenderButton);
 
-                      Navigator.pushReplacement(
-                        context,
-                        PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  PreviewAccount(
-                            fullName: widget.fullName,
-                            email: widget.email,
-                            phoneNumber: widget.phoneNumber,
-                            birthday: widget.birthday,
-                            coverImage: widget.coverImage,
-                            location: widget.location,
-                            profileImage: widget.profileImage,
-                            selectedOptions: selectedOptions,
-                            gender: selectedGenderButton,
-                            bio: bioTextController.text,
-                            preference: selectedPreferenceButton,
-                            image1: widget.image1,
-                            image2: widget.image2,
-                            image3: widget.image3,
+                      if (validateFields()) {
+                        Navigator.pushReplacement(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    PreviewAccount(
+                              fullName: widget.fullName,
+                              email: widget.email,
+                              phoneNumber: widget.phoneNumber,
+                              birthday: widget.birthday,
+                              coverImage: widget.coverImage,
+                              location: widget.location,
+                              profileImage: widget.profileImage,
+                              selectedOptions: selectedOptions,
+                              gender: selectedGenderButton,
+                              bio: bioTextController.text,
+                              preference: selectedPreferenceButton,
+                              image1: widget.image1,
+                              image2: widget.image2,
+                              image3: widget.image3,
+                            ),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              const begin = Offset(1.0, 0.0);
+                              const end = Offset.zero;
+                              const curve = Curves.easeInOutQuart;
+                              var tween = Tween(begin: begin, end: end)
+                                  .chain(CurveTween(curve: curve));
+                              var offsetAnimation = animation.drive(tween);
+                              return SlideTransition(
+                                  position: offsetAnimation, child: child);
+                            },
                           ),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
-                            const begin = Offset(1.0, 0.0);
-                            const end = Offset.zero;
-                            const curve = Curves.easeInOutQuart;
-                            var tween = Tween(begin: begin, end: end)
-                                .chain(CurveTween(curve: curve));
-                            var offsetAnimation = animation.drive(tween);
-                            return SlideTransition(
-                                position: offsetAnimation, child: child);
-                          },
-                        ),
-                      );
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: const Row(
+                              children: [
+                                Icon(Icons.error_outline, color: Colors.white),
+                                SizedBox(width: 15),
+                                Flexible(
+                                  child: Text(
+                                    '''Make sure you've entered data in all required fields....''',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            duration: const Duration(seconds: 5),
+                            backgroundColor:
+                                const Color.fromARGB(234, 92, 16, 105),
+                            behavior: SnackBarBehavior.floating,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                        );
+                      }
 
                       // Navigator.pushReplacement(
                       //   context,
@@ -389,6 +417,20 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
       default:
         return [];
     }
+  }
+
+  bool validateFields() {
+    // Check if any of the required fields are empty or null
+    if (selectedOptions.faith.isEmpty ||
+        selectedOptions.relationshipStatus.isEmpty ||
+        selectedOptions.smoking.isEmpty ||
+        selectedOptions.drinking.isEmpty ||
+        selectedGenderButton.isEmpty ||
+        selectedPreferenceButton.isEmpty ||
+        bioTextController.text.isEmpty) {
+      return false; // Return false if any required field is empty
+    }
+    return true; // All required fields are filled
   }
 }
 
