@@ -18,33 +18,48 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BasicInfoAuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() pickProfileImage,
-    required TResult Function() pickCoverImage,
-    required TResult Function() pickImage1,
-    required TResult Function() pickImage2,
-    required TResult Function() pickImage3,
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickProfileImage,
-    TResult? Function()? pickCoverImage,
-    TResult? Function()? pickImage1,
-    TResult? Function()? pickImage2,
-    TResult? Function()? pickImage3,
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickProfileImage,
-    TResult Function()? pickCoverImage,
-    TResult Function()? pickImage1,
-    TResult Function()? pickImage2,
-    TResult Function()? pickImage3,
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -52,31 +67,60 @@ mixin _$BasicInfoAuthEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_PickProfileImage value) pickProfileImage,
-    required TResult Function(_PickCoverImage value) pickCoverImage,
-    required TResult Function(_PickImage1 value) pickImage1,
-    required TResult Function(_PickImage2 value) pickImage2,
-    required TResult Function(_PickImage3 value) pickImage3,
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
     required TResult Function(_NextPage value) nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickProfileImage value)? pickProfileImage,
-    TResult? Function(_PickCoverImage value)? pickCoverImage,
-    TResult? Function(_PickImage1 value)? pickImage1,
-    TResult? Function(_PickImage2 value)? pickImage2,
-    TResult? Function(_PickImage3 value)? pickImage3,
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult? Function(_NextPage value)? nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickProfileImage value)? pickProfileImage,
-    TResult Function(_PickCoverImage value)? pickCoverImage,
-    TResult Function(_PickImage1 value)? pickImage1,
-    TResult Function(_PickImage2 value)? pickImage2,
-    TResult Function(_PickImage3 value)? pickImage3,
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) =>
@@ -102,35 +146,39 @@ class _$BasicInfoAuthEventCopyWithImpl<$Res, $Val extends BasicInfoAuthEvent>
 }
 
 /// @nodoc
-abstract class _$$_PickProfileImageCopyWith<$Res> {
-  factory _$$_PickProfileImageCopyWith(
-          _$_PickProfileImage value, $Res Function(_$_PickProfileImage) then) =
-      __$$_PickProfileImageCopyWithImpl<$Res>;
+abstract class _$$_PickProfileImageFromGalleryCopyWith<$Res> {
+  factory _$$_PickProfileImageFromGalleryCopyWith(
+          _$_PickProfileImageFromGallery value,
+          $Res Function(_$_PickProfileImageFromGallery) then) =
+      __$$_PickProfileImageFromGalleryCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PickProfileImageCopyWithImpl<$Res>
-    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickProfileImage>
-    implements _$$_PickProfileImageCopyWith<$Res> {
-  __$$_PickProfileImageCopyWithImpl(
-      _$_PickProfileImage _value, $Res Function(_$_PickProfileImage) _then)
+class __$$_PickProfileImageFromGalleryCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res,
+        _$_PickProfileImageFromGallery>
+    implements _$$_PickProfileImageFromGalleryCopyWith<$Res> {
+  __$$_PickProfileImageFromGalleryCopyWithImpl(
+      _$_PickProfileImageFromGallery _value,
+      $Res Function(_$_PickProfileImageFromGallery) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PickProfileImage implements _PickProfileImage {
-  const _$_PickProfileImage();
+class _$_PickProfileImageFromGallery implements _PickProfileImageFromGallery {
+  const _$_PickProfileImageFromGallery();
 
   @override
   String toString() {
-    return 'BasicInfoAuthEvent.pickProfileImage()';
+    return 'BasicInfoAuthEvent.pickProfileImageFromGallery()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PickProfileImage);
+        (other.runtimeType == runtimeType &&
+            other is _$_PickProfileImageFromGallery);
   }
 
   @override
@@ -139,45 +187,60 @@ class _$_PickProfileImage implements _PickProfileImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() pickProfileImage,
-    required TResult Function() pickCoverImage,
-    required TResult Function() pickImage1,
-    required TResult Function() pickImage2,
-    required TResult Function() pickImage3,
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
-    return pickProfileImage();
+    return pickProfileImageFromGallery();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickProfileImage,
-    TResult? Function()? pickCoverImage,
-    TResult? Function()? pickImage1,
-    TResult? Function()? pickImage2,
-    TResult? Function()? pickImage3,
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
-    return pickProfileImage?.call();
+    return pickProfileImageFromGallery?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickProfileImage,
-    TResult Function()? pickCoverImage,
-    TResult Function()? pickImage1,
-    TResult Function()? pickImage2,
-    TResult Function()? pickImage3,
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
   }) {
-    if (pickProfileImage != null) {
-      return pickProfileImage();
+    if (pickProfileImageFromGallery != null) {
+      return pickProfileImageFromGallery();
     }
     return orElse();
   }
@@ -185,81 +248,113 @@ class _$_PickProfileImage implements _PickProfileImage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_PickProfileImage value) pickProfileImage,
-    required TResult Function(_PickCoverImage value) pickCoverImage,
-    required TResult Function(_PickImage1 value) pickImage1,
-    required TResult Function(_PickImage2 value) pickImage2,
-    required TResult Function(_PickImage3 value) pickImage3,
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
     required TResult Function(_NextPage value) nextPage,
   }) {
-    return pickProfileImage(this);
+    return pickProfileImageFromGallery(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickProfileImage value)? pickProfileImage,
-    TResult? Function(_PickCoverImage value)? pickCoverImage,
-    TResult? Function(_PickImage1 value)? pickImage1,
-    TResult? Function(_PickImage2 value)? pickImage2,
-    TResult? Function(_PickImage3 value)? pickImage3,
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult? Function(_NextPage value)? nextPage,
   }) {
-    return pickProfileImage?.call(this);
+    return pickProfileImageFromGallery?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickProfileImage value)? pickProfileImage,
-    TResult Function(_PickCoverImage value)? pickCoverImage,
-    TResult Function(_PickImage1 value)? pickImage1,
-    TResult Function(_PickImage2 value)? pickImage2,
-    TResult Function(_PickImage3 value)? pickImage3,
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
-    if (pickProfileImage != null) {
-      return pickProfileImage(this);
+    if (pickProfileImageFromGallery != null) {
+      return pickProfileImageFromGallery(this);
     }
     return orElse();
   }
 }
 
-abstract class _PickProfileImage implements BasicInfoAuthEvent {
-  const factory _PickProfileImage() = _$_PickProfileImage;
+abstract class _PickProfileImageFromGallery implements BasicInfoAuthEvent {
+  const factory _PickProfileImageFromGallery() = _$_PickProfileImageFromGallery;
 }
 
 /// @nodoc
-abstract class _$$_PickCoverImageCopyWith<$Res> {
-  factory _$$_PickCoverImageCopyWith(
-          _$_PickCoverImage value, $Res Function(_$_PickCoverImage) then) =
-      __$$_PickCoverImageCopyWithImpl<$Res>;
+abstract class _$$_PickCoverImageFromGalleryCopyWith<$Res> {
+  factory _$$_PickCoverImageFromGalleryCopyWith(
+          _$_PickCoverImageFromGallery value,
+          $Res Function(_$_PickCoverImageFromGallery) then) =
+      __$$_PickCoverImageFromGalleryCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PickCoverImageCopyWithImpl<$Res>
-    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickCoverImage>
-    implements _$$_PickCoverImageCopyWith<$Res> {
-  __$$_PickCoverImageCopyWithImpl(
-      _$_PickCoverImage _value, $Res Function(_$_PickCoverImage) _then)
+class __$$_PickCoverImageFromGalleryCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickCoverImageFromGallery>
+    implements _$$_PickCoverImageFromGalleryCopyWith<$Res> {
+  __$$_PickCoverImageFromGalleryCopyWithImpl(
+      _$_PickCoverImageFromGallery _value,
+      $Res Function(_$_PickCoverImageFromGallery) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PickCoverImage implements _PickCoverImage {
-  const _$_PickCoverImage();
+class _$_PickCoverImageFromGallery implements _PickCoverImageFromGallery {
+  const _$_PickCoverImageFromGallery();
 
   @override
   String toString() {
-    return 'BasicInfoAuthEvent.pickCoverImage()';
+    return 'BasicInfoAuthEvent.pickCoverImageFromGallery()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PickCoverImage);
+        (other.runtimeType == runtimeType &&
+            other is _$_PickCoverImageFromGallery);
   }
 
   @override
@@ -268,45 +363,60 @@ class _$_PickCoverImage implements _PickCoverImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() pickProfileImage,
-    required TResult Function() pickCoverImage,
-    required TResult Function() pickImage1,
-    required TResult Function() pickImage2,
-    required TResult Function() pickImage3,
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
-    return pickCoverImage();
+    return pickCoverImageFromGallery();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickProfileImage,
-    TResult? Function()? pickCoverImage,
-    TResult? Function()? pickImage1,
-    TResult? Function()? pickImage2,
-    TResult? Function()? pickImage3,
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
-    return pickCoverImage?.call();
+    return pickCoverImageFromGallery?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickProfileImage,
-    TResult Function()? pickCoverImage,
-    TResult Function()? pickImage1,
-    TResult Function()? pickImage2,
-    TResult Function()? pickImage3,
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
   }) {
-    if (pickCoverImage != null) {
-      return pickCoverImage();
+    if (pickCoverImageFromGallery != null) {
+      return pickCoverImageFromGallery();
     }
     return orElse();
   }
@@ -314,81 +424,110 @@ class _$_PickCoverImage implements _PickCoverImage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_PickProfileImage value) pickProfileImage,
-    required TResult Function(_PickCoverImage value) pickCoverImage,
-    required TResult Function(_PickImage1 value) pickImage1,
-    required TResult Function(_PickImage2 value) pickImage2,
-    required TResult Function(_PickImage3 value) pickImage3,
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
     required TResult Function(_NextPage value) nextPage,
   }) {
-    return pickCoverImage(this);
+    return pickCoverImageFromGallery(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickProfileImage value)? pickProfileImage,
-    TResult? Function(_PickCoverImage value)? pickCoverImage,
-    TResult? Function(_PickImage1 value)? pickImage1,
-    TResult? Function(_PickImage2 value)? pickImage2,
-    TResult? Function(_PickImage3 value)? pickImage3,
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult? Function(_NextPage value)? nextPage,
   }) {
-    return pickCoverImage?.call(this);
+    return pickCoverImageFromGallery?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickProfileImage value)? pickProfileImage,
-    TResult Function(_PickCoverImage value)? pickCoverImage,
-    TResult Function(_PickImage1 value)? pickImage1,
-    TResult Function(_PickImage2 value)? pickImage2,
-    TResult Function(_PickImage3 value)? pickImage3,
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
-    if (pickCoverImage != null) {
-      return pickCoverImage(this);
+    if (pickCoverImageFromGallery != null) {
+      return pickCoverImageFromGallery(this);
     }
     return orElse();
   }
 }
 
-abstract class _PickCoverImage implements BasicInfoAuthEvent {
-  const factory _PickCoverImage() = _$_PickCoverImage;
+abstract class _PickCoverImageFromGallery implements BasicInfoAuthEvent {
+  const factory _PickCoverImageFromGallery() = _$_PickCoverImageFromGallery;
 }
 
 /// @nodoc
-abstract class _$$_PickImage1CopyWith<$Res> {
-  factory _$$_PickImage1CopyWith(
-          _$_PickImage1 value, $Res Function(_$_PickImage1) then) =
-      __$$_PickImage1CopyWithImpl<$Res>;
+abstract class _$$_PickImage1FromGalleryCopyWith<$Res> {
+  factory _$$_PickImage1FromGalleryCopyWith(_$_PickImage1FromGallery value,
+          $Res Function(_$_PickImage1FromGallery) then) =
+      __$$_PickImage1FromGalleryCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PickImage1CopyWithImpl<$Res>
-    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage1>
-    implements _$$_PickImage1CopyWith<$Res> {
-  __$$_PickImage1CopyWithImpl(
-      _$_PickImage1 _value, $Res Function(_$_PickImage1) _then)
+class __$$_PickImage1FromGalleryCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage1FromGallery>
+    implements _$$_PickImage1FromGalleryCopyWith<$Res> {
+  __$$_PickImage1FromGalleryCopyWithImpl(_$_PickImage1FromGallery _value,
+      $Res Function(_$_PickImage1FromGallery) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PickImage1 implements _PickImage1 {
-  const _$_PickImage1();
+class _$_PickImage1FromGallery implements _PickImage1FromGallery {
+  const _$_PickImage1FromGallery();
 
   @override
   String toString() {
-    return 'BasicInfoAuthEvent.pickImage1()';
+    return 'BasicInfoAuthEvent.pickImage1FromGallery()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PickImage1);
+        (other.runtimeType == runtimeType && other is _$_PickImage1FromGallery);
   }
 
   @override
@@ -397,45 +536,60 @@ class _$_PickImage1 implements _PickImage1 {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() pickProfileImage,
-    required TResult Function() pickCoverImage,
-    required TResult Function() pickImage1,
-    required TResult Function() pickImage2,
-    required TResult Function() pickImage3,
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
-    return pickImage1();
+    return pickImage1FromGallery();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickProfileImage,
-    TResult? Function()? pickCoverImage,
-    TResult? Function()? pickImage1,
-    TResult? Function()? pickImage2,
-    TResult? Function()? pickImage3,
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
-    return pickImage1?.call();
+    return pickImage1FromGallery?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickProfileImage,
-    TResult Function()? pickCoverImage,
-    TResult Function()? pickImage1,
-    TResult Function()? pickImage2,
-    TResult Function()? pickImage3,
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
   }) {
-    if (pickImage1 != null) {
-      return pickImage1();
+    if (pickImage1FromGallery != null) {
+      return pickImage1FromGallery();
     }
     return orElse();
   }
@@ -443,81 +597,110 @@ class _$_PickImage1 implements _PickImage1 {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_PickProfileImage value) pickProfileImage,
-    required TResult Function(_PickCoverImage value) pickCoverImage,
-    required TResult Function(_PickImage1 value) pickImage1,
-    required TResult Function(_PickImage2 value) pickImage2,
-    required TResult Function(_PickImage3 value) pickImage3,
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
     required TResult Function(_NextPage value) nextPage,
   }) {
-    return pickImage1(this);
+    return pickImage1FromGallery(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickProfileImage value)? pickProfileImage,
-    TResult? Function(_PickCoverImage value)? pickCoverImage,
-    TResult? Function(_PickImage1 value)? pickImage1,
-    TResult? Function(_PickImage2 value)? pickImage2,
-    TResult? Function(_PickImage3 value)? pickImage3,
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult? Function(_NextPage value)? nextPage,
   }) {
-    return pickImage1?.call(this);
+    return pickImage1FromGallery?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickProfileImage value)? pickProfileImage,
-    TResult Function(_PickCoverImage value)? pickCoverImage,
-    TResult Function(_PickImage1 value)? pickImage1,
-    TResult Function(_PickImage2 value)? pickImage2,
-    TResult Function(_PickImage3 value)? pickImage3,
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
-    if (pickImage1 != null) {
-      return pickImage1(this);
+    if (pickImage1FromGallery != null) {
+      return pickImage1FromGallery(this);
     }
     return orElse();
   }
 }
 
-abstract class _PickImage1 implements BasicInfoAuthEvent {
-  const factory _PickImage1() = _$_PickImage1;
+abstract class _PickImage1FromGallery implements BasicInfoAuthEvent {
+  const factory _PickImage1FromGallery() = _$_PickImage1FromGallery;
 }
 
 /// @nodoc
-abstract class _$$_PickImage2CopyWith<$Res> {
-  factory _$$_PickImage2CopyWith(
-          _$_PickImage2 value, $Res Function(_$_PickImage2) then) =
-      __$$_PickImage2CopyWithImpl<$Res>;
+abstract class _$$_PickImage2FromGalleryCopyWith<$Res> {
+  factory _$$_PickImage2FromGalleryCopyWith(_$_PickImage2FromGallery value,
+          $Res Function(_$_PickImage2FromGallery) then) =
+      __$$_PickImage2FromGalleryCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PickImage2CopyWithImpl<$Res>
-    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage2>
-    implements _$$_PickImage2CopyWith<$Res> {
-  __$$_PickImage2CopyWithImpl(
-      _$_PickImage2 _value, $Res Function(_$_PickImage2) _then)
+class __$$_PickImage2FromGalleryCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage2FromGallery>
+    implements _$$_PickImage2FromGalleryCopyWith<$Res> {
+  __$$_PickImage2FromGalleryCopyWithImpl(_$_PickImage2FromGallery _value,
+      $Res Function(_$_PickImage2FromGallery) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PickImage2 implements _PickImage2 {
-  const _$_PickImage2();
+class _$_PickImage2FromGallery implements _PickImage2FromGallery {
+  const _$_PickImage2FromGallery();
 
   @override
   String toString() {
-    return 'BasicInfoAuthEvent.pickImage2()';
+    return 'BasicInfoAuthEvent.pickImage2FromGallery()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PickImage2);
+        (other.runtimeType == runtimeType && other is _$_PickImage2FromGallery);
   }
 
   @override
@@ -526,45 +709,60 @@ class _$_PickImage2 implements _PickImage2 {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() pickProfileImage,
-    required TResult Function() pickCoverImage,
-    required TResult Function() pickImage1,
-    required TResult Function() pickImage2,
-    required TResult Function() pickImage3,
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
-    return pickImage2();
+    return pickImage2FromGallery();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickProfileImage,
-    TResult? Function()? pickCoverImage,
-    TResult? Function()? pickImage1,
-    TResult? Function()? pickImage2,
-    TResult? Function()? pickImage3,
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
-    return pickImage2?.call();
+    return pickImage2FromGallery?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickProfileImage,
-    TResult Function()? pickCoverImage,
-    TResult Function()? pickImage1,
-    TResult Function()? pickImage2,
-    TResult Function()? pickImage3,
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
   }) {
-    if (pickImage2 != null) {
-      return pickImage2();
+    if (pickImage2FromGallery != null) {
+      return pickImage2FromGallery();
     }
     return orElse();
   }
@@ -572,81 +770,110 @@ class _$_PickImage2 implements _PickImage2 {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_PickProfileImage value) pickProfileImage,
-    required TResult Function(_PickCoverImage value) pickCoverImage,
-    required TResult Function(_PickImage1 value) pickImage1,
-    required TResult Function(_PickImage2 value) pickImage2,
-    required TResult Function(_PickImage3 value) pickImage3,
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
     required TResult Function(_NextPage value) nextPage,
   }) {
-    return pickImage2(this);
+    return pickImage2FromGallery(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickProfileImage value)? pickProfileImage,
-    TResult? Function(_PickCoverImage value)? pickCoverImage,
-    TResult? Function(_PickImage1 value)? pickImage1,
-    TResult? Function(_PickImage2 value)? pickImage2,
-    TResult? Function(_PickImage3 value)? pickImage3,
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult? Function(_NextPage value)? nextPage,
   }) {
-    return pickImage2?.call(this);
+    return pickImage2FromGallery?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickProfileImage value)? pickProfileImage,
-    TResult Function(_PickCoverImage value)? pickCoverImage,
-    TResult Function(_PickImage1 value)? pickImage1,
-    TResult Function(_PickImage2 value)? pickImage2,
-    TResult Function(_PickImage3 value)? pickImage3,
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
-    if (pickImage2 != null) {
-      return pickImage2(this);
+    if (pickImage2FromGallery != null) {
+      return pickImage2FromGallery(this);
     }
     return orElse();
   }
 }
 
-abstract class _PickImage2 implements BasicInfoAuthEvent {
-  const factory _PickImage2() = _$_PickImage2;
+abstract class _PickImage2FromGallery implements BasicInfoAuthEvent {
+  const factory _PickImage2FromGallery() = _$_PickImage2FromGallery;
 }
 
 /// @nodoc
-abstract class _$$_PickImage3CopyWith<$Res> {
-  factory _$$_PickImage3CopyWith(
-          _$_PickImage3 value, $Res Function(_$_PickImage3) then) =
-      __$$_PickImage3CopyWithImpl<$Res>;
+abstract class _$$_PickImage3FromGalleryCopyWith<$Res> {
+  factory _$$_PickImage3FromGalleryCopyWith(_$_PickImage3FromGallery value,
+          $Res Function(_$_PickImage3FromGallery) then) =
+      __$$_PickImage3FromGalleryCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PickImage3CopyWithImpl<$Res>
-    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage3>
-    implements _$$_PickImage3CopyWith<$Res> {
-  __$$_PickImage3CopyWithImpl(
-      _$_PickImage3 _value, $Res Function(_$_PickImage3) _then)
+class __$$_PickImage3FromGalleryCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage3FromGallery>
+    implements _$$_PickImage3FromGalleryCopyWith<$Res> {
+  __$$_PickImage3FromGalleryCopyWithImpl(_$_PickImage3FromGallery _value,
+      $Res Function(_$_PickImage3FromGallery) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PickImage3 implements _PickImage3 {
-  const _$_PickImage3();
+class _$_PickImage3FromGallery implements _PickImage3FromGallery {
+  const _$_PickImage3FromGallery();
 
   @override
   String toString() {
-    return 'BasicInfoAuthEvent.pickImage3()';
+    return 'BasicInfoAuthEvent.pickImage3FromGallery()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PickImage3);
+        (other.runtimeType == runtimeType && other is _$_PickImage3FromGallery);
   }
 
   @override
@@ -655,45 +882,60 @@ class _$_PickImage3 implements _PickImage3 {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() pickProfileImage,
-    required TResult Function() pickCoverImage,
-    required TResult Function() pickImage1,
-    required TResult Function() pickImage2,
-    required TResult Function() pickImage3,
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
-    return pickImage3();
+    return pickImage3FromGallery();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickProfileImage,
-    TResult? Function()? pickCoverImage,
-    TResult? Function()? pickImage1,
-    TResult? Function()? pickImage2,
-    TResult? Function()? pickImage3,
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
-    return pickImage3?.call();
+    return pickImage3FromGallery?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickProfileImage,
-    TResult Function()? pickCoverImage,
-    TResult Function()? pickImage1,
-    TResult Function()? pickImage2,
-    TResult Function()? pickImage3,
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
   }) {
-    if (pickImage3 != null) {
-      return pickImage3();
+    if (pickImage3FromGallery != null) {
+      return pickImage3FromGallery();
     }
     return orElse();
   }
@@ -701,49 +943,949 @@ class _$_PickImage3 implements _PickImage3 {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_PickProfileImage value) pickProfileImage,
-    required TResult Function(_PickCoverImage value) pickCoverImage,
-    required TResult Function(_PickImage1 value) pickImage1,
-    required TResult Function(_PickImage2 value) pickImage2,
-    required TResult Function(_PickImage3 value) pickImage3,
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
     required TResult Function(_NextPage value) nextPage,
   }) {
-    return pickImage3(this);
+    return pickImage3FromGallery(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickProfileImage value)? pickProfileImage,
-    TResult? Function(_PickCoverImage value)? pickCoverImage,
-    TResult? Function(_PickImage1 value)? pickImage1,
-    TResult? Function(_PickImage2 value)? pickImage2,
-    TResult? Function(_PickImage3 value)? pickImage3,
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult? Function(_NextPage value)? nextPage,
   }) {
-    return pickImage3?.call(this);
+    return pickImage3FromGallery?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickProfileImage value)? pickProfileImage,
-    TResult Function(_PickCoverImage value)? pickCoverImage,
-    TResult Function(_PickImage1 value)? pickImage1,
-    TResult Function(_PickImage2 value)? pickImage2,
-    TResult Function(_PickImage3 value)? pickImage3,
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
-    if (pickImage3 != null) {
-      return pickImage3(this);
+    if (pickImage3FromGallery != null) {
+      return pickImage3FromGallery(this);
     }
     return orElse();
   }
 }
 
-abstract class _PickImage3 implements BasicInfoAuthEvent {
-  const factory _PickImage3() = _$_PickImage3;
+abstract class _PickImage3FromGallery implements BasicInfoAuthEvent {
+  const factory _PickImage3FromGallery() = _$_PickImage3FromGallery;
+}
+
+/// @nodoc
+abstract class _$$_PickProfileImageFromCameraCopyWith<$Res> {
+  factory _$$_PickProfileImageFromCameraCopyWith(
+          _$_PickProfileImageFromCamera value,
+          $Res Function(_$_PickProfileImageFromCamera) then) =
+      __$$_PickProfileImageFromCameraCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickProfileImageFromCameraCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res,
+        _$_PickProfileImageFromCamera>
+    implements _$$_PickProfileImageFromCameraCopyWith<$Res> {
+  __$$_PickProfileImageFromCameraCopyWithImpl(
+      _$_PickProfileImageFromCamera _value,
+      $Res Function(_$_PickProfileImageFromCamera) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickProfileImageFromCamera implements _PickProfileImageFromCamera {
+  const _$_PickProfileImageFromCamera();
+
+  @override
+  String toString() {
+    return 'BasicInfoAuthEvent.pickProfileImageFromCamera()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PickProfileImageFromCamera);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
+    required TResult Function(String? fullName, String? email, String? birthday)
+        nextPage,
+  }) {
+    return pickProfileImageFromCamera();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
+    TResult? Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+  }) {
+    return pickProfileImageFromCamera?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
+    TResult Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickProfileImageFromCamera != null) {
+      return pickProfileImageFromCamera();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return pickProfileImageFromCamera(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return pickProfileImageFromCamera?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickProfileImageFromCamera != null) {
+      return pickProfileImageFromCamera(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickProfileImageFromCamera implements BasicInfoAuthEvent {
+  const factory _PickProfileImageFromCamera() = _$_PickProfileImageFromCamera;
+}
+
+/// @nodoc
+abstract class _$$_PickCoverImageFromCameraCopyWith<$Res> {
+  factory _$$_PickCoverImageFromCameraCopyWith(
+          _$_PickCoverImageFromCamera value,
+          $Res Function(_$_PickCoverImageFromCamera) then) =
+      __$$_PickCoverImageFromCameraCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickCoverImageFromCameraCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickCoverImageFromCamera>
+    implements _$$_PickCoverImageFromCameraCopyWith<$Res> {
+  __$$_PickCoverImageFromCameraCopyWithImpl(_$_PickCoverImageFromCamera _value,
+      $Res Function(_$_PickCoverImageFromCamera) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickCoverImageFromCamera implements _PickCoverImageFromCamera {
+  const _$_PickCoverImageFromCamera();
+
+  @override
+  String toString() {
+    return 'BasicInfoAuthEvent.pickCoverImageFromCamera()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PickCoverImageFromCamera);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
+    required TResult Function(String? fullName, String? email, String? birthday)
+        nextPage,
+  }) {
+    return pickCoverImageFromCamera();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
+    TResult? Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+  }) {
+    return pickCoverImageFromCamera?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
+    TResult Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickCoverImageFromCamera != null) {
+      return pickCoverImageFromCamera();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return pickCoverImageFromCamera(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return pickCoverImageFromCamera?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickCoverImageFromCamera != null) {
+      return pickCoverImageFromCamera(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickCoverImageFromCamera implements BasicInfoAuthEvent {
+  const factory _PickCoverImageFromCamera() = _$_PickCoverImageFromCamera;
+}
+
+/// @nodoc
+abstract class _$$_PickImage1FromCameraCopyWith<$Res> {
+  factory _$$_PickImage1FromCameraCopyWith(_$_PickImage1FromCamera value,
+          $Res Function(_$_PickImage1FromCamera) then) =
+      __$$_PickImage1FromCameraCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickImage1FromCameraCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage1FromCamera>
+    implements _$$_PickImage1FromCameraCopyWith<$Res> {
+  __$$_PickImage1FromCameraCopyWithImpl(_$_PickImage1FromCamera _value,
+      $Res Function(_$_PickImage1FromCamera) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickImage1FromCamera implements _PickImage1FromCamera {
+  const _$_PickImage1FromCamera();
+
+  @override
+  String toString() {
+    return 'BasicInfoAuthEvent.pickImage1FromCamera()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PickImage1FromCamera);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
+    required TResult Function(String? fullName, String? email, String? birthday)
+        nextPage,
+  }) {
+    return pickImage1FromCamera();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
+    TResult? Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+  }) {
+    return pickImage1FromCamera?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
+    TResult Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage1FromCamera != null) {
+      return pickImage1FromCamera();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return pickImage1FromCamera(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return pickImage1FromCamera?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage1FromCamera != null) {
+      return pickImage1FromCamera(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickImage1FromCamera implements BasicInfoAuthEvent {
+  const factory _PickImage1FromCamera() = _$_PickImage1FromCamera;
+}
+
+/// @nodoc
+abstract class _$$_PickImage2FromCameraCopyWith<$Res> {
+  factory _$$_PickImage2FromCameraCopyWith(_$_PickImage2FromCamera value,
+          $Res Function(_$_PickImage2FromCamera) then) =
+      __$$_PickImage2FromCameraCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickImage2FromCameraCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage2FromCamera>
+    implements _$$_PickImage2FromCameraCopyWith<$Res> {
+  __$$_PickImage2FromCameraCopyWithImpl(_$_PickImage2FromCamera _value,
+      $Res Function(_$_PickImage2FromCamera) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickImage2FromCamera implements _PickImage2FromCamera {
+  const _$_PickImage2FromCamera();
+
+  @override
+  String toString() {
+    return 'BasicInfoAuthEvent.pickImage2FromCamera()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PickImage2FromCamera);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
+    required TResult Function(String? fullName, String? email, String? birthday)
+        nextPage,
+  }) {
+    return pickImage2FromCamera();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
+    TResult? Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+  }) {
+    return pickImage2FromCamera?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
+    TResult Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage2FromCamera != null) {
+      return pickImage2FromCamera();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return pickImage2FromCamera(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return pickImage2FromCamera?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage2FromCamera != null) {
+      return pickImage2FromCamera(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickImage2FromCamera implements BasicInfoAuthEvent {
+  const factory _PickImage2FromCamera() = _$_PickImage2FromCamera;
+}
+
+/// @nodoc
+abstract class _$$_PickImage3FromCameraCopyWith<$Res> {
+  factory _$$_PickImage3FromCameraCopyWith(_$_PickImage3FromCamera value,
+          $Res Function(_$_PickImage3FromCamera) then) =
+      __$$_PickImage3FromCameraCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickImage3FromCameraCopyWithImpl<$Res>
+    extends _$BasicInfoAuthEventCopyWithImpl<$Res, _$_PickImage3FromCamera>
+    implements _$$_PickImage3FromCameraCopyWith<$Res> {
+  __$$_PickImage3FromCameraCopyWithImpl(_$_PickImage3FromCamera _value,
+      $Res Function(_$_PickImage3FromCamera) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickImage3FromCamera implements _PickImage3FromCamera {
+  const _$_PickImage3FromCamera();
+
+  @override
+  String toString() {
+    return 'BasicInfoAuthEvent.pickImage3FromCamera()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PickImage3FromCamera);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
+    required TResult Function(String? fullName, String? email, String? birthday)
+        nextPage,
+  }) {
+    return pickImage3FromCamera();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
+    TResult? Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+  }) {
+    return pickImage3FromCamera?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
+    TResult Function(String? fullName, String? email, String? birthday)?
+        nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage3FromCamera != null) {
+      return pickImage3FromCamera();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return pickImage3FromCamera(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return pickImage3FromCamera?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (pickImage3FromCamera != null) {
+      return pickImage3FromCamera(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickImage3FromCamera implements BasicInfoAuthEvent {
+  const factory _PickImage3FromCamera() = _$_PickImage3FromCamera;
 }
 
 /// @nodoc
@@ -828,11 +1970,16 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() pickProfileImage,
-    required TResult Function() pickCoverImage,
-    required TResult Function() pickImage1,
-    required TResult Function() pickImage2,
-    required TResult Function() pickImage3,
+    required TResult Function() pickProfileImageFromGallery,
+    required TResult Function() pickCoverImageFromGallery,
+    required TResult Function() pickImage1FromGallery,
+    required TResult Function() pickImage2FromGallery,
+    required TResult Function() pickImage3FromGallery,
+    required TResult Function() pickProfileImageFromCamera,
+    required TResult Function() pickCoverImageFromCamera,
+    required TResult Function() pickImage1FromCamera,
+    required TResult Function() pickImage2FromCamera,
+    required TResult Function() pickImage3FromCamera,
     required TResult Function(String? fullName, String? email, String? birthday)
         nextPage,
   }) {
@@ -842,11 +1989,16 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pickProfileImage,
-    TResult? Function()? pickCoverImage,
-    TResult? Function()? pickImage1,
-    TResult? Function()? pickImage2,
-    TResult? Function()? pickImage3,
+    TResult? Function()? pickProfileImageFromGallery,
+    TResult? Function()? pickCoverImageFromGallery,
+    TResult? Function()? pickImage1FromGallery,
+    TResult? Function()? pickImage2FromGallery,
+    TResult? Function()? pickImage3FromGallery,
+    TResult? Function()? pickProfileImageFromCamera,
+    TResult? Function()? pickCoverImageFromCamera,
+    TResult? Function()? pickImage1FromCamera,
+    TResult? Function()? pickImage2FromCamera,
+    TResult? Function()? pickImage3FromCamera,
     TResult? Function(String? fullName, String? email, String? birthday)?
         nextPage,
   }) {
@@ -856,11 +2008,16 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pickProfileImage,
-    TResult Function()? pickCoverImage,
-    TResult Function()? pickImage1,
-    TResult Function()? pickImage2,
-    TResult Function()? pickImage3,
+    TResult Function()? pickProfileImageFromGallery,
+    TResult Function()? pickCoverImageFromGallery,
+    TResult Function()? pickImage1FromGallery,
+    TResult Function()? pickImage2FromGallery,
+    TResult Function()? pickImage3FromGallery,
+    TResult Function()? pickProfileImageFromCamera,
+    TResult Function()? pickCoverImageFromCamera,
+    TResult Function()? pickImage1FromCamera,
+    TResult Function()? pickImage2FromCamera,
+    TResult Function()? pickImage3FromCamera,
     TResult Function(String? fullName, String? email, String? birthday)?
         nextPage,
     required TResult orElse(),
@@ -874,11 +2031,23 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_PickProfileImage value) pickProfileImage,
-    required TResult Function(_PickCoverImage value) pickCoverImage,
-    required TResult Function(_PickImage1 value) pickImage1,
-    required TResult Function(_PickImage2 value) pickImage2,
-    required TResult Function(_PickImage3 value) pickImage3,
+    required TResult Function(_PickProfileImageFromGallery value)
+        pickProfileImageFromGallery,
+    required TResult Function(_PickCoverImageFromGallery value)
+        pickCoverImageFromGallery,
+    required TResult Function(_PickImage1FromGallery value)
+        pickImage1FromGallery,
+    required TResult Function(_PickImage2FromGallery value)
+        pickImage2FromGallery,
+    required TResult Function(_PickImage3FromGallery value)
+        pickImage3FromGallery,
+    required TResult Function(_PickProfileImageFromCamera value)
+        pickProfileImageFromCamera,
+    required TResult Function(_PickCoverImageFromCamera value)
+        pickCoverImageFromCamera,
+    required TResult Function(_PickImage1FromCamera value) pickImage1FromCamera,
+    required TResult Function(_PickImage2FromCamera value) pickImage2FromCamera,
+    required TResult Function(_PickImage3FromCamera value) pickImage3FromCamera,
     required TResult Function(_NextPage value) nextPage,
   }) {
     return nextPage(this);
@@ -887,11 +2056,20 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PickProfileImage value)? pickProfileImage,
-    TResult? Function(_PickCoverImage value)? pickCoverImage,
-    TResult? Function(_PickImage1 value)? pickImage1,
-    TResult? Function(_PickImage2 value)? pickImage2,
-    TResult? Function(_PickImage3 value)? pickImage3,
+    TResult? Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult? Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult? Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult? Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult? Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult? Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult? Function(_PickCoverImageFromCamera value)?
+        pickCoverImageFromCamera,
+    TResult? Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult? Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult? Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult? Function(_NextPage value)? nextPage,
   }) {
     return nextPage?.call(this);
@@ -900,11 +2078,19 @@ class _$_NextPage implements _NextPage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PickProfileImage value)? pickProfileImage,
-    TResult Function(_PickCoverImage value)? pickCoverImage,
-    TResult Function(_PickImage1 value)? pickImage1,
-    TResult Function(_PickImage2 value)? pickImage2,
-    TResult Function(_PickImage3 value)? pickImage3,
+    TResult Function(_PickProfileImageFromGallery value)?
+        pickProfileImageFromGallery,
+    TResult Function(_PickCoverImageFromGallery value)?
+        pickCoverImageFromGallery,
+    TResult Function(_PickImage1FromGallery value)? pickImage1FromGallery,
+    TResult Function(_PickImage2FromGallery value)? pickImage2FromGallery,
+    TResult Function(_PickImage3FromGallery value)? pickImage3FromGallery,
+    TResult Function(_PickProfileImageFromCamera value)?
+        pickProfileImageFromCamera,
+    TResult Function(_PickCoverImageFromCamera value)? pickCoverImageFromCamera,
+    TResult Function(_PickImage1FromCamera value)? pickImage1FromCamera,
+    TResult Function(_PickImage2FromCamera value)? pickImage2FromCamera,
+    TResult Function(_PickImage3FromCamera value)? pickImage3FromCamera,
     TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {

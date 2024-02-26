@@ -107,7 +107,7 @@ class MenuPage extends StatelessWidget {
     );
   }
 
-  Future<dynamic> logoutAlertMethod(BuildContext context) {
+  Future<void> logoutAlertMethod(context) {
     return showDialog(
       context: context,
       builder: (BuildContext context) {

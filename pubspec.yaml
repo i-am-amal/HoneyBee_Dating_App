@@ -1,5 +1,5 @@
 name: honeybee
-description: A new Flutter project.
+description: A social media dating app project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   awesome_notifications: ^0.9.1
-  bloc: ^8.1.2
+  # bloc: ^8.1.2
   build_runner: ^2.4.6
   cached_network_image: ^3.3.1
   country_code_picker: ^3.0.0

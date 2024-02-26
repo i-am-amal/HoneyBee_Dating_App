@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/get_message_request_model/get_message_request_model.dart';
 import 'package:honeybee/domain/models/get_message_response_model/get_message_response_model.dart';

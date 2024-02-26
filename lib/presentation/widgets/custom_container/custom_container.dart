@@ -44,8 +44,11 @@ class CustomContainer extends StatelessWidget {
                 fit: BoxFit.cover,
               )
             : const Center(
-                child: Text(
-                  'No Image Available',
+                child: Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: Text(
+                    'No Image Available',
+                  ),
                 ),
               ),
       ),

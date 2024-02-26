@@ -168,12 +168,18 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                                       .editProfileDetails.profilePic!.path),
                           onTap: () {
                             log("on tap on pop up edit info main page");
-                            pickImageModalPopUp(
+                             pickImageModalPopUp(
                               context,
                               () {
                                 BlocProvider.of<BasicInfoAuthBloc>(context).add(
                                     const BasicInfoAuthEvent
-                                        .pickProfileImage());
+                                        .pickProfileImageFromCamera());
+                              },
+                              () {
+                                BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                                    const BasicInfoAuthEvent
+                                        .pickProfileImageFromGallery());
+
                                 log("bloc provider worked");
                               },
                             );

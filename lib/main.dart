@@ -15,6 +15,7 @@ import 'package:honeybee/application/update_account_page/update_account_page_blo
 import 'package:honeybee/core/routes/navigation_functions.dart';
 import 'package:honeybee/infrastructure/services/notification_services.dart';
 import 'package:honeybee/infrastructure/services/socket_services.dart';
+import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_main_page.dart';
 import 'package:honeybee/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -84,15 +85,16 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        navigatorKey: CustomNavigator.navigatorKey,
-        title: 'HoneyBee',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const SplashScreen(),
-      ),
+          navigatorKey: CustomNavigator.navigatorKey,
+          title: 'HoneyBee',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          home: SplashScreen()
+          // BasicInfoMainPage(formattedPhoneNumber: '8606509838'),
+          ),
     );
   }
 }

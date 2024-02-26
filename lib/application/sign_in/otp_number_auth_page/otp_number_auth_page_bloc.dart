@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/verify_otp_request_model/verify_otp_request_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';

@@ -2,15 +2,16 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
 import 'package:honeybee/presentation/screens/create_account/location/location_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/date_picker/date_picker.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
 import 'package:intl/intl.dart';
-import '../../../../application/basic_info_auth_page/basic_info_auth_bloc.dart';
-import '../../../widgets/textform_widgets/custom_textformfield.dart';
+
 import 'pick_image_modal_popup.dart';
 
 class BasicInfoMainPage extends StatelessWidget {
@@ -39,7 +40,10 @@ class BasicInfoMainPage extends StatelessWidget {
               if (state.isValidated == true) {
                 File image = File(state.pickedProfileImage!.path);
 
+                log('${nameController.text}, ${emailController.text}, ${phoneNumberController.text}, ${dateController.text}, $image');
+
                 WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                  ///page route builder
                   Navigator.pushReplacement(
                     context,
                     PageRouteBuilder(
@@ -64,6 +68,8 @@ class BasicInfoMainPage extends StatelessWidget {
                       },
                     ),
                   );
+
+                  ///page route builder ends ***************************
 
                   // Navigator.pushReplacement(
                   //   context,
@@ -101,19 +107,37 @@ class BasicInfoMainPage extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(height: height * 0.03),
                 Stack(
                   alignment: Alignment.bottomRight,
                   children: [
+                    //// profile image section
                     ClipOval(
-                      child: SizedBox(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.teal.withOpacity(0.1),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: const Offset(0, 3)),
+                          ],
+                        ),
                         width: width * 0.33,
-                        height: height * 0.25,
+                        height: height * 0.23,
                         child: GestureDetector(
                           child: state.pickedProfileImage != null
                               ? Image.file(
                                   File(state.pickedProfileImage!.path),
+                                  fit: BoxFit.cover,
                                 )
-                              : Image.asset('assets/images/profile.jpg'),
+                              : const Center(
+                                  child: Icon(
+                                    Icons.add_a_photo,
+                                    size: 48,
+                                    color: Colors.teal,
+                                  ),
+                                ),
                           onTap: () {
                             log("on tap on pop up main page");
                             pickImageModalPopUp(
@@ -121,17 +145,31 @@ class BasicInfoMainPage extends StatelessWidget {
                               () {
                                 BlocProvider.of<BasicInfoAuthBloc>(context).add(
                                     const BasicInfoAuthEvent
-                                        .pickProfileImage());
+                                        .pickProfileImageFromCamera());
+                              },
+                              () {
+                                BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                                    const BasicInfoAuthEvent
+                                        .pickProfileImageFromGallery());
+
                                 log("bloc provider worked");
                               },
                             );
                           },
+//                           onTap: () {
+//   pickImageModalPopUp(
+//     context,
+//     (XFile image) => BasicInfoAuthEvent.pickProfileImage(profileImage: image),
+//   );
+// },
                         ),
                       ),
                     ),
+                    //// profile image section ends
+
                     Positioned(
-                      bottom: 25,
-                      right: -5,
+                      bottom: 0,
+                      right: -10,
                       child: GestureDetector(
                         child: Container(
                           padding: const EdgeInsets.all(8),
@@ -149,7 +187,7 @@ class BasicInfoMainPage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: height * 0.01,
+                  height: height * 0.03,
                 ),
                 CustomTextFormFiled(
                   text: 'Full Name',

@@ -63,6 +63,7 @@ Stay clear of inappropriate content''';
               if (state.pic3 != null) {
                 image3 = File(state.pic3!.path);
               }
+
               return Column(
                 children: [
                   SizedBox(height: height * 0.03),
@@ -139,8 +140,16 @@ Stay clear of inappropriate content''';
                       pickImageModalPopUp(
                         context,
                         () {
-                          BlocProvider.of<BasicInfoAuthBloc>(context)
-                              .add(const BasicInfoAuthEvent.pickCoverImage());
+                          BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                              const BasicInfoAuthEvent
+                                  .pickCoverImageFromCamera());
+                        },
+                        () {
+                          BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                              const BasicInfoAuthEvent
+                                  .pickCoverImageFromGallery());
+
+                          log("bloc provider worked");
                         },
                       );
                     },
@@ -156,30 +165,63 @@ Stay clear of inappropriate content''';
                             width: width,
                             image: image1,
                             onTapFunction: () {
-                              pickImageModalPopUp(context, () {
-                                BlocProvider.of<BasicInfoAuthBloc>(context)
-                                    .add(const BasicInfoAuthEvent.pickImage1());
-                              });
+                              pickImageModalPopUp(
+                                context,
+                                () {
+                                  BlocProvider.of<BasicInfoAuthBloc>(context)
+                                      .add(const BasicInfoAuthEvent
+                                          .pickImage1FromCamera());
+                                },
+                                () {
+                                  BlocProvider.of<BasicInfoAuthBloc>(context)
+                                      .add(const BasicInfoAuthEvent
+                                          .pickImage1FromGallery());
+
+                                  log("bloc provider worked");
+                                },
+                              );
                             }),
                         CustomContainer(
                             height: height,
                             width: width,
                             image: image2,
                             onTapFunction: () {
-                              pickImageModalPopUp(context, () {
-                                BlocProvider.of<BasicInfoAuthBloc>(context)
-                                    .add(const BasicInfoAuthEvent.pickImage2());
-                              });
+                              pickImageModalPopUp(
+                                context,
+                                () {
+                                  BlocProvider.of<BasicInfoAuthBloc>(context)
+                                      .add(const BasicInfoAuthEvent
+                                          .pickImage2FromCamera());
+                                },
+                                () {
+                                  BlocProvider.of<BasicInfoAuthBloc>(context)
+                                      .add(const BasicInfoAuthEvent
+                                          .pickImage2FromGallery());
+
+                                  log("bloc provider worked");
+                                },
+                              );
                             }),
                         CustomContainer(
                             height: height,
                             width: width,
                             image: image3,
                             onTapFunction: () {
-                              pickImageModalPopUp(context, () {
-                                BlocProvider.of<BasicInfoAuthBloc>(context)
-                                    .add(const BasicInfoAuthEvent.pickImage3());
-                              });
+                              pickImageModalPopUp(
+                                context,
+                                () {
+                                  BlocProvider.of<BasicInfoAuthBloc>(context)
+                                      .add(const BasicInfoAuthEvent
+                                          .pickImage3FromCamera());
+                                },
+                                () {
+                                  BlocProvider.of<BasicInfoAuthBloc>(context)
+                                      .add(const BasicInfoAuthEvent
+                                          .pickImage3FromGallery());
+
+                                  log("bloc provider worked");
+                                },
+                              );
                             }),
                       ]),
                   SizedBox(height: height * 0.02),

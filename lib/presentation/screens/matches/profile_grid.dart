@@ -7,7 +7,6 @@ import 'package:honeybee/domain/models/user_model/user_model.dart';
 import 'package:honeybee/presentation/screens/profile/profile_preview/user_profile_view_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:lottie/lottie.dart';
 
 class ProfileGrid extends StatelessWidget {
   const ProfileGrid({super.key});
