@@ -90,36 +90,37 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-          navigatorKey: CustomNavigator.navigatorKey,
-          title: 'HoneyBee',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: const SplashScreen()
-          // LocationPage(
-          //     fullName: 'abc',
-          //     email: 'abcd@gmail.com',
-          //     phoneNumber: '8606509838',
-          //     birthday: '10/10/1998',
-          //     profileImage: File('testing'))
-          // BasicInfoMainPage(formattedPhoneNumber: '8606509838'),
-          //     PreviewAccount(
-          //   fullName: 'rajan',
-          //   email: 'rabos@gmail.com',
-          //   location: 'hihihi',
-          //   phoneNumber: '8606509838',
-          //   birthday: '10/10/1999',
-          //   profileImage: File('test pro pic'),
-          //   coverImage: File('test cover'),
-          //   bio: '11111111111111',
-          //   gender: '',
-          //   preference: '',
-          //   selectedOptions: SelectedOptions(
-          //       faith: '', drinking: '', relationshipStatus: '', smoking: ''),
-          // ),
-          ),
+        navigatorKey: CustomNavigator.navigatorKey,
+        title: 'HoneyBee',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home:
+            const SplashScreen()
+            // LocationPage(
+            //     fullName: 'abc',
+            //     email: 'abcd@gmail.com',
+            //     phoneNumber: '8606509838',
+            //     birthday: '10/10/1998',
+            //     profileImage: File('testing'))
+            // BasicInfoMainPage(formattedPhoneNumber: '8606509838'),
+        //     PreviewAccount(
+        //   fullName: 'rajan',
+        //   email: 'rabos@gmail.com',
+        //   location: 'hihihi',
+        //   phoneNumber: '8606509838',
+        //   birthday: '10/10/1999',
+        //   profileImage: File('test pro pic'),
+        //   coverImage: File('test cover'),
+        //   bio: '11111111111111',
+        //   gender: '',
+        //   preference: '',
+        //   selectedOptions: SelectedOptions(
+        //       faith: '', drinking: '', relationshipStatus: '', smoking: ''),
+        // ),
+      ),
     );
   }
 }

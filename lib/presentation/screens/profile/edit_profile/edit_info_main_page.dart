@@ -7,6 +7,7 @@ import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.d
 import 'package:honeybee/presentation/screens/create_account/basic_info/pick_image_modal_popup.dart';
 import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
 import 'package:honeybee/presentation/screens/profile/edit_profile/edit_location_page.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/date_picker/date_picker.dart';
@@ -63,7 +64,39 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    return Scaffold(
+    return WillPopScope(onWillPop: () async {
+      // Show an alert dialog
+      bool exitProcedure = await showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Exit edit profile'),
+          content: const Text('Do you want to exit edit profile?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const EditProfile()),
+                );
+              },
+              child: const Text(
+                'Yes',
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(false); // Continue the procedure
+              },
+              child: const Text(
+                'No',
+              ),
+            ),
+          ],
+        ),
+      );
+      return exitProcedure;
+    }, child: Scaffold(
       body: SingleChildScrollView(
         child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
           builder: (context, state) {
@@ -97,7 +130,7 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                                  smoking-  ${widget.editProfileDetails.smoking}
                                   ''');
 
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => EditLocationPage(
@@ -147,60 +180,70 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: height * 0.02,
+                ),
                 Stack(
                   alignment: Alignment.bottomRight,
                   children: [
+                    //// profile image section
                     ClipOval(
-                      child: SizedBox(
-                        width: width * 0.33,
-                        height: height * 0.25,
-                        child: GestureDetector(
-                          child:
-                              //  profilePic != null
-                              //     ? Image.file(profilePic!)
-                              //     : Image.network(
-                              //         widget.editProfileDetails.profilePic!.path),
-                              state.pickedProfileImage != null
-                                  ? Image.file(
-                                      File(state.pickedProfileImage!.path),
-                                    )
-                                  : Image.network(widget
-                                      .editProfileDetails.profilePic!.path),
-                          onTap: () {
-                            log("on tap on pop up edit info main page");
-                             pickImageModalPopUp(
-                              context,
-                              () {
-                                BlocProvider.of<BasicInfoAuthBloc>(context).add(
-                                    const BasicInfoAuthEvent
-                                        .pickProfileImageFromCamera());
-                              },
-                              () {
-                                BlocProvider.of<BasicInfoAuthBloc>(context).add(
-                                    const BasicInfoAuthEvent
-                                        .pickProfileImageFromGallery());
-
-                                log("bloc provider worked");
-                              },
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 25,
-                      right: -5,
                       child: GestureDetector(
                         child: Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white,
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.teal.withOpacity(0.1),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3)),
+                            ],
                           ),
-                          child: Icon(
-                            Icons.camera,
-                            color: Colors.red[800],
-                          ),
+                          width: width * 0.33,
+                          height: height * 0.23,
+                          child: state.pickedProfileImage != null
+                              ? Image.file(
+                                  File(state.pickedProfileImage!.path),
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.network(
+                                  widget.editProfileDetails.profilePic!.path,
+                                  fit: BoxFit.cover,
+                                ),
+                        ),
+                        onTap: () {
+                          pickImageModalPopUp(
+                            context,
+                            () {
+                              BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                                  const BasicInfoAuthEvent
+                                      .pickProfileImageFromCamera());
+                            },
+                            () {
+                              BlocProvider.of<BasicInfoAuthBloc>(context).add(
+                                  const BasicInfoAuthEvent
+                                      .pickProfileImageFromGallery());
+
+                              log("bloc provider worked");
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                    //// profile image section ends
+
+                    Positioned(
+                      bottom: 0,
+                      right: -10,
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: Icon(
+                          Icons.camera,
+                          color: Colors.red[800],
                         ),
                       ),
                     ),
@@ -274,6 +317,7 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                   fontsize: 15,
                   onpressed: () {
                     log(editDateController.text);
+
                     BlocProvider.of<BasicInfoAuthBloc>(context).add(
                         BasicInfoAuthEvent.nextPage(
                             fullName: editNameController.text,
@@ -286,6 +330,6 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
           },
         ),
       ),
-    );
+    ));
   }
 }

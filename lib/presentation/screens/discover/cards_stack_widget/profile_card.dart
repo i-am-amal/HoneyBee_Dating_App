@@ -24,7 +24,10 @@ class ProfileCard extends StatelessWidget {
                 profile.profileImage,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
-                  return Image.asset('assets/images/default profile.jpg');
+                  return Image.asset(
+                    'assets/images/profile.jpg',
+                    fit: BoxFit.cover,
+                  );
                 },
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress == null) {

@@ -157,90 +157,235 @@ class EditProfile extends StatelessWidget {
                     SizedBox(
                       width: width * 0.99,
                       // color: Colors.grey,
-                      child: Column(
-                        children: [
-                          SizedBox(height: height * 0.05),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: width * 0.1,
-                              ),
-                              CustomText(
-                                text:
-                                    '${state.success!.fullName},${state.success!.age}',
-                                fontFamily: CustomFont.headTextFont,
-                                fontsize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.03,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: width * 0.1,
-                              ),
-                              CustomText(
-                                text: state.success!.location,
+                      child: Column(children: [
+                        SizedBox(height: height * 0.05),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: width * 0.1,
+                            ),
+                            CustomText(
+                              text:
+                                  '${state.success!.fullName},${state.success!.age}',
+                              fontFamily: CustomFont.headTextFont,
+                              fontsize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: height * 0.03,
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: width * 0.1,
+                            ),
+                            CustomText(
+                              text: state.success!.location,
+                              fontFamily: CustomFont.headTextFont,
+                              fontsize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: height * 0.02,
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: width * 0.1,
+                            ),
+                            Flexible(
+                              child: CustomText(
+                                text: state.success!.bio,
                                 fontFamily: CustomFont.headTextFont,
                                 fontsize: 15,
-                                fontWeight: FontWeight.bold,
                               ),
-                            ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: height * 0.03,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            ChoiceButton(
+                                icon: FontAwesomeIcons.person,
+                                label: state.success!.gender ?? 'NA'),
+                            ChoiceButton(
+                                icon: FontAwesomeIcons.personPraying,
+                                label: state.success!.faith!),
+                          ],
+                        ),
+                        SizedBox(height: height * 0.03),
+                        ChoiceButton(
+                            icon: FontAwesomeIcons.heart,
+                            label: state.success!.realationshipStatus!),
+                        SizedBox(height: height * 0.03),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            ChoiceButton(
+                                icon: FontAwesomeIcons.smoking,
+                                label: state.success!.smoking!),
+                            ChoiceButton(
+                                icon: FontAwesomeIcons.wineGlass,
+                                label: state.success!.drinking!),
+                          ],
+                        ),
+                        SizedBox(height: height * 0.05),
+
+////////////////////
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: height * 0.25,
+                            // width: width * 0.9,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: const Offset(0, 3)),
+                                ]),
+                            child: state.success!.coverPic != null
+                                ? Image.network(
+                                    state.success!.coverPic!,
+                                    fit: BoxFit.cover,
+                                  )
+                                : const Padding(
+                                    padding: EdgeInsets.all(15.0),
+                                    child: Center(
+                                      child: Text('No image Available'),
+                                    ),
+                                  ),
                           ),
-                          SizedBox(
-                            height: height * 0.02,
-                          ),
-                          Row(
+                        ),
+
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              SizedBox(
-                                width: width * 0.1,
-                              ),
-                              Flexible(
-                                child: CustomText(
-                                  text: state.success!.bio,
-                                  fontFamily: CustomFont.headTextFont,
-                                  fontsize: 15,
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        height: height * 0.2,
+                                        // width: width * 0.9,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.5),
+                                                  spreadRadius: 5,
+                                                  blurRadius: 7,
+                                                  offset: const Offset(0, 3)),
+                                            ]),
+                                        child: state.success!.images != null &&
+                                                state.success!.images!
+                                                    .isNotEmpty &&
+                                                state
+                                                    .success!.images!.isNotEmpty
+                                            ? Image.network(
+                                                state.success!.images![0],
+                                                fit: BoxFit.cover,
+                                              )
+                                            : const Padding(
+                                                padding: EdgeInsets.all(15.0),
+                                                child: Center(
+                                                  child: Text(
+                                                      'No image Available'),
+                                                ),
+                                              ),
+                                      ),
+                                    ),
+                                    SizedBox(width: width * 0.05),
+                                    Expanded(
+                                      child: Container(
+                                        height: height * 0.2,
+                                        // width: width * 0.9,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.5),
+                                                  spreadRadius: 5,
+                                                  blurRadius: 7,
+                                                  offset: const Offset(0, 3)),
+                                            ]),
+                                        child: state.success!.images != null &&
+                                                state.success!.images!.length >
+                                                    1
+                                            ? Image.network(
+                                                state.success!.images![1],
+                                                fit: BoxFit.cover,
+                                              )
+                                            : const Padding(
+                                                padding: EdgeInsets.all(15.0),
+                                                child: Center(
+                                                  child: Text(
+                                                      'No image Available'),
+                                                ),
+                                              ),
+                                      ),
+                                    ),
+                                    SizedBox(width: width * 0.05),
+                                    Expanded(
+                                      child: Container(
+                                        height: height * 0.2,
+                                        // width: width * 0.9,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.5),
+                                                  spreadRadius: 5,
+                                                  blurRadius: 7,
+                                                  offset: const Offset(0, 3)),
+                                            ]),
+                                        child: state.success!.images != null &&
+                                                state.success!.images!.length >
+                                                    2
+                                            ? Image.network(
+                                                state.success!.images![2],
+                                                fit: BoxFit.cover,
+                                              )
+                                            : const Padding(
+                                                padding: EdgeInsets.all(15.0),
+                                                child: Center(
+                                                  child: Text(
+                                                      'No image Available'),
+                                                ),
+                                              ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.03,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              ChoiceButton(
-                                  icon: FontAwesomeIcons.person,
-                                  label: state.success!.gender ?? 'NA'),
-                              ChoiceButton(
-                                  icon: FontAwesomeIcons.personPraying,
-                                  label: state.success!.faith!),
-                            ],
-                          ),
-                          SizedBox(height: height * 0.03),
-                          ChoiceButton(
-                              icon: FontAwesomeIcons.heart,
-                              label: state.success!.realationshipStatus!),
-                          SizedBox(height: height * 0.03),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              ChoiceButton(
-                                  icon: FontAwesomeIcons.smoking,
-                                  label: state.success!.smoking!),
-                              ChoiceButton(
-                                  icon: FontAwesomeIcons.wineGlass,
-                                  label: state.success!.drinking!),
-                            ],
-                          ),
-                          SizedBox(height: height * 0.05),
-                        ],
-                      ),
-                    )
+                              SizedBox(
+                                height: height * 0.03,
+                              )
+/////////////////////
+                            ]),
+                      ]),
+                    ),
                   ],
                 );
               } else {

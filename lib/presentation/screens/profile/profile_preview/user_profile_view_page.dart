@@ -162,24 +162,28 @@ class UserProfilePreviewPage extends StatelessWidget {
                       ],
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                        height: height * 0.2,
-                        child:
-                            //  userDetails.coverPic != null
-                            //     ?
-                            Image.network(
-                          userDetails.coverPic,
-                          fit: BoxFit.cover,
-                        )
-                        // : Image.asset(
-                        //     'assets/images/no-image.png', // Replace with your placeholder image asset path
-                        //     fit: BoxFit.contain,
-                        //   ),
-                        ),
+                    child: Container(
+                      height: height * 0.25,
+                      // width: width * 0.9,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: const Offset(0, 3)),
+                          ]),
+                      child: Image.network(
+                        userDetails.coverPic,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
+
                   ///////////////////////////////
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -190,46 +194,116 @@ class UserProfilePreviewPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Expanded(
-                              child: SizedBox(
+                              child: Container(
                                 height: height * 0.2,
+                                // width: width * 0.9,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.grey.withOpacity(0.5),
+                                          spreadRadius: 5,
+                                          blurRadius: 7,
+                                          offset: const Offset(0, 3)),
+                                    ]),
                                 child: userDetails.img1 != null
                                     ? Image.network(
                                         userDetails.img1!,
                                         fit: BoxFit.cover,
                                       )
-                                    : Image.asset(
-                                        'assets/images/no-image.png', // Replace with your placeholder image asset path
-                                        fit: BoxFit.contain,
+                                    : const Padding(
+                                        padding: EdgeInsets.all(15.0),
+                                        child: Center(
+                                          child: Text('No image Available'),
+                                        ),
                                       ),
                               ),
                             ),
+                            // SizedBox(
+                            //   height: height * 0.2,
+                            //   child:
+                            // userDetails.img1 != null
+                            //       ? Image.network(
+                            //           userDetails.img1!,
+                            //           fit: BoxFit.cover,
+                            //         )
+                            //       : const Padding(
+                            //           padding: EdgeInsets.all(15.0),
+                            //           child: Center(
+                            //             child: Text('No image Available'),
+                            //           ),
+                            //         ),
+                            // ),
+
                             SizedBox(width: width * 0.05),
                             Expanded(
-                              child: SizedBox(
+                              child: Container(
                                 height: height * 0.2,
-                                child: userDetails.img1 != null
+                                // width: width * 0.9,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.grey.withOpacity(0.5),
+                                          spreadRadius: 5,
+                                          blurRadius: 7,
+                                          offset: const Offset(0, 3)),
+                                    ]),
+                                child: userDetails.img2 != null
                                     ? Image.network(
                                         userDetails.img2!,
-                                        fit: BoxFit.contain,
+                                        fit: BoxFit.cover,
                                       )
-                                    : Image.asset(
-                                        'assets/images/no-image.png', // Replace with your placeholder image asset path
-                                        fit: BoxFit.contain,
+                                    : const Padding(
+                                        padding: EdgeInsets.all(15.0),
+                                        child: Center(
+                                          child: Text('No image Available'),
+                                        ),
                                       ),
                               ),
+
+                              // SizedBox(
+                              //   height: height * 0.2,
+                              //   child: userDetails.img2 != null
+                              //       ? Image.network(
+                              //           userDetails.img2!,
+                              //           fit: BoxFit.contain,
+                              //         )
+                              //       : const Padding(
+                              //           padding: EdgeInsets.all(15.0),
+                              //           child: Center(
+                              //             child: Text('No image Available'),
+                              //           ),
+                              //         ),
+                              // ),
                             ),
                             SizedBox(width: width * 0.05),
                             Expanded(
-                              child: SizedBox(
+                              child: Container(
                                 height: height * 0.2,
-                                child: userDetails.img1 != null
+                                // width: width * 0.9,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.grey.withOpacity(0.5),
+                                          spreadRadius: 5,
+                                          blurRadius: 7,
+                                          offset: const Offset(0, 3)),
+                                    ]),
+                                child: userDetails.img3 != null
                                     ? Image.network(
                                         userDetails.img3!,
                                         fit: BoxFit.cover,
                                       )
-                                    : Image.asset(
-                                        'assets/images/no-image.png', // Replace with your placeholder image asset path
-                                        fit: BoxFit.contain,
+                                    : const Padding(
+                                        padding: EdgeInsets.all(15.0),
+                                        child: Center(
+                                          child: Text('No image Available'),
+                                        ),
                                       ),
                               ),
                             ),

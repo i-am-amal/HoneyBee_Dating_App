@@ -179,18 +179,33 @@ class ProfilePreview extends StatelessWidget {
 
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              height: height * 0.2,
+                            child: Container(
+                              height: height * 0.25,
+                              // width: width * 0.9,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 5,
+                                        blurRadius: 7,
+                                        offset: const Offset(0, 3)),
+                                  ]),
                               child: state.success!.coverPic != null
                                   ? Image.network(
                                       state.success!.coverPic!,
                                       fit: BoxFit.cover,
                                     )
-                                  : Image.asset(
-                                      'assets/images/no-image.png', // Replace with your placeholder image asset path
-                                      fit: BoxFit.contain,
+                                  : const Padding(
+                                      padding: EdgeInsets.all(15.0),
+                                      child: Center(
+                                        child: Text('No image Available'),
+                                      ),
                                     ),
                             ),
+
+                          
                           ),
 
                           Column(
@@ -202,8 +217,21 @@ class ProfilePreview extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Expanded(
-                                      child: SizedBox(
+                                      child: Container(
                                         height: height * 0.2,
+                                        // width: width * 0.9,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.5),
+                                                  spreadRadius: 5,
+                                                  blurRadius: 7,
+                                                  offset: const Offset(0, 3)),
+                                            ]),
                                         child: state.success!.images != null &&
                                                 state.success!.images!
                                                     .isNotEmpty &&
@@ -213,16 +241,52 @@ class ProfilePreview extends StatelessWidget {
                                                 state.success!.images![0],
                                                 fit: BoxFit.cover,
                                               )
-                                            : Image.asset(
-                                                'assets/images/no-image.png', // Replace with your placeholder image asset path
-                                                fit: BoxFit.contain,
+                                            : const Padding(
+                                                padding: EdgeInsets.all(15.0),
+                                                child: Center(
+                                                  child: Text(
+                                                      'No image Available'),
+                                                ),
                                               ),
                                       ),
+
+                                      // child: SizedBox(
+                                      //   height: height * 0.2,
+                                      //   child: state.success!.images != null &&
+                                      //           state.success!.images!
+                                      //               .isNotEmpty &&
+                                      //           state
+                                      //               .success!.images!.isNotEmpty
+                                      //       ? Image.network(
+                                      //           state.success!.images![0],
+                                      //           fit: BoxFit.cover,
+                                      //         )
+                                      //       : const Padding(
+                                      //           padding: EdgeInsets.all(15.0),
+                                      //           child: Center(
+                                      //             child: Text(
+                                      //                 'No image Available'),
+                                      //           ),
+                                      //         ),
+                                      // ),
                                     ),
                                     SizedBox(width: width * 0.05),
                                     Expanded(
-                                      child: SizedBox(
+                                      child: Container(
                                         height: height * 0.2,
+                                        // width: width * 0.9,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.5),
+                                                  spreadRadius: 5,
+                                                  blurRadius: 7,
+                                                  offset: const Offset(0, 3)),
+                                            ]),
                                         child: state.success!.images != null &&
                                                 state.success!.images!.length >
                                                     1
@@ -230,16 +294,49 @@ class ProfilePreview extends StatelessWidget {
                                                 state.success!.images![1],
                                                 fit: BoxFit.cover,
                                               )
-                                            : Image.asset(
-                                                'assets/images/no-image.png', // Replace with your placeholder image asset path
-                                                fit: BoxFit.contain,
+                                            : const Padding(
+                                                padding: EdgeInsets.all(15.0),
+                                                child: Center(
+                                                  child: Text(
+                                                      'No image Available'),
+                                                ),
                                               ),
                                       ),
+                                      // child: SizedBox(
+                                      //   height: height * 0.2,
+                                      //   child: state.success!.images != null &&
+                                      //           state.success!.images!.length >
+                                      //               1
+                                      //       ? Image.network(
+                                      //           state.success!.images![1],
+                                      //           fit: BoxFit.cover,
+                                      //         )
+                                      //       : const Padding(
+                                      //           padding: EdgeInsets.all(15.0),
+                                      //           child: Center(
+                                      //             child: Text(
+                                      //                 'No image Available'),
+                                      //           ),
+                                      //         ),
+                                      // ),
                                     ),
                                     SizedBox(width: width * 0.05),
                                     Expanded(
-                                      child: SizedBox(
+                                      child: Container(
                                         height: height * 0.2,
+                                        // width: width * 0.9,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.5),
+                                                  spreadRadius: 5,
+                                                  blurRadius: 7,
+                                                  offset: const Offset(0, 3)),
+                                            ]),
                                         child: state.success!.images != null &&
                                                 state.success!.images!.length >
                                                     2
@@ -247,11 +344,32 @@ class ProfilePreview extends StatelessWidget {
                                                 state.success!.images![2],
                                                 fit: BoxFit.cover,
                                               )
-                                            : Image.asset(
-                                                'assets/images/no-image.png', // Replace with your placeholder image asset path
-                                                fit: BoxFit.contain,
+                                            : const Padding(
+                                                padding: EdgeInsets.all(15.0),
+                                                child: Center(
+                                                  child: Text(
+                                                      'No image Available'),
+                                                ),
                                               ),
                                       ),
+
+                                      // SizedBox(
+                                      //   height: height * 0.2,
+                                      //   child:
+                                      //state.success!.images != null &&
+                                      //           state.success!.images!.length >
+                                      //               2
+                                      //       ? Image.network(
+                                      //           state.success!.images![2],
+                                      //           fit: BoxFit.cover,
+                                      //         )
+                                      //       : const Padding(
+                                      //       padding: EdgeInsets.all(15.0),
+                                      //       child: Center(
+                                      //         child: Text('No image Available'),
+                                      //       ),
+                                      //     ),
+                                      // ),
                                     ),
                                   ],
                                 ),
@@ -302,26 +420,25 @@ class ChoiceButton extends StatelessWidget {
   }
 }
 
-
-//                                Container(
-//                                   height: height * 0.2,
-//                                   // width: width * 0.9,
-//                                   decoration: BoxDecoration(
-//                                       color: Colors.white,
-//                                       borderRadius: BorderRadius.circular(10),
-//                                       boxShadow: [
-//                                         BoxShadow(
-//                                             color: Colors.grey.withOpacity(0.5),
-//                                             spreadRadius: 5,
-//                                             blurRadius: 7,
-//                                             offset: const Offset(0, 3)),
-//                                       ]),
-//                                   child: image3 != null
-//                                       ? Image.file(
-//                                           image3!,
-//                                           fit: BoxFit.cover,
-//                                         )
-//                                       : const Center(
-//                                           child: Text('No image Available'),
-//                                         ),
-//                                 ),
+//  Container(
+//     height: height * 0.2,
+//     // width: width * 0.9,
+//     decoration: BoxDecoration(
+//         color: Colors.white,
+//         borderRadius: BorderRadius.circular(10),
+//         boxShadow: [
+//           BoxShadow(
+//               color: Colors.grey.withOpacity(0.5),
+//               spreadRadius: 5,
+//               blurRadius: 7,
+//               offset: const Offset(0, 3)),
+//         ]),
+//     child: image3 != null
+//         ? Image.file(
+//             image3!,
+//             fit: BoxFit.cover,
+//           )
+//         : const Center(
+//             child: Text('No image Available'),
+//           ),
+//   ),

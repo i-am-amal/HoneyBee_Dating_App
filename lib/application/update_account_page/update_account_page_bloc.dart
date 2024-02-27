@@ -1,6 +1,7 @@
 import 'dart:developer';
+import 'dart:io';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
@@ -57,23 +58,71 @@ class UpdateAccountPageBloc
       ${editProfileDetails.relationshipStatus},
       ${editProfileDetails.smoking},''');
 
+//////////////////////
+
+      File? profileImagePath;
+      if (editProfileDetails.profilePic != null) {
+        if (editProfileDetails.profilePic!.path.startsWith('http')) {
+          profileImagePath = null; // Don't pass if it's a URL
+        } else {
+          profileImagePath = editProfileDetails.profilePic!;
+        }
+      }
+
+      // Check and process cover image
+      File? coverImagePath;
+      if (editProfileDetails.coverPic != null) {
+        if (editProfileDetails.coverPic!.path.startsWith('http')) {
+          coverImagePath = null; // Don't pass if it's a URL
+        } else {
+          coverImagePath = editProfileDetails.coverPic!;
+        }
+      }
+
+      // Check and process other images
+      List<File?> imagePaths = [];
+      for (var image in [
+        editProfileDetails.image0,
+        editProfileDetails.image1,
+        editProfileDetails.image2,
+      ]) {
+        if (image != null) {
+          if (image.path.startsWith('http')) {
+            imagePaths.add(null); // Don't pass if it's a URL
+          } else {
+            imagePaths.add(image);
+          }
+        }
+      }
+
+//////////////////////
+
       final result = await ApiServices.userEditData(
+          ///////////
+          profilePic: profileImagePath,
+          coverPic: coverImagePath,
+          image0: imagePaths.isNotEmpty ? imagePaths[0] : null,
+          image1: imagePaths.length > 1 ? imagePaths[1] : null,
+          image2: imagePaths.length > 2 ? imagePaths[2] : null,
+
+          ////////////
+
           age: editProfileDetails.age,
           bio: editProfileDetails.bio,
           birthday: editProfileDetails.birthday,
-          coverPic: editProfileDetails.coverPic,
+          // coverPic: editProfileDetails.coverPic,
           drinking: editProfileDetails.drinking,
           email: editProfileDetails.email,
           faith: editProfileDetails.faith,
           fullName: editProfileDetails.fullName,
           gender: editProfileDetails.gender,
-          image0: editProfileDetails.image0,
-          image1: editProfileDetails.image1,
-          image2: editProfileDetails.image2,
+          // image0: editProfileDetails.image0,
+          // image1: editProfileDetails.image1,
+          // image2: editProfileDetails.image2,
           location: editProfileDetails.location,
           phone: editProfileDetails.phone,
           preference: editProfileDetails.preference,
-          profilePic: editProfileDetails.profilePic,
+          // profilePic: editProfileDetails.profilePic,
           relationshipStatus: editProfileDetails.relationshipStatus,
           smoking: editProfileDetails.smoking);
 

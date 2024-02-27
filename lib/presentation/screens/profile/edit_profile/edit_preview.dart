@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -158,6 +159,159 @@ class EditPreviewAccount extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: height * 0.05),
+//////////////////////////////////////////////////
+
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: height * 0.25,
+                        width: width * 0.99,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(0, 3)),
+                            ]),
+
+                        ///--------------->>>>>>>>>>----------------cover image --------->>>>>>>>>>>---------
+
+                        child: editProfileDetails.coverPic != null
+                            ? editProfileDetails.coverPic!.path.startsWith(
+                                    'http') // Assuming URLs start with 'http'
+                                ? Image.network(
+                                    editProfileDetails.coverPic!.path,
+                                    fit: BoxFit.cover)
+                                : Image.file(
+                                    File(editProfileDetails.coverPic!.path),
+                                    fit: BoxFit.cover)
+                            : const Center(
+                                child: Text('No cover image available'),
+                              ),
+                      ),
+                    ),
+
+                    SizedBox(height: height * 0.02),
+
+                    //---------->>>>>>>>>>-----------Custom images ------------>>>>>>>>>>>>>-------
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: height * 0.25,
+                            width: width * 0.3,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                            child: editProfileDetails.image0 != null
+                                ? editProfileDetails.image0!.path.startsWith(
+                                        'http') // Assuming URLs start with 'http'
+                                    ? Image.network(
+                                        editProfileDetails.image0!.path,
+                                        fit: BoxFit.cover)
+                                    : Image.file(
+                                        File(editProfileDetails.image0!.path),
+                                        fit: BoxFit.cover)
+                                : const Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(15.0),
+                                      child: Text(
+                                        // '''Add an extra photo if you'd like''',
+                                        '   Optional: Add a picture',
+                                        // style: TextStyle(letterSpacing: 0),
+                                      ),
+                                    ),
+                                  ),
+                          ),
+
+                          Container(
+                            height: height * 0.25,
+                            width: width * 0.3,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                            child: editProfileDetails.image1 != null
+                                ? editProfileDetails.image1!.path.startsWith(
+                                        'http') // Assuming URLs start with 'http'
+                                    ? Image.network(
+                                        editProfileDetails.image1!.path,
+                                        fit: BoxFit.cover)
+                                    : Image.file(
+                                        File(editProfileDetails.image1!.path),
+                                        fit: BoxFit.cover)
+                                : const Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(15.0),
+                                      child: Text(
+                                        // '''Add an extra photo if you'd like''',
+                                        '   Optional: Add a picture',
+                                        // style: TextStyle(letterSpacing: 0),
+                                      ),
+                                    ),
+                                  ),
+                          ),
+
+                          Container(
+                            height: height * 0.25,
+                            width: width * 0.3,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                            child: editProfileDetails.image2 != null
+                                ? editProfileDetails.image2!.path.startsWith(
+                                        'http') // Assuming URLs start with 'http'
+                                    ? Image.network(
+                                        editProfileDetails.image2!.path,
+                                        fit: BoxFit.cover)
+                                    : Image.file(
+                                        File(editProfileDetails.image2!.path),
+                                        fit: BoxFit.cover)
+                                : const Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(15.0),
+                                      child: Text(
+                                        // '''Add an extra photo if you'd like''',
+                                        '   Optional: Add a picture',
+                                        // style: TextStyle(letterSpacing: 0),
+                                      ),
+                                    ),
+                                  ),
+                          ),
+                          ////////////////////////
+                        ]),
+                    SizedBox(height: height * 0.05),
+
+                    ///////////////////////////////////////
                     BlocBuilder<UpdateAccountPageBloc, UpdateAccountPageState>(
                         builder: (context, state) {
                       if (state.isLoading!) {
@@ -224,6 +378,8 @@ class EditPreviewAccount extends StatelessWidget {
                           txtcolor: CustomColors.kWhiteTextColor,
                           onpressed: () {
                             log('data passed from the preview page to bloc');
+////////////////////////////
+
                             BlocProvider.of<UpdateAccountPageBloc>(context).add(
                               UpdateAccountPageEvent.updateAccount(
                                 editProfileDetails: EditProfileModel(
@@ -249,6 +405,9 @@ class EditPreviewAccount extends StatelessWidget {
                                 ),
                               ),
                             );
+
+
+                            ///////////////////////
                           },
                         );
                       }

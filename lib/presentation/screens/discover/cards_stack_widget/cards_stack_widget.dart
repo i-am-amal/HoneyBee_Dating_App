@@ -68,6 +68,12 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
               ),
             );
           } else if (state.profile != null) {
+/////////////            ////------------------
+
+            // BlocProvider.of<DiscoverPageBloc>(context)
+            //     .add(const DiscoverPageEvent.fetchDiscoverData());
+/////////////////            ////------------------
+
             List<DiscoverResponseModel>? draggableItems =
                 state.profile!.profiles;
 
@@ -127,15 +133,18 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                                   smoking:
                                       draggableItems[currentIndex].smoking!,
 /////////////////////////
-                                  img1: draggableItems[currentIndex].images!
+                                  img1: draggableItems[currentIndex]
+                                          .images!
                                           .isNotEmpty
                                       ? draggableItems[currentIndex].images![0]
                                       : null,
-                                       img2: draggableItems[currentIndex].images!
+                                  img2: draggableItems[currentIndex]
+                                          .images!
                                           .isNotEmpty
                                       ? draggableItems[currentIndex].images![1]
                                       : null,
-                                       img3: draggableItems[currentIndex].images!
+                                  img3: draggableItems[currentIndex]
+                                          .images!
                                           .isNotEmpty
                                       ? draggableItems[currentIndex].images![2]
                                       : null,
@@ -223,132 +232,6 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                       ),
                     ),
                     /////////////////////////////////////////////
-//                     GestureDetector(
-//   onTap: () {
-//     // Code for handling onTap event
-
-//                         int currentIndex = draggableItems.indexWhere(
-//                             (profile) => profile.id == userId.value);
-
-//                         if (currentIndex != -1) {
-//                           Navigator.push(
-//                             context,
-//                             MaterialPageRoute(
-//                               builder: (context) => UserProfilePreviewPage(
-//                                 userDetails: UserModel(
-//                                   fullName:
-//                                       draggableItems[currentIndex].fullName!,
-//                                   age: draggableItems[currentIndex].age!,
-//                                   location:
-//                                       draggableItems[currentIndex].location!,
-//                                   bio: draggableItems[currentIndex].bio!,
-//                                   drinking:
-//                                       draggableItems[currentIndex].drinking!,
-//                                   faith: draggableItems[currentIndex].faith!,
-//                                   gender: draggableItems[currentIndex].gender!,
-//                                   profilePic:
-//                                       draggableItems[currentIndex].profilePic!,
-//                                   realationshipStatus:
-//                                       draggableItems[currentIndex]
-//                                           .realationshipStatus!,
-//                                   smoking:
-//                                       draggableItems[currentIndex].smoking!,
-//                                 ),
-//                               ),
-//                             ),
-//                           );
-//                         }
-//   },
-//   child: ClipRRect(
-//     borderRadius: BorderRadius.circular(10),
-//     child: ValueListenableBuilder(
-//       valueListenable: swipeNotifier,
-//       builder: (context, swipe, _) => Stack(
-//         clipBehavior: Clip.none,
-//         alignment: Alignment.center,
-//         children: List.generate(draggableItems.length, (index) {
-//           Profile obj = Profile(
-//             id: draggableItems[index].id!,
-//             name: draggableItems[index].fullName!,
-//             age: draggableItems[index].age!.toString(),
-//             profileImage: draggableItems[index].profilePic!,
-//           );
-
-//           userId.value = obj.id;
-
-//           log('---------------------${obj.id},${obj.age},${obj.name}--------data on card stack widget------');
-//           if (index == draggableItems.length - 1) {
-//             return PositionedTransition(
-//               rect: RelativeRectTween(
-//                 begin: RelativeRect.fromSize(
-//                   const Rect.fromLTWH(0, 0, 600, 360),
-//                   const Size(600, 360),
-//                 ),
-//                 end: RelativeRect.fromSize(
-//                   Rect.fromLTWH(
-//                     swipe != Swipe.none ? swipe == Swipe.left ? -300 : 300 : 0,
-//                     0,
-//                     600,
-//                     360,
-//                   ),
-//                   const Size(600, 360),
-//                 ),
-//               ).animate(
-//                 CurvedAnimation(
-//                   parent: _animationController,
-//                   curve: Curves.easeInOut,
-//                 ),
-//               ),
-//               child: RotationTransition(
-//                 turns: Tween<double>(
-//                   begin: 0,
-//                   end: swipe != Swipe.none
-//                       ? swipe == Swipe.left
-//                           ? -0.1 * 0.3
-//                           : 0.1 * 0.3
-//                       : 0.0,
-//                 ).animate(
-//                   CurvedAnimation(
-//                     parent: _animationController,
-//                     curve: const Interval(0, 0.4, curve: Curves.easeInOut),
-//                   ),
-//                 ),
-//                 child: DragWidget(
-//                   profile: obj,
-//                   index: index,
-//                   swipeNotifier: swipeNotifier,
-//                   isLastCard: true,
-//                   onSwipe: (Swipe swipe) {
-//                     if (swipe != Swipe.none) {
-//                       // Remove the swiped profile from the list
-//                       draggableItems.removeAt(index);
-//                       // Reset index to prevent skipping profiles
-//                       index--;
-//                     }
-//                   },
-//                 ),
-//               ),
-//             );
-//           } else {
-//             return DragWidget(
-//               profile: obj,
-//               index: index,
-//               swipeNotifier: swipeNotifier,
-//               onSwipe: (Swipe swipe) {
-//                 if (swipe != Swipe.none) {
-//                   // Remove the swiped profile from the list
-//                   draggableItems.removeAt(index);
-//                   // Reset index to prevent skipping profiles
-//                   index--;
-//                 }
-//               },
-//             );
-//           }
-//         }),
-//       ),
-//     ),
-//   ),
-// ),
 /////////////////////////////////////////////////////////////
                     Positioned(
                       left: 0,
@@ -369,6 +252,11 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                         onAccept: (int index) {
                           setState(() {
                             draggableItems.removeAt(index);
+
+                            ///-----------------------
+                            BlocProvider.of<DiscoverPageBloc>(context).add(
+                                const DiscoverPageEvent.fetchDiscoverData());
+                            ////------------------
                           });
                         },
                       ),
@@ -392,6 +280,12 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                         onAccept: (int index) {
                           setState(() {
                             draggableItems.removeAt(index);
+                            ////------------------
+
+                            BlocProvider.of<DiscoverPageBloc>(context).add(
+                                const DiscoverPageEvent.fetchDiscoverData());
+
+                            ////------------------
                           });
                         },
                       ),
