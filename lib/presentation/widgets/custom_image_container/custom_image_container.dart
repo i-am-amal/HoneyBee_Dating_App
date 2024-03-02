@@ -1,10 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
-import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
 import 'package:honeybee/presentation/screens/create_account/basic_info/pick_image_modal_popup.dart';
-import 'package:honeybee/presentation/widgets/constants/colors.dart';
 
 class CustomImageContainer extends StatelessWidget {
   final double height;
@@ -14,7 +10,8 @@ class CustomImageContainer extends StatelessWidget {
   final Function() onCameraPressed;
   final Function() onGalleryPressed;
 
-  const CustomImageContainer({super.key, 
+  const CustomImageContainer({
+    super.key,
     required this.height,
     required this.width,
     required this.image,

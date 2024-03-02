@@ -358,7 +358,6 @@ Stay clear of inappropriate content''';
                                 );
                               },
                             ),
-
                             InkWell(
                               child: Container(
                                 height: height * 0.25,

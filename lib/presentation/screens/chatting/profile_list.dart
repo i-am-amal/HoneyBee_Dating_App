@@ -15,6 +15,9 @@ class ProfileList extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<MatchesPageBloc>(context)
         .add(const MatchesPageEvent.fetchMatchesData());
+
+
+        
     log('building matches page');
     return BlocBuilder<MatchesPageBloc, MatchesPageState>(
       builder: (context, state) {

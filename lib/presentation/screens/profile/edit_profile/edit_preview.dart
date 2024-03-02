@@ -406,7 +406,6 @@ class EditPreviewAccount extends StatelessWidget {
                               ),
                             );
 
-
                             ///////////////////////
                           },
                         );

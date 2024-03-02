@@ -204,8 +204,6 @@ class ProfilePreview extends StatelessWidget {
                                       ),
                                     ),
                             ),
-
-                          
                           ),
 
                           Column(

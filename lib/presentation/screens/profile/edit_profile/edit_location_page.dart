@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/location_auth_page/location_auth_page_bloc.dart';
@@ -23,7 +22,6 @@ class EditLocationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-
       BlocProvider.of<LocationAuthPageBloc>(context)
           .add(const LocationAuthPageEvent.fetchLocationName());
     });

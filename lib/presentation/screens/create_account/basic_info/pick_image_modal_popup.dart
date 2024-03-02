@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Future<dynamic> pickImageModalPopUp(
-    BuildContext context, VoidCallback cameraEventCalling,VoidCallback galleryEventCalling) {
+Future<dynamic> pickImageModalPopUp(BuildContext context,
+    VoidCallback cameraEventCalling, VoidCallback galleryEventCalling) {
   return showCupertinoModalPopup(
     context: context,
     builder: (BuildContext context) => CupertinoActionSheet(

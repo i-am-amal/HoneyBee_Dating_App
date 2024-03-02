@@ -14,5 +14,4 @@ class CameraServices {
     XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
     return image;
   }
-
 }

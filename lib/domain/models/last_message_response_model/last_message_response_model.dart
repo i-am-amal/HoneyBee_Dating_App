@@ -1,7 +1,19 @@
 import 'package:json_annotation/json_annotation.dart';
 
-
 part 'last_message_response_model.g.dart';
+
+class MessageList {
+  List<LastMessageResponseModel> messages;
+
+  MessageList({required this.messages});
+
+  factory MessageList.fromJson(List<dynamic> json) {
+    List<LastMessageResponseModel> messages = json
+        .map((messageJson) => LastMessageResponseModel.fromJson(messageJson))
+        .toList();
+    return MessageList(messages: messages);
+  }
+}
 
 @JsonSerializable()
 class LastMessageResponseModel {
@@ -36,11 +48,7 @@ class LastMessageResponseModel {
   }
 
   Map<String, dynamic> toJson() => _$LastMessageResponseModelToJson(this);
-
-
-
 }
-
 
 @JsonSerializable()
 class User {

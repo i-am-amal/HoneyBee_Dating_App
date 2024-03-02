@@ -61,7 +61,6 @@ class DiscoverPage extends StatelessWidget {
   }
 }
 
-
 // class DiscoverPage extends StatelessWidget {
 //   const DiscoverPage({super.key});
 
@@ -148,4 +147,3 @@ class DiscoverPage extends StatelessWidget {
 //     );
 //   }
 // }
-

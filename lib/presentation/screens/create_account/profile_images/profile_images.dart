@@ -48,7 +48,6 @@ Stay clear of inappropriate content''';
 
     return WillPopScope(
       onWillPop: () async {
-        // Show an alert dialog
         bool exitProcedure = await showDialog(
           context: context,
           builder: (context) => AlertDialog(
@@ -69,7 +68,7 @@ Stay clear of inappropriate content''';
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(false); // Continue the procedure
+                  Navigator.of(context).pop(false);
                 },
                 child: const Text(
                   'No',
@@ -111,7 +110,7 @@ Stay clear of inappropriate content''';
                           }),
                       SizedBox(width: width * 0.05),
                       const CustomText(
-                          text: 'Its all about presentation',
+                          text: 'It\'s all about presentation',
                           fontFamily: CustomFont.headTextFont,
                           fontsize: 20,
                           textColor: Colors.black)
