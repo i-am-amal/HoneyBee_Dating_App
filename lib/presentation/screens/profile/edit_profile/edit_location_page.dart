@@ -223,7 +223,6 @@ class EditLocationPage extends StatelessWidget {
         ),
       ),
     );
-
     // });
   }
 }

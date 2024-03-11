@@ -127,6 +127,9 @@ class LikedProfileGrid extends StatelessWidget {
                                   ),
                                 ),
                                 onPressed: () {
+
+
+
                                   BlocProvider.of<AllLikedUsersPageBloc>(
                                           context)
                                       .add(AllLikedUsersPageEvent.dislikeEvent(
@@ -136,7 +139,9 @@ class LikedProfileGrid extends StatelessWidget {
                                   //         context)
                                   //     .add(const AllLikedUsersPageEvent
                                   //         .resyncLikedUsersData());
+
 ////////////////////////////////////////////////////////////////////////////////////////////
+
                                   Future.delayed(const Duration(seconds: 2),
                                       () {
                                     BlocProvider.of<AllLikedUsersPageBloc>(
@@ -146,10 +151,15 @@ class LikedProfileGrid extends StatelessWidget {
                                   });
 
                                   /////////////////////////////////////////////////////////
+                                  
                                 },
                               ),
                             ),
                           ),
+
+
+/////////////-------------------------------------------------------------------------
+
                           Positioned(
                             bottom: 0,
                             left: 0,
@@ -158,6 +168,7 @@ class LikedProfileGrid extends StatelessWidget {
                               height: 35,
                               color: Colors.black.withOpacity(0.5),
                               child: TextButton(
+                                
                                 child: Text(
                                   // 'Block User',
 
@@ -171,14 +182,19 @@ class LikedProfileGrid extends StatelessWidget {
                                     color: Colors.red,
                                     fontWeight: FontWeight.bold,
                                   ),
+
                                 ),
+
                                 onPressed: () {
                                   if (state.isBlocked == false) {
+
+
                                     BlocProvider.of<AllLikedUsersPageBloc>(
                                             context)
                                         .add(AllLikedUsersPageEvent
                                             .blockUserEvent(state
                                                 .profile!.profiles![index].id));
+
                                     // Future.delayed(const Duration(seconds: 4),
                                     //     () {
                                     //   BlocProvider.of<AllLikedUsersPageBloc>(
@@ -186,12 +202,16 @@ class LikedProfileGrid extends StatelessWidget {
                                     //       .add(const AllLikedUsersPageEvent
                                     //           .fetchLikedUsersData());
                                     // });
+
+
                                   } else {
                                     BlocProvider.of<AllLikedUsersPageBloc>(
                                             context)
                                         .add(AllLikedUsersPageEvent
                                             .unBlockUserEvent(state
                                                 .profile!.profiles![index].id));
+
+
                                     // Future.delayed(const Duration(seconds: 4),
                                     //     () {
                                     //   BlocProvider.of<AllLikedUsersPageBloc>(
@@ -199,11 +219,16 @@ class LikedProfileGrid extends StatelessWidget {
                                     //       .add(const AllLikedUsersPageEvent
                                     //           .fetchLikedUsersData());
                                     // });
+
+
                                   }
                                 },
                               ),
                             ),
                           ),
+
+
+
                         ],
                       ),
                     ),

@@ -14,10 +14,6 @@
 //     on<_LastMessage>((event, emit)async {
 //       // LastMessageRequestModel request = LastMessageRequestModel(conversationIds: );
 
-
-
-
-
 //       final result = await ApiServices.lastMessageData(request);
 
 //       result.fold((failure) {
@@ -30,16 +26,7 @@
 
 //       });
 
-
-
-
-
-
 //     });
 //   }
 // }
-
-
-
-
 
