@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/discover_response_model/discover_response_model.dart';
@@ -42,6 +44,44 @@ class DiscoverPageBloc extends Bloc<DiscoverPageEvent, DiscoverPageState> {
           emit(state.copyWith(
               errorMessage:
                   'OOPS.. Something went wrong.. Please try again later...'));
+          emit(state.copyWith(errorMessage: null));
+        }
+      });
+    });
+
+    on<_LikedAndDislikedUsersData>((event, emit) async {
+
+      final result = await ApiServices.getUserData();
+      log('on get userdata bloc');
+      log(result.toString());
+
+      result.fold((failure) {
+        //failure on Api Service
+        emit(state.copyWith(errorMessage: failure.errorMessage));
+        emit(state.copyWith(errorMessage: null));
+        log('on failure');
+
+        log(failure.errorMessage.toString());
+      }, (success) {
+        //success from backend
+        if (success.id != null) {
+          // emit(state.copyWith(isLoading: false));
+
+          if (success.likedUsers != null || success.dislikedUsers != null) {
+            List<String> usersToRemove = [
+              ...success.likedUsers!,
+              ...success.dislikedUsers!
+            ];
+
+            emit(state.copyWith(likedAndDislikedUsers: usersToRemove));
+            log('liked and disliked users list ${usersToRemove.toString()}');
+          }
+        } else {
+          // failure from backend
+          emit(state.copyWith(
+              errorMessage:
+                  'OOPS.. Something went wrong.. Please try again later...'));
+          log('on backend error');
           emit(state.copyWith(errorMessage: null));
         }
       });

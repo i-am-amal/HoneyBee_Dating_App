@@ -84,14 +84,15 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-          navigatorKey: CustomNavigator.navigatorKey,
-          title: 'HoneyBee',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: const SplashScreen()),
+        navigatorKey: CustomNavigator.navigatorKey,
+        title: 'HoneyBee',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const SplashScreen(),
+      ),
     );
   }
 }

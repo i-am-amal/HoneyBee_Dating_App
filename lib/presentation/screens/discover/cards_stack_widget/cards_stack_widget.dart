@@ -28,17 +28,25 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
 
   @override
   void initState() {
-    BlocProvider.of<DiscoverPageBloc>(context)
-        .add(const DiscoverPageEvent.fetchDiscoverData());
     super.initState();
+
+    BlocProvider.of<DiscoverPageBloc>(context)
+        .add(const DiscoverPageEvent.likedAndDislikedUsersData());
+    // BlocProvider.of<DiscoverPageBloc>(context)
+    //     .add(const DiscoverPageEvent.fetchDiscoverData());
+    //--------------------
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
     _animationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        BlocProvider.of<DiscoverPageBloc>(context)
-            .add(const DiscoverPageEvent.fetchDiscoverData());
+        //----------------
+        // BlocProvider.of<DiscoverPageBloc>(context)
+        //     .add(const DiscoverPageEvent.likedAndDislikedUsersData());
+        // BlocProvider.of<DiscoverPageBloc>(context)
+        //     .add(const DiscoverPageEvent.fetchDiscoverData());
+        //--------------
         // draggableItems.removeLast();
         _animationController.reset();
         swipeNotifier.value = Swipe.none;
@@ -60,7 +68,7 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                   const SizedBox(
                     height: 250,
                   ),
-                  LoadingAnimationWidget.discreteCircle(
+                  LoadingAnimationWidget.staggeredDotsWave(
                     color: CustomColors.kRedButtonColor,
                     size: 70,
                   ),
@@ -68,16 +76,18 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
               ),
             );
           } else if (state.profile != null) {
-/////////////            ////------------------
-
             // BlocProvider.of<DiscoverPageBloc>(context)
             //     .add(const DiscoverPageEvent.fetchDiscoverData());
-/////////////////            ////------------------
 
-            List<DiscoverResponseModel>? draggableItems =
-                state.profile!.profiles;
+            List<DiscoverResponseModel>? draggableItems = state
+                .profile!.profiles!
+                .where((profile) =>
+                    !state.likedAndDislikedUsers!.contains(profile.id))
+                .toList();
 
-            if (draggableItems!.isEmpty) {
+            // log(draggableItems.length.toString());
+
+            if (draggableItems.isEmpty) {
               // If there are no more swipe profiles left, display a message
               return Container(
                 height: height * 0.3,
@@ -89,10 +99,6 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                   ),
                 ),
               );
-              //  Text(
-              //   'No more profiles to show!',
-              //   style: TextStyle(fontSize: 20),
-              // );
             }
 
             return Column(
@@ -101,7 +107,6 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    ////////////////////////////////////////////////////
                     GestureDetector(
                       onTap: () {
                         int currentIndex = draggableItems.indexWhere(
@@ -132,7 +137,7 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                                           .realationshipStatus!,
                                   smoking:
                                       draggableItems[currentIndex].smoking!,
-/////////////////////////
+                                  //--------------------Custom Containers..have some issues in some specific cases--------------------//
                                   img1: draggableItems[currentIndex]
                                           .images!
                                           .isNotEmpty
@@ -148,8 +153,7 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                                           .isNotEmpty
                                       ? draggableItems[currentIndex].images![2]
                                       : null,
-
-                                  /////////////////////////////
+                                  //----------------------------------------//
                                 ),
                               ),
                             ),
@@ -174,58 +178,77 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
 
                               userId.value = obj.id;
 
-                              log('---------------------${obj.id},${obj.age},${obj.name}--------data on card stack widget------');
+                              // log('---------------------${obj.id},${obj.age},${obj.name}--------data on card stack widget------');
+                              //--------------------------------------------
+
                               if (index == draggableItems.length - 1) {
-                                return PositionedTransition(
-                                  rect: RelativeRectTween(
-                                    begin: RelativeRect.fromSize(
-                                        const Rect.fromLTWH(0, 0, 600, 360),
-                                        const Size(600, 360)),
-                                    end: RelativeRect.fromSize(
-                                        Rect.fromLTWH(
-                                            swipe != Swipe.none
-                                                ? swipe == Swipe.left
-                                                    ? -300
-                                                    : 300
-                                                : 0,
-                                            0,
-                                            600,
-                                            360),
-                                        const Size(600, 360)),
-                                  ).animate(CurvedAnimation(
-                                    parent: _animationController,
-                                    curve: Curves.easeInOut,
-                                  )),
-                                  child: RotationTransition(
-                                    turns: Tween<double>(
-                                            begin: 0,
-                                            end: swipe != Swipe.none
-                                                ? swipe == Swipe.left
-                                                    ? -0.1 * 0.3
-                                                    : 0.1 * 0.3
-                                                : 0.0)
-                                        .animate(
-                                      CurvedAnimation(
-                                        parent: _animationController,
-                                        curve: const Interval(0, 0.4,
-                                            curve: Curves.easeInOut),
-                                      ),
-                                    ),
-                                    child: DragWidget(
-                                      profile: obj,
-                                      index: index,
-                                      swipeNotifier: swipeNotifier,
-                                      isLastCard: true,
-                                    ),
-                                  ),
+                                log('entered in if in card stack ${index.toString()}');
+                                log('=======End===========');
+
+                                return DragWidget(
+                                  profile: obj,
+                                  index: index,
+                                  swipeNotifier: swipeNotifier,
+                                  isLastCard: true,
                                 );
+                                // PositionedTransition(
+                                //   rect: RelativeRectTween(
+                                //     begin: RelativeRect.fromSize(
+                                //         const Rect.fromLTWH(0, 0, 600, 360),
+                                //         const Size(600, 360)),
+                                //     end: RelativeRect.fromSize(
+                                //         Rect.fromLTWH(
+                                //             swipe != Swipe.none
+                                //                 ? swipe == Swipe.left
+                                //                     ? -300
+                                //                     : 300
+                                //                 : 0,
+                                //             0,
+                                //             600,
+                                //             360),
+                                //         const Size(600, 360)),
+                                //   ).animate(CurvedAnimation(
+                                //     parent: _animationController,
+                                //     curve: Curves.easeInOut,
+                                //   )),
+                                //   child: RotationTransition(
+                                //     turns: Tween<double>(
+                                //             begin: 0,
+                                //             end: swipe != Swipe.none
+                                //                 ? swipe == Swipe.left
+                                //                     ? -0.1 * 0.3
+                                //                     : 0.1 * 0.3
+                                //                 : 0.0)
+                                //         .animate(
+                                //       CurvedAnimation(
+                                //         parent: _animationController,
+                                //         curve: const Interval(0, 0.4,
+                                //             curve: Curves.easeInOut),
+                                //       ),
+                                //     ),
+                                //     child: DragWidget(
+                                //       profile: obj,
+                                //       index: index,
+                                //       swipeNotifier: swipeNotifier,
+                                //       isLastCard: true,
+                                //     ),
+                                //   ),
+                                // );
+                              } else if (draggableItems.isEmpty) {
+                                log('---------------Draggable items is empty----------------------');
+
+                                return Text('empty stack');
                               } else {
+                                log('entered in else in card stack ${index.toString()}');
+
                                 return DragWidget(
                                   profile: obj,
                                   index: index,
                                   swipeNotifier: swipeNotifier,
                                 );
+                                // return Text('no cards left');
                               }
+//-------------------------------------------------
                             }),
                           ),
                         ),
@@ -254,8 +277,12 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                             draggableItems.removeAt(index);
 
                             ///-----------------------
-                            BlocProvider.of<DiscoverPageBloc>(context).add(
-                                const DiscoverPageEvent.fetchDiscoverData());
+                            // BlocProvider.of<DiscoverPageBloc>(context).add(
+                            //     const DiscoverPageEvent
+                            //         .likedAndDislikedUsersData());
+                            // BlocProvider.of<DiscoverPageBloc>(context).add(
+                            //     const DiscoverPageEvent.fetchDiscoverData());
+
                             ////------------------
                           });
                         },
@@ -281,9 +308,11 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                           setState(() {
                             draggableItems.removeAt(index);
                             ////------------------
-
-                            BlocProvider.of<DiscoverPageBloc>(context).add(
-                                const DiscoverPageEvent.fetchDiscoverData());
+                            // BlocProvider.of<DiscoverPageBloc>(context).add(
+                            //     const DiscoverPageEvent
+                            //         .likedAndDislikedUsersData());
+                            // BlocProvider.of<DiscoverPageBloc>(context).add(
+                            //     const DiscoverPageEvent.fetchDiscoverData());
 
                             ////------------------
                           });

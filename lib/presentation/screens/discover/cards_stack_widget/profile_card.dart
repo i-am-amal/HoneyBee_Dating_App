@@ -33,12 +33,6 @@ class ProfileCard extends StatelessWidget {
                   if (loadingProgress == null) {
                     return child;
                   }
-
-                  // return LoadingAnimationWidget.halfTriangleDot(
-                  //   color: CustomColors.kRedButtonColor,
-                  //   size: 50,
-                  // );
-
                   return const CircularProgressIndicator();
                 },
               ),

@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
+import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/application/sign_in/otp_number_auth_page/otp_number_auth_page_bloc.dart';
 import 'package:honeybee/application/sign_in/phone_number_auth_page/phone_number_auth_page_bloc.dart';
@@ -178,6 +179,10 @@ void handleState(OtpNumberAuthPageState state, BuildContext context) async {
       // ignore: use_build_context_synchronously
       BlocProvider.of<PreviewAccountPageBloc>(context)
           .add(const PreviewAccountPageEvent.fetchAccountData());
+
+      // ignore: use_build_context_synchronously
+      BlocProvider.of<DiscoverPageBloc>(context)
+          .add(const DiscoverPageEvent.likedAndDislikedUsersData());
 
       Future.microtask(() {
         CustomNavigator().push(context, BottomNavbar(token: state.token!));

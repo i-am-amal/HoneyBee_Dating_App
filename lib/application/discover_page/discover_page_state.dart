@@ -7,6 +7,7 @@ class DiscoverPageState with _$DiscoverPageState {
     bool? isLoading,
     bool? updateState,
     String? userId,
+    List<String>? likedAndDislikedUsers,
     DiscoverListResponseModel? profile,
   }) = _DiscoverPageState;
 

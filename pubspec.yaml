@@ -32,7 +32,7 @@ dependencies:
   intl: ^0.19.0
   json_annotation: ^4.8.1
   json_serializable: ^6.7.1
-  loading_animation_widget: ^1.2.0+4
+  loading_animation_widget: ^1.2.1
   lottie: ^2.7.0
   permission_handler: ^10.4.5
   shared_preferences: ^2.2.2

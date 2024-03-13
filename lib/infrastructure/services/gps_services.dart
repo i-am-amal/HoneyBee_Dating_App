@@ -20,14 +20,14 @@ class GpsServices {
       }
     }
 
-    //--------------->>>-----Permission Denied Forever----->>>------------------------
+    //--------------->>>-----Permission Denied Forever----->>>------------------
 
     if (permission == LocationPermission.deniedForever) {
       permission = await Geolocator.requestPermission();
       return left('Location permission denied forever,we cannot request');
     }
 
-    //--------------->>>-----Fetching CurrentPositon----->>>------------------------
+    //--------------->>>-----Fetching CurrentPositon----->>>--------------------
 
     Position currentPosition = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);

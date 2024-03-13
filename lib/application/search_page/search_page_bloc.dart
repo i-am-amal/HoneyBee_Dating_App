@@ -29,31 +29,32 @@ class SearchPageBloc extends Bloc<SearchPageEvent, SearchPageState> {
           ageMax: '${event.age}',
           ageMin: "0");
 
-      if (event.controllerValue != null && event.controllerValue!.isNotEmpty) {
-        final result = await ApiServices.searchFilterData(request);
+      // if (event.controllerValue != null && event.controllerValue!.isNotEmpty) {
 
-        result.fold((failure) {
-          log('no response from api call in search page bloc');
+      final result = await ApiServices.searchFilterData(request);
 
-          emit(state.copyWith(errorMessage: failure.errorMessage));
+      result.fold((failure) {
+        log('no response from api call in search page bloc');
+
+        emit(state.copyWith(errorMessage: failure.errorMessage));
+        emit(state.copyWith(errorMessage: null));
+      }, (success) {
+        log('success ...entered. in search page user data.');
+        if (success.profiles != null) {
+          log('response model  not null.....in search page ...');
+          emit(state.copyWith(isLoading: false));
+
+          emit(state.copyWith(searchResult: success));
+        } else {
+          // failure from backend
+          log('backend error------------');
+          emit(state.copyWith(
+              errorMessage:
+                  'OOPS.. Something went wrong.. Please try again later...'));
           emit(state.copyWith(errorMessage: null));
-        }, (success) {
-          log('success ...entered. in search page user data.');
-          if (success.profiles != null) {
-            log('response model  not null.....in search page ...');
-            emit(state.copyWith(isLoading: false));
-
-            emit(state.copyWith(searchResult: success));
-          } else {
-            // failure from backend
-            log('backend error------------');
-            emit(state.copyWith(
-                errorMessage:
-                    'OOPS.. Something went wrong.. Please try again later...'));
-            emit(state.copyWith(errorMessage: null));
-          }
-        });
-      }
+        }
+      });
+      // }
     });
   }
 }

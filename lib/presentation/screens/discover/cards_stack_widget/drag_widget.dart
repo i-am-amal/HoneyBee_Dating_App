@@ -82,10 +82,7 @@ class _DragWidgetState extends State<DragWidget> {
             },
           ),
         ),
-
-////////////////////////////////////////////////////////
-        ///
-
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         onDragUpdate: (DragUpdateDetails dragUpdateDetails) {
           // When Draggable widget is dragged right
           if (dragUpdateDetails.delta.dx > 0 &&
@@ -94,32 +91,25 @@ class _DragWidgetState extends State<DragWidget> {
             /////////////like user event calling////////////////////
             // BlocProvider.of<DiscoverPageBloc>(context)
             //     .add(DiscoverPageEvent.likeUserEvent(widget.profile.id));
-            /////////////////////////////
-            // log('user liked');
+            ////////////////////////////////////////////////////////
             swipeNotifier.value = Swipe.right;
             log('position updated like');
-
             widget.dragNotifier.value = 'right';
           }
-
           // When Draggable widget is dragged left
           if (dragUpdateDetails.delta.dx < 0 &&
               dragUpdateDetails.globalPosition.dx <
                   MediaQuery.of(context).size.width / 2) {
-//////////////////////dislike user event calling//////////////////////
-
+            //////////dislike user event calling//////////////////////
             // BlocProvider.of<DiscoverPageBloc>(context)
             //     .add(DiscoverPageEvent.dislikeUserEvent(widget.profile.id));
-            ///////////////////////////
-            // log('user disliked');
-
+            //////////////////////////////////////////////////////
             swipeNotifier.value = Swipe.left;
             log('position updated dislike');
             widget.dragNotifier.value = 'left';
           }
-
-/////////////////////////////////////////////////
         },
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
         onDragCompleted: () {
           log(widget.dragNotifier.value.toString());
@@ -129,13 +119,6 @@ class _DragWidgetState extends State<DragWidget> {
                 .add(DiscoverPageEvent.likeUserEvent(widget.profile.id));
             log('user liked');
 
-            // setState(() {
-            //   BlocProvider.of<DiscoverPageBloc>(context)
-            //       .state
-            //       .profile
-            //       ?.profiles
-            //       ?.removeAt(widget.index);
-            // });
             setState(() {
               final profiles = BlocProvider.of<DiscoverPageBloc>(context)
                   .state
@@ -151,18 +134,12 @@ class _DragWidgetState extends State<DragWidget> {
                 .add(DiscoverPageEvent.dislikeUserEvent(widget.profile.id));
             log('user disliked');
 
-            // setState(() {
-            //   BlocProvider.of<DiscoverPageBloc>(context)
-            //       .state
-            //       .profile
-            //       ?.profiles
-            //       ?.removeAt(widget.index);
-            // });
             setState(() {
               final profiles = BlocProvider.of<DiscoverPageBloc>(context)
                   .state
                   .profile
                   ?.profiles;
+
               if (profiles != null && widget.index < profiles.length) {
                 profiles.removeAt(widget.index);
               }

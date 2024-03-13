@@ -30,7 +30,7 @@ class ProfileList extends StatelessWidget {
                 const SizedBox(
                   height: 250,
                 ),
-                LoadingAnimationWidget.discreteCircle(
+                LoadingAnimationWidget.staggeredDotsWave(
                   color: CustomColors.kRedButtonColor,
                   size: 70,
                 ),

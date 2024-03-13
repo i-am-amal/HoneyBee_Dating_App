@@ -26,7 +26,7 @@ class LikedProfileGrid extends StatelessWidget {
                   const SizedBox(
                     height: 250,
                   ),
-                  LoadingAnimationWidget.discreteCircle(
+                  LoadingAnimationWidget.staggeredDotsWave(
                     color: CustomColors.kRedButtonColor,
                     size: 70,
                   ),
@@ -117,19 +117,19 @@ class LikedProfileGrid extends StatelessWidget {
                             right: 0,
                             child: Container(
                               height: 35,
-                              color: Colors.black.withOpacity(0.4),
+                              decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(0.7),
+                                  border:
+                                      Border.all(color: Colors.teal, width: 1)),
                               child: TextButton(
-                                child: const Text(
-                                  'Dislike ',
-                                  style: TextStyle(
+                                child: Text(
+                                  'Dislike ${state.profile!.profiles![index].fullName}',
+                                  style: const TextStyle(
                                     color: Colors.red,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 onPressed: () {
-
-
-
                                   BlocProvider.of<AllLikedUsersPageBloc>(
                                           context)
                                       .add(AllLikedUsersPageEvent.dislikeEvent(
@@ -142,7 +142,7 @@ class LikedProfileGrid extends StatelessWidget {
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-                                  Future.delayed(const Duration(seconds: 2),
+                                  Future.delayed(const Duration(seconds: 1),
                                       () {
                                     BlocProvider.of<AllLikedUsersPageBloc>(
                                             context)
@@ -151,12 +151,10 @@ class LikedProfileGrid extends StatelessWidget {
                                   });
 
                                   /////////////////////////////////////////////////////////
-                                  
                                 },
                               ),
                             ),
                           ),
-
 
 /////////////-------------------------------------------------------------------------
 
@@ -165,30 +163,29 @@ class LikedProfileGrid extends StatelessWidget {
                             left: 0,
                             right: 0,
                             child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(0.7),
+                                  border:
+                                      Border.all(color: Colors.teal, width: 1)),
                               height: 35,
-                              color: Colors.black.withOpacity(0.5),
+                              // color: Colors.black.withOpacity(0.7),
                               child: TextButton(
-                                
                                 child: Text(
                                   // 'Block User',
 
                                   state.profile!.profiles![index]
                                               .blockedUsers ==
                                           null
-                                      ? 'Unblock User'
-                                      : 'Block User',
+                                      ? 'Unblock  ${state.profile!.profiles![index].fullName}'
+                                      : 'Block  ${state.profile!.profiles![index].fullName}',
 
                                   style: const TextStyle(
                                     color: Colors.red,
                                     fontWeight: FontWeight.bold,
                                   ),
-
                                 ),
-
                                 onPressed: () {
                                   if (state.isBlocked == false) {
-
-
                                     BlocProvider.of<AllLikedUsersPageBloc>(
                                             context)
                                         .add(AllLikedUsersPageEvent
@@ -202,15 +199,12 @@ class LikedProfileGrid extends StatelessWidget {
                                     //       .add(const AllLikedUsersPageEvent
                                     //           .fetchLikedUsersData());
                                     // });
-
-
                                   } else {
                                     BlocProvider.of<AllLikedUsersPageBloc>(
                                             context)
                                         .add(AllLikedUsersPageEvent
                                             .unBlockUserEvent(state
                                                 .profile!.profiles![index].id));
-
 
                                     // Future.delayed(const Duration(seconds: 4),
                                     //     () {
@@ -219,16 +213,11 @@ class LikedProfileGrid extends StatelessWidget {
                                     //       .add(const AllLikedUsersPageEvent
                                     //           .fetchLikedUsersData());
                                     // });
-
-
                                   }
                                 },
                               ),
                             ),
                           ),
-
-
-
                         ],
                       ),
                     ),
@@ -236,7 +225,17 @@ class LikedProfileGrid extends StatelessWidget {
                 },
               ),
             );
-          } else {
+          }
+          //  else if (state.profile == null) {
+          //   return Center(
+          //     child: Image.asset(
+          //       'assets/images/no_result.png',
+          //       height: 500,
+          //       width: 500,
+          //     ),
+          //   );
+          // }
+          else {
             return Center(
               child: Image.asset(
                 'assets/images/no_result.png',

@@ -40,10 +40,10 @@ class _SearchPageState extends State<SearchPage> {
       });
     }
 
-    if (query.isEmpty) {
-      BlocProvider.of<SearchPageBloc>(context)
-          .add(SearchPageEvent.searchData(_controllerValue.text, age));
-    }
+    // if (query.isEmpty) {
+    //   BlocProvider.of<SearchPageBloc>(context)
+    //       .add(SearchPageEvent.searchData(_controllerValue.text, age));
+    // }
   }
 
   @override

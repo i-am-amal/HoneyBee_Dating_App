@@ -27,7 +27,7 @@ class ProfileGrid extends StatelessWidget {
                 const SizedBox(
                   height: 250,
                 ),
-                LoadingAnimationWidget.discreteCircle(
+                LoadingAnimationWidget.staggeredDotsWave(
                   color: CustomColors.kRedButtonColor,
                   size: 70,
                 ),
@@ -99,7 +99,7 @@ class ProfileGrid extends StatelessWidget {
                             child: Container(
                               height: double.infinity,
                               width: double.infinity,
-                              color: Colors.red,
+                              color: Colors.white,
                               child: Image.network(
                                 state.profile!.profiles![index].profilePic!,
 
@@ -115,7 +115,7 @@ class ProfileGrid extends StatelessWidget {
                           right: 0,
                           child: Container(
                             height: 40,
-                            color: Colors.black.withOpacity(0.5),
+                            color: Colors.black.withOpacity(0.7),
                             child: TextButton(
                               child: Text(
                                 state.profile!.profiles![index].fullName!,

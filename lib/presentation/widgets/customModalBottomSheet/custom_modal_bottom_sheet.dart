@@ -31,6 +31,13 @@ class _CustomModalBottomSheetState extends State<CustomModalBottomSheet> {
         ElevatedButton(
           onPressed: () {
             Navigator.of(context).pop(selectedAge.toInt().toString());
+
+            ///----------------------------------
+
+            // BlocProvider.of<SearchPageBloc>(context).add(
+            //     SearchPageEvent.searchData('', selectedAge.toInt().toString()));
+
+            ///----------------------------------------------
           },
           child: const Text('Submit'),
         ),
