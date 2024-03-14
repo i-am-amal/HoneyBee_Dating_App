@@ -308,7 +308,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                             ),
                           );
                         }
-
                         // Navigator.pushReplacement(
                         //   context,
                         //   MaterialPageRoute(

@@ -1,3 +1,23 @@
+// part of 'discover_page_bloc.dart';
+
+// @freezed
+// class DiscoverPageState with _$DiscoverPageState {
+//   const factory DiscoverPageState({
+//     String? errorMessage,
+//     bool? isLoading,
+//     bool? updateState,
+//     String? userId,
+//     List<String>? likedAndDislikedUsers,
+//     List<DiscoverResponseModel>? dragItems,
+//     DiscoverListResponseModel? profile,
+//   }) = _DiscoverPageState;
+
+//   factory DiscoverPageState.initial() {
+//     return const DiscoverPageState(isLoading: false);
+//   }
+// }
+
+
 part of 'discover_page_bloc.dart';
 
 @freezed
@@ -7,11 +27,11 @@ class DiscoverPageState with _$DiscoverPageState {
     bool? isLoading,
     bool? updateState,
     String? userId,
-    List<String>? likedAndDislikedUsers,
+    List<DiscoverResponseModel>? likedAndDislikedUsers ,
     DiscoverListResponseModel? profile,
   }) = _DiscoverPageState;
 
   factory DiscoverPageState.initial() {
-    return const DiscoverPageState(isLoading: false);
+    return const DiscoverPageState(isLoading: false, likedAndDislikedUsers: []);
   }
 }
