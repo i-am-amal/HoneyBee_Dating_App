@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/all_messages_page/all_messages_bloc.dart';
 import 'package:honeybee/application/chat_page/chat_page_bloc.dart';
-import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
 import 'package:honeybee/presentation/screens/chatting/chat_screen.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:intl/intl.dart';
@@ -41,9 +40,6 @@ class ProfileList extends StatelessWidget {
           );
         } else if (
 
-            // state.isLoading == false &&
-            //   state.profile!.profiles!.isNotEmpty
-
             state.messageList != null && state.messageList!.isNotEmpty) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
@@ -60,6 +56,7 @@ class ProfileList extends StatelessWidget {
 
                 return GestureDetector(
                   onTap: () {
+
                     // log(state.profile!.profiles![index].conversationId!);
 
                     // log(state.profile!.profiles![index].id!);
@@ -92,13 +89,7 @@ class ProfileList extends StatelessWidget {
                           name: state.messageList![index].users![1].fullName,
                         ),
 
-                        //   showCupertinoModalPopup(
-                        //   context: context,
-                        //   builder: (context) {
-                        //     return const ChatScreen();
-                        //   },
-                        // ),
-                        // ChatScreen()
+                       
                       ),
                     );
                   },
@@ -135,7 +126,7 @@ class ProfileList extends StatelessWidget {
             ),
           );
         } else {
-          return Text('No data');
+          return const Text('No data');
         }
       },
     );

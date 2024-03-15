@@ -15,7 +15,7 @@ class ChatPage extends StatelessWidget {
    
     // BlocProvider.of<AllMessagesBloc>(context)
     //     .add(const AllMessagesEvent.loadConversationIds());
-    
+
         BlocProvider.of<AllMessagesBloc>(context)
         .add(const AllMessagesEvent.listAllLastMessages());
 
@@ -45,9 +45,18 @@ class ChatPage extends StatelessWidget {
           SizedBox(
             height: height * 0.04,
           ),
-          const CustomTextFormFiled(
+           CustomTextFormFiled(
             icon: Icons.search,
-            text: 'Search',
+            text: 'Search', buttonOnTap: (){
+
+
+
+
+
+
+
+              
+            },
           ),
           const Expanded(
             child: ProfileList(),
