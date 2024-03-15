@@ -91,7 +91,6 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/domain/models/discover_response_model/discover_response_model.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
-import 'profile_model.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({super.key, required this.profile});
@@ -124,7 +123,7 @@ class ProfileCard extends StatelessWidget {
                   if (loadingProgress == null) {
                     return child;
                   }
-                  return Center(child: const CircularProgressIndicator());
+                  return const Center(child:  CircularProgressIndicator());
                 },
               ),
             ),

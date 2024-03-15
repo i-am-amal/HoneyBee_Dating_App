@@ -35,6 +35,8 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
       });
     });
 
+    //-------------------15/03------------------------------
+
     on<_GetAllMessageOfUser>((event, emit) async {
       GetMessageRequestModel request =
           GetMessageRequestModel(from: event.senderId, to: event.receiverId);
@@ -52,6 +54,8 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
         log(message.toString());
       });
     });
+
+    //-------------------15/03------------------------------
 
     // on<_GetAllMessageOfUser>((event, emit) async {
     //   GetMessageRequestModel request =

@@ -741,22 +741,25 @@ class ApiServices {
 
   //--------------->>>-----Last Message API----->>>------------------------
 
-  static Future<Either<ApiFailures, LastMessageResponseModel>> lastMessageData(
-      LastMessageRequestModel request) async {
+  static Future<Either<ApiFailures, MessageList>> lastMessageData(
+      List<String> request) async {
     try {
       final apiToken = await getTokenFromPrefs();
+
       final response = await http.post(
         Uri.parse(Config.lastMessageApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
-        body: request.toJson(),
+        body: jsonEncode({'conversationIds': request}),
       );
       if (response.statusCode == 200) {
-        Map<String, dynamic> jsonMap = jsonDecode(response.body);
-        LastMessageResponseModel result =
-            LastMessageResponseModel.fromJson(jsonMap);
+        final result = MessageList.fromJson(jsonDecode(response.body));
+
+        log('response from message');
+        log(result.messages.toString());
+
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());

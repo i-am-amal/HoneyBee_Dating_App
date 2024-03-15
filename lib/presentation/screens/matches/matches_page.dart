@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:honeybee/application/all_liked_users_page/all_liked_users_page_bloc.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/screens/matches/profile_grid.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
@@ -10,6 +12,9 @@ class MatchesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<AllLikedUsersPageBloc>(context)
+        .add(const AllLikedUsersPageEvent.blockedUsersData());
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 

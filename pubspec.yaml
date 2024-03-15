@@ -9,13 +9,13 @@ environment:
 
 dependencies:
   awesome_notifications: ^0.9.1
-  # bloc: ^8.1.2
   build_runner: ^2.4.6
   cached_network_image: ^3.3.1
   country_code_picker: ^3.0.0
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3
   dartz: ^0.10.1
+  dio: ^5.4.1
   emoji_picker_flutter: ^1.6.3
   flutter:
     sdk: flutter

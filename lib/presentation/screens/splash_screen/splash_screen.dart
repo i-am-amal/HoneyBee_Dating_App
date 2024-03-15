@@ -84,7 +84,7 @@
 
 //         BlocProvider.of<PreviewAccountPageBloc>(context)
 //             .add(const PreviewAccountPageEvent.fetchAccountData());
-       
+
 //         log('-----token on splash screen $token');
 
 //         Navigator.of(context).pushReplacement(
@@ -106,6 +106,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/all_messages_page/all_messages_bloc.dart';
 import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
@@ -185,6 +186,7 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
       if (token != null) {
         BlocProvider.of<PreviewAccountPageBloc>(context)
             .add(const PreviewAccountPageEvent.fetchAccountData());
+
 //--------------------------------------
         // BlocProvider.of<DiscoverPageBloc>(context)
         //     .add(const DiscoverPageEvent.likedAndDislikedUsersData());
@@ -192,6 +194,9 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
         log('-----token on splash screen $token');
         BlocProvider.of<DiscoverPageBloc>(context)
             .add(const DiscoverPageEvent.fetchDiscoverData());
+
+        BlocProvider.of<AllMessagesBloc>(context)
+            .add(const AllMessagesEvent.loadConversationIds());
 
         Future.delayed(
           const Duration(seconds: 5),

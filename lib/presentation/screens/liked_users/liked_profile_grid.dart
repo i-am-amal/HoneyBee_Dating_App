@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/all_liked_users_page/all_liked_users_page_bloc.dart';
@@ -33,7 +32,8 @@ class LikedProfileGrid extends StatelessWidget {
                 ],
               ),
             );
-          } else if (state.profile != null) {
+          } else if (state.profile != null &&
+              state.profile!.profiles!.isNotEmpty) {
             return Padding(
               padding: const EdgeInsets.all(18.0),
               child: GridView.builder(
@@ -102,7 +102,7 @@ class LikedProfileGrid extends StatelessWidget {
                               child: Container(
                                 height: double.infinity,
                                 width: double.infinity,
-                                color: Colors.red,
+                                color: Colors.white,
                                 child: Image.network(
                                   state.profile!.profiles![index].profilePic!,
                                   // 'assets/images/profile.jpg',
@@ -171,14 +171,12 @@ class LikedProfileGrid extends StatelessWidget {
                               // color: Colors.black.withOpacity(0.7),
                               child: TextButton(
                                 child: Text(
-                                  // 'Block User',
-
-                                  state.profile!.profiles![index]
-                                              .blockedUsers ==
-                                          null
-                                      ? 'Unblock  ${state.profile!.profiles![index].fullName}'
-                                      : 'Block  ${state.profile!.profiles![index].fullName}',
-
+                                  state.blockedUserIds != null
+                                      ? state.blockedUserIds!.contains(state
+                                              .profile!.profiles![index].id)
+                                          ? 'Unblock ${state.profile!.profiles![index].fullName}'
+                                          : 'Block ${state.profile!.profiles![index].fullName}'
+                                      : 'Block ${state.profile!.profiles![index].fullName}',
                                   style: const TextStyle(
                                     color: Colors.red,
                                     fontWeight: FontWeight.bold,
@@ -191,31 +189,65 @@ class LikedProfileGrid extends StatelessWidget {
                                         .add(AllLikedUsersPageEvent
                                             .blockUserEvent(state
                                                 .profile!.profiles![index].id));
-
-                                    // Future.delayed(const Duration(seconds: 4),
-                                    //     () {
-                                    //   BlocProvider.of<AllLikedUsersPageBloc>(
-                                    //           context)
-                                    //       .add(const AllLikedUsersPageEvent
-                                    //           .fetchLikedUsersData());
-                                    // });
                                   } else {
                                     BlocProvider.of<AllLikedUsersPageBloc>(
                                             context)
                                         .add(AllLikedUsersPageEvent
                                             .unBlockUserEvent(state
                                                 .profile!.profiles![index].id));
-
-                                    // Future.delayed(const Duration(seconds: 4),
-                                    //     () {
-                                    //   BlocProvider.of<AllLikedUsersPageBloc>(
-                                    //           context)
-                                    //       .add(const AllLikedUsersPageEvent
-                                    //           .fetchLikedUsersData());
-                                    // });
                                   }
                                 },
                               ),
+
+                              // TextButton(
+                              //   child: Text(
+                              //     // 'Block User',
+
+                              //     state.profile!.profiles![index]
+                              //                 .blockedUsers ==
+                              //             null
+                              //         ? 'Unblock  ${state.profile!.profiles![index].fullName}'
+                              //         : 'Block  ${state.profile!.profiles![index].fullName}',
+
+                              //     style: const TextStyle(
+                              //       color: Colors.red,
+                              //       fontWeight: FontWeight.bold,
+                              //     ),
+                              //   ),
+                              //   onPressed: () {
+                              //     if (state.isBlocked == false) {
+                              //       BlocProvider.of<AllLikedUsersPageBloc>(
+                              //               context)
+                              //           .add(AllLikedUsersPageEvent
+                              //               .blockUserEvent(state
+                              //                   .profile!.profiles![index].id));
+
+                              //       Future.delayed(const Duration(seconds: 1),
+                              //           () {
+                              //         BlocProvider.of<AllLikedUsersPageBloc>(
+                              //                 context)
+                              //             .add(const AllLikedUsersPageEvent
+                              //                 .fetchLikedUsersData());
+                              //       });
+
+                              //     } else {
+                              //       BlocProvider.of<AllLikedUsersPageBloc>(
+                              //               context)
+                              //           .add(AllLikedUsersPageEvent
+                              //               .unBlockUserEvent(state
+                              //                   .profile!.profiles![index].id));
+
+                              //       Future.delayed(const Duration(seconds: 1),
+                              //           () {
+                              //         BlocProvider.of<AllLikedUsersPageBloc>(
+                              //                 context)
+                              //             .add(const AllLikedUsersPageEvent
+                              //                 .fetchLikedUsersData());
+                              //       });
+
+                              //     }
+                              //   },
+                              // ),
                             ),
                           ),
                         ],

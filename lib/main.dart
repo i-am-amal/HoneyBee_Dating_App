@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/all_liked_users_page/all_liked_users_page_bloc.dart';
+import 'package:honeybee/application/all_messages_page/all_messages_bloc.dart';
 import 'package:honeybee/application/bottom_navigation/bottom_navigation_bloc.dart';
 import 'package:honeybee/application/chat_page/chat_page_bloc.dart';
 import 'package:honeybee/application/create_account_page/create_account_bloc.dart';
@@ -81,6 +82,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ChatPageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AllMessagesBloc(),
         ),
       ],
       child: MaterialApp(

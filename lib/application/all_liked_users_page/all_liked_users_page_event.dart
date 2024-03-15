@@ -12,4 +12,6 @@ class AllLikedUsersPageEvent with _$AllLikedUsersPageEvent {
       _UnBlockUserEvent;
   const factory AllLikedUsersPageEvent.resyncLikedUsersData() =
       _ResyncLikedUsersData;
+      const factory AllLikedUsersPageEvent.blockedUsersData() =
+      _BlockedUsersData;
 }

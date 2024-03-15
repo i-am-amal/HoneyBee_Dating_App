@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/all_messages_page/all_messages_bloc.dart';
 import 'package:honeybee/presentation/screens/chatting/profile_list.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
@@ -10,6 +12,13 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   
+    // BlocProvider.of<AllMessagesBloc>(context)
+    //     .add(const AllMessagesEvent.loadConversationIds());
+    
+        BlocProvider.of<AllMessagesBloc>(context)
+        .add(const AllMessagesEvent.listAllLastMessages());
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 

@@ -8,6 +8,7 @@ class AllLikedUsersPageState with _$AllLikedUsersPageState {
     bool? updateState,
     bool? isBlocked,
     String? userId,
+    List<String>? blockedUserIds,
     AllLikedUsersListResponseModel? profile,
   }) = _MatchesPageState;
 
@@ -16,6 +17,7 @@ class AllLikedUsersPageState with _$AllLikedUsersPageState {
       isLoading: false,
       updateState: false,
       isBlocked: false,
+      blockedUserIds: []
     );
   }
 }
