@@ -285,13 +285,15 @@ mixin _$AllMessagesState {
       throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
   List<String>? get conversationIds => throw _privateConstructorUsedError;
+  String? get userId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
             bool? isLoading,
-            List<String>? conversationIds)
+            List<String>? conversationIds,
+            String? userId)
         initial,
   }) =>
       throw _privateConstructorUsedError;
@@ -301,7 +303,8 @@ mixin _$AllMessagesState {
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
             bool? isLoading,
-            List<String>? conversationIds)?
+            List<String>? conversationIds,
+            String? userId)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
@@ -311,7 +314,8 @@ mixin _$AllMessagesState {
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
             bool? isLoading,
-            List<String>? conversationIds)?
+            List<String>? conversationIds,
+            String? userId)?
         initial,
     required TResult orElse(),
   }) =>
@@ -348,7 +352,8 @@ abstract class $AllMessagesStateCopyWith<$Res> {
       {String? errorMessage,
       List<LastMessageResponseModel>? messageList,
       bool? isLoading,
-      List<String>? conversationIds});
+      List<String>? conversationIds,
+      String? userId});
 }
 
 /// @nodoc
@@ -368,6 +373,7 @@ class _$AllMessagesStateCopyWithImpl<$Res, $Val extends AllMessagesState>
     Object? messageList = freezed,
     Object? isLoading = freezed,
     Object? conversationIds = freezed,
+    Object? userId = freezed,
   }) {
     return _then(_value.copyWith(
       errorMessage: freezed == errorMessage
@@ -386,6 +392,10 @@ class _$AllMessagesStateCopyWithImpl<$Res, $Val extends AllMessagesState>
           ? _value.conversationIds
           : conversationIds // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -402,7 +412,8 @@ abstract class _$$_InitialCopyWith<$Res>
       {String? errorMessage,
       List<LastMessageResponseModel>? messageList,
       bool? isLoading,
-      List<String>? conversationIds});
+      List<String>? conversationIds,
+      String? userId});
 }
 
 /// @nodoc
@@ -419,6 +430,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? messageList = freezed,
     Object? isLoading = freezed,
     Object? conversationIds = freezed,
+    Object? userId = freezed,
   }) {
     return _then(_$_Initial(
       errorMessage: freezed == errorMessage
@@ -437,6 +449,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value._conversationIds
           : conversationIds // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -448,7 +464,8 @@ class _$_Initial implements _Initial {
       {this.errorMessage,
       final List<LastMessageResponseModel>? messageList,
       this.isLoading,
-      final List<String>? conversationIds})
+      final List<String>? conversationIds,
+      this.userId})
       : _messageList = messageList,
         _conversationIds = conversationIds;
 
@@ -477,8 +494,11 @@ class _$_Initial implements _Initial {
   }
 
   @override
+  final String? userId;
+
+  @override
   String toString() {
-    return 'AllMessagesState.initial(errorMessage: $errorMessage, messageList: $messageList, isLoading: $isLoading, conversationIds: $conversationIds)';
+    return 'AllMessagesState.initial(errorMessage: $errorMessage, messageList: $messageList, isLoading: $isLoading, conversationIds: $conversationIds, userId: $userId)';
   }
 
   @override
@@ -493,7 +513,8 @@ class _$_Initial implements _Initial {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             const DeepCollectionEquality()
-                .equals(other._conversationIds, _conversationIds));
+                .equals(other._conversationIds, _conversationIds) &&
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @override
@@ -502,7 +523,8 @@ class _$_Initial implements _Initial {
       errorMessage,
       const DeepCollectionEquality().hash(_messageList),
       isLoading,
-      const DeepCollectionEquality().hash(_conversationIds));
+      const DeepCollectionEquality().hash(_conversationIds),
+      userId);
 
   @JsonKey(ignore: true)
   @override
@@ -517,10 +539,12 @@ class _$_Initial implements _Initial {
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
             bool? isLoading,
-            List<String>? conversationIds)
+            List<String>? conversationIds,
+            String? userId)
         initial,
   }) {
-    return initial(errorMessage, messageList, isLoading, conversationIds);
+    return initial(
+        errorMessage, messageList, isLoading, conversationIds, userId);
   }
 
   @override
@@ -530,10 +554,12 @@ class _$_Initial implements _Initial {
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
             bool? isLoading,
-            List<String>? conversationIds)?
+            List<String>? conversationIds,
+            String? userId)?
         initial,
   }) {
-    return initial?.call(errorMessage, messageList, isLoading, conversationIds);
+    return initial?.call(
+        errorMessage, messageList, isLoading, conversationIds, userId);
   }
 
   @override
@@ -543,12 +569,14 @@ class _$_Initial implements _Initial {
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
             bool? isLoading,
-            List<String>? conversationIds)?
+            List<String>? conversationIds,
+            String? userId)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(errorMessage, messageList, isLoading, conversationIds);
+      return initial(
+          errorMessage, messageList, isLoading, conversationIds, userId);
     }
     return orElse();
   }
@@ -587,7 +615,8 @@ abstract class _Initial implements AllMessagesState {
       {final String? errorMessage,
       final List<LastMessageResponseModel>? messageList,
       final bool? isLoading,
-      final List<String>? conversationIds}) = _$_Initial;
+      final List<String>? conversationIds,
+      final String? userId}) = _$_Initial;
 
   @override
   String? get errorMessage;
@@ -597,6 +626,8 @@ abstract class _Initial implements AllMessagesState {
   bool? get isLoading;
   @override
   List<String>? get conversationIds;
+  @override
+  String? get userId;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

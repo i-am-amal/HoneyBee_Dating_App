@@ -6,6 +6,8 @@ class AllMessagesState with _$AllMessagesState {
     String? errorMessage,
   List<LastMessageResponseModel>? messageList,
     bool? isLoading,
-    List<String>? conversationIds
+    List<String>? conversationIds,
+    String? userId,
+
   }) = _Initial;
 }

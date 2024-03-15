@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/all_messages_page/all_messages_bloc.dart';
 import 'package:honeybee/application/chat_page/chat_page_bloc.dart';
+import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/chatting/chat_screen.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:intl/intl.dart';
@@ -38,9 +39,7 @@ class ProfileList extends StatelessWidget {
               ],
             ),
           );
-        } else if (
-
-            state.messageList != null && state.messageList!.isNotEmpty) {
+        } else if (state.messageList != null && state.messageList!.isNotEmpty) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListView.builder(
@@ -49,19 +48,21 @@ class ProfileList extends StatelessWidget {
                 final DateTime dateTime = DateTime.parse(
                         state.messageList![index].updatedAt!.toString())
                     .toLocal();
-                String currentTime = DateFormat('hh:mm')
+                String currentTime = DateFormat('hh:mm a')
                     .format(dateTime)
                     .toString(); // Format as desired
-                log('-------Users---${state.messageList![index].users![1].fullName}--');
+                log('-------Users---${state.messageList![index].conversationId}--');
+
+                // String userName = state.messageList[index].users[1].id;
 
                 return GestureDetector(
                   onTap: () {
-
                     // log(state.profile!.profiles![index].conversationId!);
 
                     // log(state.profile!.profiles![index].id!);
 
                     // log(state.userId!);
+
                     // getuserIdFromPrefs();
 ////////////////////////////////////////////////////
                     // BlocProvider.of<GetAllMessageBloc>(context).add(
@@ -70,39 +71,56 @@ class ProfileList extends StatelessWidget {
                     // );
 
 //'''''''''''''''''''''''''''''''''
+
                     BlocProvider.of<ChatPageBloc>(context).add(
                         ChatPageEvent.initializeGetAllMessagePage(
-                            state.messageList![index].users![0].id,
-                            state.messageList![index].users![1].id));
+                            state.userId,
+                            state.userId ==
+                                    state.messageList![index].users![0].id
+                                ? state.messageList![index].users![1].id!
+                                : state.messageList![index].users![0].id!));
 
 ///////////////////////////////////////////////////
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => ChatScreen(
-                          senderId: state.messageList![index].users![0].id,
-                          receiverId: state.messageList![index].users![1].id,
-                          conversationId:
-                              state.messageList![index].conversationId,
-                          profilePic:
-                              state.messageList![index].users![1].profilePic,
-                          name: state.messageList![index].users![1].fullName,
-                        ),
-
-                       
+                            senderId: state.userId,
+                            receiverId: state.userId ==
+                                    state.messageList![index].users![0].id
+                                ? state.messageList![index].users![1].id!
+                                : state.messageList![index].users![0].id!,
+                            conversationId:
+                                state.messageList![index].conversationId,
+                            profilePic: state.userId ==
+                                    state.messageList![index].users![0].id
+                                ? state
+                                    .messageList![index].users![1].profilePic!
+                                : state
+                                    .messageList![index].users![0].profilePic!,
+                            name: state.userId ==
+                                    state.messageList![index].users![0].id
+                                ? state.messageList![index].users![1].fullName!
+                                : state
+                                    .messageList![index].users![0].fullName!),
                       ),
                     );
                   },
                   child: Card(
                     child: ListTile(
                       leading: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            state.messageList![index].users![1].profilePic!),
+                        backgroundImage: NetworkImage(state.userId ==
+                                state.messageList![index].users![0].id
+                            ? state.messageList![index].users![1].profilePic!
+                            : state.messageList![index].users![0].profilePic!),
                       ),
                       title: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(state.messageList![index].users![1].fullName!),
+                          Text(state.userId ==
+                                  state.messageList![index].users![0].id
+                              ? state.messageList![index].users![1].fullName!
+                              : state.messageList![index].users![0].fullName!),
                           Text(currentTime),
                         ],
                       ),

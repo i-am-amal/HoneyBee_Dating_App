@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
+import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/screens/profile/edit_profile/edit_info_main_page.dart';
 import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
@@ -56,6 +57,13 @@ class EditProfile extends StatelessWidget {
                             icon: Icons.arrow_back_ios_new,
                             onpressed: () {
                               Navigator.pop(context);
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //       builder: (context) => BottomNavbar(
+                              //         token: state.token!,
+                              //       ),
+                              //     ));
                             }),
                         const CustomText(
                           text: 'My Account',
