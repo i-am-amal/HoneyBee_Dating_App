@@ -1,6 +1,4 @@
-import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -8,8 +6,8 @@ import 'package:honeybee/application/create_account_page/create_account_bloc.dar
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
-import 'package:honeybee/presentation/screens/create_account/basic_info/basic_info_last_page.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_info_last_page.dart';
 import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
@@ -60,7 +58,6 @@ class PreviewAccount extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: () async {
-        // Show an alert dialog
         bool exitProcedure = await showDialog(
           context: context,
           builder: (context) => AlertDialog(
@@ -81,7 +78,7 @@ class PreviewAccount extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(false); // Continue the procedure
+                  Navigator.of(context).pop(false); 
                 },
                 child: const Text(
                   'No',
@@ -147,7 +144,6 @@ class PreviewAccount extends StatelessWidget {
                 ),
                 SizedBox(
                   width: width * 0.99,
-                  // color: Colors.grey,
                   child: Column(
                     children: [
                       SizedBox(height: height * 0.05),
@@ -233,7 +229,6 @@ class PreviewAccount extends StatelessWidget {
                                     blurRadius: 7,
                                     offset: const Offset(0, 3)),
                               ]),
-
                           ///--------------->>>>>>>>>>----------------cover image --------->>>>>>>>>>>---------
 
                           child: Image.file(
@@ -241,15 +236,6 @@ class PreviewAccount extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-
-                        //  SizedBox(
-                        //     height: height * 0.2,
-                        //     child: Expanded(
-                        //       child: Image.file(
-                        //         coverImage,
-                        //         fit: BoxFit.cover,
-                        //       ),
-                        //     )),
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -262,7 +248,6 @@ class PreviewAccount extends StatelessWidget {
                                 Expanded(
                                   child: Container(
                                     height: height * 0.2,
-                                    // width: width * 0.9,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(10),
@@ -291,7 +276,6 @@ class PreviewAccount extends StatelessWidget {
                                 Expanded(
                                   child: Container(
                                     height: height * 0.2,
-                                    // width: width * 0.9,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(10),
@@ -387,12 +371,8 @@ class PreviewAccount extends StatelessWidget {
                                 ),
                               ),
                             );
-
-                            log('token on the preview account page --- ${state.token!}');
-
-//----------->>>>>>>>>>----------saving token---------------->>>>>>>>>>>
+          //----------->>>>>>>>>>----------saving token---------------->>>>>>>>>>>
                             saveTokenToPrefs(state.token!);
-
                             BlocProvider.of<PreviewAccountPageBloc>(context)
                                 .add(const PreviewAccountPageEvent
                                     .fetchAccountData());
@@ -431,13 +411,9 @@ class PreviewAccount extends StatelessWidget {
                                       image1: image1,
                                       image2: image2,
                                       image3: image3));
-
-                              log("on create function $image1,$image2,$image3");
-                              log("$fullName, $birthday, $coverImage, $email, $location, $phoneNumber, $profileImage, $image1, $image2, $image3,${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},$bio,$gender,$preference");
                             },
                           );
                         }
-
                         return const SizedBox();
                       }),
                       SizedBox(height: height * 0.05),
@@ -457,13 +433,11 @@ class PreviewAccount extends StatelessWidget {
     DateTime birthDate = formatter.parse(birthday);
     DateTime currentDate = DateTime.now();
     int age = currentDate.year - birthDate.year;
-
     if (currentDate.month < birthDate.month ||
         (currentDate.month == birthDate.month &&
             currentDate.day < birthDate.day)) {
       age--;
     }
-
     return age;
   }
 }
@@ -474,7 +448,6 @@ class ChoiceButton extends StatelessWidget {
     required this.label,
     super.key,
   });
-
   final IconData? icon;
   final String label;
 

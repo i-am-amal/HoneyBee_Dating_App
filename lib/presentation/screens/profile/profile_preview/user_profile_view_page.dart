@@ -10,7 +10,6 @@ import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 class UserProfilePreviewPage extends StatelessWidget {
   const UserProfilePreviewPage({super.key, required this.userDetails});
 
-  // final MatchesResponseModel userDetails;
   final UserModel userDetails;
 
   @override
@@ -71,13 +70,11 @@ class UserProfilePreviewPage extends StatelessWidget {
                     ),
                     child: Image.network(
                       userDetails.profilePic,
-                      // 'assets/images/profile.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
                   SizedBox(
                     width: width * 0.99,
-                    // color: Colors.grey,
                     child: Column(
                       children: [
                         SizedBox(height: height * 0.05),
@@ -166,7 +163,6 @@ class UserProfilePreviewPage extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       height: height * 0.25,
-                      // width: width * 0.9,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),
@@ -183,8 +179,6 @@ class UserProfilePreviewPage extends StatelessWidget {
                       ),
                     ),
                   ),
-
-                  ///////////////////////////////
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -220,27 +214,10 @@ class UserProfilePreviewPage extends StatelessWidget {
                                       ),
                               ),
                             ),
-                            // SizedBox(
-                            //   height: height * 0.2,
-                            //   child:
-                            // userDetails.img1 != null
-                            //       ? Image.network(
-                            //           userDetails.img1!,
-                            //           fit: BoxFit.cover,
-                            //         )
-                            //       : const Padding(
-                            //           padding: EdgeInsets.all(15.0),
-                            //           child: Center(
-                            //             child: Text('No image Available'),
-                            //           ),
-                            //         ),
-                            // ),
-
                             SizedBox(width: width * 0.05),
                             Expanded(
                               child: Container(
                                 height: height * 0.2,
-                                // width: width * 0.9,
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(10),
@@ -263,27 +240,11 @@ class UserProfilePreviewPage extends StatelessWidget {
                                         ),
                                       ),
                               ),
-
-                              // SizedBox(
-                              //   height: height * 0.2,
-                              //   child: userDetails.img2 != null
-                              //       ? Image.network(
-                              //           userDetails.img2!,
-                              //           fit: BoxFit.contain,
-                              //         )
-                              //       : const Padding(
-                              //           padding: EdgeInsets.all(15.0),
-                              //           child: Center(
-                              //             child: Text('No image Available'),
-                              //           ),
-                              //         ),
-                              // ),
                             ),
                             SizedBox(width: width * 0.05),
                             Expanded(
                               child: Container(
                                 height: height * 0.2,
-                                // width: width * 0.9,
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(10),
@@ -312,7 +273,6 @@ class UserProfilePreviewPage extends StatelessWidget {
                       )
                     ],
                   ),
-                  ////////////////////////////////
                   SizedBox(height: height * 0.05),
                 ],
               );

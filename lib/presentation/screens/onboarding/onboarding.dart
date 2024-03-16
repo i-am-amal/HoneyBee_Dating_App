@@ -61,7 +61,6 @@ class Onboarding extends StatelessWidget {
                 letterspacing: 1.5,
                 fontFamily: CustomFont.headTextFont,
                 onpressed: () {
-                  //--------page transition using page route builder
                   Navigator.push(
                     context,
                     PageRouteBuilder(
@@ -80,7 +79,6 @@ class Onboarding extends StatelessWidget {
                       },
                     ),
                   );
-                  //-------page route builder ends used for transition
                 },
               ),
               SizedBox(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../fonts/fonts.dart';
-import '../text_widgets/custom_text.dart';
+import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
+import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 class LogoWidget extends StatelessWidget {
   const LogoWidget({

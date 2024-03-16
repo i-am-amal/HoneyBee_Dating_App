@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/all_liked_users_page/all_liked_users_page_bloc.dart';
@@ -48,9 +47,6 @@ class LikedProfileGrid extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
                     onTap: () {
-                      log('entered in on tap of liked profile');
-                      log('${state.profile!.profiles![index].images!.isNotEmpty ? state.profile!.profiles![index].images![0] : null}');
-
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -73,20 +69,20 @@ class LikedProfileGrid extends StatelessWidget {
                               smoking: state.profile!.profiles![index].smoking!,
                               coverPic:
                                   state.profile!.profiles![index].coverPic!,
-                              ////////////////////////////
                               img1: state.profile!.profiles![index].images!
                                       .isNotEmpty
                                   ? state.profile!.profiles![index].images![0]
                                   : null,
                               img2: state.profile!.profiles![index].images!
-                                      .isNotEmpty
+                                          .length ==
+                                      2
                                   ? state.profile!.profiles![index].images![1]
                                   : null,
                               img3: state.profile!.profiles![index].images!
-                                      .isNotEmpty
+                                          .length ==
+                                      3
                                   ? state.profile!.profiles![index].images![2]
                                   : null,
-                              ///////////////////////////
                             ),
                           ),
                         ),
@@ -105,7 +101,6 @@ class LikedProfileGrid extends StatelessWidget {
                                 color: Colors.white,
                                 child: Image.network(
                                   state.profile!.profiles![index].profilePic!,
-                                  // 'assets/images/profile.jpg',
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -134,14 +129,6 @@ class LikedProfileGrid extends StatelessWidget {
                                           context)
                                       .add(AllLikedUsersPageEvent.dislikeEvent(
                                           state.profile!.profiles![index].id));
-
-                                  // BlocProvider.of<AllLikedUsersPageBloc>(
-                                  //         context)
-                                  //     .add(const AllLikedUsersPageEvent
-                                  //         .resyncLikedUsersData());
-
-////////////////////////////////////////////////////////////////////////////////////////////
-
                                   Future.delayed(const Duration(seconds: 1),
                                       () {
                                     BlocProvider.of<AllLikedUsersPageBloc>(
@@ -149,15 +136,10 @@ class LikedProfileGrid extends StatelessWidget {
                                         .add(const AllLikedUsersPageEvent
                                             .fetchLikedUsersData());
                                   });
-
-                                  /////////////////////////////////////////////////////////
                                 },
                               ),
                             ),
                           ),
-
-/////////////-------------------------------------------------------------------------
-
                           Positioned(
                             bottom: 0,
                             left: 0,
@@ -168,7 +150,6 @@ class LikedProfileGrid extends StatelessWidget {
                                   border:
                                       Border.all(color: Colors.teal, width: 1)),
                               height: 35,
-                              // color: Colors.black.withOpacity(0.7),
                               child: TextButton(
                                 child: Text(
                                   state.blockedUserIds != null
@@ -198,56 +179,6 @@ class LikedProfileGrid extends StatelessWidget {
                                   }
                                 },
                               ),
-
-                              // TextButton(
-                              //   child: Text(
-                              //     // 'Block User',
-
-                              //     state.profile!.profiles![index]
-                              //                 .blockedUsers ==
-                              //             null
-                              //         ? 'Unblock  ${state.profile!.profiles![index].fullName}'
-                              //         : 'Block  ${state.profile!.profiles![index].fullName}',
-
-                              //     style: const TextStyle(
-                              //       color: Colors.red,
-                              //       fontWeight: FontWeight.bold,
-                              //     ),
-                              //   ),
-                              //   onPressed: () {
-                              //     if (state.isBlocked == false) {
-                              //       BlocProvider.of<AllLikedUsersPageBloc>(
-                              //               context)
-                              //           .add(AllLikedUsersPageEvent
-                              //               .blockUserEvent(state
-                              //                   .profile!.profiles![index].id));
-
-                              //       Future.delayed(const Duration(seconds: 1),
-                              //           () {
-                              //         BlocProvider.of<AllLikedUsersPageBloc>(
-                              //                 context)
-                              //             .add(const AllLikedUsersPageEvent
-                              //                 .fetchLikedUsersData());
-                              //       });
-
-                              //     } else {
-                              //       BlocProvider.of<AllLikedUsersPageBloc>(
-                              //               context)
-                              //           .add(AllLikedUsersPageEvent
-                              //               .unBlockUserEvent(state
-                              //                   .profile!.profiles![index].id));
-
-                              //       Future.delayed(const Duration(seconds: 1),
-                              //           () {
-                              //         BlocProvider.of<AllLikedUsersPageBloc>(
-                              //                 context)
-                              //             .add(const AllLikedUsersPageEvent
-                              //                 .fetchLikedUsersData());
-                              //       });
-
-                              //     }
-                              //   },
-                              // ),
                             ),
                           ),
                         ],
@@ -257,17 +188,7 @@ class LikedProfileGrid extends StatelessWidget {
                 },
               ),
             );
-          }
-          //  else if (state.profile == null) {
-          //   return Center(
-          //     child: Image.asset(
-          //       'assets/images/no_result.png',
-          //       height: 500,
-          //       width: 500,
-          //     ),
-          //   );
-          // }
-          else {
+          } else {
             return Center(
               child: Image.asset(
                 'assets/images/no_result.png',

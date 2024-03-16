@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/location_auth_page/location_auth_page_bloc.dart';
@@ -31,7 +30,6 @@ class EditLocationPage extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: () async {
-        // Show an alert dialog
         bool exitProcedure = await showDialog(
           context: context,
           builder: (context) => AlertDialog(
@@ -53,7 +51,7 @@ class EditLocationPage extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(false); // Continue the procedure
+                  Navigator.of(context).pop(false); 
                 },
                 child: const Text(
                   'No',
@@ -75,13 +73,10 @@ class EditLocationPage extends StatelessWidget {
                       SizedBox(
                         height: height * 0.4,
                       ),
-                      // const CircularProgressIndicator(),
-
                       LoadingAnimationWidget.halfTriangleDot(
                         color: CustomColors.kRedButtonColor,
                         size: 100,
                       ),
-
                       SizedBox(
                         height: height * 0.03,
                       ),
@@ -128,27 +123,6 @@ class EditLocationPage extends StatelessWidget {
                       fontsize: 15,
                       onpressed: () {
                         if (state.locationName != null) {
-                          log('''----log on edit location page------
-                                age-  ${editProfileDetails.age},
-                               bio-   ${editProfileDetails.bio},
-                                birthday-  ${editProfileDetails.birthday},
-                                 coverpic- ${editProfileDetails.coverPic},
-                                 drinking- ${editProfileDetails.drinking},
-                                email-  ${editProfileDetails.email},
-                                 faith ${editProfileDetails.faith},
-                                 name- ${editProfileDetails.fullName},
-                                 gender- ${editProfileDetails.gender},
-                                 image0- ${editProfileDetails.image0},
-                                 image1- ${editProfileDetails.image1},
-                                 image2- ${editProfileDetails.image2},
-                                 location- ${editProfileDetails.location},
-                                 phone- ${editProfileDetails.phone},
-                                 preference- ${editProfileDetails.preference},
-                                 profilepic- ${editProfileDetails.profilePic}
-                                  relationshipStatus- ${editProfileDetails.relationshipStatus} 
-                                 smoking-  ${editProfileDetails.smoking}
-                                  ''');
-
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -223,6 +197,5 @@ class EditLocationPage extends StatelessWidget {
         ),
       ),
     );
-    // });
   }
 }

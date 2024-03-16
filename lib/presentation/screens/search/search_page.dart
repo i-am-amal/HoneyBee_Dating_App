@@ -31,7 +31,6 @@ class _SearchPageState extends State<SearchPage> {
   void _onSearchChanged(String query) {
     if (_debounce?.isActive ?? false) _debounce!.cancel();
 
-    // Check if the search query is not empty before triggering the search
     if (query.isNotEmpty) {
       _debounce = Timer(const Duration(milliseconds: 1000), () {
         log('Searching for: $query');
@@ -40,15 +39,10 @@ class _SearchPageState extends State<SearchPage> {
       });
     }
 
-    // if (query.isEmpty) {
-    //   BlocProvider.of<SearchPageBloc>(context)
-    //       .add(SearchPageEvent.searchData(_controllerValue.text, age));
-    // }
   }
 
   @override
   Widget build(BuildContext context) {
-    // double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
@@ -80,14 +74,6 @@ class _SearchPageState extends State<SearchPage> {
                         age = selectedAge ?? '100';
                       });
 
-///////////////////////////////////////////////////////////
-                      // if (selectedAge != null) {
-                      //   // Do something with the result (selectedAge)
-
-                      //   log('Selected Age: $selectedAge');
-                      // }
-
-                      //////////////////////////////////////////
                     }),
               ],
             ),
@@ -96,11 +82,8 @@ class _SearchPageState extends State<SearchPage> {
             height: height * 0.01,
           ),
           CustomTextFormFiled(
-            // text: '',
             editController: _controllerValue,
             buttonOnTap: () {
-              // BlocProvider.of<SearchPageBloc>(context)
-              //     .add(SearchPageEvent.searchData(_controllerValue.text));
             },
             onChanged: (value) {
               _onSearchChanged(value);

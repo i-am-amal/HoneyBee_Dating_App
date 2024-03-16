@@ -1,6 +1,4 @@
-import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
@@ -13,8 +11,8 @@ import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/date_picker/date_picker.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
 import 'package:intl/intl.dart';
-import '../../../widgets/textform_widgets/custom_textformfield.dart';
 
 class EditInfoMainPage extends StatefulWidget {
   const EditInfoMainPage({
@@ -65,7 +63,6 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
     double height = MediaQuery.of(context).size.height;
 
     return WillPopScope(onWillPop: () async {
-      // Show an alert dialog
       bool exitProcedure = await showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -86,7 +83,7 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(false); // Continue the procedure
+                Navigator.of(context).pop(false);
               },
               child: const Text(
                 'No',
@@ -100,36 +97,12 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
       body: SingleChildScrollView(
         child: BlocBuilder<BasicInfoAuthBloc, BasicInfoAuthState>(
           builder: (context, state) {
-            //>>>>>>>>>>>>>>>>>>>-------profile image storing and navigation--------->>>>>>>>>>>>>
-
             if (state.isValidated != null) {
               if (state.isValidated == true) {
                 if (state.pickedProfileImage != null) {
                   profilePic = File(state.pickedProfileImage!.path);
                 }
-
                 WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                  log('''----log on edit info main page------
-                                age-  ${widget.editProfileDetails.age},
-                               bio-   ${widget.editProfileDetails.bio},
-                                birthday-  ${editDateController.text},
-                                 coverpic- ${widget.editProfileDetails.coverPic},
-                                 drinking- ${widget.editProfileDetails.drinking},
-                                email-  ${editEmailController.text},
-                                 faith ${widget.editProfileDetails.faith},
-                                 name- ${editNameController.text},
-                                 gender- ${widget.editProfileDetails.gender},
-                                 image0- ${widget.editProfileDetails.image0},
-                                 image1- ${widget.editProfileDetails.image1},
-                                 image2- ${widget.editProfileDetails.image2},
-                                 location- ${widget.editProfileDetails.location},
-                                 phone- ${editPhoneNumberController.text},
-                                 preference- ${widget.editProfileDetails.preference},
-                                 profilepic- $profilePic
-                                  relationshipStatus- ${widget.editProfileDetails.relationshipStatus} 
-                                 smoking-  ${widget.editProfileDetails.smoking}
-                                  ''');
-
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -157,7 +130,6 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                             ))),
                   );
                 });
-                //>>>>>>>>>>>>>>------------------->>>>>>>>>>>>>>>>>>>>>>
               }
             }
 
@@ -186,7 +158,6 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                 Stack(
                   alignment: Alignment.bottomRight,
                   children: [
-                    //// profile image section
                     ClipOval(
                       child: GestureDetector(
                         child: Container(
@@ -223,15 +194,11 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                               BlocProvider.of<BasicInfoAuthBloc>(context).add(
                                   const BasicInfoAuthEvent
                                       .pickProfileImageFromGallery());
-
-                              log("bloc provider worked");
                             },
                           );
                         },
                       ),
                     ),
-                    //// profile image section ends
-
                     Positioned(
                       bottom: 0,
                       right: -10,
@@ -292,15 +259,10 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                     await CustomDatePicker.showDatePickerDialog(context);
                     if (CustomDatePicker.selectedDate != null) {
                       final formatter = DateFormat('dd/MM/yyyy');
-
-                      // String formattedDate = CustomDatePicker.selectedDate!;
-
                       String formattedDate = formatter
                           .format(CustomDatePicker.selectedDate!)
                           .toString();
-
                       editDateController.text = formattedDate;
-                      log(formattedDate);
                     }
                   },
                 ),
@@ -316,8 +278,6 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                   letterspacing: 1,
                   fontsize: 15,
                   onpressed: () {
-                    log(editDateController.text);
-
                     BlocProvider.of<BasicInfoAuthBloc>(context).add(
                         BasicInfoAuthEvent.nextPage(
                             fullName: editNameController.text,

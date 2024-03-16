@@ -1,10 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/all_messages_page/all_messages_bloc.dart';
 import 'package:honeybee/application/chat_page/chat_page_bloc.dart';
-import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/chatting/chat_screen.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:intl/intl.dart';
@@ -15,16 +12,11 @@ class ProfileList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // BlocProvider.of<MatchesPageBloc>(context)
-    //     .add(const MatchesPageEvent.fetchMatchesData());
     BlocProvider.of<AllMessagesBloc>(context)
         .add(const AllMessagesEvent.listAllLastMessages());
 
-    log('building matches page');
     return BlocBuilder<AllMessagesBloc, AllMessagesState>(
       builder: (context, state) {
-        log("state.isLoading = ${state.isLoading}");
-
         if (state.isLoading == true) {
           return Center(
             child: Column(
@@ -48,30 +40,11 @@ class ProfileList extends StatelessWidget {
                 final DateTime dateTime = DateTime.parse(
                         state.messageList![index].updatedAt!.toString())
                     .toLocal();
-                String currentTime = DateFormat('hh:mm a')
-                    .format(dateTime)
-                    .toString(); // Format as desired
-                log('-------Users---${state.messageList![index].conversationId}--');
-
-                // String userName = state.messageList[index].users[1].id;
+                String currentTime =
+                    DateFormat('hh:mm a').format(dateTime).toString();
 
                 return GestureDetector(
                   onTap: () {
-                    // log(state.profile!.profiles![index].conversationId!);
-
-                    // log(state.profile!.profiles![index].id!);
-
-                    // log(state.userId!);
-
-                    // getuserIdFromPrefs();
-////////////////////////////////////////////////////
-                    // BlocProvider.of<GetAllMessageBloc>(context).add(
-                    //   GetAllMessageEvent.getAllMessageOfUser(
-                    //       state.userId, state.profile!.profiles![index].id),
-                    // );
-
-//'''''''''''''''''''''''''''''''''
-
                     BlocProvider.of<ChatPageBloc>(context).add(
                         ChatPageEvent.initializeGetAllMessagePage(
                             state.userId,
@@ -79,8 +52,6 @@ class ProfileList extends StatelessWidget {
                                     state.messageList![index].users![0].id
                                 ? state.messageList![index].users![1].id!
                                 : state.messageList![index].users![0].id!));
-
-///////////////////////////////////////////////////
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -124,11 +95,7 @@ class ProfileList extends StatelessWidget {
                           Text(currentTime),
                         ],
                       ),
-
                       subtitle: Text(state.messageList![index].message!),
-                      // onTap: () {
-                      //   // Handle tap on message
-                      // },
                     ),
                   ),
                 );

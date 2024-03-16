@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:honeybee/domain/validation/form_validation_services.dart';
 import 'package:honeybee/infrastructure/services/camera_services.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../domain/validation/form_validation_services.dart';
 
 part 'basic_info_auth_event.dart';
 part 'basic_info_auth_state.dart';
@@ -81,7 +81,7 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       } else {
         emit(state.copyWith(fullNameErrorMsg: null));
       }
-
+      
       if (!FormValidationServices.emailValidation(event.email)) {
         emit(state.copyWith(emailErrorMsg: 'Please enter a valid email'));
         isValidationSuccess = false;
@@ -97,7 +97,6 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       } else {
         emit(state.copyWith(birthdayErrorMsg: null));
       }
-
       emit(state.copyWith(isValidated: isValidationSuccess));
     });
   }

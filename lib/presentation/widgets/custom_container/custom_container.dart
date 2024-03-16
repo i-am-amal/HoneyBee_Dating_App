@@ -47,9 +47,7 @@ class CustomContainer extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(15.0),
                   child: Text(
-                    // '''Add an extra photo if you'd like''',
                     '   Optional: Add a picture',
-                    // style: TextStyle(letterSpacing: 0),
                   ),
                 ),
               ),

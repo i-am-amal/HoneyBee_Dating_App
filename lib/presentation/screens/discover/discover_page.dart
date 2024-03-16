@@ -12,15 +12,13 @@ class DiscoverPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-
-BlocProvider.of<DiscoverPageBloc>(context)
+    BlocProvider.of<DiscoverPageBloc>(context)
         .add(const DiscoverPageEvent.likedAndDislikedUsersData());
-        
     BlocProvider.of<DiscoverPageBloc>(context)
         .add(const DiscoverPageEvent.joinUserToSocket());
 
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Center(
         child: Column(

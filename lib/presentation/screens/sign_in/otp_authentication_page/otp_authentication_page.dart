@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
@@ -171,9 +170,6 @@ class OtpAuthenticationPage extends StatelessWidget {
 void handleState(OtpNumberAuthPageState state, context) async {
   if (state.isOtpVerified ?? false) {
     if (state.redirectPage == '/Discover') {
-      log("---------------Token is ${state.token.toString()}------------------------");
-      log("---------------Redirected to${state.redirectPage}------------------------");
-
       await saveTokenToPrefs(state.token.toString());
 
       BlocProvider.of<DiscoverPageBloc>(context)
@@ -186,8 +182,6 @@ void handleState(OtpNumberAuthPageState state, context) async {
         CustomNavigator().push(context, BottomNavbar(token: state.token!));
       });
     } else if (state.redirectPage == '/createAccount') {
-      log("---------------Redirected to${state.redirectPage}------------------------");
-
       Future.microtask(() {
         CustomNavigator().push(
             context,

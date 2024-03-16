@@ -1,6 +1,4 @@
-import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/basic_info_auth_page/basic_info_auth_bloc.dart';
@@ -41,7 +39,6 @@ class _EditProfileImagesState extends State<EditProfileImages> {
     image0 = widget.editProfileDetails.image0;
     image1 = widget.editProfileDetails.image1;
     image2 = widget.editProfileDetails.image2;
-    log(profilePic.toString());
   }
 
   @override
@@ -56,7 +53,6 @@ Stay clear of inappropriate content''';
 
     return WillPopScope(
       onWillPop: () async {
-        // Show an alert dialog
         bool exitProcedure = await showDialog(
           context: context,
           builder: (context) => AlertDialog(
@@ -158,8 +154,6 @@ Stay clear of inappropriate content''';
                                     offset: const Offset(0, 3),
                                   ),
                                 ]),
-
-                            ///////////////////////////////////
                             child: profilePic != null
                                 ? profilePic!.path.startsWith(
                                         'http') // Assuming URLs start with 'http'
@@ -168,7 +162,6 @@ Stay clear of inappropriate content''';
                                     : Image.file(profilePic!, fit: BoxFit.cover)
                                 : const Center(
                                     child: Text('No profile image available')),
-                            //////////////////////////////////
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -198,12 +191,8 @@ Stay clear of inappropriate content''';
                                     blurRadius: 7,
                                     offset: const Offset(0, 3)),
                               ]),
-
-                          ///--------------->>>>>>>>>>----------------cover image --------->>>>>>>>>>>---------
-
                           child: coverPic != null
-                              ? coverPic!.path.startsWith(
-                                      'http') // Assuming URLs start with 'http'
+                              ? coverPic!.path.startsWith('http')
                                   ? Image.network(coverPic!.path,
                                       fit: BoxFit.cover)
                                   : Image.file(File(coverPic!.path),
@@ -224,8 +213,6 @@ Stay clear of inappropriate content''';
                               BlocProvider.of<BasicInfoAuthBloc>(context).add(
                                   const BasicInfoAuthEvent
                                       .pickCoverImageFromGallery());
-
-                              log("bloc provider worked");
                             },
                           );
                         },
@@ -236,23 +223,6 @@ Stay clear of inappropriate content''';
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            // CustomImageContainer(
-                            //     height: height,
-                            //     width: width,
-                            //     image: image0,
-                            //     imagePath:
-                            //         widget.editProfileDetails.image0!.path,
-                            //     onCameraPressed: () {
-                            //       BlocProvider.of<BasicInfoAuthBloc>(context)
-                            //           .add(const BasicInfoAuthEvent
-                            //               .pickImage1FromCamera());
-                            //     },
-                            //     onGalleryPressed: () {
-                            //       BlocProvider.of<BasicInfoAuthBloc>(context)
-                            //           .add(const BasicInfoAuthEvent
-                            //               .pickImage1FromGallery());
-                            //     }),
-                            ////////////////////////////////////////////////
                             InkWell(
                               child: Container(
                                 height: height * 0.25,
@@ -270,8 +240,7 @@ Stay clear of inappropriate content''';
                                   ],
                                 ),
                                 child: image0 != null
-                                    ? image0!.path.startsWith(
-                                            'http') // Assuming URLs start with 'http'
+                                    ? image0!.path.startsWith('http')
                                         ? Image.network(image0!.path,
                                             fit: BoxFit.cover)
                                         : Image.file(File(image0!.path),
@@ -280,9 +249,7 @@ Stay clear of inappropriate content''';
                                         child: Padding(
                                           padding: EdgeInsets.all(15.0),
                                           child: Text(
-                                            // '''Add an extra photo if you'd like''',
                                             '   Optional: Add a picture',
-                                            // style: TextStyle(letterSpacing: 0),
                                           ),
                                         ),
                                       ),
@@ -299,13 +266,10 @@ Stay clear of inappropriate content''';
                                     BlocProvider.of<BasicInfoAuthBloc>(context)
                                         .add(const BasicInfoAuthEvent
                                             .pickImage1FromGallery());
-
-                                    log("bloc provider worked");
                                   },
                                 );
                               },
                             ),
-
                             InkWell(
                               child: Container(
                                 height: height * 0.25,
@@ -323,8 +287,7 @@ Stay clear of inappropriate content''';
                                   ],
                                 ),
                                 child: image1 != null
-                                    ? image1!.path.startsWith(
-                                            'http') // Assuming URLs start with 'http'
+                                    ? image1!.path.startsWith('http')
                                         ? Image.network(image1!.path,
                                             fit: BoxFit.cover)
                                         : Image.file(File(image1!.path),
@@ -333,9 +296,7 @@ Stay clear of inappropriate content''';
                                         child: Padding(
                                           padding: EdgeInsets.all(15.0),
                                           child: Text(
-                                            // '''Add an extra photo if you'd like''',
                                             '   Optional: Add a picture',
-                                            // style: TextStyle(letterSpacing: 0),
                                           ),
                                         ),
                                       ),
@@ -352,8 +313,6 @@ Stay clear of inappropriate content''';
                                     BlocProvider.of<BasicInfoAuthBloc>(context)
                                         .add(const BasicInfoAuthEvent
                                             .pickImage2FromGallery());
-
-                                    log("bloc provider worked");
                                   },
                                 );
                               },
@@ -375,8 +334,7 @@ Stay clear of inappropriate content''';
                                   ],
                                 ),
                                 child: image2 != null
-                                    ? image2!.path.startsWith(
-                                            'http') // Assuming URLs start with 'http'
+                                    ? image2!.path.startsWith('http')
                                         ? Image.network(image2!.path,
                                             fit: BoxFit.cover)
                                         : Image.file(File(image2!.path),
@@ -385,9 +343,7 @@ Stay clear of inappropriate content''';
                                         child: Padding(
                                           padding: EdgeInsets.all(15.0),
                                           child: Text(
-                                            // '''Add an extra photo if you'd like''',
                                             '   Optional: Add a picture',
-                                            // style: TextStyle(letterSpacing: 0),
                                           ),
                                         ),
                                       ),
@@ -404,13 +360,10 @@ Stay clear of inappropriate content''';
                                     BlocProvider.of<BasicInfoAuthBloc>(context)
                                         .add(const BasicInfoAuthEvent
                                             .pickImage3FromGallery());
-
-                                    log("bloc provider worked");
                                   },
                                 );
                               },
                             ),
-                            ////////////////////////
                           ]),
                       SizedBox(height: height * 0.02),
                       MainCustomButton(
@@ -418,27 +371,6 @@ Stay clear of inappropriate content''';
                         width: width * 0.2,
                         txtcolor: CustomColors.kWhiteTextColor,
                         onpressed: () {
-                          log('''----log on edit profileimages page------
-                                age-  ${widget.editProfileDetails.age},
-                               bio-   ${widget.editProfileDetails.bio},
-                                birthday-  ${widget.editProfileDetails.birthday},
-                                 coverpic- $coverPic,
-                                 drinking- ${widget.editProfileDetails.drinking},
-                                email-  ${widget.editProfileDetails.email},
-                                 faith ${widget.editProfileDetails.faith},
-                                 name- ${widget.editProfileDetails.fullName},
-                                 gender- ${widget.editProfileDetails.gender},
-                                 image0- $image0,
-                                 image1- $image1,
-                                 image2- $image2,
-                                 location- ${widget.editProfileDetails.location},
-                                 phone- ${widget.editProfileDetails.phone},
-                                 preference- ${widget.editProfileDetails.preference},
-                                 profilepic- ${widget.editProfileDetails.profilePic}
-                                  relationshipStatus- ${widget.editProfileDetails.relationshipStatus} 
-                                 smoking-  ${widget.editProfileDetails.smoking}
-                                  ''');
-
                           Navigator.push(
                             context,
                             MaterialPageRoute(

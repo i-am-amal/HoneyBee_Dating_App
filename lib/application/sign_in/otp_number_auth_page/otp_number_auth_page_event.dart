@@ -6,8 +6,7 @@ class OtpNumberAuthPageEvent with _$OtpNumberAuthPageEvent {
       _OtpLogin;
   const factory OtpNumberAuthPageEvent.startTimer({int? timer}) = _StartTimer;
   const factory OtpNumberAuthPageEvent.setOtp({String? otp}) = _SetOtp;
-  const factory OtpNumberAuthPageEvent.initializePage({
-    required String phoneNumber,
-    required String countryCode,
-  }) = _InitializePage;
+  const factory OtpNumberAuthPageEvent.initializePage(
+      {required String phoneNumber,
+      required String countryCode}) = _InitializePage;
 }

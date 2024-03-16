@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:honeybee/presentation/widgets/constants/colors.dart';
+import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/policies/privacy.dart';
 import 'package:honeybee/presentation/widgets/policies/terms_and_conditions.dart';
-import '../../../widgets/constants/colors.dart';
-import '../../../widgets/fonts/fonts.dart';
-import '../../../widgets/text_widgets/custom_text.dart';
+import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
+
 
 class PrivacyPolicyWidget extends StatelessWidget {
   const PrivacyPolicyWidget({

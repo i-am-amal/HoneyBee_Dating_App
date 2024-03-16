@@ -74,15 +74,6 @@ class _WelcomeScreenCreateAnimationState
   }
 
   welcomeSplashFunction() {
-    // Future.delayed(const Duration(seconds: 5)).then((value) {
-    //   Navigator.of(context).pushReplacement(
-    //     MaterialPageRoute(
-    //       builder: (context) => BasicInfoMainPage(),
-    //     ),
-    //   );
-    // });
-
     CustomNavigator().push(context, BasicInfoMainPage());
-    // CustomNavigator().push(context, DiscoverPage());
   }
 }

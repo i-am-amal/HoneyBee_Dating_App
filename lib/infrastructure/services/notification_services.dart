@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:honeybee/core/routes/navigation_functions.dart';
@@ -71,12 +70,7 @@ class NotificationService {
   /// Use this method to detect when the user taps on a notification or action button
   static Future<void> onActionReceivedMethod(
       ReceivedAction receivedAction) async {
-    print("----------  inside  onActionReceivedMethod -----------------------");
-
     Map payload = receivedAction.payload ?? {};
-
-    print(
-        "---------- onActionReceivedMethod payload : ${payload} -----------------------");
 
     if (payload["type"] == "message" && payload['data'] != null) {
       String dataString = payload['data']!;

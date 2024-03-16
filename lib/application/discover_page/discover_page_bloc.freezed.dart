@@ -23,9 +23,8 @@ mixin _$DiscoverPageEvent {
     required TResult Function() likedAndDislikedUsersData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
-    required TResult Function(DiscoverResponseModel profilee)
-        updateDiscoverLike,
-    required TResult Function(DiscoverResponseModel profilee)
+    required TResult Function(DiscoverResponseModel profile) updateDiscoverLike,
+    required TResult Function(DiscoverResponseModel profile)
         updateDiscoverDislike,
     required TResult Function() syncEvent,
   }) =>
@@ -37,8 +36,8 @@ mixin _$DiscoverPageEvent {
     TResult? Function()? likedAndDislikedUsersData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult? Function()? syncEvent,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,8 +48,8 @@ mixin _$DiscoverPageEvent {
     TResult Function()? likedAndDislikedUsersData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult Function()? syncEvent,
     required TResult orElse(),
   }) =>
@@ -159,9 +158,8 @@ class _$_JoinUserToSocket implements _JoinUserToSocket {
     required TResult Function() likedAndDislikedUsersData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
-    required TResult Function(DiscoverResponseModel profilee)
-        updateDiscoverLike,
-    required TResult Function(DiscoverResponseModel profilee)
+    required TResult Function(DiscoverResponseModel profile) updateDiscoverLike,
+    required TResult Function(DiscoverResponseModel profile)
         updateDiscoverDislike,
     required TResult Function() syncEvent,
   }) {
@@ -176,8 +174,8 @@ class _$_JoinUserToSocket implements _JoinUserToSocket {
     TResult? Function()? likedAndDislikedUsersData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult? Function()? syncEvent,
   }) {
     return joinUserToSocket?.call();
@@ -191,8 +189,8 @@ class _$_JoinUserToSocket implements _JoinUserToSocket {
     TResult Function()? likedAndDislikedUsersData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult Function()? syncEvent,
     required TResult orElse(),
   }) {
@@ -303,9 +301,8 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
     required TResult Function() likedAndDislikedUsersData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
-    required TResult Function(DiscoverResponseModel profilee)
-        updateDiscoverLike,
-    required TResult Function(DiscoverResponseModel profilee)
+    required TResult Function(DiscoverResponseModel profile) updateDiscoverLike,
+    required TResult Function(DiscoverResponseModel profile)
         updateDiscoverDislike,
     required TResult Function() syncEvent,
   }) {
@@ -320,8 +317,8 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
     TResult? Function()? likedAndDislikedUsersData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult? Function()? syncEvent,
   }) {
     return fetchDiscoverData?.call();
@@ -335,8 +332,8 @@ class _$_FetchDiscoverData implements _FetchDiscoverData {
     TResult Function()? likedAndDislikedUsersData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult Function()? syncEvent,
     required TResult orElse(),
   }) {
@@ -450,9 +447,8 @@ class _$_LikedAndDislikedUsersData implements _LikedAndDislikedUsersData {
     required TResult Function() likedAndDislikedUsersData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
-    required TResult Function(DiscoverResponseModel profilee)
-        updateDiscoverLike,
-    required TResult Function(DiscoverResponseModel profilee)
+    required TResult Function(DiscoverResponseModel profile) updateDiscoverLike,
+    required TResult Function(DiscoverResponseModel profile)
         updateDiscoverDislike,
     required TResult Function() syncEvent,
   }) {
@@ -467,8 +463,8 @@ class _$_LikedAndDislikedUsersData implements _LikedAndDislikedUsersData {
     TResult? Function()? likedAndDislikedUsersData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult? Function()? syncEvent,
   }) {
     return likedAndDislikedUsersData?.call();
@@ -482,8 +478,8 @@ class _$_LikedAndDislikedUsersData implements _LikedAndDislikedUsersData {
     TResult Function()? likedAndDislikedUsersData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult Function()? syncEvent,
     required TResult orElse(),
   }) {
@@ -620,9 +616,8 @@ class _$_LikeUserEvent implements _LikeUserEvent {
     required TResult Function() likedAndDislikedUsersData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
-    required TResult Function(DiscoverResponseModel profilee)
-        updateDiscoverLike,
-    required TResult Function(DiscoverResponseModel profilee)
+    required TResult Function(DiscoverResponseModel profile) updateDiscoverLike,
+    required TResult Function(DiscoverResponseModel profile)
         updateDiscoverDislike,
     required TResult Function() syncEvent,
   }) {
@@ -637,8 +632,8 @@ class _$_LikeUserEvent implements _LikeUserEvent {
     TResult? Function()? likedAndDislikedUsersData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult? Function()? syncEvent,
   }) {
     return likeUserEvent?.call(userId);
@@ -652,8 +647,8 @@ class _$_LikeUserEvent implements _LikeUserEvent {
     TResult Function()? likedAndDislikedUsersData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult Function()? syncEvent,
     required TResult orElse(),
   }) {
@@ -795,9 +790,8 @@ class _$_DislikeUserEvent implements _DislikeUserEvent {
     required TResult Function() likedAndDislikedUsersData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
-    required TResult Function(DiscoverResponseModel profilee)
-        updateDiscoverLike,
-    required TResult Function(DiscoverResponseModel profilee)
+    required TResult Function(DiscoverResponseModel profile) updateDiscoverLike,
+    required TResult Function(DiscoverResponseModel profile)
         updateDiscoverDislike,
     required TResult Function() syncEvent,
   }) {
@@ -812,8 +806,8 @@ class _$_DislikeUserEvent implements _DislikeUserEvent {
     TResult? Function()? likedAndDislikedUsersData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult? Function()? syncEvent,
   }) {
     return dislikeUserEvent?.call(userId);
@@ -827,8 +821,8 @@ class _$_DislikeUserEvent implements _DislikeUserEvent {
     TResult Function()? likedAndDislikedUsersData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult Function()? syncEvent,
     required TResult orElse(),
   }) {
@@ -907,7 +901,7 @@ abstract class _$$_UpdateDiscoverLikeCopyWith<$Res> {
           $Res Function(_$_UpdateDiscoverLike) then) =
       __$$_UpdateDiscoverLikeCopyWithImpl<$Res>;
   @useResult
-  $Res call({DiscoverResponseModel profilee});
+  $Res call({DiscoverResponseModel profile});
 }
 
 /// @nodoc
@@ -921,12 +915,12 @@ class __$$_UpdateDiscoverLikeCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profilee = null,
+    Object? profile = null,
   }) {
     return _then(_$_UpdateDiscoverLike(
-      null == profilee
-          ? _value.profilee
-          : profilee // ignore: cast_nullable_to_non_nullable
+      null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
               as DiscoverResponseModel,
     ));
   }
@@ -935,14 +929,14 @@ class __$$_UpdateDiscoverLikeCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_UpdateDiscoverLike implements _UpdateDiscoverLike {
-  const _$_UpdateDiscoverLike(this.profilee);
+  const _$_UpdateDiscoverLike(this.profile);
 
   @override
-  final DiscoverResponseModel profilee;
+  final DiscoverResponseModel profile;
 
   @override
   String toString() {
-    return 'DiscoverPageEvent.updateDiscoverLike(profilee: $profilee)';
+    return 'DiscoverPageEvent.updateDiscoverLike(profile: $profile)';
   }
 
   @override
@@ -950,12 +944,11 @@ class _$_UpdateDiscoverLike implements _UpdateDiscoverLike {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateDiscoverLike &&
-            (identical(other.profilee, profilee) ||
-                other.profilee == profilee));
+            (identical(other.profile, profile) || other.profile == profile));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, profilee);
+  int get hashCode => Object.hash(runtimeType, profile);
 
   @JsonKey(ignore: true)
   @override
@@ -972,13 +965,12 @@ class _$_UpdateDiscoverLike implements _UpdateDiscoverLike {
     required TResult Function() likedAndDislikedUsersData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
-    required TResult Function(DiscoverResponseModel profilee)
-        updateDiscoverLike,
-    required TResult Function(DiscoverResponseModel profilee)
+    required TResult Function(DiscoverResponseModel profile) updateDiscoverLike,
+    required TResult Function(DiscoverResponseModel profile)
         updateDiscoverDislike,
     required TResult Function() syncEvent,
   }) {
-    return updateDiscoverLike(profilee);
+    return updateDiscoverLike(profile);
   }
 
   @override
@@ -989,11 +981,11 @@ class _$_UpdateDiscoverLike implements _UpdateDiscoverLike {
     TResult? Function()? likedAndDislikedUsersData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult? Function()? syncEvent,
   }) {
-    return updateDiscoverLike?.call(profilee);
+    return updateDiscoverLike?.call(profile);
   }
 
   @override
@@ -1004,13 +996,13 @@ class _$_UpdateDiscoverLike implements _UpdateDiscoverLike {
     TResult Function()? likedAndDislikedUsersData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult Function()? syncEvent,
     required TResult orElse(),
   }) {
     if (updateDiscoverLike != null) {
-      return updateDiscoverLike(profilee);
+      return updateDiscoverLike(profile);
     }
     return orElse();
   }
@@ -1070,10 +1062,10 @@ class _$_UpdateDiscoverLike implements _UpdateDiscoverLike {
 }
 
 abstract class _UpdateDiscoverLike implements DiscoverPageEvent {
-  const factory _UpdateDiscoverLike(final DiscoverResponseModel profilee) =
+  const factory _UpdateDiscoverLike(final DiscoverResponseModel profile) =
       _$_UpdateDiscoverLike;
 
-  DiscoverResponseModel get profilee;
+  DiscoverResponseModel get profile;
   @JsonKey(ignore: true)
   _$$_UpdateDiscoverLikeCopyWith<_$_UpdateDiscoverLike> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1085,7 +1077,7 @@ abstract class _$$_UpdateDiscoverDislikeCopyWith<$Res> {
           $Res Function(_$_UpdateDiscoverDislike) then) =
       __$$_UpdateDiscoverDislikeCopyWithImpl<$Res>;
   @useResult
-  $Res call({DiscoverResponseModel profilee});
+  $Res call({DiscoverResponseModel profile});
 }
 
 /// @nodoc
@@ -1099,12 +1091,12 @@ class __$$_UpdateDiscoverDislikeCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profilee = null,
+    Object? profile = null,
   }) {
     return _then(_$_UpdateDiscoverDislike(
-      null == profilee
-          ? _value.profilee
-          : profilee // ignore: cast_nullable_to_non_nullable
+      null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
               as DiscoverResponseModel,
     ));
   }
@@ -1113,14 +1105,14 @@ class __$$_UpdateDiscoverDislikeCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_UpdateDiscoverDislike implements _UpdateDiscoverDislike {
-  const _$_UpdateDiscoverDislike(this.profilee);
+  const _$_UpdateDiscoverDislike(this.profile);
 
   @override
-  final DiscoverResponseModel profilee;
+  final DiscoverResponseModel profile;
 
   @override
   String toString() {
-    return 'DiscoverPageEvent.updateDiscoverDislike(profilee: $profilee)';
+    return 'DiscoverPageEvent.updateDiscoverDislike(profile: $profile)';
   }
 
   @override
@@ -1128,12 +1120,11 @@ class _$_UpdateDiscoverDislike implements _UpdateDiscoverDislike {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateDiscoverDislike &&
-            (identical(other.profilee, profilee) ||
-                other.profilee == profilee));
+            (identical(other.profile, profile) || other.profile == profile));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, profilee);
+  int get hashCode => Object.hash(runtimeType, profile);
 
   @JsonKey(ignore: true)
   @override
@@ -1150,13 +1141,12 @@ class _$_UpdateDiscoverDislike implements _UpdateDiscoverDislike {
     required TResult Function() likedAndDislikedUsersData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
-    required TResult Function(DiscoverResponseModel profilee)
-        updateDiscoverLike,
-    required TResult Function(DiscoverResponseModel profilee)
+    required TResult Function(DiscoverResponseModel profile) updateDiscoverLike,
+    required TResult Function(DiscoverResponseModel profile)
         updateDiscoverDislike,
     required TResult Function() syncEvent,
   }) {
-    return updateDiscoverDislike(profilee);
+    return updateDiscoverDislike(profile);
   }
 
   @override
@@ -1167,11 +1157,11 @@ class _$_UpdateDiscoverDislike implements _UpdateDiscoverDislike {
     TResult? Function()? likedAndDislikedUsersData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult? Function()? syncEvent,
   }) {
-    return updateDiscoverDislike?.call(profilee);
+    return updateDiscoverDislike?.call(profile);
   }
 
   @override
@@ -1182,13 +1172,13 @@ class _$_UpdateDiscoverDislike implements _UpdateDiscoverDislike {
     TResult Function()? likedAndDislikedUsersData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult Function()? syncEvent,
     required TResult orElse(),
   }) {
     if (updateDiscoverDislike != null) {
-      return updateDiscoverDislike(profilee);
+      return updateDiscoverDislike(profile);
     }
     return orElse();
   }
@@ -1248,10 +1238,10 @@ class _$_UpdateDiscoverDislike implements _UpdateDiscoverDislike {
 }
 
 abstract class _UpdateDiscoverDislike implements DiscoverPageEvent {
-  const factory _UpdateDiscoverDislike(final DiscoverResponseModel profilee) =
+  const factory _UpdateDiscoverDislike(final DiscoverResponseModel profile) =
       _$_UpdateDiscoverDislike;
 
-  DiscoverResponseModel get profilee;
+  DiscoverResponseModel get profile;
   @JsonKey(ignore: true)
   _$$_UpdateDiscoverDislikeCopyWith<_$_UpdateDiscoverDislike> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1300,9 +1290,8 @@ class _$_SyncEvent implements _SyncEvent {
     required TResult Function() likedAndDislikedUsersData,
     required TResult Function(String? userId) likeUserEvent,
     required TResult Function(String? userId) dislikeUserEvent,
-    required TResult Function(DiscoverResponseModel profilee)
-        updateDiscoverLike,
-    required TResult Function(DiscoverResponseModel profilee)
+    required TResult Function(DiscoverResponseModel profile) updateDiscoverLike,
+    required TResult Function(DiscoverResponseModel profile)
         updateDiscoverDislike,
     required TResult Function() syncEvent,
   }) {
@@ -1317,8 +1306,8 @@ class _$_SyncEvent implements _SyncEvent {
     TResult? Function()? likedAndDislikedUsersData,
     TResult? Function(String? userId)? likeUserEvent,
     TResult? Function(String? userId)? dislikeUserEvent,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult? Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult? Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult? Function()? syncEvent,
   }) {
     return syncEvent?.call();
@@ -1332,8 +1321,8 @@ class _$_SyncEvent implements _SyncEvent {
     TResult Function()? likedAndDislikedUsersData,
     TResult Function(String? userId)? likeUserEvent,
     TResult Function(String? userId)? dislikeUserEvent,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverLike,
-    TResult Function(DiscoverResponseModel profilee)? updateDiscoverDislike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverLike,
+    TResult Function(DiscoverResponseModel profile)? updateDiscoverDislike,
     TResult Function()? syncEvent,
     required TResult orElse(),
   }) {

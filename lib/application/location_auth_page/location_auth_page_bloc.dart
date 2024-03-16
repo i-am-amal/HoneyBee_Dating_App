@@ -1,10 +1,9 @@
-import 'dart:developer';
 import 'package:geocoding/geocoding.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
-import '../../infrastructure/services/gps_services.dart';
+import 'package:honeybee/infrastructure/services/gps_services.dart';
 
 part 'location_auth_page_event.dart';
 part 'location_auth_page_state.dart';
@@ -35,7 +34,6 @@ class LocationAuthPageBloc
 
           if (placemarks.isNotEmpty) {
             Placemark firstPlacemark = placemarks.first;
-            log('${firstPlacemark.locality}, ${firstPlacemark.country}');
             emit(state.copyWith(
                 locationName:
                     '${firstPlacemark.locality}, ${firstPlacemark.country}',

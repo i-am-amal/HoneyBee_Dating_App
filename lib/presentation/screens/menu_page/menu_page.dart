@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/profile/edit_profile/edit_profile.dart';
@@ -16,7 +14,6 @@ class MenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -138,7 +135,6 @@ class MenuPage extends StatelessWidget {
               ),
               onPressed: () {
                 removeTokenFromPrefs();
-                log('token removed');
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const SplashScreen()),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/all_messages_page/all_messages_bloc.dart';
 import 'package:honeybee/application/chat_page/chat_page_bloc.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/border_outlined_icon_button.dart';
+import 'package:honeybee/presentation/widgets/chat_widgets/chat_message.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
@@ -26,11 +28,7 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // BlocProvider.of<ChatPageBloc>(context)
-    //     .add(ChatPageEvent.initializeGetAllMessagePage(senderId, receiverId));
-
     double width = MediaQuery.of(context).size.width;
-
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -54,6 +52,8 @@ class ChatScreen extends StatelessWidget {
                   BorderlineButton(
                       icon: Icons.arrow_back_ios_new,
                       onpressed: () {
+                        BlocProvider.of<AllMessagesBloc>(context)
+                            .add(const AllMessagesEvent.listAllLastMessages());
                         Navigator.pop(context);
                       }),
                   SizedBox(
@@ -91,15 +91,12 @@ class ChatScreen extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final date = state.messages!.keys.toList()[index];
                     final messageList = state.messages![date];
-
                     return Column(
-                      // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(date),
                         ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          // controller: _scrollController,
                           itemCount: messageList!.length,
                           itemBuilder: (context, index) {
                             return Column(
@@ -117,15 +114,6 @@ class ChatScreen extends StatelessWidget {
                         )
                       ],
                     );
-
-                    ///-----------------------------------------------------------------------------------
-                    // GetMessageResponseModel message = state.messages![index];
-                    // return ChatMessage(
-                    //   text: message.message ?? "",
-                    //   isMe: message.fromSelf ?? false,
-                    //   formattedTime: message.formattedTime,
-                    // );
-                    ///----------------------------------------------------------------------------------
                   },
                 ),
               ),
@@ -160,49 +148,6 @@ class ChatScreen extends StatelessWidget {
             ],
           );
         },
-      ),
-    );
-  }
-}
-
-class ChatMessage extends StatelessWidget {
-  final String text;
-  final bool isMe;
-  final String formattedTime;
-
-  const ChatMessage(
-      {super.key,
-      required this.text,
-      required this.isMe,
-      required this.formattedTime});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
-      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-      child: Container(
-        padding: const EdgeInsets.all(12.0),
-        decoration: BoxDecoration(
-          color: isMe ? Colors.blue : Colors.grey[300],
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        child: Column(
-          crossAxisAlignment:
-              isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
-          children: [
-            CustomText(
-              text: text,
-              fontFamily: CustomFont.textFont,
-              fontsize: 15,
-            ),
-            CustomText(
-              text: formattedTime,
-              fontFamily: CustomFont.textFont,
-              fontsize: 12,
-            ),
-          ],
-        ),
       ),
     );
   }

@@ -1,6 +1,3 @@
-import 'dart:developer';
-import 'dart:io';
-
 import 'package:intl/intl.dart';
 
 class FormValidationServices {
@@ -50,17 +47,12 @@ class FormValidationServices {
     if (date != null) {
       try {
         DateTime parseDate;
-
-        // Try parsing the date in the "dd/MM/yyyy" format
         try {
           parseDate = DateFormat('dd/MM/yyyy').parse(date);
         } catch (_) {
-          // If parsing fails, try parsing in another format or handle accordingly
           parseDate = DateFormat('your_alternate_format').parse(date);
         }
-
         DateTime currentDate = DateTime.now();
-
         if (parseDate.isBefore(currentDate) && isAdult(parseDate)) {
           return true;
         }
@@ -74,29 +66,11 @@ class FormValidationServices {
   static bool isAdult(DateTime birthDate) {
     DateTime today = DateTime.now();
     int age = today.year - birthDate.year;
-
     // Check if the birthday has occurred this year
     if (today.month < birthDate.month ||
         (today.month == birthDate.month && today.day < birthDate.day)) {
       age--;
     }
-
     return age >= 18;
-  }
-}
-
-//--------------->>>-----Image Validation----->>>------------------------
-
-class ImageValidationService {
-  double getImageSize(File selectedImage) {
-    final bytes = selectedImage.readAsBytesSync().lengthInBytes;
-    final kb = bytes / 1024;
-    // final mb = kb / 1024;
-    if (kb < 2000.0) {
-      log("Image is Less than 5MB");
-    } else {
-      log("Image is More than 5MB...!!!");
-    }
-    return kb;
   }
 }

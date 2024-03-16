@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
@@ -97,7 +96,6 @@ Stay clear of inappropriate content''';
                 if (state.pic3 != null) {
                   image3 = File(state.pic3!.path);
                 }
-
                 return Column(
                   children: [
                     SizedBox(height: height * 0.03),
@@ -182,14 +180,11 @@ Stay clear of inappropriate content''';
                             BlocProvider.of<BasicInfoAuthBloc>(context).add(
                                 const BasicInfoAuthEvent
                                     .pickCoverImageFromGallery());
-
-                            log("bloc provider worked");
                           },
                         );
                       },
                     ),
                     SizedBox(height: height * 0.01),
-
                     //---------->>>>>>>>>>-----------Custom images ------------>>>>>>>>>>>>>-------
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -210,8 +205,6 @@ Stay clear of inappropriate content''';
                                     BlocProvider.of<BasicInfoAuthBloc>(context)
                                         .add(const BasicInfoAuthEvent
                                             .pickImage1FromGallery());
-
-                                    log("bloc provider worked");
                                   },
                                 );
                               }),
@@ -231,8 +224,6 @@ Stay clear of inappropriate content''';
                                     BlocProvider.of<BasicInfoAuthBloc>(context)
                                         .add(const BasicInfoAuthEvent
                                             .pickImage2FromGallery());
-
-                                    log("bloc provider worked");
                                   },
                                 );
                               }),
@@ -252,8 +243,6 @@ Stay clear of inappropriate content''';
                                     BlocProvider.of<BasicInfoAuthBloc>(context)
                                         .add(const BasicInfoAuthEvent
                                             .pickImage3FromGallery());
-
-                                    log("bloc provider worked");
                                   },
                                 );
                               }),
@@ -264,8 +253,6 @@ Stay clear of inappropriate content''';
                       width: width * 0.2,
                       txtcolor: CustomColors.kWhiteTextColor,
                       onpressed: () {
-                        log("$fullName,$birthday,$coverImage,$email,$location,$phoneNumber,$profileImage,$image1,$image2,$image3");
-
                         if (coverImage != null) {
                           Navigator.pushReplacement(
                             context,

@@ -8,6 +8,5 @@ class AllMessagesState with _$AllMessagesState {
     bool? isLoading,
     List<String>? conversationIds,
     String? userId,
-
   }) = _Initial;
 }

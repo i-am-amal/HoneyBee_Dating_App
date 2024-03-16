@@ -33,7 +33,6 @@ void main() async {
   ));
 
   SocketServices.socketSetup();
-
   runApp(const MyApp());
 }
 

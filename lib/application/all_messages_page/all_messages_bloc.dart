@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:honeybee/domain/models/last_message_request_model/last_message_request_model.dart';
 import 'package:honeybee/domain/models/last_message_response_model/last_message_response_model.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
 import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
@@ -24,17 +21,13 @@ class AllMessagesBloc extends Bloc<AllMessagesEvent, AllMessagesState> {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
-        log("Success ${success.profiles}");
-
         //success from backend
-
         if (success.profiles != null) {
           List<String>? conversationIds = [];
 
           for (var user in success.profiles!) {
             conversationIds.add(user.conversationId!);
           }
-          log(conversationIds.toString());
           emit(state.copyWith(conversationIds: conversationIds,userId:userId));
         } else {
           // failure from backend
@@ -57,10 +50,7 @@ class AllMessagesBloc extends Bloc<AllMessagesEvent, AllMessagesState> {
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
-        // log("Success ${success.}");
-
         //success from backend
-
         if (success.messages.isNotEmpty) {
           emit(state.copyWith(isLoading: false));
           emit(state.copyWith(messageList: success.messages));

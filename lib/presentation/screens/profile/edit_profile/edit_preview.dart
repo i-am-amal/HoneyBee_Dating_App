@@ -1,6 +1,4 @@
-import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -159,8 +157,6 @@ class EditPreviewAccount extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: height * 0.05),
-//////////////////////////////////////////////////
-
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
@@ -176,9 +172,6 @@ class EditPreviewAccount extends StatelessWidget {
                                   blurRadius: 7,
                                   offset: const Offset(0, 3)),
                             ]),
-
-                        ///--------------->>>>>>>>>>----------------cover image --------->>>>>>>>>>>---------
-
                         child: editProfileDetails.coverPic != null
                             ? editProfileDetails.coverPic!.path.startsWith(
                                     'http') // Assuming URLs start with 'http'
@@ -193,10 +186,7 @@ class EditPreviewAccount extends StatelessWidget {
                               ),
                       ),
                     ),
-
                     SizedBox(height: height * 0.02),
-
-                    //---------->>>>>>>>>>-----------Custom images ------------>>>>>>>>>>>>>-------
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -216,8 +206,8 @@ class EditPreviewAccount extends StatelessWidget {
                               ],
                             ),
                             child: editProfileDetails.image0 != null
-                                ? editProfileDetails.image0!.path.startsWith(
-                                        'http') // Assuming URLs start with 'http'
+                                ? editProfileDetails.image0!.path
+                                        .startsWith('http')
                                     ? Image.network(
                                         editProfileDetails.image0!.path,
                                         fit: BoxFit.cover)
@@ -228,14 +218,11 @@ class EditPreviewAccount extends StatelessWidget {
                                     child: Padding(
                                       padding: EdgeInsets.all(15.0),
                                       child: Text(
-                                        // '''Add an extra photo if you'd like''',
                                         '   Optional: Add a picture',
-                                        // style: TextStyle(letterSpacing: 0),
                                       ),
                                     ),
                                   ),
                           ),
-
                           Container(
                             height: height * 0.25,
                             width: width * 0.3,
@@ -264,14 +251,11 @@ class EditPreviewAccount extends StatelessWidget {
                                     child: Padding(
                                       padding: EdgeInsets.all(15.0),
                                       child: Text(
-                                        // '''Add an extra photo if you'd like''',
                                         '   Optional: Add a picture',
-                                        // style: TextStyle(letterSpacing: 0),
                                       ),
                                     ),
                                   ),
                           ),
-
                           Container(
                             height: height * 0.25,
                             width: width * 0.3,
@@ -288,8 +272,8 @@ class EditPreviewAccount extends StatelessWidget {
                               ],
                             ),
                             child: editProfileDetails.image2 != null
-                                ? editProfileDetails.image2!.path.startsWith(
-                                        'http') // Assuming URLs start with 'http'
+                                ? editProfileDetails.image2!.path
+                                        .startsWith('http')
                                     ? Image.network(
                                         editProfileDetails.image2!.path,
                                         fit: BoxFit.cover)
@@ -300,18 +284,13 @@ class EditPreviewAccount extends StatelessWidget {
                                     child: Padding(
                                       padding: EdgeInsets.all(15.0),
                                       child: Text(
-                                        // '''Add an extra photo if you'd like''',
                                         '   Optional: Add a picture',
-                                        // style: TextStyle(letterSpacing: 0),
                                       ),
                                     ),
                                   ),
                           ),
-                          ////////////////////////
                         ]),
                     SizedBox(height: height * 0.05),
-
-                    ///////////////////////////////////////
                     BlocBuilder<UpdateAccountPageBloc, UpdateAccountPageState>(
                         builder: (context, state) {
                       if (state.isLoading!) {
@@ -350,8 +329,6 @@ class EditPreviewAccount extends StatelessWidget {
                               ),
                             );
 
-                            log('token on the edit preview account page --- $token');
-
                             if (token != null) {
                               Navigator.pushAndRemoveUntil(
                                 context,
@@ -377,9 +354,6 @@ class EditPreviewAccount extends StatelessWidget {
                           width: width * 0.2,
                           txtcolor: CustomColors.kWhiteTextColor,
                           onpressed: () {
-                            log('data passed from the preview page to bloc');
-////////////////////////////
-
                             BlocProvider.of<UpdateAccountPageBloc>(context).add(
                               UpdateAccountPageEvent.updateAccount(
                                 editProfileDetails: EditProfileModel(
@@ -405,8 +379,6 @@ class EditPreviewAccount extends StatelessWidget {
                                 ),
                               ),
                             );
-
-                            ///////////////////////
                           },
                         );
                       }

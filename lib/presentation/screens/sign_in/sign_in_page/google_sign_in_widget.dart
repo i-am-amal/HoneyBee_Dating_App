@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../widgets/constants/colors.dart';
+import 'package:honeybee/presentation/widgets/constants/colors.dart';
 
 GestureDetector googleSignInWidget(
     double height, double width, BuildContext context) {

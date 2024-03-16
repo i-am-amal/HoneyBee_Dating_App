@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:honeybee/core/config.dart';
@@ -16,7 +15,6 @@ import 'package:honeybee/domain/models/dislike_user_response_model/dislike_user_
 import 'package:honeybee/domain/models/get_message_request_model/get_message_request_model.dart';
 import 'package:honeybee/domain/models/get_message_response_model/get_message_response_model.dart';
 import 'package:honeybee/domain/models/get_user_data_response_model/get_user_data_response_model.dart';
-import 'package:honeybee/domain/models/last_message_request_model/last_message_request_model.dart';
 import 'package:honeybee/domain/models/last_message_response_model/last_message_response_model.dart';
 import 'package:honeybee/domain/models/like_user_request_model/like_user_request_model.dart';
 import 'package:honeybee/domain/models/like_user_response_model/like_user_response_model.dart';
@@ -43,10 +41,7 @@ class ApiServices {
 
   static Future<Either<ApiFailures, PhoneNumberResponseModel>> phoneNumberLogin(
       PhoneNumberRequestModel request) async {
-    log('entered in phone number login api services');
     try {
-      log('entered in try');
-
       final response = await http.post(
         Uri.parse(Config.phoneApi),
         headers: <String, String>{
@@ -54,20 +49,16 @@ class ApiServices {
         },
         body: jsonEncode(request.toJson()),
       );
-      log('$response--------responce from api service');
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
         PhoneNumberResponseModel result =
             PhoneNumberResponseModel.fromJson(jsonMap);
-        log(result.toString());
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure(
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      log('client side error $e');
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
     }
@@ -95,7 +86,6 @@ class ApiServices {
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
     }
@@ -110,25 +100,20 @@ class ApiServices {
       final response = await http.get(
         Uri.parse(Config.getUserDataApi),
         headers: <String, String>{
-          // 'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
       );
 
-      log(apiToken);
-      log(response.toString());
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
         GetUserDataResponseModel result =
             GetUserDataResponseModel.fromJson(jsonMap);
-        log(result.toString());
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure(
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      log("client side error----------- $e");
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
     }
@@ -220,7 +205,6 @@ class ApiServices {
       ));
 
       if (image0 != null) {
-        log('image added');
         String filename = image0.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -233,7 +217,6 @@ class ApiServices {
       }
 
       if (image1 != null) {
-        log('image added');
         String filename = image1.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -246,7 +229,6 @@ class ApiServices {
       }
 
       if (image2 != null) {
-        log('image added');
         String filename = image2.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -270,8 +252,6 @@ class ApiServices {
             errorMessage: 'Something went wrong... Please Try again later..'));
       }
     } catch (e) {
-      log("client side error $e");
-
       return left(const ApiFailures.clientFailure(
           errorMessage: 'OOPS.. Something went wrong..'));
     }
@@ -295,8 +275,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
-
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -317,13 +295,11 @@ class ApiServices {
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
         LikeUserResponseModel result = LikeUserResponseModel.fromJson(jsonMap);
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -350,7 +326,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -376,7 +351,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -402,7 +376,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -434,10 +407,6 @@ class ApiServices {
 
       var request =
           http.MultipartRequest('PATCH', Uri.parse(Config.userEditApi));
-
-      log(request.toString());
-
-// headers: <String, String>{'auth-token': apiToken!};
       request.headers.addAll({
         "auth-token": apiToken!,
       });
@@ -507,7 +476,6 @@ class ApiServices {
       }
 
       if (image0 != null) {
-        log('image added');
         String filename = image0.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -520,7 +488,6 @@ class ApiServices {
       }
 
       if (image1 != null) {
-        log('image added');
         String filename = image1.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -533,7 +500,6 @@ class ApiServices {
       }
 
       if (image2 != null) {
-        log('image added');
         String filename = image2.path.split('/').last;
         String fileExtension = filename.split(".").last;
         request.files.add(http.MultipartFile(
@@ -547,18 +513,14 @@ class ApiServices {
 
       StreamedResponse streamedResponse = await request.send();
       Response response = await http.Response.fromStream(streamedResponse);
-      log(response.statusCode.toString());
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
-        log(jsonMap.toString());
         UserEditResponseModel result = UserEditResponseModel.fromJson(jsonMap);
-        log(result.toString());
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -585,7 +547,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -613,7 +574,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -627,7 +587,6 @@ class ApiServices {
       final response = await http.post(
         Uri.parse(Config.searchFilterApi),
         headers: <String, String>{
-          // 'Content-Type': 'application/json; charset=UTF-8',
           'auth-token': apiToken!,
         },
         body: request.toJson(),
@@ -640,7 +599,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -668,7 +626,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -687,8 +644,6 @@ class ApiServices {
         body: request.toJson(),
       );
 
-      log("add message request : ${request.toJson()}, response status code : ${response.statusCode}");
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonMap = jsonDecode(response.body);
         AddMessageResponseModel result =
@@ -698,7 +653,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -717,12 +671,7 @@ class ApiServices {
         body: request.toJson(),
       );
 
-      print(
-          "api : ${Config.getAllMessageApi}, request : ${request.toJson()} , response body : ${response.body}, status code : ${response.statusCode}");
-
       if (response.statusCode == 200) {
-        // Map<String, dynamic> jsonMap = jsonDecode(response.body);
-
         List<GetMessageResponseModel> result = [];
         if (jsonDecode(response.body) != null &&
             (jsonDecode(response.body) as List).isNotEmpty) {
@@ -734,7 +683,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -757,15 +705,11 @@ class ApiServices {
       if (response.statusCode == 200) {
         final result = MessageList.fromJson(jsonDecode(response.body));
 
-        log('response from message');
-        log(result.messages.toString());
-
         return right(result);
       } else {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }
@@ -791,7 +735,6 @@ class ApiServices {
         return left(const ApiFailures.serverFailure());
       }
     } catch (e) {
-      log("client side error $e");
       return left(const ApiFailures.clientFailure());
     }
   }

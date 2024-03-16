@@ -1,7 +1,7 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honeybee/application/location_auth_page/location_auth_page_bloc.dart';
 import 'package:honeybee/presentation/screens/create_account/profile_images/profile_images.dart';
 import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
@@ -9,7 +9,6 @@ import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import '../../../../application/location_auth_page/location_auth_page_bloc.dart';
 
 class LocationPage extends StatelessWidget {
   const LocationPage({
@@ -34,13 +33,8 @@ class LocationPage extends StatelessWidget {
           .add(const LocationAuthPageEvent.fetchLocationName());
     });
 
-    log('$fullName, $email, $phoneNumber, $birthday,$profileImage');
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-
-    // BlocBuilder<LocationAuthPageBloc, LocationAuthPageState>(
-    //     builder: (context, state) {
 
     return WillPopScope(
       onWillPop: () async {
@@ -87,13 +81,10 @@ class LocationPage extends StatelessWidget {
                       SizedBox(
                         height: height * 0.4,
                       ),
-                      // const CircularProgressIndicator(),
-
                       LoadingAnimationWidget.halfTriangleDot(
                         color: CustomColors.kRedButtonColor,
                         size: 100,
                       ),
-
                       SizedBox(
                         height: height * 0.03,
                       ),
@@ -211,7 +202,5 @@ class LocationPage extends StatelessWidget {
         ),
       ),
     );
-
-    // });
   }
 }

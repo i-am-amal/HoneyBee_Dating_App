@@ -1,8 +1,8 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
+import 'package:honeybee/presentation/screens/profile/edit_profile/edit_info_last_page.dart';
 import 'package:honeybee/presentation/screens/sign_in/sign_in_page/sign_in_page.dart';
 import 'package:honeybee/presentation/widgets/constants/lists.dart';
 import 'package:honeybee/presentation/screens/create_account/preview_account/preview_account.dart';
@@ -186,9 +186,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                 SizedBox(height: height * 0.05),
                 TextField(
                   controller: bioTextController,
-                  onChanged: (value) {
-                    log(bioTextController.text);
-                  },
+                  onChanged: (value) {},
                   maxLines: 4,
                   maxLength: 100,
                   decoration: const InputDecoration(
@@ -242,9 +240,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                       width: width * 0.14,
                       height: height * 0.015,
                       onpressed: () {
-                        log("-----------This is the data when pressed on create account on preview account----------${widget.fullName}, ${widget.birthday}, ${widget.coverImage}, ${widget.email}, ${widget.location}, ${widget.phoneNumber}, ${widget.profileImage}, ${widget.image1}, ${widget.image2}, ${widget.image3},${selectedOptions.faith},${selectedOptions.relationshipStatus},${selectedOptions.drinking},${selectedOptions.smoking},${bioTextController.text},$selectedGenderButton,$selectedGenderOtherOption,$selectedPreferenceButton");
-                        log(selectedGenderButton);
-
                         if (validateFields()) {
                           Navigator.pushReplacement(
                             context,
@@ -308,26 +303,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                             ),
                           );
                         }
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => PreviewAccount(
-                        //             fullName: widget.fullName,
-                        //             email: widget.email,
-                        //             phoneNumber: widget.phoneNumber,
-                        //             birthday: widget.birthday,
-                        //             coverImage: widget.coverImage,
-                        //             location: widget.location,
-                        //             profileImage: widget.profileImage,
-                        //             selectedOptions: selectedOptions,
-                        //             gender: selectedGenderButton,
-                        //             bio: bioTextController.text,
-                        //             preference: selectedPreferenceButton,
-                        //             image1: widget.image1,
-                        //             image2: widget.image2,
-                        //             image3: widget.image3,
-                        //           )),
-                        // );
                       },
                     )
                   ],
@@ -343,14 +318,12 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
   void buttonSelection(String buttonName) {
     setState(() {
       selectedGenderButton = buttonName;
-      log(selectedGenderButton);
     });
   }
 
   void preferenceSelection(String prefName) {
     setState(() {
       selectedPreferenceButton = prefName;
-      log(selectedPreferenceButton);
     });
   }
 
@@ -370,7 +343,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
                 return TextButton(
                   onPressed: () {
                     setState(() {
-                      log('----------------------------faith');
                       switch (category) {
                         case 'Faith':
                           selectedOptions.faith = option;
@@ -414,7 +386,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
             return ListTile(
               title: Text(genderOptions[index]),
               onTap: () {
-                log('Selected option: ${genderOptions[index]}');
                 selectedGenderOtherOption = genderOptions[index];
                 if (selectedGenderButton == 'Other') {
                   selectedGenderButton = selectedGenderOtherOption;
@@ -460,7 +431,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
   }
 
   bool validateFields() {
-    // Check if any of the required fields are empty or null
     if (selectedOptions.faith.isEmpty ||
         selectedOptions.relationshipStatus.isEmpty ||
         selectedOptions.smoking.isEmpty ||
@@ -468,22 +438,8 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
         selectedGenderButton.isEmpty ||
         selectedPreferenceButton.isEmpty ||
         bioTextController.text.isEmpty) {
-      return false; // Return false if any required field is empty
+      return false;
     }
-    return true; // All required fields are filled
+    return true;
   }
-}
-
-class SelectedOptions {
-  String faith;
-  String relationshipStatus;
-  String smoking;
-  String drinking;
-
-  SelectedOptions({
-    required this.faith,
-    required this.drinking,
-    required this.relationshipStatus,
-    required this.smoking,
-  });
 }

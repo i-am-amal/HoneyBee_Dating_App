@@ -1,6 +1,4 @@
-import 'dart:developer';
-
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/all_liked_users_response_model/all_liked_users_response_model.dart';
 import 'package:honeybee/domain/models/block_user_request_model/block_user_request_model.dart';
@@ -27,10 +25,7 @@ class AllLikedUsersPageBloc
       }, (success) {
         //success from backend
         if (success.profiles != null) {
-          emit(state.copyWith(
-            isLoading: false,
-            profile: success,
-          ));
+          emit(state.copyWith(isLoading: false, profile: success));
         } else {
           // failure from backend
           emit(state.copyWith(
@@ -47,16 +42,11 @@ class AllLikedUsersPageBloc
       emit(state.copyWith(isLoading: true));
 
       final result = await ApiServices.getUserData();
-      log('on preview bloc');
-      log(result.toString());
 
       result.fold((failure) {
         //failure on Api Service
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
-        log('on failure');
-
-        log(failure.errorMessage.toString());
       }, (success) {
         //success from backend
         if (success.id != null) {
@@ -67,7 +57,6 @@ class AllLikedUsersPageBloc
           emit(state.copyWith(
               errorMessage:
                   'OOPS.. Something went wrong.. Please try again later...'));
-          log('on backend error');
           emit(state.copyWith(errorMessage: null));
         }
       });
@@ -87,8 +76,7 @@ class AllLikedUsersPageBloc
       }, (success) {
         //success from backend
         if (success.id != null) {
-          emit(state.copyWith(updateState: true));
-          emit(state.copyWith(userId: success.id));
+          emit(state.copyWith(updateState: true, userId: success.id));
         } else {
           // failure from backend
           emit(state.copyWith(
@@ -110,7 +98,6 @@ class AllLikedUsersPageBloc
     on<_BlockUserEvent>((event, emit) async {
       emit(state.copyWith(isBlocked: false));
 
-
       BlockUserRequestModel request = BlockUserRequestModel(user: event.userId);
 
       final result = await ApiServices.blockUserData(request);
@@ -121,10 +108,10 @@ class AllLikedUsersPageBloc
       }, (success) {
         //success from backend
         if (success.id != null) {
-          emit(state.copyWith(isBlocked: true));
-
           emit(state.copyWith(
-              userId: success.id, blockedUserIds: success.blockedUsers));
+              isBlocked: true,
+              userId: success.id,
+              blockedUserIds: success.blockedUsers));
         } else {
           // failure from backend
           emit(state.copyWith(
@@ -138,10 +125,7 @@ class AllLikedUsersPageBloc
 //--------------->>>-----Unblock Users Data----->>>------------------------
 
     on<_UnBlockUserEvent>((event, emit) async {
-
-
       BlockUserRequestModel request = BlockUserRequestModel(user: event.userId);
-
       emit(state.copyWith(isBlocked: true));
 
       final result = await ApiServices.blockUserData(request);

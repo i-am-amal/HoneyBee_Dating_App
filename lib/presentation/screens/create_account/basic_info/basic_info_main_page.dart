@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +11,6 @@ import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
 import 'package:intl/intl.dart';
-
 import 'pick_image_modal_popup.dart';
 
 class BasicInfoMainPage extends StatelessWidget {
@@ -27,7 +25,6 @@ class BasicInfoMainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     phoneNumberController.text = formattedPhoneNumber ?? '';
-    debugPrint("--------------building the basic info page-------------");
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -54,7 +51,7 @@ class BasicInfoMainPage extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(false); // Continue the procedure
+                  Navigator.of(context).pop(false);
                 },
                 child: const Text(
                   'No',
@@ -75,11 +72,7 @@ class BasicInfoMainPage extends StatelessWidget {
               if (state.isValidated != null) {
                 if (state.isValidated == true) {
                   File image = File(state.pickedProfileImage!.path);
-
-                  log('${nameController.text}, ${emailController.text}, ${phoneNumberController.text}, ${dateController.text}, $image');
-
                   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                    ///page route builder
                     Navigator.pushReplacement(
                       context,
                       PageRouteBuilder(
@@ -104,26 +97,9 @@ class BasicInfoMainPage extends StatelessWidget {
                         },
                       ),
                     );
-
-                    ///page route builder ends ***************************
-
-                    // Navigator.pushReplacement(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => LocationPage(
-                    //       fullName: nameController.text,
-                    //       email: emailController.text,
-                    //       phoneNumber: phoneNumberController.text,
-                    //       birthday: dateController.text,
-                    //       profileImage: image,
-                    //     ),
-                    //   ),
-                    // );
                   });
-                  //>>>>>>>>>>>>>>------------------->>>>>>>>>>>>>>>>>>>>>>
                 }
               }
-
               return Column(
                 children: [
                   SizedBox(
@@ -147,7 +123,6 @@ class BasicInfoMainPage extends StatelessWidget {
                   Stack(
                     alignment: Alignment.bottomRight,
                     children: [
-                      //// profile image section
                       ClipOval(
                         child: GestureDetector(
                           child: Container(
@@ -187,15 +162,11 @@ class BasicInfoMainPage extends StatelessWidget {
                                 BlocProvider.of<BasicInfoAuthBloc>(context).add(
                                     const BasicInfoAuthEvent
                                         .pickProfileImageFromGallery());
-
-                                log("bloc provider worked");
                               },
                             );
                           },
                         ),
                       ),
-                      //// profile image section ends
-
                       Positioned(
                         bottom: 0,
                         right: -10,
@@ -256,13 +227,10 @@ class BasicInfoMainPage extends StatelessWidget {
                       await CustomDatePicker.showDatePickerDialog(context);
                       if (CustomDatePicker.selectedDate != null) {
                         final formatter = DateFormat('dd/MM/yyyy');
-
                         String formattedDate = formatter
                             .format(CustomDatePicker.selectedDate!)
                             .toString();
                         dateController.text = formattedDate;
-
-                        log(formattedDate);
                       }
                     },
                   ),
@@ -302,7 +270,6 @@ class BasicInfoMainPage extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            // margin: EdgeInsets.symmetric(vertical: 100),
                           ),
                         );
                       } else {
@@ -314,12 +281,6 @@ class BasicInfoMainPage extends StatelessWidget {
                           ),
                         );
                       }
-
-                      // BlocProvider.of<BasicInfoAuthBloc>(context).add(
-                      //     BasicInfoAuthEvent.nextPage(
-                      //         fullName: nameController.text,
-                      //         email: emailController.text,
-                      //         birthday: dateController.text));
                     },
                   )
                 ],

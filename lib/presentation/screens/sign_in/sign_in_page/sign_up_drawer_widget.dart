@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../widgets/fonts/fonts.dart';
-import '../../../widgets/text_widgets/custom_text.dart';
+import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
+import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 Row signUpDrawerWidget(double width) {
   return Row(

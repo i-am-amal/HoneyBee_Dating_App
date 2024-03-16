@@ -1,11 +1,8 @@
-import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
-import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/screens/profile/edit_profile/edit_info_main_page.dart';
 import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
@@ -76,24 +73,6 @@ class EditProfile extends StatelessWidget {
                             icon: Icons.edit,
                             onpressed: () {
                               if (state.success != null) {
-                                log('''----log on edit profile page------
-                                  ${state.success!.age},
-                                  ${state.success!.bio},
-                                  ${state.success!.birthday},
-                                  ${state.success!.profilePic},
-                                  ${state.success!.coverPic},
-                                  ${state.success!.drinking},
-                                  ${state.success!.email},
-                                  ${state.success!.faith},
-                                  ${state.success!.fullName},
-                                  ${state.success!.gender},
-                                  ${state.success!.location},
-                                  ${state.success!.smoking},
-                                  ${state.success!.phone},
-                                  ${state.success!.preference},
-                                  ${state.success!.realationshipStatus},
-                                  ${state.success!.images}''');
-
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -288,7 +267,6 @@ class EditProfile extends StatelessWidget {
                                     Expanded(
                                       child: Container(
                                         height: height * 0.2,
-                                        // width: width * 0.9,
                                         decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
@@ -323,7 +301,6 @@ class EditProfile extends StatelessWidget {
                                     Expanded(
                                       child: Container(
                                         height: height * 0.2,
-                                        // width: width * 0.9,
                                         decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
@@ -391,7 +368,6 @@ class EditProfile extends StatelessWidget {
                               SizedBox(
                                 height: height * 0.03,
                               )
-/////////////////////
                             ]),
                       ]),
                     ),

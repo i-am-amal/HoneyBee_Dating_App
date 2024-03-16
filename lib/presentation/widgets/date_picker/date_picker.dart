@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +36,6 @@ class CustomDatePicker {
               child: const Text("OK"),
               onPressed: () {
                 if (selectedDate != null) {
-                  log(selectedDate.toString());
                 }
                 Navigator.of(context).pop();
               },

@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -18,17 +17,12 @@ class MatchesPageBloc extends Bloc<MatchesPageEvent, MatchesPageState> {
       emit(state.copyWith(isLoading: true));
 
       final result = await ApiServices.getMatchesData();
-
       String? id = await getuserIdFromPrefs();
 
       result.fold((failure) {
-        log("Failure");
         emit(state.copyWith(errorMessage: failure.errorMessage));
         emit(state.copyWith(errorMessage: null));
       }, (success) {
-        log("Success ${success.profiles}");
-
-        log('--------------$id----------');
         //success from backend
         if (success.profiles != null) {
           emit(state.copyWith(profile: success, isLoading: false, userId: id));

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/chat_page/chat_page_bloc.dart';
@@ -17,11 +15,8 @@ class ProfileGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<MatchesPageBloc>(context)
         .add(const MatchesPageEvent.fetchMatchesData());
-    log('building matches page');
     return BlocBuilder<MatchesPageBloc, MatchesPageState>(
       builder: (context, state) {
-        log("state.isLoading = ${state.isLoading}");
-
         if (state.isLoading == true) {
           return Center(
             child: Column(
@@ -52,8 +47,6 @@ class ProfileGrid extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
-                    log('logged on on tap');
-
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -72,20 +65,20 @@ class ProfileGrid extends StatelessWidget {
                             realationshipStatus: state
                                 .profile!.profiles![index].realationshipStatus!,
                             smoking: state.profile!.profiles![index].smoking!,
-///////////////////////////////
                             img1: state.profile!.profiles![index].images!
                                     .isNotEmpty
                                 ? state.profile!.profiles![index].images![0]
                                 : null,
                             img2: state.profile!.profiles![index].images!
-                                    .isNotEmpty
+                                        .length ==
+                                    2
                                 ? state.profile!.profiles![index].images![1]
                                 : null,
                             img3: state.profile!.profiles![index].images!
-                                    .isNotEmpty
+                                        .length ==
+                                    3
                                 ? state.profile!.profiles![index].images![2]
                                 : null,
-                            ///////////////////////////////////
                           ),
                         ),
                       ),
@@ -104,8 +97,6 @@ class ProfileGrid extends StatelessWidget {
                               color: Colors.white,
                               child: Image.network(
                                 state.profile!.profiles![index].profilePic!,
-
-                                // 'assets/images/profile.jpg',
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -130,7 +121,6 @@ class ProfileGrid extends StatelessWidget {
                                     ChatPageEvent.initializeGetAllMessagePage(
                                         state.userId,
                                         state.profile!.profiles![index].id));
-
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(

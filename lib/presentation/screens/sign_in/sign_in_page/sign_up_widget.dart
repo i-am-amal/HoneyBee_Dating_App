@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:honeybee/presentation/screens/sign_in/phone_authentication_page/phone_authentication_page.dart';
-import '../../../widgets/button_widgets/main_custom_button.dart';
-import '../../../widgets/constants/colors.dart';
-import '../../../widgets/fonts/fonts.dart';
-import '../../../widgets/text_widgets/custom_text.dart';
+import 'package:honeybee/presentation/widgets/button_widgets/main_custom_button.dart';
+import 'package:honeybee/presentation/widgets/constants/colors.dart';
+import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
+import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 class SignUpWidget extends StatelessWidget {
   const SignUpWidget({
@@ -55,12 +55,6 @@ class SignUpWidget extends StatelessWidget {
                 },
               ),
             );
-
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //       builder: (context) => PhoneAuthenticationPage()),
-            // );
           },
         ),
         SizedBox(

@@ -1,10 +1,9 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/verify_otp_request_model/verify_otp_request_model.dart';
+import 'package:honeybee/domain/validation/form_validation_services.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
-import '../../../domain/validation/form_validation_services.dart';
 
 part 'otp_number_auth_page_event.dart';
 part 'otp_number_auth_page_state.dart';
@@ -35,13 +34,10 @@ class OtpNumberAuthPageBloc
         result.fold((failure) {
           // failure from API Services
           emit(state.copyWith(errorMessage: failure.errorMessage));
-          log(failure.errorMessage!);
           emit(state.copyWith(errorMessage: null));
-          log(failure.errorMessage!);
         }, (success) {
           //Success from Backend
           if (success.success == true) {
-            log(success.redirect!);
             emit(state.copyWith(
                 isOtpVerified: true,
                 token: success.token,

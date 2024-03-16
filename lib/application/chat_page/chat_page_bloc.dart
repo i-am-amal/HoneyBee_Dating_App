@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/get_message_request_model/get_message_request_model.dart';
@@ -14,6 +12,7 @@ part 'chat_page_bloc.freezed.dart';
 
 class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
   ChatPageBloc() : super(ChatPageState.initial()) {
+    //--------------->>>-----New Message --Socket Service----->>>------------------------
     on<_NewMessage>((event, emit) async {
       SocketServices.sendMsg(
           sendMsgRequest: SocketSendMsgRequestModel(
@@ -26,16 +25,17 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
       add(_GetAllMessageOfUser(event.senderId, event.receiverId));
     });
 
+    //--------------->>>-----Initializing socket to get all messages----->>>------------------------
+
     on<_InitializeGetAllMessagePage>((event, emit) {
       add(_GetAllMessageOfUser(event.senderId, event.receiverId));
 
       SocketServices.socketMsgReceiveListener(() {
         add(_GetAllMessageOfUser(event.senderId, event.receiverId));
-        log('socketMsgReceiveListener funtion from bloc working');
       });
     });
 
-    //-------------------15/03------------------------------
+    //--------------->>>-----Get all messages when entering the chat of the user----->>>------------------------
 
     on<_GetAllMessageOfUser>((event, emit) async {
       GetMessageRequestModel request =
@@ -50,46 +50,7 @@ class ChatPageBloc extends Bloc<ChatPageEvent, ChatPageState> {
         final message = GetMessageResponseModel.generateMessagesMap(success);
 
         emit(state.copyWith(messages: message));
-
-        log(message.toString());
       });
     });
-
-    //-------------------15/03------------------------------
-
-    // on<_GetAllMessageOfUser>((event, emit) async {
-    //   GetMessageRequestModel request =
-    //       GetMessageRequestModel(from: event.senderId, to: event.receiverId);
-
-    //   final result = await ApiServices.getAllMessageData(request);
-
-    //   result.fold((failure) {
-    //     emit(state.copyWith(errorMessage: failure.errorMessage));
-    //     emit(state.copyWith(errorMessage: null));
-    //   }, (success) {
-    //     final message = GetMessageResponseModel.generateMessagesMap(success);
-
-    //     emit(state.copyWith(messages: message));
-
-    //     log(message.toString());
-    //   });
-    // });
   }
 }
-
-// Map<String, List<Map<String, dynamic>>> generateMessagesMap(List<Map<String, dynamic>> messages) {
-//   Map<String, List<Map<String, dynamic>>> messagesMap = {};
-
-//   for (var message in messages) {
-//     DateTime createdAt = DateTime.parse(message["createdAt"]);
-//     String formattedDate = DateFormat('yyyy-MM-dd').format(createdAt);
-
-//     if (!messagesMap.containsKey(formattedDate)) {
-//       messagesMap[formattedDate] = [];
-//     }
-
-//     messagesMap[formattedDate]!.add(message);
-//   }
-
-//   return messagesMap;
-// }

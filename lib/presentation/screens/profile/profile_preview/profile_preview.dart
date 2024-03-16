@@ -85,7 +85,6 @@ class ProfilePreview extends StatelessWidget {
                         ],
                       ),
                       child: Image.network(
-                        // 'assets/images/profile.jpg',
                         state.success!.profilePic!,
                         fit: BoxFit.cover,
                       ),
@@ -173,10 +172,7 @@ class ProfilePreview extends StatelessWidget {
                                   label: state.success!.drinking!),
                             ],
                           ),
-                          //////////////////////////////
-                          ///
                           SizedBox(height: height * 0.05),
-
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Container(
@@ -205,7 +201,6 @@ class ProfilePreview extends StatelessWidget {
                                     ),
                             ),
                           ),
-
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -217,7 +212,6 @@ class ProfilePreview extends StatelessWidget {
                                     Expanded(
                                       child: Container(
                                         height: height * 0.2,
-                                        // width: width * 0.9,
                                         decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
@@ -247,32 +241,11 @@ class ProfilePreview extends StatelessWidget {
                                                 ),
                                               ),
                                       ),
-
-                                      // child: SizedBox(
-                                      //   height: height * 0.2,
-                                      //   child: state.success!.images != null &&
-                                      //           state.success!.images!
-                                      //               .isNotEmpty &&
-                                      //           state
-                                      //               .success!.images!.isNotEmpty
-                                      //       ? Image.network(
-                                      //           state.success!.images![0],
-                                      //           fit: BoxFit.cover,
-                                      //         )
-                                      //       : const Padding(
-                                      //           padding: EdgeInsets.all(15.0),
-                                      //           child: Center(
-                                      //             child: Text(
-                                      //                 'No image Available'),
-                                      //           ),
-                                      //         ),
-                                      // ),
                                     ),
                                     SizedBox(width: width * 0.05),
                                     Expanded(
                                       child: Container(
                                         height: height * 0.2,
-                                        // width: width * 0.9,
                                         decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
@@ -300,29 +273,11 @@ class ProfilePreview extends StatelessWidget {
                                                 ),
                                               ),
                                       ),
-                                      // child: SizedBox(
-                                      //   height: height * 0.2,
-                                      //   child: state.success!.images != null &&
-                                      //           state.success!.images!.length >
-                                      //               1
-                                      //       ? Image.network(
-                                      //           state.success!.images![1],
-                                      //           fit: BoxFit.cover,
-                                      //         )
-                                      //       : const Padding(
-                                      //           padding: EdgeInsets.all(15.0),
-                                      //           child: Center(
-                                      //             child: Text(
-                                      //                 'No image Available'),
-                                      //           ),
-                                      //         ),
-                                      // ),
                                     ),
                                     SizedBox(width: width * 0.05),
                                     Expanded(
                                       child: Container(
                                         height: height * 0.2,
-                                        // width: width * 0.9,
                                         decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
@@ -350,31 +305,12 @@ class ProfilePreview extends StatelessWidget {
                                                 ),
                                               ),
                                       ),
-
-                                      // SizedBox(
-                                      //   height: height * 0.2,
-                                      //   child:
-                                      //state.success!.images != null &&
-                                      //           state.success!.images!.length >
-                                      //               2
-                                      //       ? Image.network(
-                                      //           state.success!.images![2],
-                                      //           fit: BoxFit.cover,
-                                      //         )
-                                      //       : const Padding(
-                                      //       padding: EdgeInsets.all(15.0),
-                                      //       child: Center(
-                                      //         child: Text('No image Available'),
-                                      //       ),
-                                      //     ),
-                                      // ),
                                     ),
                                   ],
                                 ),
                               )
                             ],
                           ),
-
                           SizedBox(height: height * 0.05),
                         ],
                       ),
@@ -417,26 +353,3 @@ class ChoiceButton extends StatelessWidget {
     );
   }
 }
-
-//  Container(
-//     height: height * 0.2,
-//     // width: width * 0.9,
-//     decoration: BoxDecoration(
-//         color: Colors.white,
-//         borderRadius: BorderRadius.circular(10),
-//         boxShadow: [
-//           BoxShadow(
-//               color: Colors.grey.withOpacity(0.5),
-//               spreadRadius: 5,
-//               blurRadius: 7,
-//               offset: const Offset(0, 3)),
-//         ]),
-//     child: image3 != null
-//         ? Image.file(
-//             image3!,
-//             fit: BoxFit.cover,
-//           )
-//         : const Center(
-//             child: Text('No image Available'),
-//           ),
-//   ),

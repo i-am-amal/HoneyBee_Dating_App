@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/search_page/search_page_bloc.dart';
@@ -24,8 +22,6 @@ class SearchWidget extends StatelessWidget {
                 SizedBox(
                   height: height * 0.1,
                 ),
-                // LinearProgressIndicator(),
-
                 Container(
                   height: height * 0.3,
                   width: width * 0.5,
@@ -36,31 +32,21 @@ class SearchWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Text('no data')
-
-                // LoadingAnimationWidget.discreteCircle(
-                //   color: CustomColors.kRedButtonColor,
-                //   size: 70,
-                // ),
               ],
             ),
           );
         } else if (state.searchResult != null) {
           return Expanded(
             child: ListView.builder(
-              itemCount:
-                  state.searchResult!.profiles!.length, // Number of users
+              itemCount: state.searchResult!.profiles!.length,
               itemBuilder: (BuildContext context, int index) {
                 return Column(
                   children: [
                     ListTile(
                       leading: CircleAvatar(
-                          radius: 30, // Adjust size as needed
-                          backgroundImage: NetworkImage(
-                              state.searchResult!.profiles![index].profilePic!)
-                          // AssetImage('assets/images/profile.jpg'),
-                          ),
-
+                          radius: 30,
+                          backgroundImage: NetworkImage(state
+                              .searchResult!.profiles![index].profilePic!)),
                       title: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: CustomText(
@@ -69,9 +55,7 @@ class SearchWidget extends StatelessWidget {
                           fontFamily: CustomFont.textFont,
                         ),
                       ),
-                      // Replace with actual user name
                       onTap: () {
-                        // Handle tap on user
                         if (state.searchResult != null) {
                           Navigator.push(
                             context,
@@ -100,31 +84,28 @@ class SearchWidget extends StatelessWidget {
                                       .profiles![index].realationshipStatus!,
                                   smoking: state
                                       .searchResult!.profiles![index].smoking!,
-
-                                  /////////////////////////
                                   img1: state.searchResult!.profiles![index]
                                           .images!.isNotEmpty
                                       ? state.searchResult!.profiles![index]
                                           .images![0]
                                       : null,
                                   img2: state.searchResult!.profiles![index]
-                                          .images!.isNotEmpty
+                                              .images!.length ==
+                                          2
                                       ? state.searchResult!.profiles![index]
                                           .images![1]
                                       : null,
                                   img3: state.searchResult!.profiles![index]
-                                          .images!.isNotEmpty
+                                              .images!.length ==
+                                          3
                                       ? state.searchResult!.profiles![index]
                                           .images![2]
                                       : null,
-                                  ///////////////////////////////////
                                 ),
                               ),
                             ),
                           );
                         }
-
-                        log('Tapped on user $index ---${state.searchResult!.profiles![index].fullName}');
                       },
                     ),
                     const Divider(),
