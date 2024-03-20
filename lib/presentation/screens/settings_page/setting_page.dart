@@ -9,8 +9,10 @@ import 'package:honeybee/presentation/widgets/policies/privacy.dart';
 import 'package:honeybee/presentation/widgets/policies/terms_and_conditions.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
-class MenuPage extends StatelessWidget {
-  const MenuPage({super.key});
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key,required this.token});
+
+    final String token;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,7 @@ class MenuPage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const EditProfile()),
+                  MaterialPageRoute(builder: (context) =>  EditProfile(token:token)),
                 );
               },
             ),
@@ -135,10 +137,15 @@ class MenuPage extends StatelessWidget {
               ),
               onPressed: () {
                 removeTokenFromPrefs();
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SplashScreen()),
-                );
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (context) => const SplashScreen(),
+                    ),
+                    (route) => false);
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const SplashScreen()),
+                // );
               },
             ),
           ],

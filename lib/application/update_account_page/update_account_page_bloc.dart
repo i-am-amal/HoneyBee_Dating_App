@@ -38,7 +38,6 @@ class UpdateAccountPageBloc
 
       //--------------->>>-----images path checking section----->>>------------------------
 
-      // Check and process profile image
       File? profileImagePath;
       if (editProfileDetails.profilePic != null) {
         if (editProfileDetails.profilePic!.path.startsWith('http')) {
@@ -48,7 +47,7 @@ class UpdateAccountPageBloc
         }
       }
 
-      // Check and process cover image
+
       File? coverImagePath;
       if (editProfileDetails.coverPic != null) {
         if (editProfileDetails.coverPic!.path.startsWith('http')) {
@@ -58,7 +57,6 @@ class UpdateAccountPageBloc
         }
       }
 
-      // Check and process other images
       List<File?> imagePaths = [];
       for (var image in [
         editProfileDetails.image0,

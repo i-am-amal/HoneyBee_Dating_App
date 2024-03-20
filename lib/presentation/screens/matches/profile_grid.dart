@@ -7,6 +7,7 @@ import 'package:honeybee/presentation/screens/chatting/chat_screen.dart';
 import 'package:honeybee/presentation/screens/profile/profile_preview/user_profile_view_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class ProfileGrid extends StatelessWidget {
   const ProfileGrid({super.key});
@@ -150,11 +151,19 @@ class ProfileGrid extends StatelessWidget {
           );
         } else {
           return Center(
-            child: Image.asset(
-              'assets/images/no_result.png',
-              height: 600,
-              width: 600,
+            child: Lottie.asset(
+              'assets/lotties/no data available  man with lap.json',
+              width: 300,
+              height: 300,
+              animate: true,
+              repeat: true,
             ),
+
+            //  Image.asset(
+            //   'assets/images/no_result.png',
+            //   height: 600,
+            //   width: 600,
+            // ),
           );
         }
       },

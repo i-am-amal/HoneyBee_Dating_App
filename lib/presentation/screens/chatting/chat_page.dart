@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/all_messages_page/all_messages_bloc.dart';
+import 'package:honeybee/application/matches_page/matches_page_bloc.dart';
 import 'package:honeybee/presentation/screens/chatting/profile_list.dart';
 import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({super.key});
+  const ChatPage({super.key, required this.token});
+  final String token;
 
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<AllMessagesBloc>(context)
         .add(const AllMessagesEvent.listAllLastMessages());
+    BlocProvider.of<MatchesPageBloc>(context)
+        .add(const MatchesPageEvent.fetchMatchesData());
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -42,11 +47,7 @@ class ChatPage extends StatelessWidget {
           CustomTextFormFiled(
             icon: Icons.search,
             text: 'Search',
-            buttonOnTap: () {
-              ///---------search event
-              ///
-              ///
-            },
+            buttonOnTap: () {},
           ),
           const Expanded(
             child: ProfileList(),

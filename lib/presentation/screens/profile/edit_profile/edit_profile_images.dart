@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,9 +17,10 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 class EditProfileImages extends StatefulWidget {
   const EditProfileImages({
     required this.editProfileDetails,
+    required this.token,
     super.key,
   });
-
+  final String token;
   final EditProfileModel editProfileDetails;
 
   @override
@@ -43,6 +45,8 @@ class _EditProfileImagesState extends State<EditProfileImages> {
 
   @override
   Widget build(BuildContext context) {
+            log('building edit profile images page');
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -64,7 +68,9 @@ Stay clear of inappropriate content''';
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const EditProfile()),
+                        builder: (context) => EditProfile(
+                              token: widget.token,
+                            )),
                   );
                 },
                 child: const Text(
@@ -371,10 +377,11 @@ Stay clear of inappropriate content''';
                         width: width * 0.2,
                         txtcolor: CustomColors.kWhiteTextColor,
                         onpressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                               builder: (context) => EditInfoLastPage(
+                                token: widget.token,
                                 editProfileDetails: EditProfileModel(
                                   age: widget.editProfileDetails.age,
                                   bio: widget.editProfileDetails.bio,
@@ -406,7 +413,9 @@ Stay clear of inappropriate content''';
                     ],
                   );
                 } else {
-                  return const Center();
+                  return const Center(
+                    child: Text('Some error occured'),
+                  );
                 }
               },
             ),

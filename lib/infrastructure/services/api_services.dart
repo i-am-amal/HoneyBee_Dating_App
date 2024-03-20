@@ -28,12 +28,12 @@ import 'package:honeybee/domain/models/search_filter_request_model/search_filter
 import 'package:honeybee/domain/models/search_filter_response_model/search_filter_response_model.dart';
 import 'package:honeybee/domain/models/user_edit_response_model/user_edit_response_model.dart';
 import 'package:honeybee/domain/models/verify_otp_request_model/verify_otp_request_model.dart';
+import 'package:honeybee/domain/models/verify_otp_response_model/verify_otp_response_model.dart';
 import 'package:honeybee/domain/models/verify_payment_request_model/verify_payment_request_model.dart';
 import 'package:honeybee/domain/models/verify_payment_response_model/verify_payment_response_model.dart';
 import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import '../../domain/models/verify_otp_response_model/verify_otp_response_model.dart';
 import 'package:http_parser/http_parser.dart';
 
 class ApiServices {

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/location_auth_page/location_auth_page_bloc.dart';
@@ -13,18 +15,24 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 class EditLocationPage extends StatelessWidget {
   const EditLocationPage({
     required this.editProfileDetails,
+    required this.token,
     super.key,
   });
-
+  final String token;
   final EditProfileModel editProfileDetails;
 
   @override
   Widget build(BuildContext context) {
+    log('building edit location page');
+
+///////////////----------------
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      log('building edit location page inside widget binding');
+
       BlocProvider.of<LocationAuthPageBloc>(context)
           .add(const LocationAuthPageEvent.fetchLocationName());
     });
-
+/////////////////-----------------
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -41,7 +49,9 @@ class EditLocationPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const EditProfile()),
+                        builder: (context) => EditProfile(
+                              token: token,
+                            )),
                   );
                 },
                 child: const Text(
@@ -51,7 +61,7 @@ class EditLocationPage extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(false); 
+                  Navigator.of(context).pop(false);
                 },
                 child: const Text(
                   'No',
@@ -127,6 +137,7 @@ class EditLocationPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => EditProfileImages(
+                                token: token,
                                 editProfileDetails: EditProfileModel(
                                   age: editProfileDetails.age,
                                   bio: editProfileDetails.bio,

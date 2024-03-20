@@ -1,8 +1,10 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
+import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
 import 'package:honeybee/presentation/screens/liked_users/liked_users_page.dart';
 import 'package:honeybee/presentation/screens/profile/edit_profile/edit_info_main_page.dart';
 import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
@@ -12,13 +14,15 @@ import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class EditProfile extends StatelessWidget {
-  const EditProfile({super.key});
+  const EditProfile({super.key, required this.token});
+
+  final String token;
 
   @override
   Widget build(BuildContext context) {
+    log('building edit profile page');
     BlocProvider.of<PreviewAccountPageBloc>(context)
         .add(const PreviewAccountPageEvent.fetchAccountData());
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -33,7 +37,7 @@ class EditProfile extends StatelessWidget {
                       const SizedBox(
                         height: 250,
                       ),
-                      LoadingAnimationWidget.discreteCircle(
+                      LoadingAnimationWidget.staggeredDotsWave(
                         color: CustomColors.kRedButtonColor,
                         size: 70,
                       ),
@@ -53,14 +57,12 @@ class EditProfile extends StatelessWidget {
                         BorderlineButton(
                             icon: Icons.arrow_back_ios_new,
                             onpressed: () {
-                              Navigator.pop(context);
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //       builder: (context) => BottomNavbar(
-                              //         token: state.token!,
-                              //       ),
-                              //     ));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        BottomNavbar(token: token),
+                                  ));
                             }),
                         const CustomText(
                           text: 'My Account',
@@ -73,10 +75,11 @@ class EditProfile extends StatelessWidget {
                             icon: Icons.edit,
                             onpressed: () {
                               if (state.success != null) {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => EditInfoMainPage(
+                                      token: token,
                                       editProfileDetails: EditProfileModel(
                                         age: state.success!.age.toString(),
                                         bio: state.success!.bio,
@@ -144,7 +147,6 @@ class EditProfile extends StatelessWidget {
                     ),
                     SizedBox(
                       width: width * 0.99,
-                      // color: Colors.grey,
                       child: Column(children: [
                         SizedBox(height: height * 0.05),
                         Row(
@@ -225,13 +227,10 @@ class EditProfile extends StatelessWidget {
                           ],
                         ),
                         SizedBox(height: height * 0.05),
-
-////////////////////
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
                             height: height * 0.25,
-                            // width: width * 0.9,
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10),
@@ -255,7 +254,6 @@ class EditProfile extends StatelessWidget {
                                   ),
                           ),
                         ),
-
                         Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -333,7 +331,6 @@ class EditProfile extends StatelessWidget {
                                     Expanded(
                                       child: Container(
                                         height: height * 0.2,
-                                        // width: width * 0.9,
                                         decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
@@ -374,7 +371,9 @@ class EditProfile extends StatelessWidget {
                   ],
                 );
               } else {
-                return const Center();
+                return const Center(
+                  child: Text('Some error occured'),
+                );
               }
             },
           ),

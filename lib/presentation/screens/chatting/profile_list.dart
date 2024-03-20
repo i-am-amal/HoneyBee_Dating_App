@@ -6,6 +6,7 @@ import 'package:honeybee/presentation/screens/chatting/chat_screen.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:intl/intl.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class ProfileList extends StatelessWidget {
   const ProfileList({Key? key}) : super(key: key);
@@ -104,10 +105,12 @@ class ProfileList extends StatelessWidget {
           );
         } else if (state.messageList == null || state.messageList!.isEmpty) {
           return Center(
-            child: Image.asset(
-              'assets/images/no_result.png',
-              height: 500,
-              width: 500,
+            child: Lottie.asset(
+              'assets/lotties/Hanging sad no data.json',
+              width: 300,
+              height: 300,
+              animate: true,
+              repeat: true,
             ),
           );
         } else {

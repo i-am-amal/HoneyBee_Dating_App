@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/application/create_account_page/create_account_bloc.dart';
+import 'package:honeybee/application/discover_page/discover_page_bloc.dart';
 import 'package:honeybee/application/preview_account_page/preview_account_page_bloc.dart';
 import 'package:honeybee/infrastructure/shared_preferences/shared_prefs.dart';
 import 'package:honeybee/presentation/screens/bottom_navigation/bottom_navbar.dart';
@@ -78,7 +79,7 @@ class PreviewAccount extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(false); 
+                  Navigator.of(context).pop(false);
                 },
                 child: const Text(
                   'No',
@@ -229,6 +230,7 @@ class PreviewAccount extends StatelessWidget {
                                     blurRadius: 7,
                                     offset: const Offset(0, 3)),
                               ]),
+
                           ///--------------->>>>>>>>>>----------------cover image --------->>>>>>>>>>>---------
 
                           child: Image.file(
@@ -371,11 +373,16 @@ class PreviewAccount extends StatelessWidget {
                                 ),
                               ),
                             );
-          //----------->>>>>>>>>>----------saving token---------------->>>>>>>>>>>
+                            //----------->>>>>>>>>>----------saving token---------------->>>>>>>>>>>
                             saveTokenToPrefs(state.token!);
                             BlocProvider.of<PreviewAccountPageBloc>(context)
                                 .add(const PreviewAccountPageEvent
                                     .fetchAccountData());
+                            BlocProvider.of<DiscoverPageBloc>(context).add(
+                                const DiscoverPageEvent.fetchDiscoverData());
+                            BlocProvider.of<DiscoverPageBloc>(context).add(
+                                const DiscoverPageEvent
+                                    .likedAndDislikedUsersData());
 
                             Navigator.pushAndRemoveUntil(
                               context,

@@ -8,7 +8,9 @@ import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 class DiscoverPage extends StatelessWidget {
-  const DiscoverPage({super.key});
+  const DiscoverPage({super.key,required this.token});
+
+  final String token;
 
   @override
   Widget build(BuildContext context) {

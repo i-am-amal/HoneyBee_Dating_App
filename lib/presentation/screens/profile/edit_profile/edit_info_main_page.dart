@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,10 +17,11 @@ import 'package:intl/intl.dart';
 
 class EditInfoMainPage extends StatefulWidget {
   const EditInfoMainPage({
+    required this.token,
     required this.editProfileDetails,
     super.key,
   });
-
+  final String token;
   final EditProfileModel editProfileDetails;
 
   @override
@@ -36,7 +38,6 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
   @override
   void initState() {
     super.initState();
-
     editDateController =
         TextEditingController(text: widget.editProfileDetails.birthday);
     editPhoneNumberController =
@@ -59,6 +60,8 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
 
   @override
   Widget build(BuildContext context) {
+    log('building edit profile main page');
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -73,7 +76,10 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const EditProfile()),
+                  MaterialPageRoute(
+                      builder: (context) => EditProfile(
+                            token: widget.token,
+                          )),
                 );
               },
               child: const Text(
@@ -102,36 +108,43 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                 if (state.pickedProfileImage != null) {
                   profilePic = File(state.pickedProfileImage!.path);
                 }
+
+                ///////////////-------------------------------
                 WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => EditLocationPage(
-                                editProfileDetails: EditProfileModel(
-                              age: widget.editProfileDetails.age,
-                              bio: widget.editProfileDetails.bio,
-                              birthday: editDateController.text,
-                              coverPic: widget.editProfileDetails.coverPic,
-                              drinking: widget.editProfileDetails.drinking,
-                              email: editEmailController.text,
-                              faith: widget.editProfileDetails.faith,
-                              fullName: editNameController.text,
-                              gender: widget.editProfileDetails.gender,
-                              image0: widget.editProfileDetails.image0,
-                              image1: widget.editProfileDetails.image1,
-                              image2: widget.editProfileDetails.image2,
-                              location: widget.editProfileDetails.location,
-                              phone: editPhoneNumberController.text,
-                              preference: widget.editProfileDetails.preference,
-                              profilePic: profilePic,
-                              relationshipStatus:
-                                  widget.editProfileDetails.relationshipStatus,
-                              smoking: widget.editProfileDetails.smoking,
-                            ))),
+                      builder: (context) => EditLocationPage(
+                        token: widget.token,
+                        editProfileDetails: EditProfileModel(
+                          age: widget.editProfileDetails.age,
+                          bio: widget.editProfileDetails.bio,
+                          birthday: editDateController.text,
+                          coverPic: widget.editProfileDetails.coverPic,
+                          drinking: widget.editProfileDetails.drinking,
+                          email: editEmailController.text,
+                          faith: widget.editProfileDetails.faith,
+                          fullName: editNameController.text,
+                          gender: widget.editProfileDetails.gender,
+                          image0: widget.editProfileDetails.image0,
+                          image1: widget.editProfileDetails.image1,
+                          image2: widget.editProfileDetails.image2,
+                          location: widget.editProfileDetails.location,
+                          phone: editPhoneNumberController.text,
+                          preference: widget.editProfileDetails.preference,
+                          profilePic: profilePic,
+                          relationshipStatus:
+                              widget.editProfileDetails.relationshipStatus,
+                          smoking: widget.editProfileDetails.smoking,
+                        ),
+                      ),
+                    ),
                   );
                 });
               }
             }
+
+            ///////////////-------------------------------
 
             return Column(
               children: [

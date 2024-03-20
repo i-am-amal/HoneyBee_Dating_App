@@ -9,8 +9,8 @@ class SocketServices {
   static late io.Socket socket;
   static socketSetup() {
     socket = io.io(
-        'http://10.0.2.2:5000',
-        // "https://amal.fun",
+        // 'http://10.0.2.2:5000',
+        "https://amal.fun",
         io.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect()

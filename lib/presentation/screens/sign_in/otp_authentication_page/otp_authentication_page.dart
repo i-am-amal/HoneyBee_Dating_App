@@ -174,7 +174,8 @@ void handleState(OtpNumberAuthPageState state, context) async {
 
       BlocProvider.of<DiscoverPageBloc>(context)
           .add(const DiscoverPageEvent.fetchDiscoverData());
-
+      BlocProvider.of<DiscoverPageBloc>(context)
+          .add(const DiscoverPageEvent.likedAndDislikedUsersData());
       BlocProvider.of<PreviewAccountPageBloc>(context)
           .add(const PreviewAccountPageEvent.fetchAccountData());
 

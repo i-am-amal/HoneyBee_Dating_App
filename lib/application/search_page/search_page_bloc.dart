@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/search_filter_request_model/search_filter_request_model.dart';
@@ -25,6 +27,9 @@ class SearchPageBloc extends Bloc<SearchPageEvent, SearchPageState> {
           ageMax: '${event.age}',
           ageMin: "0");
 
+      log(request.ageMax.toString());
+      log(request.fullName.toString());
+      
       final result = await ApiServices.searchFilterData(request);
 
       result.fold((failure) {

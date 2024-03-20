@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,6 +25,8 @@ class EditPreviewAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log('building edit preview page');
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     String age = calculateAge(editProfileDetails.birthday!).toString();

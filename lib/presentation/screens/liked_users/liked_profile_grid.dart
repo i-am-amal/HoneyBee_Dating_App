@@ -5,6 +5,7 @@ import 'package:honeybee/domain/models/user_model/user_model.dart';
 import 'package:honeybee/presentation/screens/profile/profile_preview/user_profile_view_page.dart';
 import 'package:honeybee/presentation/widgets/constants/colors.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class LikedProfileGrid extends StatelessWidget {
   const LikedProfileGrid({super.key});
@@ -190,10 +191,12 @@ class LikedProfileGrid extends StatelessWidget {
             );
           } else {
             return Center(
-              child: Image.asset(
-                'assets/images/no_result.png',
-                height: 500,
-                width: 500,
+              child: Lottie.asset(
+                'assets/lotties/no data available  man with lap.json',
+                width: 300,
+                height: 250,
+                animate: true,
+                repeat: true,
               ),
             );
           }

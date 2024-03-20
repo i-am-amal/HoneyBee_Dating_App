@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
@@ -11,9 +13,11 @@ import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 class EditInfoLastPage extends StatefulWidget {
-  const EditInfoLastPage({super.key, required this.editProfileDetails});
+  const EditInfoLastPage(
+      {super.key, required this.editProfileDetails, required this.token});
 
   final EditProfileModel editProfileDetails;
+  final String token;
 
   @override
   State<EditInfoLastPage> createState() => _BasicInfoLastPageState();
@@ -48,6 +52,9 @@ class _BasicInfoLastPageState extends State<EditInfoLastPage> {
 
   @override
   Widget build(BuildContext context) {
+
+            log('building edit last page');
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -64,7 +71,9 @@ class _BasicInfoLastPageState extends State<EditInfoLastPage> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const EditProfile()),
+                          builder: (context) => EditProfile(
+                                token: widget.token,
+                              )),
                     );
                   },
                   child: const Text(
@@ -74,7 +83,7 @@ class _BasicInfoLastPageState extends State<EditInfoLastPage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pop(false); 
+                    Navigator.of(context).pop(false);
                   },
                   child: const Text(
                     'No',
@@ -178,8 +187,7 @@ class _BasicInfoLastPageState extends State<EditInfoLastPage> {
                   SizedBox(height: height * 0.05),
                   TextField(
                     controller: bioTextController,
-                    onChanged: (value) {
-                    },
+                    onChanged: (value) {},
                     maxLines: 4,
                     maxLength: 100,
                     decoration: const InputDecoration(

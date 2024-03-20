@@ -70,7 +70,7 @@ class ChatScreen extends StatelessWidget {
                       backgroundImage: AssetImage('assets/images/profile.jpg'),
                     ),
                   SizedBox(
-                    width: width * 0.01,
+                    width: width * 0.05,
                   ),
                   CustomText(
                     text: name,

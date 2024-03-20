@@ -22,6 +22,12 @@ class _SearchPageState extends State<SearchPage> {
   Timer? _debounce;
 
   @override
+  void initState() {
+    super.initState();
+    _onSearchChanged('');
+  }
+
+  @override
   void dispose() {
     _controllerValue.dispose();
     _debounce?.cancel();
@@ -31,14 +37,19 @@ class _SearchPageState extends State<SearchPage> {
   void _onSearchChanged(String query) {
     if (_debounce?.isActive ?? false) _debounce!.cancel();
 
-    if (query.isNotEmpty) {
+    if (query.isEmpty) {
       _debounce = Timer(const Duration(milliseconds: 1000), () {
-        log('Searching for: $query');
+        log('Searching for: $query,$age');
+        BlocProvider.of<SearchPageBloc>(context)
+            .add(SearchPageEvent.searchData('', age));
+      });
+    } else {
+      _debounce = Timer(const Duration(milliseconds: 1000), () {
+        log('Searching for: $query,$age');
         BlocProvider.of<SearchPageBloc>(context)
             .add(SearchPageEvent.searchData(_controllerValue.text, age));
       });
     }
-
   }
 
   @override
@@ -73,7 +84,6 @@ class _SearchPageState extends State<SearchPage> {
                       setState(() {
                         age = selectedAge ?? '100';
                       });
-
                     }),
               ],
             ),
@@ -83,8 +93,7 @@ class _SearchPageState extends State<SearchPage> {
           ),
           CustomTextFormFiled(
             editController: _controllerValue,
-            buttonOnTap: () {
-            },
+            buttonOnTap: () {},
             onChanged: (value) {
               _onSearchChanged(value);
             },
