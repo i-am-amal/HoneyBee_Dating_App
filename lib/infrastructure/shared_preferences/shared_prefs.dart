@@ -28,14 +28,14 @@ Future<void> saveUserIdToPrefs(String userId) async {
   await prefs.setString('userId', userId);
 }
 
-//--------------->>>-----Read Token----->>>------------------------
+//--------------->>>-----Read userId----->>>------------------------
 
 Future<String?> getuserIdFromPrefs() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   return prefs.getString('userId');
 }
 
-//--------------->>>-----Remove Token----->>>------------------------
+//--------------->>>-----Remove userId----->>>------------------------
 
 Future<void> removeUserIdFromPrefs() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();

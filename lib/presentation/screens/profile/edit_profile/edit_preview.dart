@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,8 +24,6 @@ class EditPreviewAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log('building edit preview page');
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     String age = calculateAge(editProfileDetails.birthday!).toString();
@@ -37,22 +34,16 @@ class EditPreviewAccount extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: height * 0.05,
-              ),
+              SizedBox(height: height * 0.05),
               Row(
                 children: [
-                  SizedBox(
-                    width: width * 0.02,
-                  ),
+                  SizedBox(width: width * 0.02),
                   BorderlineButton(
                       icon: Icons.arrow_back_ios_new,
                       onpressed: () {
                         Navigator.pop(context);
                       }),
-                  SizedBox(
-                    width: width * 0.09,
-                  ),
+                  SizedBox(width: width * 0.09),
                   const CustomText(
                     text: 'Edit Preview Account',
                     fontFamily: CustomFont.headTextFont,
@@ -61,9 +52,7 @@ class EditPreviewAccount extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
-                height: height * 0.03,
-              ),
+              SizedBox(height: height * 0.03),
               Container(
                 width: width * 0.9,
                 height: height * 0.4,
@@ -94,9 +83,7 @@ class EditPreviewAccount extends StatelessWidget {
                     SizedBox(height: height * 0.05),
                     Row(
                       children: [
-                        SizedBox(
-                          width: width * 0.1,
-                        ),
+                        SizedBox(width: width * 0.1),
                         CustomText(
                           text: '${editProfileDetails.fullName}, $age',
                           fontFamily: CustomFont.headTextFont,
@@ -385,7 +372,6 @@ class EditPreviewAccount extends StatelessWidget {
                           },
                         );
                       }
-
                       return const SizedBox();
                     }),
                     SizedBox(height: height * 0.05),

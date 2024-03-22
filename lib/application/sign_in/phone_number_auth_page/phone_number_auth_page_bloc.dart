@@ -1,9 +1,8 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:honeybee/domain/models/phone_number_request_model/phone_number_request_model.dart';
+import 'package:honeybee/domain/validation/form_validation_services.dart';
 import 'package:honeybee/infrastructure/services/api_services.dart';
-import '../../../domain/models/phone_number_request_model/phone_number_request_model.dart';
-import '../../../domain/validation/form_validation_services.dart';
 part 'phone_number_auth_page_event.dart';
 part 'phone_number_auth_page_state.dart';
 part 'phone_number_auth_page_bloc.freezed.dart';
@@ -14,7 +13,7 @@ class PhoneNumberAuthPageBloc
     //--------------->>>-----Phone Number Login Event----->>>------------------------
 
     on<_PhoneNumberLogin>((event, emit) async {
-      String? phoneNumber = event.phoneNumber ;
+      String? phoneNumber = event.phoneNumber;
       bool? isValidated =
           FormValidationServices.phoneNumberValidation(phoneNumber);
 
@@ -42,7 +41,6 @@ class PhoneNumberAuthPageBloc
           }
         });
       } else {
-        // form validation failed
         emit(state.copyWith(errorMessage: 'Phone Number Validation Failed'));
       }
     });

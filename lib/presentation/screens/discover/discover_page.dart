@@ -8,7 +8,7 @@ import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 class DiscoverPage extends StatelessWidget {
-  const DiscoverPage({super.key,required this.token});
+  const DiscoverPage({super.key, required this.token});
 
   final String token;
 
@@ -25,15 +25,11 @@ class DiscoverPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(
-              height: height * 0.08,
-            ),
+            SizedBox(height: height * 0.08),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SizedBox(
-                  width: width * 0.09,
-                ),
+                SizedBox(width: width * 0.09),
                 const CustomText(
                   text: 'Discover',
                   fontFamily: CustomFont.headTextFont,
@@ -53,9 +49,7 @@ class DiscoverPage extends StatelessWidget {
                     })
               ],
             ),
-            SizedBox(
-              height: height * 0.03,
-            ),
+            SizedBox(height: height * 0.03),
             const CardsStackWidget(),
           ],
         ),

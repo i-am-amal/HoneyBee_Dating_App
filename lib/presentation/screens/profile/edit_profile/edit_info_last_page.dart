@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:honeybee/domain/models/edit_profile_model/edit_profile_model.dart';
@@ -52,9 +50,6 @@ class _BasicInfoLastPageState extends State<EditInfoLastPage> {
 
   @override
   Widget build(BuildContext context) {
-
-            log('building edit last page');
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -242,9 +237,9 @@ class _BasicInfoLastPageState extends State<EditInfoLastPage> {
                         height: height * 0.015,
                         onpressed: () {
                           Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => EditPreviewAccount(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EditPreviewAccount(
                                       editProfileDetails: EditProfileModel(
                                           age: widget.editProfileDetails.age,
                                           bio: bioTextController.text,
@@ -274,9 +269,7 @@ class _BasicInfoLastPageState extends State<EditInfoLastPage> {
                                               .editProfileDetails.profilePic,
                                           relationshipStatus: selectedOptions
                                               .relationshipStatus,
-                                          smoking: selectedOptions.smoking),
-                                    )),
-                          );
+                                          smoking: selectedOptions.smoking))));
                         },
                       )
                     ],

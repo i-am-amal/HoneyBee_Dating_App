@@ -30,7 +30,6 @@ class BasicInfoMainPage extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: () async {
-        // Show an alert dialog
         bool exitProcedure = await showDialog(
           context: context,
           builder: (context) => AlertDialog(
@@ -102,14 +101,10 @@ class BasicInfoMainPage extends StatelessWidget {
               }
               return Column(
                 children: [
-                  SizedBox(
-                    height: height * 0.08,
-                  ),
+                  SizedBox(height: height * 0.08),
                   Row(
                     children: [
-                      SizedBox(
-                        width: width * 0.08,
-                      ),
+                      SizedBox(width: width * 0.08),
                       const CustomText(
                         text: 'Basic Info',
                         letterspacing: 1,

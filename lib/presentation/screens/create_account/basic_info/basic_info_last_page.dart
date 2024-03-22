@@ -61,7 +61,6 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
 
     return WillPopScope(
       onWillPop: () async {
-        // Show an alert dialog
         bool exitProcedure = await showDialog(
           context: context,
           builder: (context) => AlertDialog(
@@ -82,7 +81,7 @@ class _BasicInfoLastPageState extends State<BasicInfoLastPage> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(false); // Continue the procedure
+                  Navigator.of(context).pop(false);
                 },
                 child: const Text(
                   'No',

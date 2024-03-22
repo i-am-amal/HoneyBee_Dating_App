@@ -14,8 +14,7 @@ class DragWidget extends StatefulWidget {
       required this.swipeNotifier,
       required this.index,
       required this.profile,
-      this.isLastCard = false
-      });
+      this.isLastCard = false});
 
   final DiscoverResponseModel profile;
   final int index;

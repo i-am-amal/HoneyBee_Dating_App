@@ -8,8 +8,9 @@ import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 import 'package:honeybee/presentation/widgets/textform_widgets/custom_textformfield.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({super.key, required this.token});
+  ChatPage({super.key, required this.token});
   final String token;
+  final _searchValue = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +25,10 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(
-            height: height * 0.05,
-          ),
+          SizedBox(height: height * 0.05),
           Row(
             children: [
-              SizedBox(
-                width: width * 0.07,
-              ),
+              SizedBox(width: width * 0.07),
               const CustomText(
                 text: "Let's Chat",
                 fontFamily: CustomFont.headTextFont,
@@ -41,13 +38,23 @@ class ChatPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: height * 0.04,
-          ),
+          SizedBox(height: height * 0.04),
           CustomTextFormFiled(
             icon: Icons.search,
+            suffixIcon: Icons.clear_rounded,
             text: 'Search',
-            buttonOnTap: () {},
+            editController: _searchValue,
+            buttonTap: () {
+              _searchValue.clear();
+              FocusScope.of(context).unfocus();
+              BlocProvider.of<AllMessagesBloc>(context)
+                  .add(const AllMessagesEvent.clearSearchResult());
+            },
+            buttonOnTap: () {
+              FocusScope.of(context).unfocus();
+              BlocProvider.of<AllMessagesBloc>(context)
+                  .add(AllMessagesEvent.searchResult(_searchValue.text));
+            },
           ),
           const Expanded(
             child: ProfileList(),

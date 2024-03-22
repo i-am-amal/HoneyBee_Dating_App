@@ -20,18 +20,24 @@ mixin _$AllMessagesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadConversationIds,
     required TResult Function() listAllLastMessages,
+    required TResult Function() clearSearchResult,
+    required TResult Function(String? searchQuery) searchResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadConversationIds,
     TResult? Function()? listAllLastMessages,
+    TResult? Function()? clearSearchResult,
+    TResult? Function(String? searchQuery)? searchResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadConversationIds,
     TResult Function()? listAllLastMessages,
+    TResult Function()? clearSearchResult,
+    TResult Function(String? searchQuery)? searchResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$AllMessagesEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadConversationIds value) loadConversationIds,
     required TResult Function(_ListAllLastMessages value) listAllLastMessages,
+    required TResult Function(_ClearSearchResult value) clearSearchResult,
+    required TResult Function(_SearchResult value) searchResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadConversationIds value)? loadConversationIds,
     TResult? Function(_ListAllLastMessages value)? listAllLastMessages,
+    TResult? Function(_ClearSearchResult value)? clearSearchResult,
+    TResult? Function(_SearchResult value)? searchResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadConversationIds value)? loadConversationIds,
     TResult Function(_ListAllLastMessages value)? listAllLastMessages,
+    TResult Function(_ClearSearchResult value)? clearSearchResult,
+    TResult Function(_SearchResult value)? searchResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +126,8 @@ class _$_LoadConversationIds implements _LoadConversationIds {
   TResult when<TResult extends Object?>({
     required TResult Function() loadConversationIds,
     required TResult Function() listAllLastMessages,
+    required TResult Function() clearSearchResult,
+    required TResult Function(String? searchQuery) searchResult,
   }) {
     return loadConversationIds();
   }
@@ -123,6 +137,8 @@ class _$_LoadConversationIds implements _LoadConversationIds {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadConversationIds,
     TResult? Function()? listAllLastMessages,
+    TResult? Function()? clearSearchResult,
+    TResult? Function(String? searchQuery)? searchResult,
   }) {
     return loadConversationIds?.call();
   }
@@ -132,6 +148,8 @@ class _$_LoadConversationIds implements _LoadConversationIds {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadConversationIds,
     TResult Function()? listAllLastMessages,
+    TResult Function()? clearSearchResult,
+    TResult Function(String? searchQuery)? searchResult,
     required TResult orElse(),
   }) {
     if (loadConversationIds != null) {
@@ -145,6 +163,8 @@ class _$_LoadConversationIds implements _LoadConversationIds {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadConversationIds value) loadConversationIds,
     required TResult Function(_ListAllLastMessages value) listAllLastMessages,
+    required TResult Function(_ClearSearchResult value) clearSearchResult,
+    required TResult Function(_SearchResult value) searchResult,
   }) {
     return loadConversationIds(this);
   }
@@ -154,6 +174,8 @@ class _$_LoadConversationIds implements _LoadConversationIds {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadConversationIds value)? loadConversationIds,
     TResult? Function(_ListAllLastMessages value)? listAllLastMessages,
+    TResult? Function(_ClearSearchResult value)? clearSearchResult,
+    TResult? Function(_SearchResult value)? searchResult,
   }) {
     return loadConversationIds?.call(this);
   }
@@ -163,6 +185,8 @@ class _$_LoadConversationIds implements _LoadConversationIds {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadConversationIds value)? loadConversationIds,
     TResult Function(_ListAllLastMessages value)? listAllLastMessages,
+    TResult Function(_ClearSearchResult value)? clearSearchResult,
+    TResult Function(_SearchResult value)? searchResult,
     required TResult orElse(),
   }) {
     if (loadConversationIds != null) {
@@ -216,6 +240,8 @@ class _$_ListAllLastMessages implements _ListAllLastMessages {
   TResult when<TResult extends Object?>({
     required TResult Function() loadConversationIds,
     required TResult Function() listAllLastMessages,
+    required TResult Function() clearSearchResult,
+    required TResult Function(String? searchQuery) searchResult,
   }) {
     return listAllLastMessages();
   }
@@ -225,6 +251,8 @@ class _$_ListAllLastMessages implements _ListAllLastMessages {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadConversationIds,
     TResult? Function()? listAllLastMessages,
+    TResult? Function()? clearSearchResult,
+    TResult? Function(String? searchQuery)? searchResult,
   }) {
     return listAllLastMessages?.call();
   }
@@ -234,6 +262,8 @@ class _$_ListAllLastMessages implements _ListAllLastMessages {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadConversationIds,
     TResult Function()? listAllLastMessages,
+    TResult Function()? clearSearchResult,
+    TResult Function(String? searchQuery)? searchResult,
     required TResult orElse(),
   }) {
     if (listAllLastMessages != null) {
@@ -247,6 +277,8 @@ class _$_ListAllLastMessages implements _ListAllLastMessages {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadConversationIds value) loadConversationIds,
     required TResult Function(_ListAllLastMessages value) listAllLastMessages,
+    required TResult Function(_ClearSearchResult value) clearSearchResult,
+    required TResult Function(_SearchResult value) searchResult,
   }) {
     return listAllLastMessages(this);
   }
@@ -256,6 +288,8 @@ class _$_ListAllLastMessages implements _ListAllLastMessages {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadConversationIds value)? loadConversationIds,
     TResult? Function(_ListAllLastMessages value)? listAllLastMessages,
+    TResult? Function(_ClearSearchResult value)? clearSearchResult,
+    TResult? Function(_SearchResult value)? searchResult,
   }) {
     return listAllLastMessages?.call(this);
   }
@@ -265,6 +299,8 @@ class _$_ListAllLastMessages implements _ListAllLastMessages {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadConversationIds value)? loadConversationIds,
     TResult Function(_ListAllLastMessages value)? listAllLastMessages,
+    TResult Function(_ClearSearchResult value)? clearSearchResult,
+    TResult Function(_SearchResult value)? searchResult,
     required TResult orElse(),
   }) {
     if (listAllLastMessages != null) {
@@ -279,11 +315,274 @@ abstract class _ListAllLastMessages implements AllMessagesEvent {
 }
 
 /// @nodoc
+abstract class _$$_ClearSearchResultCopyWith<$Res> {
+  factory _$$_ClearSearchResultCopyWith(_$_ClearSearchResult value,
+          $Res Function(_$_ClearSearchResult) then) =
+      __$$_ClearSearchResultCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ClearSearchResultCopyWithImpl<$Res>
+    extends _$AllMessagesEventCopyWithImpl<$Res, _$_ClearSearchResult>
+    implements _$$_ClearSearchResultCopyWith<$Res> {
+  __$$_ClearSearchResultCopyWithImpl(
+      _$_ClearSearchResult _value, $Res Function(_$_ClearSearchResult) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ClearSearchResult implements _ClearSearchResult {
+  const _$_ClearSearchResult();
+
+  @override
+  String toString() {
+    return 'AllMessagesEvent.clearSearchResult()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ClearSearchResult);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadConversationIds,
+    required TResult Function() listAllLastMessages,
+    required TResult Function() clearSearchResult,
+    required TResult Function(String? searchQuery) searchResult,
+  }) {
+    return clearSearchResult();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadConversationIds,
+    TResult? Function()? listAllLastMessages,
+    TResult? Function()? clearSearchResult,
+    TResult? Function(String? searchQuery)? searchResult,
+  }) {
+    return clearSearchResult?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadConversationIds,
+    TResult Function()? listAllLastMessages,
+    TResult Function()? clearSearchResult,
+    TResult Function(String? searchQuery)? searchResult,
+    required TResult orElse(),
+  }) {
+    if (clearSearchResult != null) {
+      return clearSearchResult();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadConversationIds value) loadConversationIds,
+    required TResult Function(_ListAllLastMessages value) listAllLastMessages,
+    required TResult Function(_ClearSearchResult value) clearSearchResult,
+    required TResult Function(_SearchResult value) searchResult,
+  }) {
+    return clearSearchResult(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadConversationIds value)? loadConversationIds,
+    TResult? Function(_ListAllLastMessages value)? listAllLastMessages,
+    TResult? Function(_ClearSearchResult value)? clearSearchResult,
+    TResult? Function(_SearchResult value)? searchResult,
+  }) {
+    return clearSearchResult?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadConversationIds value)? loadConversationIds,
+    TResult Function(_ListAllLastMessages value)? listAllLastMessages,
+    TResult Function(_ClearSearchResult value)? clearSearchResult,
+    TResult Function(_SearchResult value)? searchResult,
+    required TResult orElse(),
+  }) {
+    if (clearSearchResult != null) {
+      return clearSearchResult(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ClearSearchResult implements AllMessagesEvent {
+  const factory _ClearSearchResult() = _$_ClearSearchResult;
+}
+
+/// @nodoc
+abstract class _$$_SearchResultCopyWith<$Res> {
+  factory _$$_SearchResultCopyWith(
+          _$_SearchResult value, $Res Function(_$_SearchResult) then) =
+      __$$_SearchResultCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? searchQuery});
+}
+
+/// @nodoc
+class __$$_SearchResultCopyWithImpl<$Res>
+    extends _$AllMessagesEventCopyWithImpl<$Res, _$_SearchResult>
+    implements _$$_SearchResultCopyWith<$Res> {
+  __$$_SearchResultCopyWithImpl(
+      _$_SearchResult _value, $Res Function(_$_SearchResult) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? searchQuery = freezed,
+  }) {
+    return _then(_$_SearchResult(
+      freezed == searchQuery
+          ? _value.searchQuery
+          : searchQuery // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SearchResult implements _SearchResult {
+  const _$_SearchResult(this.searchQuery);
+
+  @override
+  final String? searchQuery;
+
+  @override
+  String toString() {
+    return 'AllMessagesEvent.searchResult(searchQuery: $searchQuery)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SearchResult &&
+            (identical(other.searchQuery, searchQuery) ||
+                other.searchQuery == searchQuery));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, searchQuery);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SearchResultCopyWith<_$_SearchResult> get copyWith =>
+      __$$_SearchResultCopyWithImpl<_$_SearchResult>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadConversationIds,
+    required TResult Function() listAllLastMessages,
+    required TResult Function() clearSearchResult,
+    required TResult Function(String? searchQuery) searchResult,
+  }) {
+    return searchResult(searchQuery);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadConversationIds,
+    TResult? Function()? listAllLastMessages,
+    TResult? Function()? clearSearchResult,
+    TResult? Function(String? searchQuery)? searchResult,
+  }) {
+    return searchResult?.call(searchQuery);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadConversationIds,
+    TResult Function()? listAllLastMessages,
+    TResult Function()? clearSearchResult,
+    TResult Function(String? searchQuery)? searchResult,
+    required TResult orElse(),
+  }) {
+    if (searchResult != null) {
+      return searchResult(searchQuery);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadConversationIds value) loadConversationIds,
+    required TResult Function(_ListAllLastMessages value) listAllLastMessages,
+    required TResult Function(_ClearSearchResult value) clearSearchResult,
+    required TResult Function(_SearchResult value) searchResult,
+  }) {
+    return searchResult(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadConversationIds value)? loadConversationIds,
+    TResult? Function(_ListAllLastMessages value)? listAllLastMessages,
+    TResult? Function(_ClearSearchResult value)? clearSearchResult,
+    TResult? Function(_SearchResult value)? searchResult,
+  }) {
+    return searchResult?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadConversationIds value)? loadConversationIds,
+    TResult Function(_ListAllLastMessages value)? listAllLastMessages,
+    TResult Function(_ClearSearchResult value)? clearSearchResult,
+    TResult Function(_SearchResult value)? searchResult,
+    required TResult orElse(),
+  }) {
+    if (searchResult != null) {
+      return searchResult(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchResult implements AllMessagesEvent {
+  const factory _SearchResult(final String? searchQuery) = _$_SearchResult;
+
+  String? get searchQuery;
+  @JsonKey(ignore: true)
+  _$$_SearchResultCopyWith<_$_SearchResult> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AllMessagesState {
   String? get errorMessage => throw _privateConstructorUsedError;
   List<LastMessageResponseModel>? get messageList =>
       throw _privateConstructorUsedError;
+  List<MatchesResponseModel>? get searchResult =>
+      throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
+  bool? get isSearching => throw _privateConstructorUsedError;
   List<String>? get conversationIds => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -291,7 +590,9 @@ mixin _$AllMessagesState {
     required TResult Function(
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
+            List<MatchesResponseModel>? searchResult,
             bool? isLoading,
+            bool? isSearching,
             List<String>? conversationIds,
             String? userId)
         initial,
@@ -302,7 +603,9 @@ mixin _$AllMessagesState {
     TResult? Function(
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
+            List<MatchesResponseModel>? searchResult,
             bool? isLoading,
+            bool? isSearching,
             List<String>? conversationIds,
             String? userId)?
         initial,
@@ -313,7 +616,9 @@ mixin _$AllMessagesState {
     TResult Function(
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
+            List<MatchesResponseModel>? searchResult,
             bool? isLoading,
+            bool? isSearching,
             List<String>? conversationIds,
             String? userId)?
         initial,
@@ -351,7 +656,9 @@ abstract class $AllMessagesStateCopyWith<$Res> {
   $Res call(
       {String? errorMessage,
       List<LastMessageResponseModel>? messageList,
+      List<MatchesResponseModel>? searchResult,
       bool? isLoading,
+      bool? isSearching,
       List<String>? conversationIds,
       String? userId});
 }
@@ -371,7 +678,9 @@ class _$AllMessagesStateCopyWithImpl<$Res, $Val extends AllMessagesState>
   $Res call({
     Object? errorMessage = freezed,
     Object? messageList = freezed,
+    Object? searchResult = freezed,
     Object? isLoading = freezed,
+    Object? isSearching = freezed,
     Object? conversationIds = freezed,
     Object? userId = freezed,
   }) {
@@ -384,9 +693,17 @@ class _$AllMessagesStateCopyWithImpl<$Res, $Val extends AllMessagesState>
           ? _value.messageList
           : messageList // ignore: cast_nullable_to_non_nullable
               as List<LastMessageResponseModel>?,
+      searchResult: freezed == searchResult
+          ? _value.searchResult
+          : searchResult // ignore: cast_nullable_to_non_nullable
+              as List<MatchesResponseModel>?,
       isLoading: freezed == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isSearching: freezed == isSearching
+          ? _value.isSearching
+          : isSearching // ignore: cast_nullable_to_non_nullable
               as bool?,
       conversationIds: freezed == conversationIds
           ? _value.conversationIds
@@ -411,7 +728,9 @@ abstract class _$$_InitialCopyWith<$Res>
   $Res call(
       {String? errorMessage,
       List<LastMessageResponseModel>? messageList,
+      List<MatchesResponseModel>? searchResult,
       bool? isLoading,
+      bool? isSearching,
       List<String>? conversationIds,
       String? userId});
 }
@@ -428,7 +747,9 @@ class __$$_InitialCopyWithImpl<$Res>
   $Res call({
     Object? errorMessage = freezed,
     Object? messageList = freezed,
+    Object? searchResult = freezed,
     Object? isLoading = freezed,
+    Object? isSearching = freezed,
     Object? conversationIds = freezed,
     Object? userId = freezed,
   }) {
@@ -441,9 +762,17 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value._messageList
           : messageList // ignore: cast_nullable_to_non_nullable
               as List<LastMessageResponseModel>?,
+      searchResult: freezed == searchResult
+          ? _value._searchResult
+          : searchResult // ignore: cast_nullable_to_non_nullable
+              as List<MatchesResponseModel>?,
       isLoading: freezed == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isSearching: freezed == isSearching
+          ? _value.isSearching
+          : isSearching // ignore: cast_nullable_to_non_nullable
               as bool?,
       conversationIds: freezed == conversationIds
           ? _value._conversationIds
@@ -463,10 +792,13 @@ class _$_Initial implements _Initial {
   const _$_Initial(
       {this.errorMessage,
       final List<LastMessageResponseModel>? messageList,
+      final List<MatchesResponseModel>? searchResult,
       this.isLoading,
+      this.isSearching,
       final List<String>? conversationIds,
       this.userId})
       : _messageList = messageList,
+        _searchResult = searchResult,
         _conversationIds = conversationIds;
 
   @override
@@ -481,8 +813,20 @@ class _$_Initial implements _Initial {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<MatchesResponseModel>? _searchResult;
+  @override
+  List<MatchesResponseModel>? get searchResult {
+    final value = _searchResult;
+    if (value == null) return null;
+    if (_searchResult is EqualUnmodifiableListView) return _searchResult;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final bool? isLoading;
+  @override
+  final bool? isSearching;
   final List<String>? _conversationIds;
   @override
   List<String>? get conversationIds {
@@ -498,7 +842,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'AllMessagesState.initial(errorMessage: $errorMessage, messageList: $messageList, isLoading: $isLoading, conversationIds: $conversationIds, userId: $userId)';
+    return 'AllMessagesState.initial(errorMessage: $errorMessage, messageList: $messageList, searchResult: $searchResult, isLoading: $isLoading, isSearching: $isSearching, conversationIds: $conversationIds, userId: $userId)';
   }
 
   @override
@@ -510,8 +854,12 @@ class _$_Initial implements _Initial {
                 other.errorMessage == errorMessage) &&
             const DeepCollectionEquality()
                 .equals(other._messageList, _messageList) &&
+            const DeepCollectionEquality()
+                .equals(other._searchResult, _searchResult) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.isSearching, isSearching) ||
+                other.isSearching == isSearching) &&
             const DeepCollectionEquality()
                 .equals(other._conversationIds, _conversationIds) &&
             (identical(other.userId, userId) || other.userId == userId));
@@ -522,7 +870,9 @@ class _$_Initial implements _Initial {
       runtimeType,
       errorMessage,
       const DeepCollectionEquality().hash(_messageList),
+      const DeepCollectionEquality().hash(_searchResult),
       isLoading,
+      isSearching,
       const DeepCollectionEquality().hash(_conversationIds),
       userId);
 
@@ -538,13 +888,15 @@ class _$_Initial implements _Initial {
     required TResult Function(
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
+            List<MatchesResponseModel>? searchResult,
             bool? isLoading,
+            bool? isSearching,
             List<String>? conversationIds,
             String? userId)
         initial,
   }) {
-    return initial(
-        errorMessage, messageList, isLoading, conversationIds, userId);
+    return initial(errorMessage, messageList, searchResult, isLoading,
+        isSearching, conversationIds, userId);
   }
 
   @override
@@ -553,13 +905,15 @@ class _$_Initial implements _Initial {
     TResult? Function(
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
+            List<MatchesResponseModel>? searchResult,
             bool? isLoading,
+            bool? isSearching,
             List<String>? conversationIds,
             String? userId)?
         initial,
   }) {
-    return initial?.call(
-        errorMessage, messageList, isLoading, conversationIds, userId);
+    return initial?.call(errorMessage, messageList, searchResult, isLoading,
+        isSearching, conversationIds, userId);
   }
 
   @override
@@ -568,15 +922,17 @@ class _$_Initial implements _Initial {
     TResult Function(
             String? errorMessage,
             List<LastMessageResponseModel>? messageList,
+            List<MatchesResponseModel>? searchResult,
             bool? isLoading,
+            bool? isSearching,
             List<String>? conversationIds,
             String? userId)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(
-          errorMessage, messageList, isLoading, conversationIds, userId);
+      return initial(errorMessage, messageList, searchResult, isLoading,
+          isSearching, conversationIds, userId);
     }
     return orElse();
   }
@@ -614,7 +970,9 @@ abstract class _Initial implements AllMessagesState {
   const factory _Initial(
       {final String? errorMessage,
       final List<LastMessageResponseModel>? messageList,
+      final List<MatchesResponseModel>? searchResult,
       final bool? isLoading,
+      final bool? isSearching,
       final List<String>? conversationIds,
       final String? userId}) = _$_Initial;
 
@@ -623,7 +981,11 @@ abstract class _Initial implements AllMessagesState {
   @override
   List<LastMessageResponseModel>? get messageList;
   @override
+  List<MatchesResponseModel>? get searchResult;
+  @override
   bool? get isLoading;
+  @override
+  bool? get isSearching;
   @override
   List<String>? get conversationIds;
   @override

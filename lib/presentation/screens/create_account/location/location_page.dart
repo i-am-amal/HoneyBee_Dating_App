@@ -38,7 +38,6 @@ class LocationPage extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: () async {
-        // Show an alert dialog
         bool exitProcedure = await showDialog(
           context: context,
           builder: (context) => AlertDialog(
@@ -59,7 +58,7 @@ class LocationPage extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(false); // Continue the procedure
+                  Navigator.of(context).pop(false);
                 },
                 child: const Text(
                   'No',
@@ -85,9 +84,7 @@ class LocationPage extends StatelessWidget {
                         color: CustomColors.kRedButtonColor,
                         size: 100,
                       ),
-                      SizedBox(
-                        height: height * 0.03,
-                      ),
+                      SizedBox(height: height * 0.03),
                       const CustomText(
                         text: 'Fetching location..please wait...',
                         letterspacing: 1.5,
@@ -101,26 +98,20 @@ class LocationPage extends StatelessWidget {
               if (state.locationName != null) {
                 return Column(
                   children: [
-                    SizedBox(
-                      height: height * 0.1,
-                    ),
+                    SizedBox(height: height * 0.1),
                     SizedBox(
                       height: height * 0.5,
                       width: double.infinity,
                       child: Image.asset('assets/images/location1.jpg'),
                     ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
+                    SizedBox(height: height * 0.02),
                     CustomText(
                       text: state.locationName!,
                       letterspacing: 1.5,
                       fontFamily: CustomFont.headTextFont,
                       fontsize: 17,
                     ),
-                    SizedBox(
-                      height: height * 0.06,
-                    ),
+                    SizedBox(height: height * 0.06),
                     MainCustomButton(
                       customtext: "Continue",
                       height: height * 0.02,
@@ -166,9 +157,7 @@ class LocationPage extends StatelessWidget {
               } else if (state.errorMessage != null) {
                 return Column(
                   children: [
-                    SizedBox(
-                      height: height * 0.1,
-                    ),
+                    SizedBox(height: height * 0.1),
                     Image.asset('assets/images/location1.jpg'),
                     CustomText(
                       text: state.errorMessage,
@@ -176,9 +165,7 @@ class LocationPage extends StatelessWidget {
                       fontFamily: CustomFont.headTextFont,
                       fontsize: 17,
                     ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
+                    SizedBox(height: height * 0.02),
                     MainCustomButton(
                       customtext: "Retry",
                       height: height * 0.02,

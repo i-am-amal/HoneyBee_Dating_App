@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,8 +44,6 @@ class _EditProfileImagesState extends State<EditProfileImages> {
 
   @override
   Widget build(BuildContext context) {
-            log('building edit profile images page');
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -161,8 +158,7 @@ Stay clear of inappropriate content''';
                                   ),
                                 ]),
                             child: profilePic != null
-                                ? profilePic!.path.startsWith(
-                                        'http') // Assuming URLs start with 'http'
+                                ? profilePic!.path.startsWith('http')
                                     ? Image.network(profilePic!.path,
                                         fit: BoxFit.cover)
                                     : Image.file(profilePic!, fit: BoxFit.cover)

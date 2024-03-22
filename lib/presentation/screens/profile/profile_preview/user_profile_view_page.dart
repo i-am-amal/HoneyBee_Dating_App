@@ -25,22 +25,16 @@ class UserProfilePreviewPage extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: height * 0.05,
-                  ),
+                  SizedBox(height: height * 0.05),
                   Row(
                     children: [
-                      SizedBox(
-                        width: width * 0.05,
-                      ),
+                      SizedBox(width: width * 0.05),
                       BorderlineButton(
                           icon: Icons.arrow_back_ios_new,
                           onpressed: () {
                             Navigator.pop(context);
                           }),
-                      SizedBox(
-                        width: width * 0.09,
-                      ),
+                      SizedBox(width: width * 0.09),
                       const CustomText(
                         text: 'Preview ',
                         fontFamily: CustomFont.headTextFont,
@@ -50,9 +44,7 @@ class UserProfilePreviewPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: height * 0.03,
-                  ),
+                  SizedBox(height: height * 0.03),
                   Container(
                     width: width * 0.9,
                     height: height * 0.4,
@@ -92,14 +84,10 @@ class UserProfilePreviewPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: height * 0.03,
-                        ),
+                        SizedBox(height: height * 0.03),
                         Row(
                           children: [
-                            SizedBox(
-                              width: width * 0.1,
-                            ),
+                            SizedBox(width: width * 0.1),
                             CustomText(
                               text: userDetails.location,
                               fontFamily: CustomFont.headTextFont,
@@ -108,14 +96,10 @@ class UserProfilePreviewPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: height * 0.02,
-                        ),
+                        SizedBox(height: height * 0.02),
                         Row(
                           children: [
-                            SizedBox(
-                              width: width * 0.1,
-                            ),
+                            SizedBox(width: width * 0.1),
                             Flexible(
                               child: CustomText(
                                 text: userDetails.bio,
@@ -125,9 +109,7 @@ class UserProfilePreviewPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: height * 0.03,
-                        ),
+                        SizedBox(height: height * 0.03),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -190,7 +172,6 @@ class UserProfilePreviewPage extends StatelessWidget {
                             Expanded(
                               child: Container(
                                 height: height * 0.2,
-                                // width: width * 0.9,
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(10),

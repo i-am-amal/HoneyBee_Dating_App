@@ -1,4 +1,3 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:honeybee/domain/models/matches_response_model/matches_response_model.dart';
@@ -20,18 +19,22 @@ class MatchesPageBloc extends Bloc<MatchesPageEvent, MatchesPageState> {
       String? id = await getuserIdFromPrefs();
 
       result.fold((failure) {
-        emit(state.copyWith(errorMessage: failure.errorMessage));
-        emit(state.copyWith(errorMessage: null));
+        emit(state.copyWith(
+            errorMessage: 'OOPS.. Something went wrong....', isLoading: false));
       }, (success) {
         //success from backend
         if (success.profiles != null) {
-          emit(state.copyWith(profile: success, isLoading: false, userId: id));
+          emit(state.copyWith(
+              profile: success,
+              isLoading: false,
+              userId: id,
+              errorMessage: null));
         } else {
           // failure from backend
           emit(state.copyWith(
+              isLoading: false,
               errorMessage:
                   'OOPS.. Something went wrong.. Please try again later...'));
-          emit(state.copyWith(errorMessage: null));
         }
       });
     });

@@ -57,9 +57,7 @@ class SignUpWidget extends StatelessWidget {
             );
           },
         ),
-        SizedBox(
-          height: height * 0.1,
-        ),
+        SizedBox(height: height * 0.1),
       ],
     );
   }

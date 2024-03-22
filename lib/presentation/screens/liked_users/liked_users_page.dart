@@ -16,9 +16,7 @@ class LikedUsersPage extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            SizedBox(
-              height: height * 0.05,
-            ),
+            SizedBox(height: height * 0.05),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -29,9 +27,7 @@ class LikedUsersPage extends StatelessWidget {
                     Navigator.pop(context);
                   },
                 ),
-                SizedBox(
-                  width: width * 0.01,
-                ),
+                SizedBox(width: width * 0.01),
                 const CustomText(
                   text: 'Liked Users',
                   fontFamily: CustomFont.headTextFont,
@@ -39,22 +35,16 @@ class LikedUsersPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   letterspacing: 1,
                 ),
-                SizedBox(
-                  width: width * 0.35,
-                ),
+                SizedBox(width: width * 0.35),
               ],
             ),
-            SizedBox(
-              height: height * 0.02,
-            ),
+            SizedBox(height: height * 0.02),
             const CustomText(
               text: 'This is a list of people who you have liked .',
               fontFamily: CustomFont.headTextFont,
               fontsize: 16,
             ),
-            SizedBox(
-              height: height * 0.05,
-            ),
+            SizedBox(height: height * 0.05),
             Expanded(
               child: Container(
                 color: Colors.red,

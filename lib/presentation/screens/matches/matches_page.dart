@@ -8,7 +8,7 @@ import 'package:honeybee/presentation/widgets/fonts/fonts.dart';
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 class MatchesPage extends StatelessWidget {
-  const MatchesPage({super.key,required this.token});
+  const MatchesPage({super.key, required this.token});
 
   final String token;
 
@@ -24,15 +24,11 @@ class MatchesPage extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            SizedBox(
-              height: height * 0.05,
-            ),
+            SizedBox(height: height * 0.05),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(
-                  width: width * 0.01,
-                ),
+                SizedBox(width: width * 0.01),
                 const CustomText(
                   text: 'Matches',
                   fontFamily: CustomFont.headTextFont,
@@ -40,9 +36,7 @@ class MatchesPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   letterspacing: 1,
                 ),
-                SizedBox(
-                  width: width * 0.35,
-                ),
+                SizedBox(width: width * 0.35),
                 BorderlineButton(
                   icon: FontAwesomeIcons.solidHeart,
                   color: Colors.red,
@@ -56,18 +50,14 @@ class MatchesPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height: height * 0.02,
-            ),
+            SizedBox(height: height * 0.02),
             const CustomText(
               text:
                   'This is a list of people who have liked you and your matches.',
               fontFamily: CustomFont.headTextFont,
               fontsize: 16,
             ),
-            SizedBox(
-              height: height * 0.05,
-            ),
+            SizedBox(height: height * 0.05),
             const Expanded(
               child: ProfileGrid(),
             )

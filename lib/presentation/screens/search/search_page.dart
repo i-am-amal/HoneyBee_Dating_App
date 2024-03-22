@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,13 +38,11 @@ class _SearchPageState extends State<SearchPage> {
 
     if (query.isEmpty) {
       _debounce = Timer(const Duration(milliseconds: 1000), () {
-        log('Searching for: $query,$age');
         BlocProvider.of<SearchPageBloc>(context)
             .add(SearchPageEvent.searchData('', age));
       });
     } else {
       _debounce = Timer(const Duration(milliseconds: 1000), () {
-        log('Searching for: $query,$age');
         BlocProvider.of<SearchPageBloc>(context)
             .add(SearchPageEvent.searchData(_controllerValue.text, age));
       });
@@ -80,7 +77,6 @@ class _SearchPageState extends State<SearchPage> {
                           return const CustomModalBottomSheet();
                         },
                       );
-
                       setState(() {
                         age = selectedAge ?? '100';
                       });
@@ -88,20 +84,15 @@ class _SearchPageState extends State<SearchPage> {
               ],
             ),
           ),
-          SizedBox(
-            height: height * 0.01,
-          ),
+          SizedBox(height: height * 0.01),
           CustomTextFormFiled(
             editController: _controllerValue,
-            buttonOnTap: () {},
             onChanged: (value) {
               _onSearchChanged(value);
             },
             icon: Icons.search,
           ),
-          SizedBox(
-            height: height * 0.01,
-          ),
+          SizedBox(height: height * 0.01),
           const SearchWidget()
         ],
       ),

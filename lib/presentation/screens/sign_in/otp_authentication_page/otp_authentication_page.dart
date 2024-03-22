@@ -40,18 +40,13 @@ class OtpAuthenticationPage extends StatelessWidget {
                 return SingleChildScrollView(
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: height * 0.15,
-                        width: width * .05,
-                      ),
+                      SizedBox(height: height * 0.15, width: width * .05),
                       Container(
                         child: state.timer == 0
                             ? const Text('Resend Otp!')
                             : Text('Time remaining: ${state.timer} seconds'),
                       ),
-                      SizedBox(
-                        height: height * 0.04,
-                      ),
+                      SizedBox(height: height * 0.04),
                       CustomText(
                         width: width * 0.9,
                         text: "Type the verification code we've sent you ",
@@ -60,9 +55,7 @@ class OtpAuthenticationPage extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         letterspacing: 1,
                       ),
-                      SizedBox(
-                        height: height * 0.05,
-                      ),
+                      SizedBox(height: height * 0.05),
                       PinCodeFields(
                         length: 6,
                         fieldBorderStyle: FieldBorderStyle.square,
@@ -81,9 +74,7 @@ class OtpAuthenticationPage extends StatelessWidget {
                               .add(OtpNumberAuthPageEvent.setOtp(otp: value));
                         },
                       ),
-                      SizedBox(
-                        height: height * 0.05,
-                      ),
+                      SizedBox(height: height * 0.05),
                       MainCustomButton(
                         customtext: "Continue",
                         txtcolor: CustomColors.kWhiteTextColor,
@@ -129,9 +120,7 @@ class OtpAuthenticationPage extends StatelessWidget {
                           }
                         },
                       ),
-                      SizedBox(
-                        height: height * 0.03,
-                      ),
+                      SizedBox(height: height * 0.03),
                       TextButton(
                         onPressed: () {
                           BlocProvider.of<OtpNumberAuthPageBloc>(context).add(

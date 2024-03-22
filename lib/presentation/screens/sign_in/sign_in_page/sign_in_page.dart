@@ -18,22 +18,14 @@ class SignInPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: height * 0.20,
-            ),
+            SizedBox(height: height * 0.20),
             const LogoWidget(),
-            SizedBox(
-              height: height * 0.05,
-            ),
+            SizedBox(height: height * 0.05),
             SignUpWidget(height: height, width: width),
             signUpDrawerWidget(width),
-            SizedBox(
-              height: height * 0.06,
-            ),
+            SizedBox(height: height * 0.06),
             googleSignInWidget(height, width, context),
-            SizedBox(
-              height: height * 0.075,
-            ),
+            SizedBox(height: height * 0.075),
             const PrivacyPolicyWidget()
           ],
         ),

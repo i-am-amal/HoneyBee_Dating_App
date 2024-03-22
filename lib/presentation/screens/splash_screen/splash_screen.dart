@@ -23,7 +23,6 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
     Future.delayed(
       const Duration(seconds: 1),
       () {
@@ -80,10 +79,8 @@ class _SplashScreenCreateAnimationState extends State<SplashScreen> {
       if (token != null) {
         BlocProvider.of<PreviewAccountPageBloc>(context)
             .add(const PreviewAccountPageEvent.fetchAccountData());
-
         BlocProvider.of<DiscoverPageBloc>(context)
             .add(const DiscoverPageEvent.fetchDiscoverData());
-
         BlocProvider.of<AllMessagesBloc>(context)
             .add(const AllMessagesEvent.loadConversationIds());
 

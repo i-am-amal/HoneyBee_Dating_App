@@ -32,7 +32,31 @@ class ProfileGrid extends StatelessWidget {
               ],
             ),
           );
+        } else if (state.errorMessage != null &&
+            state.errorMessage!.isNotEmpty) {
+          return SizedBox(
+            child: Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      state.errorMessage!,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Colors.red),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          BlocProvider.of<MatchesPageBloc>(context)
+                              .add(const MatchesPageEvent.fetchMatchesData());
+                        },
+                        icon: const Icon(Icons.refresh_rounded))
+                  ]),
+            ),
+          );
         } else if (state.isLoading == false &&
+            state.profile != null &&
             state.profile!.profiles!.isNotEmpty) {
           return Padding(
             padding: const EdgeInsets.all(18.0),
@@ -108,39 +132,50 @@ class ProfileGrid extends StatelessWidget {
                           left: 0,
                           right: 0,
                           child: Container(
-                            height: 40,
-                            color: Colors.black.withOpacity(0.7),
-                            child: TextButton(
-                              child: Text(
-                                state.profile!.profiles![index].fullName!,
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              onPressed: () {
-                                BlocProvider.of<ChatPageBloc>(context).add(
-                                    ChatPageEvent.initializeGetAllMessagePage(
-                                        state.userId,
-                                        state.profile!.profiles![index].id));
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ChatScreen(
-                                      senderId: state.userId,
-                                      receiverId:
-                                          state.profile!.profiles![index].id,
-                                      conversationId: state.profile!
-                                          .profiles![index].conversationId,
-                                      profilePic: state
-                                          .profile!.profiles![index].profilePic,
-                                      name: state
-                                          .profile!.profiles![index].fullName,
+                              height: 40,
+                              color: Colors.black.withOpacity(0.7),
+                              child: InkWell(
+                                onTap: () {
+                                  BlocProvider.of<ChatPageBloc>(context).add(
+                                      ChatPageEvent.initializeGetAllMessagePage(
+                                          state.userId,
+                                          state.profile!.profiles![index].id));
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ChatScreen(
+                                        senderId: state.userId,
+                                        receiverId:
+                                            state.profile!.profiles![index].id,
+                                        conversationId: state.profile!
+                                            .profiles![index].conversationId,
+                                        profilePic: state.profile!
+                                            .profiles![index].profilePic,
+                                        name: state
+                                            .profile!.profiles![index].fullName,
+                                      ),
                                     ),
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      state.profile!.profiles![index].fullName!,
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    const Icon(
+                                      Icons.message_outlined,
+                                      color: Colors.white,
+                                    )
+                                  ],
+                                ),
+                              )),
                         ),
                       ],
                     ),
@@ -158,12 +193,6 @@ class ProfileGrid extends StatelessWidget {
               animate: true,
               repeat: true,
             ),
-
-            //  Image.asset(
-            //   'assets/images/no_result.png',
-            //   height: 600,
-            //   width: 600,
-            // ),
           );
         }
       },

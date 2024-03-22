@@ -23,7 +23,7 @@ class GetMessageResponseModel {
   String get formattedTime {
     if (createdAt != null) {
       final DateTime dateTime = DateTime.parse(createdAt!).toLocal();
-      return DateFormat('hh:mm').format(dateTime); // Format as desired
+      return DateFormat('hh:mm a').format(dateTime); // Format as desired
     } else {
       return '';
     }

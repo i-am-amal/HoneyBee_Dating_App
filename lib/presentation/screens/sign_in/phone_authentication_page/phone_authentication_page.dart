@@ -14,7 +14,7 @@ import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 class PhoneAuthenticationPage extends StatelessWidget {
   PhoneAuthenticationPage({super.key});
 
-  CountryCode? countryCode;
+  late CountryCode? countryCode;
   TextEditingController phoneNumberController = TextEditingController();
 
   @override
@@ -169,7 +169,6 @@ class PhoneAuthenticationPage extends StatelessWidget {
                         countryCode: countryCode.toString(),
                       ),
                     );
-
                     BlocProvider.of<OtpNumberAuthPageBloc>(context).add(
                         OtpNumberAuthPageEvent.initializePage(
                             phoneNumber: phoneNumberController.text,

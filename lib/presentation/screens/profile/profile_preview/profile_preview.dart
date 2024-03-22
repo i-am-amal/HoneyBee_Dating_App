@@ -27,9 +27,7 @@ class ProfilePreview extends StatelessWidget {
                 return Center(
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 250,
-                      ),
+                      const SizedBox(height: 250),
                       LoadingAnimationWidget.staggeredDotsWave(
                         color: CustomColors.kRedButtonColor,
                         size: 70,
@@ -41,22 +39,16 @@ class ProfilePreview extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: height * 0.05,
-                    ),
+                    SizedBox(height: height * 0.05),
                     Row(
                       children: [
-                        SizedBox(
-                          width: width * 0.05,
-                        ),
+                        SizedBox(width: width * 0.05),
                         BorderlineButton(
                             icon: Icons.arrow_back_ios_new,
                             onpressed: () {
                               Navigator.pop(context);
                             }),
-                        SizedBox(
-                          width: width * 0.09,
-                        ),
+                        SizedBox(width: width * 0.09),
                         const CustomText(
                           text: 'My Account',
                           fontFamily: CustomFont.headTextFont,
@@ -66,9 +58,7 @@ class ProfilePreview extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: height * 0.03,
-                    ),
+                    SizedBox(height: height * 0.03),
                     Container(
                       width: width * 0.9,
                       height: height * 0.4,
@@ -91,7 +81,6 @@ class ProfilePreview extends StatelessWidget {
                     ),
                     SizedBox(
                       width: width * 0.99,
-                      // color: Colors.grey,
                       child: Column(
                         children: [
                           SizedBox(height: height * 0.05),
@@ -109,14 +98,10 @@ class ProfilePreview extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: height * 0.03,
-                          ),
+                          SizedBox(height: height * 0.03),
                           Row(
                             children: [
-                              SizedBox(
-                                width: width * 0.1,
-                              ),
+                              SizedBox(width: width * 0.1),
                               CustomText(
                                 text: state.success!.location!,
                                 fontFamily: CustomFont.headTextFont,
@@ -125,14 +110,10 @@ class ProfilePreview extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: height * 0.02,
-                          ),
+                          SizedBox(height: height * 0.02),
                           Row(
                             children: [
-                              SizedBox(
-                                width: width * 0.1,
-                              ),
+                              SizedBox(width: width * 0.1),
                               Flexible(
                                 child: CustomText(
                                   text: state.success!.bio!,
@@ -142,9 +123,7 @@ class ProfilePreview extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: height * 0.03,
-                          ),
+                          SizedBox(height: height * 0.03),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -177,7 +156,6 @@ class ProfilePreview extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Container(
                               height: height * 0.25,
-                              // width: width * 0.9,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(10),

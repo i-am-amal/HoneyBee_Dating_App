@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,7 +36,6 @@ class BottomNavbar extends StatelessWidget {
             .add(const AllMessagesEvent.listAllLastMessages());
         BlocProvider.of<AllMessagesBloc>(context)
             .add(const AllMessagesEvent.loadConversationIds());
-        log('building navbar');
         return Scaffold(
           body: bottomNavOptions[state.selectedIndex],
           bottomNavigationBar: CurvedNavigationBar(
@@ -46,26 +43,11 @@ class BottomNavbar extends StatelessWidget {
             color: CustomColors.kRedButtonColor,
             height: 60,
             items: const [
-              Icon(
-                Icons.style,
-                size: 25,
-                color: Colors.white,
-              ),
-              Icon(
-                FontAwesomeIcons.solidHeart,
-                size: 25,
-                color: Colors.white,
-              ),
-              Icon(
-                FontAwesomeIcons.solidComment,
-                size: 25,
-                color: Colors.white,
-              ),
-              Icon(
-                FontAwesomeIcons.bars,
-                size: 25,
-                color: Colors.white,
-              ),
+              Icon(Icons.style, size: 25, color: Colors.white),
+              Icon(FontAwesomeIcons.solidHeart, size: 25, color: Colors.white),
+              Icon(FontAwesomeIcons.solidComment,
+                  size: 25, color: Colors.white),
+              Icon(FontAwesomeIcons.bars, size: 25, color: Colors.white),
             ],
             index: state.selectedIndex,
             onTap: (index) {

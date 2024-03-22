@@ -309,7 +309,6 @@ Stay clear of inappropriate content''';
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              // margin: EdgeInsets.symmetric(vertical: 100),
                             ),
                           );
                         }

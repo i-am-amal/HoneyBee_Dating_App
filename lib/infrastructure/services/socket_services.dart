@@ -18,7 +18,6 @@ class SocketServices {
     socket.connect();
     socket.onConnect((data) {});
     socket.onError((error) {});
-
     socketMsgReceiveListener(null);
   }
 
@@ -32,15 +31,14 @@ class SocketServices {
           SocketMsgReceiveResponseModel.fromJson(jsonDecode(data));
 
       NotificationService.showNotification(
-        id: 1,
-        title: 'You have a message',
-        body: socketMsg.message ?? '',
-        payload: {
-          'type': 'message',
-          'data': data as String,
-        },
-        category: NotificationCategory.Message,
-      );
+          id: 1,
+          title: 'You have a message',
+          body: socketMsg.message ?? '',
+          payload: {
+            'type': 'message',
+            'data': data as String,
+          },
+          category: NotificationCategory.Message);
     });
   }
 

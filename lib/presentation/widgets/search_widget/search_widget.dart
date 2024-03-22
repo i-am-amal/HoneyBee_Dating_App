@@ -19,9 +19,7 @@ class SearchWidget extends StatelessWidget {
           return Center(
             child: Column(
               children: [
-                SizedBox(
-                  height: height * 0.1,
-                ),
+                SizedBox(height: height * 0.1),
                 Container(
                   height: height * 0.3,
                   width: width * 0.5,
@@ -121,9 +119,7 @@ class SearchWidget extends StatelessWidget {
           return Center(
             child: Column(
               children: [
-                SizedBox(
-                  height: height * 0.1,
-                ),
+                SizedBox(height: height * 0.1),
                 Container(
                   height: height * 0.3,
                   width: width * 0.5,

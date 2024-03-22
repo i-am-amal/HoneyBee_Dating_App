@@ -35,20 +35,15 @@ class ChatScreen extends StatelessWidget {
       body: BlocBuilder<ChatPageBloc, ChatPageState>(
         builder: (context, state) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            _scrollController.jumpTo(
-              _scrollController.position.maxScrollExtent,
-            );
+            _scrollController
+                .jumpTo(_scrollController.position.maxScrollExtent);
           });
           return Column(
             children: [
-              SizedBox(
-                height: height * 0.05,
-              ),
+              SizedBox(height: height * 0.05),
               Row(
                 children: [
-                  SizedBox(
-                    width: width * 0.02,
-                  ),
+                  SizedBox(width: width * 0.02),
                   BorderlineButton(
                       icon: Icons.arrow_back_ios_new,
                       onpressed: () {
@@ -56,9 +51,7 @@ class ChatScreen extends StatelessWidget {
                             .add(const AllMessagesEvent.listAllLastMessages());
                         Navigator.pop(context);
                       }),
-                  SizedBox(
-                    width: width * 0.05,
-                  ),
+                  SizedBox(width: width * 0.05),
                   if (profilePic != null)
                     CircleAvatar(
                       radius: 20,
@@ -69,17 +62,13 @@ class ChatScreen extends StatelessWidget {
                       radius: 20,
                       backgroundImage: AssetImage('assets/images/profile.jpg'),
                     ),
-                  SizedBox(
-                    width: width * 0.05,
-                  ),
+                  SizedBox(width: width * 0.05),
                   CustomText(
                     text: name,
-                    fontFamily: CustomFont.textFont,
+                    fontFamily: CustomFont.headTextFont,
                     fontsize: 20,
                   ),
-                  SizedBox(
-                    width: width * 0.1,
-                  ),
+                  SizedBox(width: width * 0.1),
                   // BorderlineButton(
                   //     icon: Icons.video_call_rounded, onpressed: () {})
                 ],
@@ -93,7 +82,11 @@ class ChatScreen extends StatelessWidget {
                     final messageList = state.messages![date];
                     return Column(
                       children: [
-                        Text(date),
+                        Text(
+                          date,
+                          style:
+                              const TextStyle(fontFamily: CustomFont.textFont),
+                        ),
                         ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
@@ -103,11 +96,10 @@ class ChatScreen extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 ChatMessage(
-                                  text: messageList[index].message ?? "",
-                                  isMe: messageList[index].fromSelf ?? false,
-                                  formattedTime:
-                                      messageList[index].formattedTime,
-                                )
+                                    text: messageList[index].message ?? "",
+                                    isMe: messageList[index].fromSelf ?? false,
+                                    formattedTime:
+                                        messageList[index].formattedTime)
                               ],
                             );
                           },
@@ -124,7 +116,7 @@ class ChatScreen extends StatelessWidget {
                     Expanded(
                       child: CustomTextFormFiled(
                         icon: Icons.emoji_emotions,
-                        text: 'Your Message',
+                        text: 'Type your message here',
                         editController: messageController,
                       ),
                     ),
@@ -133,12 +125,14 @@ class ChatScreen extends StatelessWidget {
                       child: IconButton(
                         icon: const Icon(Icons.send),
                         onPressed: () {
-                          BlocProvider.of<ChatPageBloc>(context).add(
-                              ChatPageEvent.newMessage(messageController.text,
-                                  senderId, receiverId, conversationId));
-                          messageController.clear();
-                          _scrollController.jumpTo(
-                              _scrollController.position.maxScrollExtent);
+                          if (messageController.text.isNotEmpty) {
+                            BlocProvider.of<ChatPageBloc>(context).add(
+                                ChatPageEvent.newMessage(messageController.text,
+                                    senderId, receiverId, conversationId));
+                            messageController.clear();
+                            _scrollController.jumpTo(
+                                _scrollController.position.maxScrollExtent);
+                          }
                         },
                       ),
                     ),

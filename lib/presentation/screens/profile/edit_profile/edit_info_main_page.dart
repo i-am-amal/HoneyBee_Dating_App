@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,8 +59,6 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    log('building edit profile main page');
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -109,7 +106,6 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                   profilePic = File(state.pickedProfileImage!.path);
                 }
 
-                ///////////////-------------------------------
                 WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                   Navigator.pushReplacement(
                     context,
@@ -143,9 +139,6 @@ class _EditInfoMainPageState extends State<EditInfoMainPage> {
                 });
               }
             }
-
-            ///////////////-------------------------------
-
             return Column(
               children: [
                 SizedBox(

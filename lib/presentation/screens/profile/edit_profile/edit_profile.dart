@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +19,6 @@ class EditProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log('building edit profile page');
     BlocProvider.of<PreviewAccountPageBloc>(context)
         .add(const PreviewAccountPageEvent.fetchAccountData());
     double width = MediaQuery.of(context).size.width;
@@ -48,9 +46,7 @@ class EditProfile extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: height * 0.05,
-                    ),
+                    SizedBox(height: height * 0.05),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -122,9 +118,7 @@ class EditProfile extends StatelessWidget {
                             }),
                       ],
                     ),
-                    SizedBox(
-                      height: height * 0.03,
-                    ),
+                    SizedBox(height: height * 0.03),
                     Container(
                       width: width * 0.9,
                       height: height * 0.4,
@@ -151,9 +145,7 @@ class EditProfile extends StatelessWidget {
                         SizedBox(height: height * 0.05),
                         Row(
                           children: [
-                            SizedBox(
-                              width: width * 0.1,
-                            ),
+                            SizedBox(width: width * 0.1),
                             CustomText(
                               text:
                                   '${state.success!.fullName},${state.success!.age}',
@@ -163,14 +155,10 @@ class EditProfile extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: height * 0.03,
-                        ),
+                        SizedBox(height: height * 0.03),
                         Row(
                           children: [
-                            SizedBox(
-                              width: width * 0.1,
-                            ),
+                            SizedBox(width: width * 0.1),
                             CustomText(
                               text: state.success!.location,
                               fontFamily: CustomFont.headTextFont,
@@ -179,14 +167,10 @@ class EditProfile extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: height * 0.02,
-                        ),
+                        SizedBox(height: height * 0.02),
                         Row(
                           children: [
-                            SizedBox(
-                              width: width * 0.1,
-                            ),
+                            SizedBox(width: width * 0.1),
                             Flexible(
                               child: CustomText(
                                 text: state.success!.bio,
@@ -196,9 +180,7 @@ class EditProfile extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: height * 0.03,
-                        ),
+                        SizedBox(height: height * 0.03),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [

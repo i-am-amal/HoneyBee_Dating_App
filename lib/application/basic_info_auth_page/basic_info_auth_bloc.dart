@@ -70,7 +70,7 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       emit(state.copyWith(pic3: image3));
     });
 
-//--------------->>>-----Navigation to next page with Validation ----->>>------------------------
+//--------------->>>-----Validation before navigation to next page----->>>------------------------
 
     on<_NextPage>((event, emit) {
       bool isValidationSuccess = true;
@@ -81,7 +81,7 @@ class BasicInfoAuthBloc extends Bloc<BasicInfoAuthEvent, BasicInfoAuthState> {
       } else {
         emit(state.copyWith(fullNameErrorMsg: null));
       }
-      
+
       if (!FormValidationServices.emailValidation(event.email)) {
         emit(state.copyWith(emailErrorMsg: 'Please enter a valid email'));
         isValidationSuccess = false;

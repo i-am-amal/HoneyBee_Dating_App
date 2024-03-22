@@ -10,9 +10,9 @@ import 'package:honeybee/presentation/widgets/policies/terms_and_conditions.dart
 import 'package:honeybee/presentation/widgets/text_widgets/custom_text.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key,required this.token});
+  const SettingsPage({super.key, required this.token});
 
-    final String token;
+  final String token;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,7 @@ class SettingsPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            SizedBox(
-              height: height * 0.07,
-            ),
+            SizedBox(height: height * 0.07),
             const CustomText(
               text: 'User Hub ',
               fontFamily: CustomFont.headTextFont,
@@ -33,9 +31,7 @@ class SettingsPage extends StatelessWidget {
               fontsize: 22,
               letterspacing: 1,
             ),
-            SizedBox(
-              height: height * 0.05,
-            ),
+            SizedBox(height: height * 0.05),
             ListTile(
               leading: const Icon(Icons.person),
               title: const CustomText(
@@ -49,9 +45,7 @@ class SettingsPage extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(
-              height: height * 0.03,
-            ),
+            SizedBox(height: height * 0.03),
             ListTile(
               leading: const Icon(Icons.edit),
               title: const CustomText(
@@ -60,13 +54,12 @@ class SettingsPage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>  EditProfile(token:token)),
+                  MaterialPageRoute(
+                      builder: (context) => EditProfile(token: token)),
                 );
               },
             ),
-            SizedBox(
-              height: height * 0.03,
-            ),
+            SizedBox(height: height * 0.03),
             ListTile(
               leading: const Icon(Icons.menu_book_sharp),
               title: const CustomText(
@@ -76,9 +69,7 @@ class SettingsPage extends StatelessWidget {
                 TermsAndConditions().termsandcondition(context);
               },
             ),
-            SizedBox(
-              height: height * 0.02,
-            ),
+            SizedBox(height: height * 0.02),
             ListTile(
               leading: const Icon(Icons.privacy_tip_rounded),
               title: const CustomText(
@@ -88,9 +79,7 @@ class SettingsPage extends StatelessWidget {
                 Privacy().privacy(context);
               },
             ),
-            SizedBox(
-              height: height * 0.03,
-            ),
+            SizedBox(height: height * 0.03),
             ListTile(
               leading: const Icon(Icons.logout),
               title: const CustomText(
@@ -100,6 +89,11 @@ class SettingsPage extends StatelessWidget {
                 logoutAlertMethod(context);
               },
             ),
+            SizedBox(height: height * 0.1),
+            const Text(
+              'V: 1.0.0',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )
           ],
         ),
       ),
@@ -137,15 +131,12 @@ class SettingsPage extends StatelessWidget {
               ),
               onPressed: () {
                 removeTokenFromPrefs();
+                removeUserIdFromPrefs();
                 Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
                       builder: (context) => const SplashScreen(),
                     ),
                     (route) => false);
-                // Navigator.pushReplacement(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const SplashScreen()),
-                // );
               },
             ),
           ],

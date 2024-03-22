@@ -47,7 +47,6 @@ class UpdateAccountPageBloc
         }
       }
 
-
       File? coverImagePath;
       if (editProfileDetails.coverPic != null) {
         if (editProfileDetails.coverPic!.path.startsWith('http')) {
@@ -65,7 +64,7 @@ class UpdateAccountPageBloc
       ]) {
         if (image != null) {
           if (image.path.startsWith('http')) {
-            imagePaths.add(null); // Don't pass if it's a URL
+            imagePaths.add(null);
           } else {
             imagePaths.add(image);
           }

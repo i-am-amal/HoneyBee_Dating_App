@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honeybee/application/location_auth_page/location_auth_page_bloc.dart';
@@ -23,16 +21,10 @@ class EditLocationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log('building edit location page');
-
-///////////////----------------
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      log('building edit location page inside widget binding');
-
       BlocProvider.of<LocationAuthPageBloc>(context)
           .add(const LocationAuthPageEvent.fetchLocationName());
     });
-/////////////////-----------------
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -80,16 +72,12 @@ class EditLocationPage extends StatelessWidget {
                 return Center(
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: height * 0.4,
-                      ),
+                      SizedBox(height: height * 0.4),
                       LoadingAnimationWidget.halfTriangleDot(
                         color: CustomColors.kRedButtonColor,
                         size: 100,
                       ),
-                      SizedBox(
-                        height: height * 0.03,
-                      ),
+                      SizedBox(height: height * 0.03),
                       const CustomText(
                         text: 'Fetching location..please wait...',
                         letterspacing: 1.5,
@@ -103,26 +91,20 @@ class EditLocationPage extends StatelessWidget {
               if (state.locationName != null) {
                 return Column(
                   children: [
-                    SizedBox(
-                      height: height * 0.1,
-                    ),
+                    SizedBox(height: height * 0.1),
                     SizedBox(
                       height: height * 0.5,
                       width: double.infinity,
                       child: Image.asset('assets/images/location1.jpg'),
                     ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
+                    SizedBox(height: height * 0.02),
                     CustomText(
                       text: state.locationName!,
                       letterspacing: 1.5,
                       fontFamily: CustomFont.headTextFont,
                       fontsize: 17,
                     ),
-                    SizedBox(
-                      height: height * 0.09,
-                    ),
+                    SizedBox(height: height * 0.09),
                     MainCustomButton(
                       customtext: "Continue",
                       height: height * 0.02,
@@ -172,9 +154,7 @@ class EditLocationPage extends StatelessWidget {
               } else if (state.errorMessage != null) {
                 return Column(
                   children: [
-                    SizedBox(
-                      height: height * 0.1,
-                    ),
+                    SizedBox(height: height * 0.1),
                     Image.asset('assets/images/location1.jpg'),
                     CustomText(
                       text: state.errorMessage,
@@ -182,9 +162,7 @@ class EditLocationPage extends StatelessWidget {
                       fontFamily: CustomFont.headTextFont,
                       fontsize: 17,
                     ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
+                    SizedBox(height: height * 0.02),
                     MainCustomButton(
                       customtext: "Retry",
                       height: height * 0.02,
