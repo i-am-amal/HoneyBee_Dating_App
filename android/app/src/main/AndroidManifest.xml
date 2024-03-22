@@ -18,7 +18,7 @@
 
 
     <application
-        android:label="honeybee"
+        android:label="HoneyBee"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
